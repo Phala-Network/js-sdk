@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:prettier/recommended",
+    "plugin:baseui/recommended"
+  ],
+  "rules": {
+    "no-console": "error"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "lib": ["esnext", "dom"],
+    "target": "es5",
+    "declaration": true,
+    "typeRoots": [
+      "./typings",
+      "./node_modules/@types",
+      "../../node_modules/@types"
+    ]
+  },
+  "include": ["src"],
+  "exclude": ["**/*.test.ts", "src/proto"]
+}

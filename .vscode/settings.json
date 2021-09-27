@@ -1,0 +1,14 @@
+{
+  "eslint.workingDirectories": [{"pattern": "./packages/*/"}],
+  "cSpell.ignoreWords": [
+    "polkadot",
+    "jotai",
+    "baseui",
+    "styletron",
+    "khala",
+    "phala",
+    "phactory",
+    "prpc",
+    "pruntime"
+  ]
+}
