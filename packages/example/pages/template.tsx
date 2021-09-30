@@ -137,7 +137,7 @@ const Template: Page = () => {
         <ButtonGroup>
           <Button onClick={onSignCertificate}>Sign Certificate</Button>
           <Button onClick={onQuery}>Query</Button>
-          <Button onClick={onCommand}>onCommand</Button>
+          <Button onClick={onCommand}>Command</Button>
         </ButtonGroup>
       ) : (
         <Block

@@ -13,6 +13,7 @@
     "node": ">=14"
   },
   "scripts": {
+    "publish": "npm publish --access public",
     "build": "rm -rf esm && tsc && cp -R src/proto esm",
     "build:proto": "scripts/build_proto.sh",
     "dev": "tsc --watch --preserveWatchOutput",
