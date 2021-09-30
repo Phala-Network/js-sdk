@@ -4,5 +4,5 @@
 
 JavaScript SDK for Phala.
 
-- [SDK Package](packages/sdk) ��
-- [Example](packages/example) ��
+- [SDK Package 🔗](packages/sdk)
+- [Example 🔗](packages/example)
