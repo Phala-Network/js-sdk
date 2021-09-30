@@ -2,10 +2,11 @@
   "name": "@phala/sdk",
   "version": "0.1.0",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "esm/index.js",
+  "types": "esm/index.d.ts",
+  "module": "esm/index.js",
   "scripts": {
-    "build": "rm -rf dist && tsc && cp -R src/proto dist",
+    "build": "rm -rf esm && tsc && cp -R src/proto esm",
     "build:proto": "scripts/build_proto.sh",
     "dev": "tsc --watch --preserveWatchOutput",
     "ts-node": "node --experimental-specifier-resolution=node --loader ts-node/esm"

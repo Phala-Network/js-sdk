@@ -1,3 +1,6 @@
+import type {InjectedAccountWithMeta} from '@polkadot/extension-inject/types'
+import {Signer} from '@polkadot/types/types'
+
 let enablePolkadotExtensionCache: Promise<void>
 export const enablePolkadotExtension = async (): Promise<void> => {
   if (enablePolkadotExtensionCache) return enablePolkadotExtensionCache
@@ -15,4 +18,15 @@ export const enablePolkadotExtension = async (): Promise<void> => {
   )
 
   return enablePolkadotExtensionCache
+}
+
+export const getSigner = async (
+  account: InjectedAccountWithMeta
+): Promise<Signer> => {
+  await enablePolkadotExtension()
+  const {web3FromSource} = await import('@polkadot/extension-dapp')
+  const injector = await web3FromSource(account.meta.source)
+  const signer = injector.signer
+
+  return signer
 }

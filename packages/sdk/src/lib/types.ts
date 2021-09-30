@@ -14,4 +14,10 @@ export const types = {
     pubkey: 'EcdhPublicKey',
     data: 'Vec<u8>',
   },
+  CommandPayload: {
+    _enum: {
+      Plain: null, // disable plain
+      Encrypted: 'EncryptedData',
+    },
+  },
 }

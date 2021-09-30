@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "dist",
+    "outDir": "esm",
     "lib": ["esnext", "dom"],
     "target": "es5",
     "declaration": true,
