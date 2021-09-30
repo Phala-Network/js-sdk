@@ -179,6 +179,7 @@ const GuessNumber: Page = () => {
         })
       })
       .catch((err) => {
+        toaster.clear(toastKey)
         toaster.negative((err as Error).message, {})
       })
   }, [phala, api, certificateData])
@@ -187,21 +188,31 @@ const GuessNumber: Page = () => {
     if (!phala || !api || !account) return
     const toastKey = toaster.info('Resetting…', {autoHideDuration: 0})
     const signer = await getSigner(account)
-    const _unsubscribe = await phala.command({
-      account,
-      contractId: CONTRACT_ID,
-      payload: api.createType('GuessNumberCommand', {NextRandom: null}).toHex(),
-      signer,
-      onStatus: (status) => {
-        if (status.isCompleted) {
-          toaster.update(toastKey, {
-            children: 'Number has been reset',
-            autoHideDuration: 3000,
-          })
-        }
-      },
-    })
-    unsubscribe.current = _unsubscribe
+    const _unsubscribe = await phala
+      .command({
+        account,
+        contractId: CONTRACT_ID,
+        payload: api
+          .createType('GuessNumberCommand', {NextRandom: null})
+          .toHex(),
+        signer,
+        onStatus: (status) => {
+          if (status.isFinalized) {
+            toaster.update(toastKey, {
+              children: 'Number has been reset',
+              autoHideDuration: 3000,
+            })
+          }
+        },
+      })
+      .catch((err) => {
+        toaster.clear(toastKey)
+        toaster.negative((err as Error).message, {})
+      })
+
+    if (_unsubscribe) {
+      unsubscribe.current = _unsubscribe
+    }
   }, [phala, api, account])
 
   return (
