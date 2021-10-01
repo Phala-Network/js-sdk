@@ -20,8 +20,7 @@ NEXT_PUBLIC_WS_ENDPOINT=ws://0.0.0.0:19944
 ## Getting Started
 
 ```bash
-npm run dev
-# or
+yarn
 yarn dev
 ```
 
