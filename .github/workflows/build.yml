@@ -18,7 +18,7 @@ jobs:
       - run: yarn build
       - uses: actions/upload-artifact@v2
         with:
-          name: @phala/sdk
+          name: 'phala-js-sdk'
           path: |
             packages/sdk/esm/
             packages/sdk/package.json
