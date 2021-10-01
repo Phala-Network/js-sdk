@@ -3,7 +3,10 @@ import Head from 'next/head'
 import Link from 'next/link'
 import {StyledLink} from 'baseui/link'
 
-const LINKS: [string, string][] = [['/guess-number', 'Guess Number']]
+const LINKS: [string, string][] = [
+  ['/guess-number', 'Guess Number'],
+  ['/btc-price-bot', 'BTC Price Bot'],
+]
 
 const Home: NextPage = () => {
   return (

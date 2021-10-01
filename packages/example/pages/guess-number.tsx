@@ -21,7 +21,6 @@ import {LabelXSmall, ParagraphMedium} from 'baseui/typography'
 import {StyledSpinnerNext} from 'baseui/spinner'
 import {Block} from 'baseui/block'
 import {ButtonGroup} from 'baseui/button-group'
-import {useStyletron} from 'styletron-react'
 import {decodeAddress} from '@polkadot/util-crypto'
 
 const baseURL = '/'
@@ -35,7 +34,6 @@ const Game = ({api, phala}: {api: ApiPromise; phala: PhalaInstance}) => {
   const [guessLoading, setGuessLoading] = useState(false)
   const [owner, setOwner] = useState('')
   const unsubscribe = useRef<() => void>()
-  const [css] = useStyletron()
 
   useEffect(() => {
     const _unsubscribe = unsubscribe.current
@@ -252,11 +250,12 @@ const Game = ({api, phala}: {api: ApiPromise; phala: PhalaInstance}) => {
       const signer = await getSigner(account)
       try {
         const decodedOwner = u8aToHex(decodeAddress(owner))
+        console.log(decodedOwner)
         const _unsubscribe = await phala.command({
           account,
           contractId: CONTRACT_ID,
           payload: api
-            .createType('GuessNumberCommand', {SetOwner: decodedOwner})
+            .createType('GuessNumberCommand', {SetOwner: {owner: decodedOwner}})
             .toHex(),
           signer,
           onStatus: (status) => {
@@ -311,55 +310,43 @@ const Game = ({api, phala}: {api: ApiPromise; phala: PhalaInstance}) => {
               label="Guess Number"
               caption="u32 from 0 to 4,294,967,295"
             >
-              <Block display="flex">
-                <Input
-                  autoFocus
-                  type="number"
-                  value={number}
-                  min={0}
-                  max={4294967295}
-                  step={1}
-                  onChange={(e) => setNumber(e.currentTarget.value)}
-                  overrides={{Root: {style: {width: '500px'}}}}
-                ></Input>
-                <Button
-                  $style={{marginLeft: '15px'}}
-                  type="submit"
-                  disabled={!number}
-                  isLoading={guessLoading}
-                >
-                  Guess
-                </Button>
-              </Block>
+              <Input
+                autoFocus
+                type="number"
+                value={number}
+                min={0}
+                max={4294967295}
+                step={1}
+                onChange={(e) => setNumber(e.currentTarget.value)}
+                overrides={{Root: {style: {width: '500px'}}}}
+              ></Input>
             </FormControl>
+            <Button type="submit" disabled={!number} isLoading={guessLoading}>
+              Guess
+            </Button>
           </form>
 
           <form onSubmit={onSetOwner}>
             <FormControl label="Set Owner">
-              <Block display="flex">
-                <Input
-                  value={owner}
-                  onChange={(e) => setOwner(e.currentTarget.value)}
-                  overrides={{Root: {style: {width: '500px'}}}}
-                ></Input>
-                <Button
-                  $style={{marginLeft: '15px'}}
-                  type="submit"
-                  disabled={!owner}
-                >
-                  Set
-                </Button>
-              </Block>
+              <Input
+                value={owner}
+                onChange={(e) => setOwner(e.currentTarget.value)}
+                overrides={{Root: {style: {width: '500px'}}}}
+              ></Input>
             </FormControl>
+            <Button type="submit" disabled={!owner}>
+              Set
+            </Button>
           </form>
 
-          <Block>
-            <ButtonGroup size="mini">
-              <Button onClick={onQueryOwner}>Query Owner</Button>
-              <Button onClick={onReset}>Reset Number</Button>
-              <Button onClick={onReveal}>↑↑↓↓←→←→BA</Button>
-            </ButtonGroup>
-          </Block>
+          <ButtonGroup
+            size="mini"
+            overrides={{Root: {style: {marginTop: '16px'}}}}
+          >
+            <Button onClick={onQueryOwner}>Query Owner</Button>
+            <Button onClick={onReset}>Reset Number</Button>
+            <Button onClick={onReveal}>↑↑↓↓←→←→BA</Button>
+          </ButtonGroup>
         </div>
       </Step>
     </ProgressSteps>
@@ -374,7 +361,6 @@ const GuessNumber: Page = () => {
     createApi({
       endpoint: process.env.NEXT_PUBLIC_WS_ENDPOINT as string,
       types: {
-        AccountId: 'H256',
         RandomNumber: 'u32',
         ContractOwner: {owner: 'AccountId'},
         Guess: {guess_number: 'RandomNumber'},
