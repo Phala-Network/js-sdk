@@ -49,9 +49,8 @@ const AccountSelect = (): JSX.Element => {
   }, [options, account, setAccount])
 
   return (
-    <Block width="220px" padding="0 20px" flex="0">
+    <Block padding="0 20px" flex="0">
       <FormControl
-        label="Account"
         disabled={error}
         {...(error && {error: 'Polkadot{.js} extension error'})}
       >
@@ -70,9 +69,12 @@ const AccountSelect = (): JSX.Element => {
             )
           }
           getValueLabel={({option}) => (
-            <MonoParagraphXSmall as="span">
-              {trimAddress(option.address)}
-            </MonoParagraphXSmall>
+            <>
+              <LabelSmall>{option.meta.name}</LabelSmall>
+              <MonoParagraphXSmall as="div">
+                {trimAddress(option.address)}
+              </MonoParagraphXSmall>
+            </>
           )}
           searchable={false}
           valueKey="address"
@@ -80,6 +82,7 @@ const AccountSelect = (): JSX.Element => {
           onChange={({value}) =>
             setAccount((value[0] as InjectedAccountWithMeta) || null)
           }
+          overrides={{Root: {style: {width: '200px'}}}}
         ></Select>
       </FormControl>
     </Block>

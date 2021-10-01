@@ -1,0 +1,25 @@
+name: build
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'yarn'
+      - run: yarn
+      - run: yarn test
+      - run: yarn build
+      - uses: actions/upload-artifact@v2
+        with:
+          name: @phala/sdk
+          path: |
+            packages/sdk/esm/
+            packages/sdk/package.json
+            packages/sdk/README.md

@@ -1,5 +1,5 @@
 import type {ApiPromise} from '@polkadot/api'
-import {numberToHex, hexAddPrefix} from '@polkadot/util'
+import {numberToHex, hexAddPrefix, u8aToHex} from '@polkadot/util'
 import {createApi} from 'lib/polkadotApi'
 import {FormEventHandler, useCallback, useEffect, useRef, useState} from 'react'
 import {
@@ -22,6 +22,7 @@ import {StyledSpinnerNext} from 'baseui/spinner'
 import {Block} from 'baseui/block'
 import {ButtonGroup} from 'baseui/button-group'
 import {useStyletron} from 'styletron-react'
+import {decodeAddress} from '@polkadot/util-crypto'
 
 const baseURL = '/'
 const CONTRACT_ID = 100
@@ -32,6 +33,7 @@ const Game = ({api, phala}: {api: ApiPromise; phala: PhalaInstance}) => {
   const [certificateData, setCertificateData] = useState<CertificateData>()
   const [signCertificateLoading, setSignCertificateLoading] = useState(false)
   const [guessLoading, setGuessLoading] = useState(false)
+  const [owner, setOwner] = useState('')
   const unsubscribe = useRef<() => void>()
   const [css] = useStyletron()
 
@@ -96,9 +98,9 @@ const Game = ({api, phala}: {api: ApiPromise; phala: PhalaInstance}) => {
             .toJSON() as any
 
           if (ok) {
-            const guessResult = Object.keys(ok)[0]
-            if (guessResult === 'correct') {
-              toaster.positive('Correct! Number has been reset', {})
+            const {guessResult} = ok
+            if (guessResult === 'Correct') {
+              toaster.positive('Correct!', {})
               setNumber('')
             } else {
               toaster.info(guessResult, {})
@@ -106,7 +108,7 @@ const Game = ({api, phala}: {api: ApiPromise; phala: PhalaInstance}) => {
           }
 
           if (err) {
-            throw new Error(Object.keys(err)[0])
+            throw new Error(err)
           }
         })
         .catch((err) => {
@@ -127,7 +129,7 @@ const Game = ({api, phala}: {api: ApiPromise; phala: PhalaInstance}) => {
           id: numberToHex(CONTRACT_ID, 256),
           nonce: hexAddPrefix(randomHex(32)),
         },
-        data: {reveal: null},
+        data: {peekRandomNumber: null},
       })
       .toHex()
 
@@ -151,12 +153,59 @@ const Game = ({api, phala}: {api: ApiPromise; phala: PhalaInstance}) => {
         }
 
         if (err) {
-          throw new Error(Object.keys(err)[0])
+          throw new Error(err)
         }
       })
       .catch((err) => {
-        toaster.clear(toastKey)
-        toaster.negative((err as Error).message, {})
+        toaster.update(toastKey, {
+          kind: 'negative',
+          children: (err as Error).message,
+          autoHideDuration: 3000,
+        })
+      })
+  }, [phala, api, certificateData])
+
+  const onQueryOwner = useCallback(() => {
+    if (!certificateData) return
+    const encodedQuery = api
+      .createType('GuessNumberRequest', {
+        head: {
+          id: numberToHex(CONTRACT_ID, 256),
+          nonce: hexAddPrefix(randomHex(32)),
+        },
+        data: {queryOwner: null},
+      })
+      .toHex()
+
+    const toastKey = toaster.info('Querying…', {autoHideDuration: 0})
+
+    phala
+      .query(encodedQuery, certificateData)
+      .then((data) => {
+        const {
+          result: {ok, err},
+        } = api
+          .createType('GuessNumberResponse', hexAddPrefix(data))
+          .toJSON() as any
+
+        if (ok) {
+          const result = ok.owner
+          toaster.update(toastKey, {
+            children: `Owner is ${result}`,
+            autoHideDuration: 3000,
+          })
+        }
+
+        if (err) {
+          throw new Error(err)
+        }
+      })
+      .catch((err) => {
+        toaster.update(toastKey, {
+          kind: 'negative',
+          children: (err as Error).message,
+          autoHideDuration: 3000,
+        })
       })
   }, [phala, api, certificateData])
 
@@ -175,21 +224,66 @@ const Game = ({api, phala}: {api: ApiPromise; phala: PhalaInstance}) => {
         onStatus: (status) => {
           if (status.isFinalized) {
             toaster.update(toastKey, {
-              children: 'Number has been reset',
+              kind: 'positive',
+              children: 'Command Sent',
               autoHideDuration: 3000,
             })
           }
         },
       })
       .catch((err) => {
-        toaster.clear(toastKey)
-        toaster.negative((err as Error).message, {})
+        toaster.update(toastKey, {
+          kind: 'negative',
+          children: (err as Error).message,
+          autoHideDuration: 3000,
+        })
       })
 
     if (_unsubscribe) {
       unsubscribe.current = _unsubscribe
     }
   }, [phala, api, account])
+
+  const onSetOwner = useCallback<FormEventHandler<HTMLFormElement>>(
+    async (e) => {
+      e.preventDefault()
+      if (!account) return
+      const toastKey = toaster.info('Setting…', {autoHideDuration: 0})
+      const signer = await getSigner(account)
+      try {
+        const decodedOwner = u8aToHex(decodeAddress(owner))
+        const _unsubscribe = await phala.command({
+          account,
+          contractId: CONTRACT_ID,
+          payload: api
+            .createType('GuessNumberCommand', {SetOwner: decodedOwner})
+            .toHex(),
+          signer,
+          onStatus: (status) => {
+            if (status.isFinalized) {
+              toaster.update(toastKey, {
+                kind: 'positive',
+                children: 'Command Sent',
+                autoHideDuration: 3000,
+              })
+              setOwner('')
+            }
+          },
+        })
+
+        if (_unsubscribe) {
+          unsubscribe.current = _unsubscribe
+        }
+      } catch (err) {
+        toaster.update(toastKey, {
+          kind: 'negative',
+          children: (err as Error).message,
+          autoHideDuration: 3000,
+        })
+      }
+    },
+    [account, api, owner, phala]
+  )
 
   return (
     <ProgressSteps
@@ -212,39 +306,56 @@ const Game = ({api, phala}: {api: ApiPromise; phala: PhalaInstance}) => {
       </Step>
       <Step title="Play">
         <div>
-          <form
-            onSubmit={onGuess}
-            className={css({
-              display: 'flex',
-              alignItems: 'flex-start',
-            })}
-          >
+          <form onSubmit={onGuess}>
             <FormControl
+              label="Guess Number"
               caption="u32 from 0 to 4,294,967,295"
-              overrides={{ControlContainer: {style: {width: '400px'}}}}
             >
-              <Input
-                autoFocus
-                type="number"
-                value={number}
-                min={0}
-                max={4294967295}
-                step={1}
-                onChange={(e) => setNumber(e.currentTarget.value)}
-              ></Input>
+              <Block display="flex">
+                <Input
+                  autoFocus
+                  type="number"
+                  value={number}
+                  min={0}
+                  max={4294967295}
+                  step={1}
+                  onChange={(e) => setNumber(e.currentTarget.value)}
+                  overrides={{Root: {style: {width: '500px'}}}}
+                ></Input>
+                <Button
+                  $style={{marginLeft: '15px'}}
+                  type="submit"
+                  disabled={!number}
+                  isLoading={guessLoading}
+                >
+                  Guess
+                </Button>
+              </Block>
             </FormControl>
-            <Button
-              $style={{marginLeft: '15px'}}
-              type="submit"
-              disabled={!number}
-              isLoading={guessLoading}
-            >
-              Guess
-            </Button>
+          </form>
+
+          <form onSubmit={onSetOwner}>
+            <FormControl label="Set Owner">
+              <Block display="flex">
+                <Input
+                  value={owner}
+                  onChange={(e) => setOwner(e.currentTarget.value)}
+                  overrides={{Root: {style: {width: '500px'}}}}
+                ></Input>
+                <Button
+                  $style={{marginLeft: '15px'}}
+                  type="submit"
+                  disabled={!owner}
+                >
+                  Set
+                </Button>
+              </Block>
+            </FormControl>
           </form>
 
           <Block>
             <ButtonGroup size="mini">
+              <Button onClick={onQueryOwner}>Query Owner</Button>
               <Button onClick={onReset}>Reset Number</Button>
               <Button onClick={onReveal}>↑↑↓↓←→←→BA</Button>
             </ButtonGroup>
@@ -268,10 +379,10 @@ const GuessNumber: Page = () => {
         ContractOwner: {owner: 'AccountId'},
         Guess: {guess_number: 'RandomNumber'},
         GuessResult: {
-          _enum: {TooLarge: null, ToSmall: null, Correct: null},
+          _enum: ['TooLarge', 'ToSmall', 'Correct'],
         },
         GuessError: {
-          _enum: {OriginUnavailable: null, NotAuthorized: null},
+          _enum: ['OriginUnavailable', 'NotAuthorized'],
         },
         GuessNumberRequestData: {
           _enum: {QueryOwner: null, Guess: 'Guess', PeekRandomNumber: null},
@@ -289,7 +400,7 @@ const GuessNumber: Page = () => {
         },
         GuessNumberResponse: {
           nonce: '[u8; 32]',
-          result: 'Result<GuessNumberResponseData>',
+          result: 'Result<GuessNumberResponseData, GuessError>',
         },
         GuessNumberCommand: {
           _enum: {NextRandom: null, SetOwner: 'ContractOwner'},
