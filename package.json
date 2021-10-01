@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "build": "yarn workspace @phala/sdk build",
-    "publish": "yarn workspace @phala/sdk publish",
+    "publish": "npm publish ./packages/sdk --access public",
     "dev": "concurrently \"yarn dev:sdk\" \"yarn dev:example\"",
     "dev:example": "yarn workspace example dev",
     "dev:sdk": "yarn workspace @phala/sdk dev",

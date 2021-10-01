@@ -8,3 +8,4 @@ esm
 .cache
 *.log
 tsconfig.tsbuildinfo
+.npmrc
