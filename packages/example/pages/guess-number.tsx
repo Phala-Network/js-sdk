@@ -90,20 +90,23 @@ const Game = ({api, phala}: {api: ApiPromise; phala: PhalaInstance}) => {
         .query(encodedQuery, certificateData)
         .then((data) => {
           const {
-            result: {ok},
+            result: {ok, err},
           } = api
             .createType('GuessNumberResponse', hexAddPrefix(data))
             .toJSON() as any
-          const result = Object.keys(ok)[0] as
-            | 'correct'
-            | 'tooSmall'
-            | 'tooLarge'
 
-          if (result === 'correct') {
-            toaster.positive('Correct! Number has been reset', {})
-            setNumber('')
-          } else {
-            toaster.info(result, {})
+          if (ok) {
+            const guessResult = Object.keys(ok)[0]
+            if (guessResult === 'correct') {
+              toaster.positive('Correct! Number has been reset', {})
+              setNumber('')
+            } else {
+              toaster.info(guessResult, {})
+            }
+          }
+
+          if (err) {
+            throw new Error(Object.keys(err)[0])
           }
         })
         .catch((err) => {
@@ -134,16 +137,22 @@ const Game = ({api, phala}: {api: ApiPromise; phala: PhalaInstance}) => {
       .query(encodedQuery, certificateData)
       .then((data) => {
         const {
-          result: {ok: result},
+          result: {ok, err},
         } = api
           .createType('GuessNumberResponse', hexAddPrefix(data))
-          .toJSON() as {
-          result: {ok: {answer: number}}
+          .toJSON() as any
+
+        if (ok) {
+          const revealResult = ok.randomNumber
+          toaster.update(toastKey, {
+            children: `Current number is ${revealResult}`,
+            autoHideDuration: 3000,
+          })
         }
-        toaster.update(toastKey, {
-          children: `Current number is ${result.answer}`,
-          autoHideDuration: 3000,
-        })
+
+        if (err) {
+          throw new Error(Object.keys(err)[0])
+        }
       })
       .catch((err) => {
         toaster.clear(toastKey)
@@ -254,10 +263,25 @@ const GuessNumber: Page = () => {
     createApi({
       endpoint: process.env.NEXT_PUBLIC_WS_ENDPOINT as string,
       types: {
-        Guess: {guess_number: 'u32'},
-        GuessNumberRequestData: {_enum: {Guess: 'Guess', Reveal: null}},
+        AccountId: 'H256',
+        RandomNumber: 'u32',
+        ContractOwner: {owner: 'AccountId'},
+        Guess: {guess_number: 'RandomNumber'},
+        GuessResult: {
+          _enum: {TooLarge: null, ToSmall: null, Correct: null},
+        },
+        GuessError: {
+          _enum: {OriginUnavailable: null, NotAuthorized: null},
+        },
+        GuessNumberRequestData: {
+          _enum: {QueryOwner: null, Guess: 'Guess', PeekRandomNumber: null},
+        },
         GuessNumberResponseData: {
-          _enum: {TooLarge: null, ToSmall: null, Correct: null, Answer: 'u32'},
+          _enum: {
+            Owner: 'AccountId',
+            GuessResult: 'GuessResult',
+            RandomNumber: 'RandomNumber',
+          },
         },
         GuessNumberRequest: {
           head: 'ContractQueryHead',
@@ -267,7 +291,9 @@ const GuessNumber: Page = () => {
           nonce: '[u8; 32]',
           result: 'Result<GuessNumberResponseData>',
         },
-        GuessNumberCommand: {_enum: ['NextRandom']},
+        GuessNumberCommand: {
+          _enum: {NextRandom: null, SetOwner: 'ContractOwner'},
+        },
       },
     })
       .then((api) => {
