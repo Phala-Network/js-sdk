@@ -55,7 +55,7 @@ const BTCPriceBot = ({api, phala}: {api: ApiPromise; phala: PhalaInstance}) => {
         setCertificateData(
           await signCertificate({
             api,
-            address: account.address,
+            account,
             signer,
           })
         )

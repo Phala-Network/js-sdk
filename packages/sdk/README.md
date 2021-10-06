@@ -55,7 +55,7 @@ import {signCertificate} from '@phala/sdk'
 const certificateData = await setCertificateData(
   await signCertificate({
     api,
-    address: account.address,
+    account,
     signer,
   })
 )
