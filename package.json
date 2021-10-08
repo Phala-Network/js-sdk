@@ -8,10 +8,12 @@
   ],
   "scripts": {
     "build": "yarn workspace @phala/sdk build",
-    "publish": "npm publish ./packages/sdk --access public",
     "dev": "concurrently \"yarn dev:sdk\" \"yarn dev:example\"",
     "dev:example": "yarn workspace example dev",
     "dev:sdk": "yarn workspace @phala/sdk dev",
+    "lint": "yarn workspaces foreach run lint",
+    "lint:fix": "yarn workspaces foreach run lint:fix",
+    "publish": "npm publish ./packages/sdk --access public",
     "test": "node --experimental-vm-modules node_modules/.bin/jest"
   },
   "devDependencies": {

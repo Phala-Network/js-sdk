@@ -19,6 +19,8 @@
     "build": "rm -rf esm && tsc && cp -R src/proto esm",
     "build:proto": "scripts/build_proto.sh",
     "dev": "tsc --watch --preserveWatchOutput",
+    "lint": "eslint --cache .",
+    "lint:fix": "eslint --cache --fix .",
     "ts-node": "node --experimental-specifier-resolution=node --loader ts-node/esm"
   },
   "dependencies": {

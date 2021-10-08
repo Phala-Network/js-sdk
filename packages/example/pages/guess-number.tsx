@@ -250,7 +250,6 @@ const Game = ({api, phala}: {api: ApiPromise; phala: PhalaInstance}) => {
       const signer = await getSigner(account)
       try {
         const decodedOwner = u8aToHex(decodeAddress(owner))
-        console.log(decodedOwner)
         const _unsubscribe = await phala.command({
           account,
           contractId: CONTRACT_ID,

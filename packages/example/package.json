@@ -6,6 +6,7 @@
     "build": "yarn workspace @phala/sdk build && next build",
     "dev": "yarn workspace @phala/sdk build && next dev",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "start": "next start"
   },
   "dependencies": {
