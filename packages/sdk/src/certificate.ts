@@ -18,11 +18,11 @@ export const signCertificate = async ({
   address,
   signer,
   account,
-  signature_type
+  signature_type,
 }: {
   api: ApiPromise
   address?: string
-  signer: Signer,
+  signer: Signer
   account?: InjectedAccountWithMeta
   signature_type?: pruntime_rpc.SignatureType
 }): Promise<CertificateData> => {
@@ -40,7 +40,8 @@ export const signCertificate = async ({
     .toU8a()
 
   const signerAddress = account ? account.address : address
-  if (!signerAddress) throw new Error('Signer Address or Account should be provided')
+  if (!signerAddress)
+    throw new Error('Signer Address or Account should be provided')
 
   const signerResult = await signer.signRaw?.({
     address: signerAddress,
@@ -63,7 +64,9 @@ export const signCertificate = async ({
           .toU8a(),
         signature: null,
       },
-      signature_type: signature_type ? signature_type : getSignatureTypeFromAccount(account),
+      signature_type: signature_type
+        ? signature_type
+        : getSignatureTypeFromAccount(account),
       signature: hexToU8a(signerResult.signature),
     },
   }
@@ -78,18 +81,29 @@ export const signCertificate = async ({
 // Assume signature came from Polkadot JS as sr25519
 const defaultSignatureType = pruntime_rpc.SignatureType.Sr25519WrapBytes
 
-const getSignatureTypeFromAccount = (account : InjectedAccountWithMeta | undefined) => {
-  if (!account){
+const getSignatureTypeFromAccount = (
+  account: InjectedAccountWithMeta | undefined
+) => {
+  if (!account) {
     return defaultSignatureType
   }
-  const keypairType = account.type?account.type:'sr25519'
+  const keypairType = account.type ? account.type : 'sr25519'
   // Polkadot JS signature use wrapBytes
-  const useWrapBytes = account.meta.source === "polkadot-js"
-  switch (keypairType){
-    case 'sr25519': return useWrapBytes ? pruntime_rpc.SignatureType.Sr25519WrapBytes : pruntime_rpc.SignatureType.Sr25519
-    case 'ed25519': return useWrapBytes ? pruntime_rpc.SignatureType.Ed25519WrapBytes : pruntime_rpc.SignatureType.Ed25519
-    case 'ecdsa': return useWrapBytes ? pruntime_rpc.SignatureType.EcdsaWrapBytes : pruntime_rpc.SignatureType.Ecdsa
-    default: throw new Error('Unsupported keypair type')
+  const useWrapBytes = account.meta.source === 'polkadot-js'
+  switch (keypairType) {
+    case 'sr25519':
+      return useWrapBytes
+        ? pruntime_rpc.SignatureType.Sr25519WrapBytes
+        : pruntime_rpc.SignatureType.Sr25519
+    case 'ed25519':
+      return useWrapBytes
+        ? pruntime_rpc.SignatureType.Ed25519WrapBytes
+        : pruntime_rpc.SignatureType.Ed25519
+    case 'ecdsa':
+      return useWrapBytes
+        ? pruntime_rpc.SignatureType.EcdsaWrapBytes
+        : pruntime_rpc.SignatureType.Ecdsa
+    default:
+      throw new Error('Unsupported keypair type')
   }
-
 }
