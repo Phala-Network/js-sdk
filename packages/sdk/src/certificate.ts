@@ -64,9 +64,7 @@ export const signCertificate = async ({
           .toU8a(),
         signature: null,
       },
-      signature_type: signature_type
-        ? signature_type
-        : getSignatureTypeFromAccount(account),
+      signature_type: signature_type || getSignatureTypeFromAccount(account),
       signature: hexToU8a(signerResult.signature),
     },
   }
