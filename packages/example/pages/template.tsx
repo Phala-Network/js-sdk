@@ -77,7 +77,7 @@ const Template: Page = () => {
       setCertificateData(
         await signCertificate({
           api,
-          address: account.address,
+          account,
           signer,
         })
       )
