@@ -17,12 +17,12 @@
     "test": "node --experimental-vm-modules node_modules/.bin/jest"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.2",
-    "concurrently": "^6.2.2",
-    "jest": "^27.2.2",
-    "prettier": "^2.4.1",
-    "ts-jest": "^27.0.5",
-    "ts-node": "^10.2.1",
-    "typescript": "^4.4.3"
+    "@types/jest": "^27.0.3",
+    "concurrently": "^6.4.0",
+    "jest": "^27.4.4",
+    "prettier": "^2.5.1",
+    "ts-jest": "^27.1.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.3"
   }
 }

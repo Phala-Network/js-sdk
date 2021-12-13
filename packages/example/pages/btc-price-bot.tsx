@@ -253,7 +253,7 @@ const BTCPriceBotPage: Page = () => {
 
   useEffect(() => {
     createApi({
-      endpoint: process.env.NEXT_PUBLIC_WS_ENDPOINT as string,
+      endpoint: process.env.NEXT_PUBLIC_WS_ENDPOINT,
       types: {
         ContractOwner: {owner: 'AccountId'},
         SetupBot: {
