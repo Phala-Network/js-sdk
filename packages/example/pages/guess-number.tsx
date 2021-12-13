@@ -358,7 +358,7 @@ const GuessNumber: Page = () => {
 
   useEffect(() => {
     createApi({
-      endpoint: process.env.NEXT_PUBLIC_WS_ENDPOINT as string,
+      endpoint: process.env.NEXT_PUBLIC_WS_ENDPOINT,
       types: {
         RandomNumber: 'u32',
         ContractOwner: {owner: 'AccountId'},

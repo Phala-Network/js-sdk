@@ -31,7 +31,7 @@ const Template: Page = () => {
   useEffect(() => {
     // Create a polkaDot API instance with custom types
     createApi({
-      endpoint: process.env.NEXT_PUBLIC_WS_ENDPOINT as string,
+      endpoint: process.env.NEXT_PUBLIC_WS_ENDPOINT,
       types: {
         TemplateRequestData: {_enum: {Foo: null}},
         TemplateResponseData: {
