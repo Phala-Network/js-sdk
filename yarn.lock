@@ -993,6 +993,7 @@ __metadata:
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
     protobufjs: ^6.11.2
+    rxjs: ^7.4.0
     typescript: ^4.5.3
   languageName: unknown
   linkType: soft
@@ -1003,6 +1004,19 @@ __metadata:
   dependencies:
     "@polkadot/types": ^5.7.1
   checksum: 0e2a9865f9d300f29437e0ded13af635489d3741ede749c1c508f93f51457c4b1f995ffdad9de6cf38712dba18ddf57492afcad114c210700ec2d6cb8b6bae64
+  languageName: node
+  linkType: hard
+
+"@polkadot/api-contract@npm:^6.11.1":
+  version: 6.11.1
+  resolution: "@polkadot/api-contract@npm:6.11.1"
+  dependencies:
+    "@babel/runtime": ^7.16.3
+    "@polkadot/api": 6.11.1
+    "@polkadot/types": 6.11.1
+    "@polkadot/util": ^8.1.2
+    rxjs: ^7.4.0
+  checksum: c0d484f59abe57ce13039c49fb7e4f2da896e026350bee45a3bc8c294e08a005a43c42c144bf7a8b017fe19576715055f64bcabb1cdf30bad241be4531374bf9
   languageName: node
   linkType: hard
 
@@ -3942,6 +3956,7 @@ __metadata:
     "@phala/sdk": "workspace:packages/sdk"
     "@phala/typedefs": ^0.2.29
     "@polkadot/api": ^6.11.1
+    "@polkadot/api-contract": ^6.11.1
     "@polkadot/extension-dapp": ^0.42.2
     "@polkadot/util": ^8.1.2
     "@types/react": 17.0.37

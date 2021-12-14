@@ -13,6 +13,7 @@
     "@phala/sdk": "workspace:packages/sdk",
     "@phala/typedefs": "^0.2.29",
     "@polkadot/api": "^6.11.1",
+    "@polkadot/api-contract": "^6.11.1",
     "@polkadot/extension-dapp": "^0.42.2",
     "@polkadot/util": "^8.1.2",
     "baseui": "^10.6.0",

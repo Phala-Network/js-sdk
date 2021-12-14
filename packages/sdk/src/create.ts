@@ -4,7 +4,6 @@ import {
   u8aToHex,
   hexToU8a,
   hexAddPrefix,
-  numberToHex,
   stringToHex,
   hexStripPrefix,
 } from '@polkadot/util'
@@ -14,11 +13,14 @@ import {
   sr25519Sign,
   sr25519Agree,
 } from '@polkadot/wasm-crypto'
+import type {ContractCallRequest, AccountId} from '@polkadot/types/interfaces'
+import type {ISubmittableResult} from '@polkadot/types/types'
+import {from} from 'rxjs'
 import {encrypt, decrypt} from './lib/aes-256-gcm'
 import {randomHex} from './lib/hex'
 import type {CertificateData} from './certificate'
 import {pruntime_rpc, prpc} from './proto'
-import type {Signer, Callback, ISubmittableResult} from '@polkadot/types/types'
+import type {SubmittableExtrinsic} from '@polkadot/api/types'
 
 export type Query = (
   encodedQuery: string,
@@ -31,15 +33,15 @@ type EncryptedData = {
   data: string
 }
 
-type CreateEncryptedData = (data: string) => EncryptedData
+type CreateEncryptedData = (
+  data: string,
+  agreementKey: Uint8Array
+) => EncryptedData
 
 export type Command = (params: {
-  contractId: number
+  contractId: string
   payload: string
-  account: {address: string}
-  signer: Signer
-  onStatus?: Callback<ISubmittableResult>
-}) => Promise<() => void>
+}) => SubmittableExtrinsic<'promise', ISubmittableResult>
 
 export interface PhalaInstance {
   query: Query
@@ -49,10 +51,10 @@ export interface PhalaInstance {
 type CreateFn = (options: {
   api: ApiPromise
   baseURL: string
-}) => Promise<PhalaInstance>
+  contractId: string
+}) => Promise<ApiPromise>
 
-// TODO: refactor to individual functions
-export const create: CreateFn = async ({api, baseURL}) => {
+export const create: CreateFn = async ({api, baseURL, contractId}) => {
   await waitReady()
 
   // Create a http client prepared for protobuf
@@ -68,6 +70,7 @@ export const create: CreateFn = async ({api, baseURL}) => {
   const {public_key} = pruntime_rpc.PhactoryInfo.decode(
     new Uint8Array((await http<ArrayBuffer>('/prpc/PhactoryAPI.GetInfo')).data)
   )
+
   if (!public_key) throw new Error('No remote pubkey')
   const remotePubkey = hexAddPrefix(public_key)
 
@@ -100,9 +103,17 @@ export const create: CreateFn = async ({api, baseURL}) => {
   const pair = sr25519KeypairFromSeed(seed)
   const [sk, pk] = [pair.slice(0, 64), pair.slice(64)]
   const iv = hexAddPrefix(randomHex(12))
-  const agreementKey = sr25519Agree(hexToU8a(hexAddPrefix(remotePubkey)), sk)
+  const queryAgreementKey = sr25519Agree(
+    hexToU8a(hexAddPrefix(remotePubkey)),
+    sk
+  )
+  const contractKey = (
+    await api.query.phalaRegistry.contractKey(contractId)
+  ).toString()
+  // FIXME: should be cached
+  const commandAgreementKey = sr25519Agree(hexToU8a(contractKey), sk)
 
-  const createEncryptedData: CreateEncryptedData = (data) => ({
+  const createEncryptedData: CreateEncryptedData = (data, agreementKey) => ({
     iv,
     pubkey: u8aToHex(pk),
     data: hexAddPrefix(encrypt(data, agreementKey, hexToU8a(iv))),
@@ -110,7 +121,7 @@ export const create: CreateFn = async ({api, baseURL}) => {
 
   const query: Query = async (encodedQuery, {certificate, pubkey, secret}) => {
     // Encrypt the ContractQuery.
-    const encryptedData = createEncryptedData(encodedQuery)
+    const encryptedData = createEncryptedData(encodedQuery, queryAgreementKey)
     const encodedEncryptedData = api
       .createType('EncryptedData', encryptedData)
       .toU8a()
@@ -135,35 +146,66 @@ export const create: CreateFn = async ({api, baseURL}) => {
         iv: string
         data: string
       }
-      const data = decrypt(encryptedData, agreementKey, iv)
+      const data = decrypt(encryptedData, queryAgreementKey, iv)
       return hexAddPrefix(data)
     })
   }
 
-  const command: Command = async ({
-    contractId,
-    account,
-    payload,
-    signer,
-    onStatus,
-  }) => {
+  const command: Command = ({contractId, payload}) => {
     const encodedPayload = api
       .createType('CommandPayload', {
-        encrypted: createEncryptedData(payload),
+        encrypted: createEncryptedData(payload, commandAgreementKey),
       })
       .toHex()
 
-    return api.tx.phalaMq
-      .pushMessage(
-        stringToHex(
-          `phala/contract/${hexStripPrefix(
-            numberToHex(contractId, 256)
-          )}/command`
-        ),
-        encodedPayload
-      )
-      .signAndSend(account.address, {signer}, onStatus)
+    return api.tx.phalaMq.pushMessage(
+      stringToHex(`phala/contract/${hexStripPrefix(contractId)}/command`),
+      encodedPayload
+    )
   }
 
-  return {query, command, createEncryptedData}
+  Object.defineProperty(api.tx, 'contracts', {
+    value: {
+      instantiateWithCode: () => null,
+      call: (dest: AccountId, value, gasLimit, data: Uint8Array) => {
+        return command({
+          contractId: dest.toHex(),
+          payload: api.createType('Vec<u8>', data).toHex(),
+        })
+      },
+    },
+  })
+  Object.defineProperty(api.rx.rpc, 'contracts', {
+    value: {
+      call: ({origin, dest, inputData}: ContractCallRequest) => {
+        return from(
+          query(
+            api
+              .createType('InkQuery', {
+                head: {
+                  nonce: hexAddPrefix(randomHex(32)),
+                  id: dest,
+                },
+                data: {
+                  InkMessage: inputData,
+                },
+              })
+              .toHex(),
+            origin as any as CertificateData
+          ).then((data) => {
+            return api.createType(
+              'ContractExecResult',
+              (
+                api.createType('InkResponse', hexAddPrefix(data)).toJSON() as {
+                  result: {ok: {inkMessageReturn: string}}
+                }
+              ).result.ok.inkMessageReturn
+            )
+          })
+        )
+      },
+    },
+  })
+
+  return api
 }
