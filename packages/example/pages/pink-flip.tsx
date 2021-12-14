@@ -4,6 +4,7 @@ import {useCallback, useEffect, useRef, useState} from 'react'
 import {create, signCertificate, CertificateData} from '@phala/sdk'
 import {Button} from 'baseui/button'
 import {useAtom} from 'jotai'
+import {atomWithStorage} from 'jotai/utils'
 import accountAtom from 'atoms/account'
 import {getSigner} from 'lib/polkadotExtension'
 import {ButtonGroup} from 'baseui/button-group'
@@ -16,20 +17,26 @@ import {toaster} from 'baseui/toast'
 
 const baseURL = '/'
 
-const Template: Page = () => {
+const contractIdAtom = atomWithStorage<string>(
+  'contractId',
+  '0xcf4b9fd7eb64dc1fe5ca550e715a49fae9f5a2de88afd3c32daa137fcc8ca5b7'
+)
+
+const metadataStringAtom = atomWithStorage<string>(
+  'metadataString',
+  JSON.stringify(contractMetadata, null, 2)
+)
+
+const Flip: Page = () => {
   const [account] = useAtom(accountAtom)
-  const [contractId, setContractId] = useState(
-    '0xcf4b9fd7eb64dc1fe5ca550e715a49fae9f5a2de88afd3c32daa137fcc8ca5b7'
-  )
-  const [metadataString, setMetadataString] = useState(
-    JSON.stringify(contractMetadata, null, 2)
-  )
+  const [contractId, setContractId] = useAtom(contractIdAtom)
+  const [metadataString, setMetadataString] = useAtom(metadataStringAtom)
   const [certificateData, setCertificateData] = useState<CertificateData>()
   const [api, setApi] = useState<ApiPromise>()
   const [contract, setContract] = useState<ContractPromise>()
   const unsubscribe = useRef<() => void>()
 
-  const createContract = async () => {
+  const loadContract = async () => {
     try {
       const api = await createApi({
         endpoint: process.env.NEXT_PUBLIC_WS_ENDPOINT,
@@ -127,7 +134,7 @@ const Template: Page = () => {
         ></Textarea>
       </FormControl>
       <ButtonGroup>
-        <Button onClick={createContract}>Create Contract</Button>
+        <Button onClick={loadContract}>Load Contract</Button>
         <Button disabled={!contract} onClick={onSignCertificate}>
           Sign Certificate
         </Button>
@@ -142,6 +149,6 @@ const Template: Page = () => {
   )
 }
 
-Template.title = 'Template'
+Flip.title = 'Flip'
 
-export default Template
+export default Flip

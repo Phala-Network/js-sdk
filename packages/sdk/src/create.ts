@@ -110,7 +110,6 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
   const contractKey = (
     await api.query.phalaRegistry.contractKey(contractId)
   ).toString()
-  // FIXME: should be cached
   const commandAgreementKey = sr25519Agree(hexToU8a(contractKey), sk)
 
   const createEncryptedData: CreateEncryptedData = (data, agreementKey) => ({
@@ -167,10 +166,18 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
   Object.defineProperty(api.tx, 'contracts', {
     value: {
       instantiateWithCode: () => null,
-      call: (dest: AccountId, value, gasLimit, data: Uint8Array) => {
+      call: (dest: AccountId, value: any, gasLimit: any, data: Uint8Array) => {
         return command({
           contractId: dest.toHex(),
-          payload: api.createType('Vec<u8>', data).toHex(),
+          payload: api
+            .createType('InkCommand', {
+              InkMessage: {
+                nonce: hexAddPrefix(randomHex(32)),
+                // FIXME: unexpected u8a prefix
+                message: api.createType('Vec<u8>', data).toHex(),
+              },
+            })
+            .toHex(),
         })
       },
     },
