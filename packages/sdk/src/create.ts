@@ -108,7 +108,7 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
     sk
   )
   const contractKey = (
-    await api.query.phalaRegistry.contractKey(contractId)
+    await api.query.phalaFatContracts.contractKey(contractId)
   ).toString()
   const commandAgreementKey = sr25519Agree(hexToU8a(contractKey), sk)
 

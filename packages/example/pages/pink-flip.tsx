@@ -11,6 +11,7 @@ import {ButtonGroup} from 'baseui/button-group'
 import {FormControl} from 'baseui/form-control'
 import {Input} from 'baseui/input'
 import {ContractPromise} from '@polkadot/api-contract'
+import {Contract} from '@polkadot/api-contract/base/Contract'
 import contractMetadata from 'lib/metadata.json'
 import {Textarea} from 'baseui/textarea'
 import {toaster} from 'baseui/toast'
@@ -33,7 +34,7 @@ const Flip: Page = () => {
   const [metadataString, setMetadataString] = useAtom(metadataStringAtom)
   const [certificateData, setCertificateData] = useState<CertificateData>()
   const [api, setApi] = useState<ApiPromise>()
-  const [contract, setContract] = useState<ContractPromise>()
+  const [contract, setContract] = useState<Contract<'promise'>>()
   const unsubscribe = useRef<() => void>()
 
   const loadContract = async () => {

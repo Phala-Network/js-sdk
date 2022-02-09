@@ -1,7 +1,5 @@
 /*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
-// custom esm wrapper
-// https://github.com/protobufjs/protobuf.js/tree/master/cli/wrappers
-import $protobuf from "protobufjs/minimal";
+import * as $protobuf from "protobufjs/minimal";
 
 // Common aliases
 const $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
@@ -7650,3 +7648,5 @@ export const google = $root.google = (() => {
 
     return google;
 })();
+
+export { $root as default };
