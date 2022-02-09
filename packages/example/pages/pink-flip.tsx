@@ -15,6 +15,7 @@ import {Contract} from '@polkadot/api-contract/base/Contract'
 import contractMetadata from 'lib/metadata.json'
 import {Textarea} from 'baseui/textarea'
 import {toaster} from 'baseui/toast'
+import ClientOnly from '../components/ClientOnly'
 
 const baseURL = '/'
 
@@ -109,32 +110,36 @@ const Flip: Page = () => {
   return (
     <div>
       <FormControl label="Contract Id">
-        <Input
-          overrides={{
-            Input: {
-              style: {
-                fontFamily: 'monospace',
+        <ClientOnly>
+          <Input
+            overrides={{
+              Input: {
+                style: {
+                  fontFamily: 'monospace',
+                },
               },
-            },
-          }}
-          autoFocus
-          value={contractId}
-          onChange={(e) => setContractId(e.currentTarget.value)}
-        ></Input>
+            }}
+            autoFocus
+            value={contractId}
+            onChange={(e) => setContractId(e.currentTarget.value)}
+          ></Input>
+        </ClientOnly>
       </FormControl>
       <FormControl label="ABI">
-        <Textarea
-          overrides={{
-            Input: {
-              style: {
-                fontFamily: 'monospace',
-                height: '600px',
+        <ClientOnly>
+          <Textarea
+            overrides={{
+              Input: {
+                style: {
+                  fontFamily: 'monospace',
+                  height: '600px',
+                },
               },
-            },
-          }}
-          value={metadataString}
-          onChange={(e) => setMetadataString(e.currentTarget.value)}
-        ></Textarea>
+            }}
+            value={metadataString}
+            onChange={(e) => setMetadataString(e.currentTarget.value)}
+          ></Textarea>
+        </ClientOnly>
       </FormControl>
       <ButtonGroup>
         <Button onClick={loadContract}>Load Contract</Button>

@@ -31,8 +31,9 @@ const AccountSelect = (): JSX.Element => {
         handleAccounts(accounts)
         unsubscribe = await web3AccountsSubscribe(handleAccounts)
       })
-      .catch(() => {
+      .catch((err) => {
         setError(true)
+        throw err
       })
 
     return () => unsubscribe?.()
