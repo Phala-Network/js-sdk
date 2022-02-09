@@ -89,7 +89,7 @@ const Flip: Page = () => {
 
   const onQuery = () => {
     if (!certificateData || !contract) return
-    contract.query.get(certificateData as any as string, {}).then((res) => {
+    contract.query.getIp(certificateData as any as string, {}).then((res) => {
       toaster.info(JSON.stringify(res.output?.toHuman()), {})
     })
   }

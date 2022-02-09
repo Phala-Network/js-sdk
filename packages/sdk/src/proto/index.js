@@ -206,20 +206,20 @@ export const prpc = $root.prpc = (() => {
     return prpc;
 })();
 
-export const pruntime_rpc = $root.pruntime_rpc = (() => {
+export const pruntimeRpc = $root.pruntimeRpc = (() => {
 
     /**
-     * Namespace pruntime_rpc.
-     * @exports pruntime_rpc
+     * Namespace pruntimeRpc.
+     * @exports pruntimeRpc
      * @namespace
      */
-    const pruntime_rpc = {};
+    const pruntimeRpc = {};
 
-    pruntime_rpc.PhactoryAPI = (function() {
+    pruntimeRpc.PhactoryAPI = (function() {
 
         /**
          * Constructs a new PhactoryAPI service.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a PhactoryAPI
          * @extends $protobuf.rpc.Service
          * @constructor
@@ -236,7 +236,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates new PhactoryAPI service using the specified rpc implementation.
          * @function create
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @static
          * @param {$protobuf.RPCImpl} rpcImpl RPC implementation
          * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
@@ -248,403 +248,403 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         };
 
         /**
-         * Callback as used by {@link pruntime_rpc.PhactoryAPI#getInfo}.
-         * @memberof pruntime_rpc.PhactoryAPI
+         * Callback as used by {@link pruntimeRpc.PhactoryAPI#getInfo}.
+         * @memberof pruntimeRpc.PhactoryAPI
          * @typedef GetInfoCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {pruntime_rpc.PhactoryInfo} [response] PhactoryInfo
+         * @param {pruntimeRpc.PhactoryInfo} [response] PhactoryInfo
          */
 
         /**
          * Calls GetInfo.
          * @function getInfo
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
          * @param {google.protobuf.IEmpty} request Empty message or plain object
-         * @param {pruntime_rpc.PhactoryAPI.GetInfoCallback} callback Node-style callback called with the error, if any, and PhactoryInfo
+         * @param {pruntimeRpc.PhactoryAPI.GetInfoCallback} callback Node-style callback called with the error, if any, and PhactoryInfo
          * @returns {undefined}
          * @variation 1
          */
         Object.defineProperty(PhactoryAPI.prototype.getInfo = function getInfo(request, callback) {
-            return this.rpcCall(getInfo, $root.google.protobuf.Empty, $root.pruntime_rpc.PhactoryInfo, request, callback);
+            return this.rpcCall(getInfo, $root.google.protobuf.Empty, $root.pruntimeRpc.PhactoryInfo, request, callback);
         }, "name", { value: "GetInfo" });
 
         /**
          * Calls GetInfo.
          * @function getInfo
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
          * @param {google.protobuf.IEmpty} request Empty message or plain object
-         * @returns {Promise<pruntime_rpc.PhactoryInfo>} Promise
+         * @returns {Promise<pruntimeRpc.PhactoryInfo>} Promise
          * @variation 2
          */
 
         /**
-         * Callback as used by {@link pruntime_rpc.PhactoryAPI#syncHeader}.
-         * @memberof pruntime_rpc.PhactoryAPI
+         * Callback as used by {@link pruntimeRpc.PhactoryAPI#syncHeader}.
+         * @memberof pruntimeRpc.PhactoryAPI
          * @typedef SyncHeaderCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {pruntime_rpc.SyncedTo} [response] SyncedTo
+         * @param {pruntimeRpc.SyncedTo} [response] SyncedTo
          */
 
         /**
          * Calls SyncHeader.
          * @function syncHeader
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
-         * @param {pruntime_rpc.IHeadersToSync} request HeadersToSync message or plain object
-         * @param {pruntime_rpc.PhactoryAPI.SyncHeaderCallback} callback Node-style callback called with the error, if any, and SyncedTo
+         * @param {pruntimeRpc.IHeadersToSync} request HeadersToSync message or plain object
+         * @param {pruntimeRpc.PhactoryAPI.SyncHeaderCallback} callback Node-style callback called with the error, if any, and SyncedTo
          * @returns {undefined}
          * @variation 1
          */
         Object.defineProperty(PhactoryAPI.prototype.syncHeader = function syncHeader(request, callback) {
-            return this.rpcCall(syncHeader, $root.pruntime_rpc.HeadersToSync, $root.pruntime_rpc.SyncedTo, request, callback);
+            return this.rpcCall(syncHeader, $root.pruntimeRpc.HeadersToSync, $root.pruntimeRpc.SyncedTo, request, callback);
         }, "name", { value: "SyncHeader" });
 
         /**
          * Calls SyncHeader.
          * @function syncHeader
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
-         * @param {pruntime_rpc.IHeadersToSync} request HeadersToSync message or plain object
-         * @returns {Promise<pruntime_rpc.SyncedTo>} Promise
+         * @param {pruntimeRpc.IHeadersToSync} request HeadersToSync message or plain object
+         * @returns {Promise<pruntimeRpc.SyncedTo>} Promise
          * @variation 2
          */
 
         /**
-         * Callback as used by {@link pruntime_rpc.PhactoryAPI#syncParaHeader}.
-         * @memberof pruntime_rpc.PhactoryAPI
+         * Callback as used by {@link pruntimeRpc.PhactoryAPI#syncParaHeader}.
+         * @memberof pruntimeRpc.PhactoryAPI
          * @typedef SyncParaHeaderCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {pruntime_rpc.SyncedTo} [response] SyncedTo
+         * @param {pruntimeRpc.SyncedTo} [response] SyncedTo
          */
 
         /**
          * Calls SyncParaHeader.
          * @function syncParaHeader
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
-         * @param {pruntime_rpc.IParaHeadersToSync} request ParaHeadersToSync message or plain object
-         * @param {pruntime_rpc.PhactoryAPI.SyncParaHeaderCallback} callback Node-style callback called with the error, if any, and SyncedTo
+         * @param {pruntimeRpc.IParaHeadersToSync} request ParaHeadersToSync message or plain object
+         * @param {pruntimeRpc.PhactoryAPI.SyncParaHeaderCallback} callback Node-style callback called with the error, if any, and SyncedTo
          * @returns {undefined}
          * @variation 1
          */
         Object.defineProperty(PhactoryAPI.prototype.syncParaHeader = function syncParaHeader(request, callback) {
-            return this.rpcCall(syncParaHeader, $root.pruntime_rpc.ParaHeadersToSync, $root.pruntime_rpc.SyncedTo, request, callback);
+            return this.rpcCall(syncParaHeader, $root.pruntimeRpc.ParaHeadersToSync, $root.pruntimeRpc.SyncedTo, request, callback);
         }, "name", { value: "SyncParaHeader" });
 
         /**
          * Calls SyncParaHeader.
          * @function syncParaHeader
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
-         * @param {pruntime_rpc.IParaHeadersToSync} request ParaHeadersToSync message or plain object
-         * @returns {Promise<pruntime_rpc.SyncedTo>} Promise
+         * @param {pruntimeRpc.IParaHeadersToSync} request ParaHeadersToSync message or plain object
+         * @returns {Promise<pruntimeRpc.SyncedTo>} Promise
          * @variation 2
          */
 
         /**
-         * Callback as used by {@link pruntime_rpc.PhactoryAPI#syncCombinedHeaders}.
-         * @memberof pruntime_rpc.PhactoryAPI
+         * Callback as used by {@link pruntimeRpc.PhactoryAPI#syncCombinedHeaders}.
+         * @memberof pruntimeRpc.PhactoryAPI
          * @typedef SyncCombinedHeadersCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {pruntime_rpc.HeadersSyncedTo} [response] HeadersSyncedTo
+         * @param {pruntimeRpc.HeadersSyncedTo} [response] HeadersSyncedTo
          */
 
         /**
          * Calls SyncCombinedHeaders.
          * @function syncCombinedHeaders
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
-         * @param {pruntime_rpc.ICombinedHeadersToSync} request CombinedHeadersToSync message or plain object
-         * @param {pruntime_rpc.PhactoryAPI.SyncCombinedHeadersCallback} callback Node-style callback called with the error, if any, and HeadersSyncedTo
+         * @param {pruntimeRpc.ICombinedHeadersToSync} request CombinedHeadersToSync message or plain object
+         * @param {pruntimeRpc.PhactoryAPI.SyncCombinedHeadersCallback} callback Node-style callback called with the error, if any, and HeadersSyncedTo
          * @returns {undefined}
          * @variation 1
          */
         Object.defineProperty(PhactoryAPI.prototype.syncCombinedHeaders = function syncCombinedHeaders(request, callback) {
-            return this.rpcCall(syncCombinedHeaders, $root.pruntime_rpc.CombinedHeadersToSync, $root.pruntime_rpc.HeadersSyncedTo, request, callback);
+            return this.rpcCall(syncCombinedHeaders, $root.pruntimeRpc.CombinedHeadersToSync, $root.pruntimeRpc.HeadersSyncedTo, request, callback);
         }, "name", { value: "SyncCombinedHeaders" });
 
         /**
          * Calls SyncCombinedHeaders.
          * @function syncCombinedHeaders
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
-         * @param {pruntime_rpc.ICombinedHeadersToSync} request CombinedHeadersToSync message or plain object
-         * @returns {Promise<pruntime_rpc.HeadersSyncedTo>} Promise
+         * @param {pruntimeRpc.ICombinedHeadersToSync} request CombinedHeadersToSync message or plain object
+         * @returns {Promise<pruntimeRpc.HeadersSyncedTo>} Promise
          * @variation 2
          */
 
         /**
-         * Callback as used by {@link pruntime_rpc.PhactoryAPI#dispatchBlocks}.
-         * @memberof pruntime_rpc.PhactoryAPI
+         * Callback as used by {@link pruntimeRpc.PhactoryAPI#dispatchBlocks}.
+         * @memberof pruntimeRpc.PhactoryAPI
          * @typedef DispatchBlocksCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {pruntime_rpc.SyncedTo} [response] SyncedTo
+         * @param {pruntimeRpc.SyncedTo} [response] SyncedTo
          */
 
         /**
          * Calls DispatchBlocks.
          * @function dispatchBlocks
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
-         * @param {pruntime_rpc.IBlocks} request Blocks message or plain object
-         * @param {pruntime_rpc.PhactoryAPI.DispatchBlocksCallback} callback Node-style callback called with the error, if any, and SyncedTo
+         * @param {pruntimeRpc.IBlocks} request Blocks message or plain object
+         * @param {pruntimeRpc.PhactoryAPI.DispatchBlocksCallback} callback Node-style callback called with the error, if any, and SyncedTo
          * @returns {undefined}
          * @variation 1
          */
         Object.defineProperty(PhactoryAPI.prototype.dispatchBlocks = function dispatchBlocks(request, callback) {
-            return this.rpcCall(dispatchBlocks, $root.pruntime_rpc.Blocks, $root.pruntime_rpc.SyncedTo, request, callback);
+            return this.rpcCall(dispatchBlocks, $root.pruntimeRpc.Blocks, $root.pruntimeRpc.SyncedTo, request, callback);
         }, "name", { value: "DispatchBlocks" });
 
         /**
          * Calls DispatchBlocks.
          * @function dispatchBlocks
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
-         * @param {pruntime_rpc.IBlocks} request Blocks message or plain object
-         * @returns {Promise<pruntime_rpc.SyncedTo>} Promise
+         * @param {pruntimeRpc.IBlocks} request Blocks message or plain object
+         * @returns {Promise<pruntimeRpc.SyncedTo>} Promise
          * @variation 2
          */
 
         /**
-         * Callback as used by {@link pruntime_rpc.PhactoryAPI#initRuntime}.
-         * @memberof pruntime_rpc.PhactoryAPI
+         * Callback as used by {@link pruntimeRpc.PhactoryAPI#initRuntime}.
+         * @memberof pruntimeRpc.PhactoryAPI
          * @typedef InitRuntimeCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {pruntime_rpc.InitRuntimeResponse} [response] InitRuntimeResponse
+         * @param {pruntimeRpc.InitRuntimeResponse} [response] InitRuntimeResponse
          */
 
         /**
          * Calls InitRuntime.
          * @function initRuntime
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
-         * @param {pruntime_rpc.IInitRuntimeRequest} request InitRuntimeRequest message or plain object
-         * @param {pruntime_rpc.PhactoryAPI.InitRuntimeCallback} callback Node-style callback called with the error, if any, and InitRuntimeResponse
+         * @param {pruntimeRpc.IInitRuntimeRequest} request InitRuntimeRequest message or plain object
+         * @param {pruntimeRpc.PhactoryAPI.InitRuntimeCallback} callback Node-style callback called with the error, if any, and InitRuntimeResponse
          * @returns {undefined}
          * @variation 1
          */
         Object.defineProperty(PhactoryAPI.prototype.initRuntime = function initRuntime(request, callback) {
-            return this.rpcCall(initRuntime, $root.pruntime_rpc.InitRuntimeRequest, $root.pruntime_rpc.InitRuntimeResponse, request, callback);
+            return this.rpcCall(initRuntime, $root.pruntimeRpc.InitRuntimeRequest, $root.pruntimeRpc.InitRuntimeResponse, request, callback);
         }, "name", { value: "InitRuntime" });
 
         /**
          * Calls InitRuntime.
          * @function initRuntime
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
-         * @param {pruntime_rpc.IInitRuntimeRequest} request InitRuntimeRequest message or plain object
-         * @returns {Promise<pruntime_rpc.InitRuntimeResponse>} Promise
+         * @param {pruntimeRpc.IInitRuntimeRequest} request InitRuntimeRequest message or plain object
+         * @returns {Promise<pruntimeRpc.InitRuntimeResponse>} Promise
          * @variation 2
          */
 
         /**
-         * Callback as used by {@link pruntime_rpc.PhactoryAPI#getRuntimeInfo}.
-         * @memberof pruntime_rpc.PhactoryAPI
+         * Callback as used by {@link pruntimeRpc.PhactoryAPI#getRuntimeInfo}.
+         * @memberof pruntimeRpc.PhactoryAPI
          * @typedef GetRuntimeInfoCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {pruntime_rpc.InitRuntimeResponse} [response] InitRuntimeResponse
+         * @param {pruntimeRpc.InitRuntimeResponse} [response] InitRuntimeResponse
          */
 
         /**
          * Calls GetRuntimeInfo.
          * @function getRuntimeInfo
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
          * @param {google.protobuf.IEmpty} request Empty message or plain object
-         * @param {pruntime_rpc.PhactoryAPI.GetRuntimeInfoCallback} callback Node-style callback called with the error, if any, and InitRuntimeResponse
+         * @param {pruntimeRpc.PhactoryAPI.GetRuntimeInfoCallback} callback Node-style callback called with the error, if any, and InitRuntimeResponse
          * @returns {undefined}
          * @variation 1
          */
         Object.defineProperty(PhactoryAPI.prototype.getRuntimeInfo = function getRuntimeInfo(request, callback) {
-            return this.rpcCall(getRuntimeInfo, $root.google.protobuf.Empty, $root.pruntime_rpc.InitRuntimeResponse, request, callback);
+            return this.rpcCall(getRuntimeInfo, $root.google.protobuf.Empty, $root.pruntimeRpc.InitRuntimeResponse, request, callback);
         }, "name", { value: "GetRuntimeInfo" });
 
         /**
          * Calls GetRuntimeInfo.
          * @function getRuntimeInfo
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
          * @param {google.protobuf.IEmpty} request Empty message or plain object
-         * @returns {Promise<pruntime_rpc.InitRuntimeResponse>} Promise
+         * @returns {Promise<pruntimeRpc.InitRuntimeResponse>} Promise
          * @variation 2
          */
 
         /**
-         * Callback as used by {@link pruntime_rpc.PhactoryAPI#getEgressMessages}.
-         * @memberof pruntime_rpc.PhactoryAPI
+         * Callback as used by {@link pruntimeRpc.PhactoryAPI#getEgressMessages}.
+         * @memberof pruntimeRpc.PhactoryAPI
          * @typedef GetEgressMessagesCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {pruntime_rpc.GetEgressMessagesResponse} [response] GetEgressMessagesResponse
+         * @param {pruntimeRpc.GetEgressMessagesResponse} [response] GetEgressMessagesResponse
          */
 
         /**
          * Calls GetEgressMessages.
          * @function getEgressMessages
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
          * @param {google.protobuf.IEmpty} request Empty message or plain object
-         * @param {pruntime_rpc.PhactoryAPI.GetEgressMessagesCallback} callback Node-style callback called with the error, if any, and GetEgressMessagesResponse
+         * @param {pruntimeRpc.PhactoryAPI.GetEgressMessagesCallback} callback Node-style callback called with the error, if any, and GetEgressMessagesResponse
          * @returns {undefined}
          * @variation 1
          */
         Object.defineProperty(PhactoryAPI.prototype.getEgressMessages = function getEgressMessages(request, callback) {
-            return this.rpcCall(getEgressMessages, $root.google.protobuf.Empty, $root.pruntime_rpc.GetEgressMessagesResponse, request, callback);
+            return this.rpcCall(getEgressMessages, $root.google.protobuf.Empty, $root.pruntimeRpc.GetEgressMessagesResponse, request, callback);
         }, "name", { value: "GetEgressMessages" });
 
         /**
          * Calls GetEgressMessages.
          * @function getEgressMessages
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
          * @param {google.protobuf.IEmpty} request Empty message or plain object
-         * @returns {Promise<pruntime_rpc.GetEgressMessagesResponse>} Promise
+         * @returns {Promise<pruntimeRpc.GetEgressMessagesResponse>} Promise
          * @variation 2
          */
 
         /**
-         * Callback as used by {@link pruntime_rpc.PhactoryAPI#contractQuery}.
-         * @memberof pruntime_rpc.PhactoryAPI
+         * Callback as used by {@link pruntimeRpc.PhactoryAPI#contractQuery}.
+         * @memberof pruntimeRpc.PhactoryAPI
          * @typedef ContractQueryCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {pruntime_rpc.ContractQueryResponse} [response] ContractQueryResponse
+         * @param {pruntimeRpc.ContractQueryResponse} [response] ContractQueryResponse
          */
 
         /**
          * Calls ContractQuery.
          * @function contractQuery
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
-         * @param {pruntime_rpc.IContractQueryRequest} request ContractQueryRequest message or plain object
-         * @param {pruntime_rpc.PhactoryAPI.ContractQueryCallback} callback Node-style callback called with the error, if any, and ContractQueryResponse
+         * @param {pruntimeRpc.IContractQueryRequest} request ContractQueryRequest message or plain object
+         * @param {pruntimeRpc.PhactoryAPI.ContractQueryCallback} callback Node-style callback called with the error, if any, and ContractQueryResponse
          * @returns {undefined}
          * @variation 1
          */
         Object.defineProperty(PhactoryAPI.prototype.contractQuery = function contractQuery(request, callback) {
-            return this.rpcCall(contractQuery, $root.pruntime_rpc.ContractQueryRequest, $root.pruntime_rpc.ContractQueryResponse, request, callback);
+            return this.rpcCall(contractQuery, $root.pruntimeRpc.ContractQueryRequest, $root.pruntimeRpc.ContractQueryResponse, request, callback);
         }, "name", { value: "ContractQuery" });
 
         /**
          * Calls ContractQuery.
          * @function contractQuery
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
-         * @param {pruntime_rpc.IContractQueryRequest} request ContractQueryRequest message or plain object
-         * @returns {Promise<pruntime_rpc.ContractQueryResponse>} Promise
+         * @param {pruntimeRpc.IContractQueryRequest} request ContractQueryRequest message or plain object
+         * @returns {Promise<pruntimeRpc.ContractQueryResponse>} Promise
          * @variation 2
          */
 
         /**
-         * Callback as used by {@link pruntime_rpc.PhactoryAPI#getWorkerState}.
-         * @memberof pruntime_rpc.PhactoryAPI
+         * Callback as used by {@link pruntimeRpc.PhactoryAPI#getWorkerState}.
+         * @memberof pruntimeRpc.PhactoryAPI
          * @typedef GetWorkerStateCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {pruntime_rpc.WorkerState} [response] WorkerState
+         * @param {pruntimeRpc.WorkerState} [response] WorkerState
          */
 
         /**
          * Calls GetWorkerState.
          * @function getWorkerState
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
-         * @param {pruntime_rpc.IGetWorkerStateRequest} request GetWorkerStateRequest message or plain object
-         * @param {pruntime_rpc.PhactoryAPI.GetWorkerStateCallback} callback Node-style callback called with the error, if any, and WorkerState
+         * @param {pruntimeRpc.IGetWorkerStateRequest} request GetWorkerStateRequest message or plain object
+         * @param {pruntimeRpc.PhactoryAPI.GetWorkerStateCallback} callback Node-style callback called with the error, if any, and WorkerState
          * @returns {undefined}
          * @variation 1
          */
         Object.defineProperty(PhactoryAPI.prototype.getWorkerState = function getWorkerState(request, callback) {
-            return this.rpcCall(getWorkerState, $root.pruntime_rpc.GetWorkerStateRequest, $root.pruntime_rpc.WorkerState, request, callback);
+            return this.rpcCall(getWorkerState, $root.pruntimeRpc.GetWorkerStateRequest, $root.pruntimeRpc.WorkerState, request, callback);
         }, "name", { value: "GetWorkerState" });
 
         /**
          * Calls GetWorkerState.
          * @function getWorkerState
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
-         * @param {pruntime_rpc.IGetWorkerStateRequest} request GetWorkerStateRequest message or plain object
-         * @returns {Promise<pruntime_rpc.WorkerState>} Promise
+         * @param {pruntimeRpc.IGetWorkerStateRequest} request GetWorkerStateRequest message or plain object
+         * @returns {Promise<pruntimeRpc.WorkerState>} Promise
          * @variation 2
          */
 
         /**
-         * Callback as used by {@link pruntime_rpc.PhactoryAPI#echo}.
-         * @memberof pruntime_rpc.PhactoryAPI
+         * Callback as used by {@link pruntimeRpc.PhactoryAPI#echo}.
+         * @memberof pruntimeRpc.PhactoryAPI
          * @typedef EchoCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {pruntime_rpc.EchoMessage} [response] EchoMessage
+         * @param {pruntimeRpc.EchoMessage} [response] EchoMessage
          */
 
         /**
          * Calls Echo.
          * @function echo
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
-         * @param {pruntime_rpc.IEchoMessage} request EchoMessage message or plain object
-         * @param {pruntime_rpc.PhactoryAPI.EchoCallback} callback Node-style callback called with the error, if any, and EchoMessage
+         * @param {pruntimeRpc.IEchoMessage} request EchoMessage message or plain object
+         * @param {pruntimeRpc.PhactoryAPI.EchoCallback} callback Node-style callback called with the error, if any, and EchoMessage
          * @returns {undefined}
          * @variation 1
          */
         Object.defineProperty(PhactoryAPI.prototype.echo = function echo(request, callback) {
-            return this.rpcCall(echo, $root.pruntime_rpc.EchoMessage, $root.pruntime_rpc.EchoMessage, request, callback);
+            return this.rpcCall(echo, $root.pruntimeRpc.EchoMessage, $root.pruntimeRpc.EchoMessage, request, callback);
         }, "name", { value: "Echo" });
 
         /**
          * Calls Echo.
          * @function echo
-         * @memberof pruntime_rpc.PhactoryAPI
+         * @memberof pruntimeRpc.PhactoryAPI
          * @instance
-         * @param {pruntime_rpc.IEchoMessage} request EchoMessage message or plain object
-         * @returns {Promise<pruntime_rpc.EchoMessage>} Promise
+         * @param {pruntimeRpc.IEchoMessage} request EchoMessage message or plain object
+         * @returns {Promise<pruntimeRpc.EchoMessage>} Promise
          * @variation 2
          */
 
         return PhactoryAPI;
     })();
 
-    pruntime_rpc.PhactoryInfo = (function() {
+    pruntimeRpc.PhactoryInfo = (function() {
 
         /**
          * Properties of a PhactoryInfo.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface IPhactoryInfo
          * @property {boolean|null} [initialized] PhactoryInfo initialized
          * @property {boolean|null} [registered] PhactoryInfo registered
-         * @property {string|null} [genesis_block_hash] PhactoryInfo genesis_block_hash
-         * @property {string|null} [public_key] PhactoryInfo public_key
-         * @property {string|null} [ecdh_public_key] PhactoryInfo ecdh_public_key
+         * @property {string|null} [genesisBlockHash] PhactoryInfo genesisBlockHash
+         * @property {string|null} [publicKey] PhactoryInfo publicKey
+         * @property {string|null} [ecdhPublicKey] PhactoryInfo ecdhPublicKey
          * @property {number|null} [headernum] PhactoryInfo headernum
-         * @property {number|null} [para_headernum] PhactoryInfo para_headernum
+         * @property {number|null} [paraHeadernum] PhactoryInfo paraHeadernum
          * @property {number|null} [blocknum] PhactoryInfo blocknum
-         * @property {string|null} [state_root] PhactoryInfo state_root
-         * @property {boolean|null} [dev_mode] PhactoryInfo dev_mode
-         * @property {number|Long|null} [pending_messages] PhactoryInfo pending_messages
+         * @property {string|null} [stateRoot] PhactoryInfo stateRoot
+         * @property {boolean|null} [devMode] PhactoryInfo devMode
+         * @property {number|Long|null} [pendingMessages] PhactoryInfo pendingMessages
          * @property {number|Long|null} [score] PhactoryInfo score
-         * @property {pruntime_rpc.IGatekeeperStatus|null} [gatekeeper] PhactoryInfo gatekeeper
+         * @property {pruntimeRpc.IGatekeeperStatus|null} [gatekeeper] PhactoryInfo gatekeeper
          * @property {string|null} [version] PhactoryInfo version
-         * @property {string|null} [git_revision] PhactoryInfo git_revision
-         * @property {number|Long|null} [running_side_tasks] PhactoryInfo running_side_tasks
-         * @property {pruntime_rpc.IMemoryUsage|null} [memory_usage] PhactoryInfo memory_usage
+         * @property {string|null} [gitRevision] PhactoryInfo gitRevision
+         * @property {number|Long|null} [runningSideTasks] PhactoryInfo runningSideTasks
+         * @property {pruntimeRpc.IMemoryUsage|null} [memoryUsage] PhactoryInfo memoryUsage
          */
 
         /**
          * Constructs a new PhactoryInfo.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a PhactoryInfo.
          * @implements IPhactoryInfo
          * @constructor
-         * @param {pruntime_rpc.IPhactoryInfo=} [properties] Properties to set
+         * @param {pruntimeRpc.IPhactoryInfo=} [properties] Properties to set
          */
         function PhactoryInfo(properties) {
             if (properties)
@@ -656,7 +656,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * PhactoryInfo initialized.
          * @member {boolean} initialized
-         * @memberof pruntime_rpc.PhactoryInfo
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
         PhactoryInfo.prototype.initialized = false;
@@ -664,95 +664,95 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * PhactoryInfo registered.
          * @member {boolean} registered
-         * @memberof pruntime_rpc.PhactoryInfo
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
         PhactoryInfo.prototype.registered = false;
 
         /**
-         * PhactoryInfo genesis_block_hash.
-         * @member {string|null|undefined} genesis_block_hash
-         * @memberof pruntime_rpc.PhactoryInfo
+         * PhactoryInfo genesisBlockHash.
+         * @member {string|null|undefined} genesisBlockHash
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
-        PhactoryInfo.prototype.genesis_block_hash = null;
+        PhactoryInfo.prototype.genesisBlockHash = null;
 
         /**
-         * PhactoryInfo public_key.
-         * @member {string|null|undefined} public_key
-         * @memberof pruntime_rpc.PhactoryInfo
+         * PhactoryInfo publicKey.
+         * @member {string|null|undefined} publicKey
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
-        PhactoryInfo.prototype.public_key = null;
+        PhactoryInfo.prototype.publicKey = null;
 
         /**
-         * PhactoryInfo ecdh_public_key.
-         * @member {string|null|undefined} ecdh_public_key
-         * @memberof pruntime_rpc.PhactoryInfo
+         * PhactoryInfo ecdhPublicKey.
+         * @member {string|null|undefined} ecdhPublicKey
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
-        PhactoryInfo.prototype.ecdh_public_key = null;
+        PhactoryInfo.prototype.ecdhPublicKey = null;
 
         /**
          * PhactoryInfo headernum.
          * @member {number} headernum
-         * @memberof pruntime_rpc.PhactoryInfo
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
         PhactoryInfo.prototype.headernum = 0;
 
         /**
-         * PhactoryInfo para_headernum.
-         * @member {number} para_headernum
-         * @memberof pruntime_rpc.PhactoryInfo
+         * PhactoryInfo paraHeadernum.
+         * @member {number} paraHeadernum
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
-        PhactoryInfo.prototype.para_headernum = 0;
+        PhactoryInfo.prototype.paraHeadernum = 0;
 
         /**
          * PhactoryInfo blocknum.
          * @member {number} blocknum
-         * @memberof pruntime_rpc.PhactoryInfo
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
         PhactoryInfo.prototype.blocknum = 0;
 
         /**
-         * PhactoryInfo state_root.
-         * @member {string} state_root
-         * @memberof pruntime_rpc.PhactoryInfo
+         * PhactoryInfo stateRoot.
+         * @member {string} stateRoot
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
-        PhactoryInfo.prototype.state_root = "";
+        PhactoryInfo.prototype.stateRoot = "";
 
         /**
-         * PhactoryInfo dev_mode.
-         * @member {boolean} dev_mode
-         * @memberof pruntime_rpc.PhactoryInfo
+         * PhactoryInfo devMode.
+         * @member {boolean} devMode
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
-        PhactoryInfo.prototype.dev_mode = false;
+        PhactoryInfo.prototype.devMode = false;
 
         /**
-         * PhactoryInfo pending_messages.
-         * @member {number|Long} pending_messages
-         * @memberof pruntime_rpc.PhactoryInfo
+         * PhactoryInfo pendingMessages.
+         * @member {number|Long} pendingMessages
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
-        PhactoryInfo.prototype.pending_messages = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        PhactoryInfo.prototype.pendingMessages = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
          * PhactoryInfo score.
          * @member {number|Long} score
-         * @memberof pruntime_rpc.PhactoryInfo
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
         PhactoryInfo.prototype.score = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
          * PhactoryInfo gatekeeper.
-         * @member {pruntime_rpc.IGatekeeperStatus|null|undefined} gatekeeper
-         * @memberof pruntime_rpc.PhactoryInfo
+         * @member {pruntimeRpc.IGatekeeperStatus|null|undefined} gatekeeper
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
         PhactoryInfo.prototype.gatekeeper = null;
@@ -760,89 +760,89 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * PhactoryInfo version.
          * @member {string} version
-         * @memberof pruntime_rpc.PhactoryInfo
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
         PhactoryInfo.prototype.version = "";
 
         /**
-         * PhactoryInfo git_revision.
-         * @member {string} git_revision
-         * @memberof pruntime_rpc.PhactoryInfo
+         * PhactoryInfo gitRevision.
+         * @member {string} gitRevision
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
-        PhactoryInfo.prototype.git_revision = "";
+        PhactoryInfo.prototype.gitRevision = "";
 
         /**
-         * PhactoryInfo running_side_tasks.
-         * @member {number|Long} running_side_tasks
-         * @memberof pruntime_rpc.PhactoryInfo
+         * PhactoryInfo runningSideTasks.
+         * @member {number|Long} runningSideTasks
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
-        PhactoryInfo.prototype.running_side_tasks = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        PhactoryInfo.prototype.runningSideTasks = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
-         * PhactoryInfo memory_usage.
-         * @member {pruntime_rpc.IMemoryUsage|null|undefined} memory_usage
-         * @memberof pruntime_rpc.PhactoryInfo
+         * PhactoryInfo memoryUsage.
+         * @member {pruntimeRpc.IMemoryUsage|null|undefined} memoryUsage
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
-        PhactoryInfo.prototype.memory_usage = null;
+        PhactoryInfo.prototype.memoryUsage = null;
 
         // OneOf field names bound to virtual getters and setters
         let $oneOfFields;
 
         /**
-         * PhactoryInfo _genesis_block_hash.
-         * @member {"genesis_block_hash"|undefined} _genesis_block_hash
-         * @memberof pruntime_rpc.PhactoryInfo
+         * PhactoryInfo _genesisBlockHash.
+         * @member {"genesisBlockHash"|undefined} _genesisBlockHash
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
-        Object.defineProperty(PhactoryInfo.prototype, "_genesis_block_hash", {
-            get: $util.oneOfGetter($oneOfFields = ["genesis_block_hash"]),
+        Object.defineProperty(PhactoryInfo.prototype, "_genesisBlockHash", {
+            get: $util.oneOfGetter($oneOfFields = ["genesisBlockHash"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         /**
-         * PhactoryInfo _public_key.
-         * @member {"public_key"|undefined} _public_key
-         * @memberof pruntime_rpc.PhactoryInfo
+         * PhactoryInfo _publicKey.
+         * @member {"publicKey"|undefined} _publicKey
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
-        Object.defineProperty(PhactoryInfo.prototype, "_public_key", {
-            get: $util.oneOfGetter($oneOfFields = ["public_key"]),
+        Object.defineProperty(PhactoryInfo.prototype, "_publicKey", {
+            get: $util.oneOfGetter($oneOfFields = ["publicKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         /**
-         * PhactoryInfo _ecdh_public_key.
-         * @member {"ecdh_public_key"|undefined} _ecdh_public_key
-         * @memberof pruntime_rpc.PhactoryInfo
+         * PhactoryInfo _ecdhPublicKey.
+         * @member {"ecdhPublicKey"|undefined} _ecdhPublicKey
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          */
-        Object.defineProperty(PhactoryInfo.prototype, "_ecdh_public_key", {
-            get: $util.oneOfGetter($oneOfFields = ["ecdh_public_key"]),
+        Object.defineProperty(PhactoryInfo.prototype, "_ecdhPublicKey", {
+            get: $util.oneOfGetter($oneOfFields = ["ecdhPublicKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         /**
          * Creates a new PhactoryInfo instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.PhactoryInfo
+         * @memberof pruntimeRpc.PhactoryInfo
          * @static
-         * @param {pruntime_rpc.IPhactoryInfo=} [properties] Properties to set
-         * @returns {pruntime_rpc.PhactoryInfo} PhactoryInfo instance
+         * @param {pruntimeRpc.IPhactoryInfo=} [properties] Properties to set
+         * @returns {pruntimeRpc.PhactoryInfo} PhactoryInfo instance
          */
         PhactoryInfo.create = function create(properties) {
             return new PhactoryInfo(properties);
         };
 
         /**
-         * Encodes the specified PhactoryInfo message. Does not implicitly {@link pruntime_rpc.PhactoryInfo.verify|verify} messages.
+         * Encodes the specified PhactoryInfo message. Does not implicitly {@link pruntimeRpc.PhactoryInfo.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.PhactoryInfo
+         * @memberof pruntimeRpc.PhactoryInfo
          * @static
-         * @param {pruntime_rpc.IPhactoryInfo} message PhactoryInfo message or plain object to encode
+         * @param {pruntimeRpc.IPhactoryInfo} message PhactoryInfo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -853,45 +853,45 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                 writer.uint32(/* id 1, wireType 0 =*/8).bool(message.initialized);
             if (message.registered != null && Object.hasOwnProperty.call(message, "registered"))
                 writer.uint32(/* id 2, wireType 0 =*/16).bool(message.registered);
-            if (message.genesis_block_hash != null && Object.hasOwnProperty.call(message, "genesis_block_hash"))
-                writer.uint32(/* id 4, wireType 2 =*/34).string(message.genesis_block_hash);
-            if (message.public_key != null && Object.hasOwnProperty.call(message, "public_key"))
-                writer.uint32(/* id 5, wireType 2 =*/42).string(message.public_key);
-            if (message.ecdh_public_key != null && Object.hasOwnProperty.call(message, "ecdh_public_key"))
-                writer.uint32(/* id 6, wireType 2 =*/50).string(message.ecdh_public_key);
+            if (message.genesisBlockHash != null && Object.hasOwnProperty.call(message, "genesisBlockHash"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.genesisBlockHash);
+            if (message.publicKey != null && Object.hasOwnProperty.call(message, "publicKey"))
+                writer.uint32(/* id 5, wireType 2 =*/42).string(message.publicKey);
+            if (message.ecdhPublicKey != null && Object.hasOwnProperty.call(message, "ecdhPublicKey"))
+                writer.uint32(/* id 6, wireType 2 =*/50).string(message.ecdhPublicKey);
             if (message.headernum != null && Object.hasOwnProperty.call(message, "headernum"))
                 writer.uint32(/* id 7, wireType 0 =*/56).uint32(message.headernum);
-            if (message.para_headernum != null && Object.hasOwnProperty.call(message, "para_headernum"))
-                writer.uint32(/* id 8, wireType 0 =*/64).uint32(message.para_headernum);
+            if (message.paraHeadernum != null && Object.hasOwnProperty.call(message, "paraHeadernum"))
+                writer.uint32(/* id 8, wireType 0 =*/64).uint32(message.paraHeadernum);
             if (message.blocknum != null && Object.hasOwnProperty.call(message, "blocknum"))
                 writer.uint32(/* id 9, wireType 0 =*/72).uint32(message.blocknum);
-            if (message.state_root != null && Object.hasOwnProperty.call(message, "state_root"))
-                writer.uint32(/* id 10, wireType 2 =*/82).string(message.state_root);
-            if (message.dev_mode != null && Object.hasOwnProperty.call(message, "dev_mode"))
-                writer.uint32(/* id 11, wireType 0 =*/88).bool(message.dev_mode);
-            if (message.pending_messages != null && Object.hasOwnProperty.call(message, "pending_messages"))
-                writer.uint32(/* id 12, wireType 0 =*/96).uint64(message.pending_messages);
+            if (message.stateRoot != null && Object.hasOwnProperty.call(message, "stateRoot"))
+                writer.uint32(/* id 10, wireType 2 =*/82).string(message.stateRoot);
+            if (message.devMode != null && Object.hasOwnProperty.call(message, "devMode"))
+                writer.uint32(/* id 11, wireType 0 =*/88).bool(message.devMode);
+            if (message.pendingMessages != null && Object.hasOwnProperty.call(message, "pendingMessages"))
+                writer.uint32(/* id 12, wireType 0 =*/96).uint64(message.pendingMessages);
             if (message.score != null && Object.hasOwnProperty.call(message, "score"))
                 writer.uint32(/* id 13, wireType 0 =*/104).uint64(message.score);
             if (message.gatekeeper != null && Object.hasOwnProperty.call(message, "gatekeeper"))
-                $root.pruntime_rpc.GatekeeperStatus.encode(message.gatekeeper, writer.uint32(/* id 14, wireType 2 =*/114).fork()).ldelim();
+                $root.pruntimeRpc.GatekeeperStatus.encode(message.gatekeeper, writer.uint32(/* id 14, wireType 2 =*/114).fork()).ldelim();
             if (message.version != null && Object.hasOwnProperty.call(message, "version"))
                 writer.uint32(/* id 15, wireType 2 =*/122).string(message.version);
-            if (message.git_revision != null && Object.hasOwnProperty.call(message, "git_revision"))
-                writer.uint32(/* id 16, wireType 2 =*/130).string(message.git_revision);
-            if (message.running_side_tasks != null && Object.hasOwnProperty.call(message, "running_side_tasks"))
-                writer.uint32(/* id 17, wireType 0 =*/136).uint64(message.running_side_tasks);
-            if (message.memory_usage != null && Object.hasOwnProperty.call(message, "memory_usage"))
-                $root.pruntime_rpc.MemoryUsage.encode(message.memory_usage, writer.uint32(/* id 18, wireType 2 =*/146).fork()).ldelim();
+            if (message.gitRevision != null && Object.hasOwnProperty.call(message, "gitRevision"))
+                writer.uint32(/* id 16, wireType 2 =*/130).string(message.gitRevision);
+            if (message.runningSideTasks != null && Object.hasOwnProperty.call(message, "runningSideTasks"))
+                writer.uint32(/* id 17, wireType 0 =*/136).uint64(message.runningSideTasks);
+            if (message.memoryUsage != null && Object.hasOwnProperty.call(message, "memoryUsage"))
+                $root.pruntimeRpc.MemoryUsage.encode(message.memoryUsage, writer.uint32(/* id 18, wireType 2 =*/146).fork()).ldelim();
             return writer;
         };
 
         /**
-         * Encodes the specified PhactoryInfo message, length delimited. Does not implicitly {@link pruntime_rpc.PhactoryInfo.verify|verify} messages.
+         * Encodes the specified PhactoryInfo message, length delimited. Does not implicitly {@link pruntimeRpc.PhactoryInfo.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.PhactoryInfo
+         * @memberof pruntimeRpc.PhactoryInfo
          * @static
-         * @param {pruntime_rpc.IPhactoryInfo} message PhactoryInfo message or plain object to encode
+         * @param {pruntimeRpc.IPhactoryInfo} message PhactoryInfo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -902,18 +902,18 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a PhactoryInfo message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.PhactoryInfo
+         * @memberof pruntimeRpc.PhactoryInfo
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.PhactoryInfo} PhactoryInfo
+         * @returns {pruntimeRpc.PhactoryInfo} PhactoryInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         PhactoryInfo.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.PhactoryInfo();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.PhactoryInfo();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -924,49 +924,49 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                     message.registered = reader.bool();
                     break;
                 case 4:
-                    message.genesis_block_hash = reader.string();
+                    message.genesisBlockHash = reader.string();
                     break;
                 case 5:
-                    message.public_key = reader.string();
+                    message.publicKey = reader.string();
                     break;
                 case 6:
-                    message.ecdh_public_key = reader.string();
+                    message.ecdhPublicKey = reader.string();
                     break;
                 case 7:
                     message.headernum = reader.uint32();
                     break;
                 case 8:
-                    message.para_headernum = reader.uint32();
+                    message.paraHeadernum = reader.uint32();
                     break;
                 case 9:
                     message.blocknum = reader.uint32();
                     break;
                 case 10:
-                    message.state_root = reader.string();
+                    message.stateRoot = reader.string();
                     break;
                 case 11:
-                    message.dev_mode = reader.bool();
+                    message.devMode = reader.bool();
                     break;
                 case 12:
-                    message.pending_messages = reader.uint64();
+                    message.pendingMessages = reader.uint64();
                     break;
                 case 13:
                     message.score = reader.uint64();
                     break;
                 case 14:
-                    message.gatekeeper = $root.pruntime_rpc.GatekeeperStatus.decode(reader, reader.uint32());
+                    message.gatekeeper = $root.pruntimeRpc.GatekeeperStatus.decode(reader, reader.uint32());
                     break;
                 case 15:
                     message.version = reader.string();
                     break;
                 case 16:
-                    message.git_revision = reader.string();
+                    message.gitRevision = reader.string();
                     break;
                 case 17:
-                    message.running_side_tasks = reader.uint64();
+                    message.runningSideTasks = reader.uint64();
                     break;
                 case 18:
-                    message.memory_usage = $root.pruntime_rpc.MemoryUsage.decode(reader, reader.uint32());
+                    message.memoryUsage = $root.pruntimeRpc.MemoryUsage.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -979,10 +979,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a PhactoryInfo message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.PhactoryInfo
+         * @memberof pruntimeRpc.PhactoryInfo
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.PhactoryInfo} PhactoryInfo
+         * @returns {pruntimeRpc.PhactoryInfo} PhactoryInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -995,7 +995,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies a PhactoryInfo message.
          * @function verify
-         * @memberof pruntime_rpc.PhactoryInfo
+         * @memberof pruntimeRpc.PhactoryInfo
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -1010,60 +1010,60 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             if (message.registered != null && message.hasOwnProperty("registered"))
                 if (typeof message.registered !== "boolean")
                     return "registered: boolean expected";
-            if (message.genesis_block_hash != null && message.hasOwnProperty("genesis_block_hash")) {
-                properties._genesis_block_hash = 1;
-                if (!$util.isString(message.genesis_block_hash))
-                    return "genesis_block_hash: string expected";
+            if (message.genesisBlockHash != null && message.hasOwnProperty("genesisBlockHash")) {
+                properties._genesisBlockHash = 1;
+                if (!$util.isString(message.genesisBlockHash))
+                    return "genesisBlockHash: string expected";
             }
-            if (message.public_key != null && message.hasOwnProperty("public_key")) {
-                properties._public_key = 1;
-                if (!$util.isString(message.public_key))
-                    return "public_key: string expected";
+            if (message.publicKey != null && message.hasOwnProperty("publicKey")) {
+                properties._publicKey = 1;
+                if (!$util.isString(message.publicKey))
+                    return "publicKey: string expected";
             }
-            if (message.ecdh_public_key != null && message.hasOwnProperty("ecdh_public_key")) {
-                properties._ecdh_public_key = 1;
-                if (!$util.isString(message.ecdh_public_key))
-                    return "ecdh_public_key: string expected";
+            if (message.ecdhPublicKey != null && message.hasOwnProperty("ecdhPublicKey")) {
+                properties._ecdhPublicKey = 1;
+                if (!$util.isString(message.ecdhPublicKey))
+                    return "ecdhPublicKey: string expected";
             }
             if (message.headernum != null && message.hasOwnProperty("headernum"))
                 if (!$util.isInteger(message.headernum))
                     return "headernum: integer expected";
-            if (message.para_headernum != null && message.hasOwnProperty("para_headernum"))
-                if (!$util.isInteger(message.para_headernum))
-                    return "para_headernum: integer expected";
+            if (message.paraHeadernum != null && message.hasOwnProperty("paraHeadernum"))
+                if (!$util.isInteger(message.paraHeadernum))
+                    return "paraHeadernum: integer expected";
             if (message.blocknum != null && message.hasOwnProperty("blocknum"))
                 if (!$util.isInteger(message.blocknum))
                     return "blocknum: integer expected";
-            if (message.state_root != null && message.hasOwnProperty("state_root"))
-                if (!$util.isString(message.state_root))
-                    return "state_root: string expected";
-            if (message.dev_mode != null && message.hasOwnProperty("dev_mode"))
-                if (typeof message.dev_mode !== "boolean")
-                    return "dev_mode: boolean expected";
-            if (message.pending_messages != null && message.hasOwnProperty("pending_messages"))
-                if (!$util.isInteger(message.pending_messages) && !(message.pending_messages && $util.isInteger(message.pending_messages.low) && $util.isInteger(message.pending_messages.high)))
-                    return "pending_messages: integer|Long expected";
+            if (message.stateRoot != null && message.hasOwnProperty("stateRoot"))
+                if (!$util.isString(message.stateRoot))
+                    return "stateRoot: string expected";
+            if (message.devMode != null && message.hasOwnProperty("devMode"))
+                if (typeof message.devMode !== "boolean")
+                    return "devMode: boolean expected";
+            if (message.pendingMessages != null && message.hasOwnProperty("pendingMessages"))
+                if (!$util.isInteger(message.pendingMessages) && !(message.pendingMessages && $util.isInteger(message.pendingMessages.low) && $util.isInteger(message.pendingMessages.high)))
+                    return "pendingMessages: integer|Long expected";
             if (message.score != null && message.hasOwnProperty("score"))
                 if (!$util.isInteger(message.score) && !(message.score && $util.isInteger(message.score.low) && $util.isInteger(message.score.high)))
                     return "score: integer|Long expected";
             if (message.gatekeeper != null && message.hasOwnProperty("gatekeeper")) {
-                let error = $root.pruntime_rpc.GatekeeperStatus.verify(message.gatekeeper);
+                let error = $root.pruntimeRpc.GatekeeperStatus.verify(message.gatekeeper);
                 if (error)
                     return "gatekeeper." + error;
             }
             if (message.version != null && message.hasOwnProperty("version"))
                 if (!$util.isString(message.version))
                     return "version: string expected";
-            if (message.git_revision != null && message.hasOwnProperty("git_revision"))
-                if (!$util.isString(message.git_revision))
-                    return "git_revision: string expected";
-            if (message.running_side_tasks != null && message.hasOwnProperty("running_side_tasks"))
-                if (!$util.isInteger(message.running_side_tasks) && !(message.running_side_tasks && $util.isInteger(message.running_side_tasks.low) && $util.isInteger(message.running_side_tasks.high)))
-                    return "running_side_tasks: integer|Long expected";
-            if (message.memory_usage != null && message.hasOwnProperty("memory_usage")) {
-                let error = $root.pruntime_rpc.MemoryUsage.verify(message.memory_usage);
+            if (message.gitRevision != null && message.hasOwnProperty("gitRevision"))
+                if (!$util.isString(message.gitRevision))
+                    return "gitRevision: string expected";
+            if (message.runningSideTasks != null && message.hasOwnProperty("runningSideTasks"))
+                if (!$util.isInteger(message.runningSideTasks) && !(message.runningSideTasks && $util.isInteger(message.runningSideTasks.low) && $util.isInteger(message.runningSideTasks.high)))
+                    return "runningSideTasks: integer|Long expected";
+            if (message.memoryUsage != null && message.hasOwnProperty("memoryUsage")) {
+                let error = $root.pruntimeRpc.MemoryUsage.verify(message.memoryUsage);
                 if (error)
-                    return "memory_usage." + error;
+                    return "memoryUsage." + error;
             }
             return null;
         };
@@ -1071,44 +1071,44 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a PhactoryInfo message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.PhactoryInfo
+         * @memberof pruntimeRpc.PhactoryInfo
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.PhactoryInfo} PhactoryInfo
+         * @returns {pruntimeRpc.PhactoryInfo} PhactoryInfo
          */
         PhactoryInfo.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.PhactoryInfo)
+            if (object instanceof $root.pruntimeRpc.PhactoryInfo)
                 return object;
-            let message = new $root.pruntime_rpc.PhactoryInfo();
+            let message = new $root.pruntimeRpc.PhactoryInfo();
             if (object.initialized != null)
                 message.initialized = Boolean(object.initialized);
             if (object.registered != null)
                 message.registered = Boolean(object.registered);
-            if (object.genesis_block_hash != null)
-                message.genesis_block_hash = String(object.genesis_block_hash);
-            if (object.public_key != null)
-                message.public_key = String(object.public_key);
-            if (object.ecdh_public_key != null)
-                message.ecdh_public_key = String(object.ecdh_public_key);
+            if (object.genesisBlockHash != null)
+                message.genesisBlockHash = String(object.genesisBlockHash);
+            if (object.publicKey != null)
+                message.publicKey = String(object.publicKey);
+            if (object.ecdhPublicKey != null)
+                message.ecdhPublicKey = String(object.ecdhPublicKey);
             if (object.headernum != null)
                 message.headernum = object.headernum >>> 0;
-            if (object.para_headernum != null)
-                message.para_headernum = object.para_headernum >>> 0;
+            if (object.paraHeadernum != null)
+                message.paraHeadernum = object.paraHeadernum >>> 0;
             if (object.blocknum != null)
                 message.blocknum = object.blocknum >>> 0;
-            if (object.state_root != null)
-                message.state_root = String(object.state_root);
-            if (object.dev_mode != null)
-                message.dev_mode = Boolean(object.dev_mode);
-            if (object.pending_messages != null)
+            if (object.stateRoot != null)
+                message.stateRoot = String(object.stateRoot);
+            if (object.devMode != null)
+                message.devMode = Boolean(object.devMode);
+            if (object.pendingMessages != null)
                 if ($util.Long)
-                    (message.pending_messages = $util.Long.fromValue(object.pending_messages)).unsigned = true;
-                else if (typeof object.pending_messages === "string")
-                    message.pending_messages = parseInt(object.pending_messages, 10);
-                else if (typeof object.pending_messages === "number")
-                    message.pending_messages = object.pending_messages;
-                else if (typeof object.pending_messages === "object")
-                    message.pending_messages = new $util.LongBits(object.pending_messages.low >>> 0, object.pending_messages.high >>> 0).toNumber(true);
+                    (message.pendingMessages = $util.Long.fromValue(object.pendingMessages)).unsigned = true;
+                else if (typeof object.pendingMessages === "string")
+                    message.pendingMessages = parseInt(object.pendingMessages, 10);
+                else if (typeof object.pendingMessages === "number")
+                    message.pendingMessages = object.pendingMessages;
+                else if (typeof object.pendingMessages === "object")
+                    message.pendingMessages = new $util.LongBits(object.pendingMessages.low >>> 0, object.pendingMessages.high >>> 0).toNumber(true);
             if (object.score != null)
                 if ($util.Long)
                     (message.score = $util.Long.fromValue(object.score)).unsigned = true;
@@ -1120,26 +1120,26 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                     message.score = new $util.LongBits(object.score.low >>> 0, object.score.high >>> 0).toNumber(true);
             if (object.gatekeeper != null) {
                 if (typeof object.gatekeeper !== "object")
-                    throw TypeError(".pruntime_rpc.PhactoryInfo.gatekeeper: object expected");
-                message.gatekeeper = $root.pruntime_rpc.GatekeeperStatus.fromObject(object.gatekeeper);
+                    throw TypeError(".pruntimeRpc.PhactoryInfo.gatekeeper: object expected");
+                message.gatekeeper = $root.pruntimeRpc.GatekeeperStatus.fromObject(object.gatekeeper);
             }
             if (object.version != null)
                 message.version = String(object.version);
-            if (object.git_revision != null)
-                message.git_revision = String(object.git_revision);
-            if (object.running_side_tasks != null)
+            if (object.gitRevision != null)
+                message.gitRevision = String(object.gitRevision);
+            if (object.runningSideTasks != null)
                 if ($util.Long)
-                    (message.running_side_tasks = $util.Long.fromValue(object.running_side_tasks)).unsigned = true;
-                else if (typeof object.running_side_tasks === "string")
-                    message.running_side_tasks = parseInt(object.running_side_tasks, 10);
-                else if (typeof object.running_side_tasks === "number")
-                    message.running_side_tasks = object.running_side_tasks;
-                else if (typeof object.running_side_tasks === "object")
-                    message.running_side_tasks = new $util.LongBits(object.running_side_tasks.low >>> 0, object.running_side_tasks.high >>> 0).toNumber(true);
-            if (object.memory_usage != null) {
-                if (typeof object.memory_usage !== "object")
-                    throw TypeError(".pruntime_rpc.PhactoryInfo.memory_usage: object expected");
-                message.memory_usage = $root.pruntime_rpc.MemoryUsage.fromObject(object.memory_usage);
+                    (message.runningSideTasks = $util.Long.fromValue(object.runningSideTasks)).unsigned = true;
+                else if (typeof object.runningSideTasks === "string")
+                    message.runningSideTasks = parseInt(object.runningSideTasks, 10);
+                else if (typeof object.runningSideTasks === "number")
+                    message.runningSideTasks = object.runningSideTasks;
+                else if (typeof object.runningSideTasks === "object")
+                    message.runningSideTasks = new $util.LongBits(object.runningSideTasks.low >>> 0, object.runningSideTasks.high >>> 0).toNumber(true);
+            if (object.memoryUsage != null) {
+                if (typeof object.memoryUsage !== "object")
+                    throw TypeError(".pruntimeRpc.PhactoryInfo.memoryUsage: object expected");
+                message.memoryUsage = $root.pruntimeRpc.MemoryUsage.fromObject(object.memoryUsage);
             }
             return message;
         };
@@ -1147,9 +1147,9 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a plain object from a PhactoryInfo message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.PhactoryInfo
+         * @memberof pruntimeRpc.PhactoryInfo
          * @static
-         * @param {pruntime_rpc.PhactoryInfo} message PhactoryInfo
+         * @param {pruntimeRpc.PhactoryInfo} message PhactoryInfo
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -1161,15 +1161,15 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                 object.initialized = false;
                 object.registered = false;
                 object.headernum = 0;
-                object.para_headernum = 0;
+                object.paraHeadernum = 0;
                 object.blocknum = 0;
-                object.state_root = "";
-                object.dev_mode = false;
+                object.stateRoot = "";
+                object.devMode = false;
                 if ($util.Long) {
                     let long = new $util.Long(0, 0, true);
-                    object.pending_messages = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    object.pendingMessages = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
-                    object.pending_messages = options.longs === String ? "0" : 0;
+                    object.pendingMessages = options.longs === String ? "0" : 0;
                 if ($util.Long) {
                     let long = new $util.Long(0, 0, true);
                     object.score = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
@@ -1177,73 +1177,73 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                     object.score = options.longs === String ? "0" : 0;
                 object.gatekeeper = null;
                 object.version = "";
-                object.git_revision = "";
+                object.gitRevision = "";
                 if ($util.Long) {
                     let long = new $util.Long(0, 0, true);
-                    object.running_side_tasks = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    object.runningSideTasks = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
-                    object.running_side_tasks = options.longs === String ? "0" : 0;
-                object.memory_usage = null;
+                    object.runningSideTasks = options.longs === String ? "0" : 0;
+                object.memoryUsage = null;
             }
             if (message.initialized != null && message.hasOwnProperty("initialized"))
                 object.initialized = message.initialized;
             if (message.registered != null && message.hasOwnProperty("registered"))
                 object.registered = message.registered;
-            if (message.genesis_block_hash != null && message.hasOwnProperty("genesis_block_hash")) {
-                object.genesis_block_hash = message.genesis_block_hash;
+            if (message.genesisBlockHash != null && message.hasOwnProperty("genesisBlockHash")) {
+                object.genesisBlockHash = message.genesisBlockHash;
                 if (options.oneofs)
-                    object._genesis_block_hash = "genesis_block_hash";
+                    object._genesisBlockHash = "genesisBlockHash";
             }
-            if (message.public_key != null && message.hasOwnProperty("public_key")) {
-                object.public_key = message.public_key;
+            if (message.publicKey != null && message.hasOwnProperty("publicKey")) {
+                object.publicKey = message.publicKey;
                 if (options.oneofs)
-                    object._public_key = "public_key";
+                    object._publicKey = "publicKey";
             }
-            if (message.ecdh_public_key != null && message.hasOwnProperty("ecdh_public_key")) {
-                object.ecdh_public_key = message.ecdh_public_key;
+            if (message.ecdhPublicKey != null && message.hasOwnProperty("ecdhPublicKey")) {
+                object.ecdhPublicKey = message.ecdhPublicKey;
                 if (options.oneofs)
-                    object._ecdh_public_key = "ecdh_public_key";
+                    object._ecdhPublicKey = "ecdhPublicKey";
             }
             if (message.headernum != null && message.hasOwnProperty("headernum"))
                 object.headernum = message.headernum;
-            if (message.para_headernum != null && message.hasOwnProperty("para_headernum"))
-                object.para_headernum = message.para_headernum;
+            if (message.paraHeadernum != null && message.hasOwnProperty("paraHeadernum"))
+                object.paraHeadernum = message.paraHeadernum;
             if (message.blocknum != null && message.hasOwnProperty("blocknum"))
                 object.blocknum = message.blocknum;
-            if (message.state_root != null && message.hasOwnProperty("state_root"))
-                object.state_root = message.state_root;
-            if (message.dev_mode != null && message.hasOwnProperty("dev_mode"))
-                object.dev_mode = message.dev_mode;
-            if (message.pending_messages != null && message.hasOwnProperty("pending_messages"))
-                if (typeof message.pending_messages === "number")
-                    object.pending_messages = options.longs === String ? String(message.pending_messages) : message.pending_messages;
+            if (message.stateRoot != null && message.hasOwnProperty("stateRoot"))
+                object.stateRoot = message.stateRoot;
+            if (message.devMode != null && message.hasOwnProperty("devMode"))
+                object.devMode = message.devMode;
+            if (message.pendingMessages != null && message.hasOwnProperty("pendingMessages"))
+                if (typeof message.pendingMessages === "number")
+                    object.pendingMessages = options.longs === String ? String(message.pendingMessages) : message.pendingMessages;
                 else
-                    object.pending_messages = options.longs === String ? $util.Long.prototype.toString.call(message.pending_messages) : options.longs === Number ? new $util.LongBits(message.pending_messages.low >>> 0, message.pending_messages.high >>> 0).toNumber(true) : message.pending_messages;
+                    object.pendingMessages = options.longs === String ? $util.Long.prototype.toString.call(message.pendingMessages) : options.longs === Number ? new $util.LongBits(message.pendingMessages.low >>> 0, message.pendingMessages.high >>> 0).toNumber(true) : message.pendingMessages;
             if (message.score != null && message.hasOwnProperty("score"))
                 if (typeof message.score === "number")
                     object.score = options.longs === String ? String(message.score) : message.score;
                 else
                     object.score = options.longs === String ? $util.Long.prototype.toString.call(message.score) : options.longs === Number ? new $util.LongBits(message.score.low >>> 0, message.score.high >>> 0).toNumber(true) : message.score;
             if (message.gatekeeper != null && message.hasOwnProperty("gatekeeper"))
-                object.gatekeeper = $root.pruntime_rpc.GatekeeperStatus.toObject(message.gatekeeper, options);
+                object.gatekeeper = $root.pruntimeRpc.GatekeeperStatus.toObject(message.gatekeeper, options);
             if (message.version != null && message.hasOwnProperty("version"))
                 object.version = message.version;
-            if (message.git_revision != null && message.hasOwnProperty("git_revision"))
-                object.git_revision = message.git_revision;
-            if (message.running_side_tasks != null && message.hasOwnProperty("running_side_tasks"))
-                if (typeof message.running_side_tasks === "number")
-                    object.running_side_tasks = options.longs === String ? String(message.running_side_tasks) : message.running_side_tasks;
+            if (message.gitRevision != null && message.hasOwnProperty("gitRevision"))
+                object.gitRevision = message.gitRevision;
+            if (message.runningSideTasks != null && message.hasOwnProperty("runningSideTasks"))
+                if (typeof message.runningSideTasks === "number")
+                    object.runningSideTasks = options.longs === String ? String(message.runningSideTasks) : message.runningSideTasks;
                 else
-                    object.running_side_tasks = options.longs === String ? $util.Long.prototype.toString.call(message.running_side_tasks) : options.longs === Number ? new $util.LongBits(message.running_side_tasks.low >>> 0, message.running_side_tasks.high >>> 0).toNumber(true) : message.running_side_tasks;
-            if (message.memory_usage != null && message.hasOwnProperty("memory_usage"))
-                object.memory_usage = $root.pruntime_rpc.MemoryUsage.toObject(message.memory_usage, options);
+                    object.runningSideTasks = options.longs === String ? $util.Long.prototype.toString.call(message.runningSideTasks) : options.longs === Number ? new $util.LongBits(message.runningSideTasks.low >>> 0, message.runningSideTasks.high >>> 0).toNumber(true) : message.runningSideTasks;
+            if (message.memoryUsage != null && message.hasOwnProperty("memoryUsage"))
+                object.memoryUsage = $root.pruntimeRpc.MemoryUsage.toObject(message.memoryUsage, options);
             return object;
         };
 
         /**
          * Converts this PhactoryInfo to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.PhactoryInfo
+         * @memberof pruntimeRpc.PhactoryInfo
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -1256,13 +1256,13 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
 
     /**
      * GatekeeperRole enum.
-     * @name pruntime_rpc.GatekeeperRole
+     * @name pruntimeRpc.GatekeeperRole
      * @enum {number}
      * @property {number} None=0 None value
      * @property {number} Dummy=1 Dummy value
      * @property {number} Active=2 Active value
      */
-    pruntime_rpc.GatekeeperRole = (function() {
+    pruntimeRpc.GatekeeperRole = (function() {
         const valuesById = {}, values = Object.create(valuesById);
         values[valuesById[0] = "None"] = 0;
         values[valuesById[1] = "Dummy"] = 1;
@@ -1270,23 +1270,23 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return values;
     })();
 
-    pruntime_rpc.GatekeeperStatus = (function() {
+    pruntimeRpc.GatekeeperStatus = (function() {
 
         /**
          * Properties of a GatekeeperStatus.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface IGatekeeperStatus
-         * @property {pruntime_rpc.GatekeeperRole|null} [role] GatekeeperStatus role
-         * @property {string|null} [master_public_key] GatekeeperStatus master_public_key
+         * @property {pruntimeRpc.GatekeeperRole|null} [role] GatekeeperStatus role
+         * @property {string|null} [masterPublicKey] GatekeeperStatus masterPublicKey
          */
 
         /**
          * Constructs a new GatekeeperStatus.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a GatekeeperStatus.
          * @implements IGatekeeperStatus
          * @constructor
-         * @param {pruntime_rpc.IGatekeeperStatus=} [properties] Properties to set
+         * @param {pruntimeRpc.IGatekeeperStatus=} [properties] Properties to set
          */
         function GatekeeperStatus(properties) {
             if (properties)
@@ -1297,38 +1297,38 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
 
         /**
          * GatekeeperStatus role.
-         * @member {pruntime_rpc.GatekeeperRole} role
-         * @memberof pruntime_rpc.GatekeeperStatus
+         * @member {pruntimeRpc.GatekeeperRole} role
+         * @memberof pruntimeRpc.GatekeeperStatus
          * @instance
          */
         GatekeeperStatus.prototype.role = 0;
 
         /**
-         * GatekeeperStatus master_public_key.
-         * @member {string} master_public_key
-         * @memberof pruntime_rpc.GatekeeperStatus
+         * GatekeeperStatus masterPublicKey.
+         * @member {string} masterPublicKey
+         * @memberof pruntimeRpc.GatekeeperStatus
          * @instance
          */
-        GatekeeperStatus.prototype.master_public_key = "";
+        GatekeeperStatus.prototype.masterPublicKey = "";
 
         /**
          * Creates a new GatekeeperStatus instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.GatekeeperStatus
+         * @memberof pruntimeRpc.GatekeeperStatus
          * @static
-         * @param {pruntime_rpc.IGatekeeperStatus=} [properties] Properties to set
-         * @returns {pruntime_rpc.GatekeeperStatus} GatekeeperStatus instance
+         * @param {pruntimeRpc.IGatekeeperStatus=} [properties] Properties to set
+         * @returns {pruntimeRpc.GatekeeperStatus} GatekeeperStatus instance
          */
         GatekeeperStatus.create = function create(properties) {
             return new GatekeeperStatus(properties);
         };
 
         /**
-         * Encodes the specified GatekeeperStatus message. Does not implicitly {@link pruntime_rpc.GatekeeperStatus.verify|verify} messages.
+         * Encodes the specified GatekeeperStatus message. Does not implicitly {@link pruntimeRpc.GatekeeperStatus.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.GatekeeperStatus
+         * @memberof pruntimeRpc.GatekeeperStatus
          * @static
-         * @param {pruntime_rpc.IGatekeeperStatus} message GatekeeperStatus message or plain object to encode
+         * @param {pruntimeRpc.IGatekeeperStatus} message GatekeeperStatus message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1337,17 +1337,17 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                 writer = $Writer.create();
             if (message.role != null && Object.hasOwnProperty.call(message, "role"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.role);
-            if (message.master_public_key != null && Object.hasOwnProperty.call(message, "master_public_key"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.master_public_key);
+            if (message.masterPublicKey != null && Object.hasOwnProperty.call(message, "masterPublicKey"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.masterPublicKey);
             return writer;
         };
 
         /**
-         * Encodes the specified GatekeeperStatus message, length delimited. Does not implicitly {@link pruntime_rpc.GatekeeperStatus.verify|verify} messages.
+         * Encodes the specified GatekeeperStatus message, length delimited. Does not implicitly {@link pruntimeRpc.GatekeeperStatus.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.GatekeeperStatus
+         * @memberof pruntimeRpc.GatekeeperStatus
          * @static
-         * @param {pruntime_rpc.IGatekeeperStatus} message GatekeeperStatus message or plain object to encode
+         * @param {pruntimeRpc.IGatekeeperStatus} message GatekeeperStatus message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1358,18 +1358,18 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a GatekeeperStatus message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.GatekeeperStatus
+         * @memberof pruntimeRpc.GatekeeperStatus
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.GatekeeperStatus} GatekeeperStatus
+         * @returns {pruntimeRpc.GatekeeperStatus} GatekeeperStatus
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         GatekeeperStatus.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.GatekeeperStatus();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.GatekeeperStatus();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -1377,7 +1377,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                     message.role = reader.int32();
                     break;
                 case 2:
-                    message.master_public_key = reader.string();
+                    message.masterPublicKey = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1390,10 +1390,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a GatekeeperStatus message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.GatekeeperStatus
+         * @memberof pruntimeRpc.GatekeeperStatus
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.GatekeeperStatus} GatekeeperStatus
+         * @returns {pruntimeRpc.GatekeeperStatus} GatekeeperStatus
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1406,7 +1406,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies a GatekeeperStatus message.
          * @function verify
-         * @memberof pruntime_rpc.GatekeeperStatus
+         * @memberof pruntimeRpc.GatekeeperStatus
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -1423,24 +1423,24 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                 case 2:
                     break;
                 }
-            if (message.master_public_key != null && message.hasOwnProperty("master_public_key"))
-                if (!$util.isString(message.master_public_key))
-                    return "master_public_key: string expected";
+            if (message.masterPublicKey != null && message.hasOwnProperty("masterPublicKey"))
+                if (!$util.isString(message.masterPublicKey))
+                    return "masterPublicKey: string expected";
             return null;
         };
 
         /**
          * Creates a GatekeeperStatus message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.GatekeeperStatus
+         * @memberof pruntimeRpc.GatekeeperStatus
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.GatekeeperStatus} GatekeeperStatus
+         * @returns {pruntimeRpc.GatekeeperStatus} GatekeeperStatus
          */
         GatekeeperStatus.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.GatekeeperStatus)
+            if (object instanceof $root.pruntimeRpc.GatekeeperStatus)
                 return object;
-            let message = new $root.pruntime_rpc.GatekeeperStatus();
+            let message = new $root.pruntimeRpc.GatekeeperStatus();
             switch (object.role) {
             case "None":
             case 0:
@@ -1455,17 +1455,17 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                 message.role = 2;
                 break;
             }
-            if (object.master_public_key != null)
-                message.master_public_key = String(object.master_public_key);
+            if (object.masterPublicKey != null)
+                message.masterPublicKey = String(object.masterPublicKey);
             return message;
         };
 
         /**
          * Creates a plain object from a GatekeeperStatus message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.GatekeeperStatus
+         * @memberof pruntimeRpc.GatekeeperStatus
          * @static
-         * @param {pruntime_rpc.GatekeeperStatus} message GatekeeperStatus
+         * @param {pruntimeRpc.GatekeeperStatus} message GatekeeperStatus
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -1475,19 +1475,19 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             let object = {};
             if (options.defaults) {
                 object.role = options.enums === String ? "None" : 0;
-                object.master_public_key = "";
+                object.masterPublicKey = "";
             }
             if (message.role != null && message.hasOwnProperty("role"))
-                object.role = options.enums === String ? $root.pruntime_rpc.GatekeeperRole[message.role] : message.role;
-            if (message.master_public_key != null && message.hasOwnProperty("master_public_key"))
-                object.master_public_key = message.master_public_key;
+                object.role = options.enums === String ? $root.pruntimeRpc.GatekeeperRole[message.role] : message.role;
+            if (message.masterPublicKey != null && message.hasOwnProperty("masterPublicKey"))
+                object.masterPublicKey = message.masterPublicKey;
             return object;
         };
 
         /**
          * Converts this GatekeeperStatus to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.GatekeeperStatus
+         * @memberof pruntimeRpc.GatekeeperStatus
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -1498,24 +1498,24 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return GatekeeperStatus;
     })();
 
-    pruntime_rpc.MemoryUsage = (function() {
+    pruntimeRpc.MemoryUsage = (function() {
 
         /**
          * Properties of a MemoryUsage.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface IMemoryUsage
-         * @property {number|Long|null} [rust_used] MemoryUsage rust_used
-         * @property {number|Long|null} [rust_peak_used] MemoryUsage rust_peak_used
-         * @property {number|Long|null} [total_peak_used] MemoryUsage total_peak_used
+         * @property {number|Long|null} [rustUsed] MemoryUsage rustUsed
+         * @property {number|Long|null} [rustPeakUsed] MemoryUsage rustPeakUsed
+         * @property {number|Long|null} [totalPeakUsed] MemoryUsage totalPeakUsed
          */
 
         /**
          * Constructs a new MemoryUsage.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a MemoryUsage.
          * @implements IMemoryUsage
          * @constructor
-         * @param {pruntime_rpc.IMemoryUsage=} [properties] Properties to set
+         * @param {pruntimeRpc.IMemoryUsage=} [properties] Properties to set
          */
         function MemoryUsage(properties) {
             if (properties)
@@ -1525,68 +1525,68 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         }
 
         /**
-         * MemoryUsage rust_used.
-         * @member {number|Long} rust_used
-         * @memberof pruntime_rpc.MemoryUsage
+         * MemoryUsage rustUsed.
+         * @member {number|Long} rustUsed
+         * @memberof pruntimeRpc.MemoryUsage
          * @instance
          */
-        MemoryUsage.prototype.rust_used = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        MemoryUsage.prototype.rustUsed = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
-         * MemoryUsage rust_peak_used.
-         * @member {number|Long} rust_peak_used
-         * @memberof pruntime_rpc.MemoryUsage
+         * MemoryUsage rustPeakUsed.
+         * @member {number|Long} rustPeakUsed
+         * @memberof pruntimeRpc.MemoryUsage
          * @instance
          */
-        MemoryUsage.prototype.rust_peak_used = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        MemoryUsage.prototype.rustPeakUsed = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
-         * MemoryUsage total_peak_used.
-         * @member {number|Long} total_peak_used
-         * @memberof pruntime_rpc.MemoryUsage
+         * MemoryUsage totalPeakUsed.
+         * @member {number|Long} totalPeakUsed
+         * @memberof pruntimeRpc.MemoryUsage
          * @instance
          */
-        MemoryUsage.prototype.total_peak_used = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        MemoryUsage.prototype.totalPeakUsed = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
          * Creates a new MemoryUsage instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.MemoryUsage
+         * @memberof pruntimeRpc.MemoryUsage
          * @static
-         * @param {pruntime_rpc.IMemoryUsage=} [properties] Properties to set
-         * @returns {pruntime_rpc.MemoryUsage} MemoryUsage instance
+         * @param {pruntimeRpc.IMemoryUsage=} [properties] Properties to set
+         * @returns {pruntimeRpc.MemoryUsage} MemoryUsage instance
          */
         MemoryUsage.create = function create(properties) {
             return new MemoryUsage(properties);
         };
 
         /**
-         * Encodes the specified MemoryUsage message. Does not implicitly {@link pruntime_rpc.MemoryUsage.verify|verify} messages.
+         * Encodes the specified MemoryUsage message. Does not implicitly {@link pruntimeRpc.MemoryUsage.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.MemoryUsage
+         * @memberof pruntimeRpc.MemoryUsage
          * @static
-         * @param {pruntime_rpc.IMemoryUsage} message MemoryUsage message or plain object to encode
+         * @param {pruntimeRpc.IMemoryUsage} message MemoryUsage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
         MemoryUsage.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.rust_used != null && Object.hasOwnProperty.call(message, "rust_used"))
-                writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.rust_used);
-            if (message.rust_peak_used != null && Object.hasOwnProperty.call(message, "rust_peak_used"))
-                writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.rust_peak_used);
-            if (message.total_peak_used != null && Object.hasOwnProperty.call(message, "total_peak_used"))
-                writer.uint32(/* id 3, wireType 0 =*/24).uint64(message.total_peak_used);
+            if (message.rustUsed != null && Object.hasOwnProperty.call(message, "rustUsed"))
+                writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.rustUsed);
+            if (message.rustPeakUsed != null && Object.hasOwnProperty.call(message, "rustPeakUsed"))
+                writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.rustPeakUsed);
+            if (message.totalPeakUsed != null && Object.hasOwnProperty.call(message, "totalPeakUsed"))
+                writer.uint32(/* id 3, wireType 0 =*/24).uint64(message.totalPeakUsed);
             return writer;
         };
 
         /**
-         * Encodes the specified MemoryUsage message, length delimited. Does not implicitly {@link pruntime_rpc.MemoryUsage.verify|verify} messages.
+         * Encodes the specified MemoryUsage message, length delimited. Does not implicitly {@link pruntimeRpc.MemoryUsage.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.MemoryUsage
+         * @memberof pruntimeRpc.MemoryUsage
          * @static
-         * @param {pruntime_rpc.IMemoryUsage} message MemoryUsage message or plain object to encode
+         * @param {pruntimeRpc.IMemoryUsage} message MemoryUsage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1597,29 +1597,29 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a MemoryUsage message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.MemoryUsage
+         * @memberof pruntimeRpc.MemoryUsage
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.MemoryUsage} MemoryUsage
+         * @returns {pruntimeRpc.MemoryUsage} MemoryUsage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         MemoryUsage.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.MemoryUsage();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.MemoryUsage();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.rust_used = reader.uint64();
+                    message.rustUsed = reader.uint64();
                     break;
                 case 2:
-                    message.rust_peak_used = reader.uint64();
+                    message.rustPeakUsed = reader.uint64();
                     break;
                 case 3:
-                    message.total_peak_used = reader.uint64();
+                    message.totalPeakUsed = reader.uint64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1632,10 +1632,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a MemoryUsage message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.MemoryUsage
+         * @memberof pruntimeRpc.MemoryUsage
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.MemoryUsage} MemoryUsage
+         * @returns {pruntimeRpc.MemoryUsage} MemoryUsage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1648,7 +1648,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies a MemoryUsage message.
          * @function verify
-         * @memberof pruntime_rpc.MemoryUsage
+         * @memberof pruntimeRpc.MemoryUsage
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -1656,66 +1656,66 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         MemoryUsage.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.rust_used != null && message.hasOwnProperty("rust_used"))
-                if (!$util.isInteger(message.rust_used) && !(message.rust_used && $util.isInteger(message.rust_used.low) && $util.isInteger(message.rust_used.high)))
-                    return "rust_used: integer|Long expected";
-            if (message.rust_peak_used != null && message.hasOwnProperty("rust_peak_used"))
-                if (!$util.isInteger(message.rust_peak_used) && !(message.rust_peak_used && $util.isInteger(message.rust_peak_used.low) && $util.isInteger(message.rust_peak_used.high)))
-                    return "rust_peak_used: integer|Long expected";
-            if (message.total_peak_used != null && message.hasOwnProperty("total_peak_used"))
-                if (!$util.isInteger(message.total_peak_used) && !(message.total_peak_used && $util.isInteger(message.total_peak_used.low) && $util.isInteger(message.total_peak_used.high)))
-                    return "total_peak_used: integer|Long expected";
+            if (message.rustUsed != null && message.hasOwnProperty("rustUsed"))
+                if (!$util.isInteger(message.rustUsed) && !(message.rustUsed && $util.isInteger(message.rustUsed.low) && $util.isInteger(message.rustUsed.high)))
+                    return "rustUsed: integer|Long expected";
+            if (message.rustPeakUsed != null && message.hasOwnProperty("rustPeakUsed"))
+                if (!$util.isInteger(message.rustPeakUsed) && !(message.rustPeakUsed && $util.isInteger(message.rustPeakUsed.low) && $util.isInteger(message.rustPeakUsed.high)))
+                    return "rustPeakUsed: integer|Long expected";
+            if (message.totalPeakUsed != null && message.hasOwnProperty("totalPeakUsed"))
+                if (!$util.isInteger(message.totalPeakUsed) && !(message.totalPeakUsed && $util.isInteger(message.totalPeakUsed.low) && $util.isInteger(message.totalPeakUsed.high)))
+                    return "totalPeakUsed: integer|Long expected";
             return null;
         };
 
         /**
          * Creates a MemoryUsage message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.MemoryUsage
+         * @memberof pruntimeRpc.MemoryUsage
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.MemoryUsage} MemoryUsage
+         * @returns {pruntimeRpc.MemoryUsage} MemoryUsage
          */
         MemoryUsage.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.MemoryUsage)
+            if (object instanceof $root.pruntimeRpc.MemoryUsage)
                 return object;
-            let message = new $root.pruntime_rpc.MemoryUsage();
-            if (object.rust_used != null)
+            let message = new $root.pruntimeRpc.MemoryUsage();
+            if (object.rustUsed != null)
                 if ($util.Long)
-                    (message.rust_used = $util.Long.fromValue(object.rust_used)).unsigned = true;
-                else if (typeof object.rust_used === "string")
-                    message.rust_used = parseInt(object.rust_used, 10);
-                else if (typeof object.rust_used === "number")
-                    message.rust_used = object.rust_used;
-                else if (typeof object.rust_used === "object")
-                    message.rust_used = new $util.LongBits(object.rust_used.low >>> 0, object.rust_used.high >>> 0).toNumber(true);
-            if (object.rust_peak_used != null)
+                    (message.rustUsed = $util.Long.fromValue(object.rustUsed)).unsigned = true;
+                else if (typeof object.rustUsed === "string")
+                    message.rustUsed = parseInt(object.rustUsed, 10);
+                else if (typeof object.rustUsed === "number")
+                    message.rustUsed = object.rustUsed;
+                else if (typeof object.rustUsed === "object")
+                    message.rustUsed = new $util.LongBits(object.rustUsed.low >>> 0, object.rustUsed.high >>> 0).toNumber(true);
+            if (object.rustPeakUsed != null)
                 if ($util.Long)
-                    (message.rust_peak_used = $util.Long.fromValue(object.rust_peak_used)).unsigned = true;
-                else if (typeof object.rust_peak_used === "string")
-                    message.rust_peak_used = parseInt(object.rust_peak_used, 10);
-                else if (typeof object.rust_peak_used === "number")
-                    message.rust_peak_used = object.rust_peak_used;
-                else if (typeof object.rust_peak_used === "object")
-                    message.rust_peak_used = new $util.LongBits(object.rust_peak_used.low >>> 0, object.rust_peak_used.high >>> 0).toNumber(true);
-            if (object.total_peak_used != null)
+                    (message.rustPeakUsed = $util.Long.fromValue(object.rustPeakUsed)).unsigned = true;
+                else if (typeof object.rustPeakUsed === "string")
+                    message.rustPeakUsed = parseInt(object.rustPeakUsed, 10);
+                else if (typeof object.rustPeakUsed === "number")
+                    message.rustPeakUsed = object.rustPeakUsed;
+                else if (typeof object.rustPeakUsed === "object")
+                    message.rustPeakUsed = new $util.LongBits(object.rustPeakUsed.low >>> 0, object.rustPeakUsed.high >>> 0).toNumber(true);
+            if (object.totalPeakUsed != null)
                 if ($util.Long)
-                    (message.total_peak_used = $util.Long.fromValue(object.total_peak_used)).unsigned = true;
-                else if (typeof object.total_peak_used === "string")
-                    message.total_peak_used = parseInt(object.total_peak_used, 10);
-                else if (typeof object.total_peak_used === "number")
-                    message.total_peak_used = object.total_peak_used;
-                else if (typeof object.total_peak_used === "object")
-                    message.total_peak_used = new $util.LongBits(object.total_peak_used.low >>> 0, object.total_peak_used.high >>> 0).toNumber(true);
+                    (message.totalPeakUsed = $util.Long.fromValue(object.totalPeakUsed)).unsigned = true;
+                else if (typeof object.totalPeakUsed === "string")
+                    message.totalPeakUsed = parseInt(object.totalPeakUsed, 10);
+                else if (typeof object.totalPeakUsed === "number")
+                    message.totalPeakUsed = object.totalPeakUsed;
+                else if (typeof object.totalPeakUsed === "object")
+                    message.totalPeakUsed = new $util.LongBits(object.totalPeakUsed.low >>> 0, object.totalPeakUsed.high >>> 0).toNumber(true);
             return message;
         };
 
         /**
          * Creates a plain object from a MemoryUsage message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.MemoryUsage
+         * @memberof pruntimeRpc.MemoryUsage
          * @static
-         * @param {pruntime_rpc.MemoryUsage} message MemoryUsage
+         * @param {pruntimeRpc.MemoryUsage} message MemoryUsage
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -1726,42 +1726,42 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             if (options.defaults) {
                 if ($util.Long) {
                     let long = new $util.Long(0, 0, true);
-                    object.rust_used = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    object.rustUsed = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
-                    object.rust_used = options.longs === String ? "0" : 0;
+                    object.rustUsed = options.longs === String ? "0" : 0;
                 if ($util.Long) {
                     let long = new $util.Long(0, 0, true);
-                    object.rust_peak_used = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    object.rustPeakUsed = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
-                    object.rust_peak_used = options.longs === String ? "0" : 0;
+                    object.rustPeakUsed = options.longs === String ? "0" : 0;
                 if ($util.Long) {
                     let long = new $util.Long(0, 0, true);
-                    object.total_peak_used = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    object.totalPeakUsed = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
-                    object.total_peak_used = options.longs === String ? "0" : 0;
+                    object.totalPeakUsed = options.longs === String ? "0" : 0;
             }
-            if (message.rust_used != null && message.hasOwnProperty("rust_used"))
-                if (typeof message.rust_used === "number")
-                    object.rust_used = options.longs === String ? String(message.rust_used) : message.rust_used;
+            if (message.rustUsed != null && message.hasOwnProperty("rustUsed"))
+                if (typeof message.rustUsed === "number")
+                    object.rustUsed = options.longs === String ? String(message.rustUsed) : message.rustUsed;
                 else
-                    object.rust_used = options.longs === String ? $util.Long.prototype.toString.call(message.rust_used) : options.longs === Number ? new $util.LongBits(message.rust_used.low >>> 0, message.rust_used.high >>> 0).toNumber(true) : message.rust_used;
-            if (message.rust_peak_used != null && message.hasOwnProperty("rust_peak_used"))
-                if (typeof message.rust_peak_used === "number")
-                    object.rust_peak_used = options.longs === String ? String(message.rust_peak_used) : message.rust_peak_used;
+                    object.rustUsed = options.longs === String ? $util.Long.prototype.toString.call(message.rustUsed) : options.longs === Number ? new $util.LongBits(message.rustUsed.low >>> 0, message.rustUsed.high >>> 0).toNumber(true) : message.rustUsed;
+            if (message.rustPeakUsed != null && message.hasOwnProperty("rustPeakUsed"))
+                if (typeof message.rustPeakUsed === "number")
+                    object.rustPeakUsed = options.longs === String ? String(message.rustPeakUsed) : message.rustPeakUsed;
                 else
-                    object.rust_peak_used = options.longs === String ? $util.Long.prototype.toString.call(message.rust_peak_used) : options.longs === Number ? new $util.LongBits(message.rust_peak_used.low >>> 0, message.rust_peak_used.high >>> 0).toNumber(true) : message.rust_peak_used;
-            if (message.total_peak_used != null && message.hasOwnProperty("total_peak_used"))
-                if (typeof message.total_peak_used === "number")
-                    object.total_peak_used = options.longs === String ? String(message.total_peak_used) : message.total_peak_used;
+                    object.rustPeakUsed = options.longs === String ? $util.Long.prototype.toString.call(message.rustPeakUsed) : options.longs === Number ? new $util.LongBits(message.rustPeakUsed.low >>> 0, message.rustPeakUsed.high >>> 0).toNumber(true) : message.rustPeakUsed;
+            if (message.totalPeakUsed != null && message.hasOwnProperty("totalPeakUsed"))
+                if (typeof message.totalPeakUsed === "number")
+                    object.totalPeakUsed = options.longs === String ? String(message.totalPeakUsed) : message.totalPeakUsed;
                 else
-                    object.total_peak_used = options.longs === String ? $util.Long.prototype.toString.call(message.total_peak_used) : options.longs === Number ? new $util.LongBits(message.total_peak_used.low >>> 0, message.total_peak_used.high >>> 0).toNumber(true) : message.total_peak_used;
+                    object.totalPeakUsed = options.longs === String ? $util.Long.prototype.toString.call(message.totalPeakUsed) : options.longs === Number ? new $util.LongBits(message.totalPeakUsed.low >>> 0, message.totalPeakUsed.high >>> 0).toNumber(true) : message.totalPeakUsed;
             return object;
         };
 
         /**
          * Converts this MemoryUsage to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.MemoryUsage
+         * @memberof pruntimeRpc.MemoryUsage
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -1772,22 +1772,22 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return MemoryUsage;
     })();
 
-    pruntime_rpc.SyncedTo = (function() {
+    pruntimeRpc.SyncedTo = (function() {
 
         /**
          * Properties of a SyncedTo.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface ISyncedTo
-         * @property {number|null} [synced_to] SyncedTo synced_to
+         * @property {number|null} [syncedTo] SyncedTo syncedTo
          */
 
         /**
          * Constructs a new SyncedTo.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a SyncedTo.
          * @implements ISyncedTo
          * @constructor
-         * @param {pruntime_rpc.ISyncedTo=} [properties] Properties to set
+         * @param {pruntimeRpc.ISyncedTo=} [properties] Properties to set
          */
         function SyncedTo(properties) {
             if (properties)
@@ -1797,48 +1797,48 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         }
 
         /**
-         * SyncedTo synced_to.
-         * @member {number} synced_to
-         * @memberof pruntime_rpc.SyncedTo
+         * SyncedTo syncedTo.
+         * @member {number} syncedTo
+         * @memberof pruntimeRpc.SyncedTo
          * @instance
          */
-        SyncedTo.prototype.synced_to = 0;
+        SyncedTo.prototype.syncedTo = 0;
 
         /**
          * Creates a new SyncedTo instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.SyncedTo
+         * @memberof pruntimeRpc.SyncedTo
          * @static
-         * @param {pruntime_rpc.ISyncedTo=} [properties] Properties to set
-         * @returns {pruntime_rpc.SyncedTo} SyncedTo instance
+         * @param {pruntimeRpc.ISyncedTo=} [properties] Properties to set
+         * @returns {pruntimeRpc.SyncedTo} SyncedTo instance
          */
         SyncedTo.create = function create(properties) {
             return new SyncedTo(properties);
         };
 
         /**
-         * Encodes the specified SyncedTo message. Does not implicitly {@link pruntime_rpc.SyncedTo.verify|verify} messages.
+         * Encodes the specified SyncedTo message. Does not implicitly {@link pruntimeRpc.SyncedTo.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.SyncedTo
+         * @memberof pruntimeRpc.SyncedTo
          * @static
-         * @param {pruntime_rpc.ISyncedTo} message SyncedTo message or plain object to encode
+         * @param {pruntimeRpc.ISyncedTo} message SyncedTo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
         SyncedTo.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.synced_to != null && Object.hasOwnProperty.call(message, "synced_to"))
-                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.synced_to);
+            if (message.syncedTo != null && Object.hasOwnProperty.call(message, "syncedTo"))
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.syncedTo);
             return writer;
         };
 
         /**
-         * Encodes the specified SyncedTo message, length delimited. Does not implicitly {@link pruntime_rpc.SyncedTo.verify|verify} messages.
+         * Encodes the specified SyncedTo message, length delimited. Does not implicitly {@link pruntimeRpc.SyncedTo.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.SyncedTo
+         * @memberof pruntimeRpc.SyncedTo
          * @static
-         * @param {pruntime_rpc.ISyncedTo} message SyncedTo message or plain object to encode
+         * @param {pruntimeRpc.ISyncedTo} message SyncedTo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1849,23 +1849,23 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a SyncedTo message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.SyncedTo
+         * @memberof pruntimeRpc.SyncedTo
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.SyncedTo} SyncedTo
+         * @returns {pruntimeRpc.SyncedTo} SyncedTo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         SyncedTo.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.SyncedTo();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.SyncedTo();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.synced_to = reader.uint32();
+                    message.syncedTo = reader.uint32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1878,10 +1878,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a SyncedTo message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.SyncedTo
+         * @memberof pruntimeRpc.SyncedTo
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.SyncedTo} SyncedTo
+         * @returns {pruntimeRpc.SyncedTo} SyncedTo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -1894,7 +1894,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies a SyncedTo message.
          * @function verify
-         * @memberof pruntime_rpc.SyncedTo
+         * @memberof pruntimeRpc.SyncedTo
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -1902,35 +1902,35 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         SyncedTo.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.synced_to != null && message.hasOwnProperty("synced_to"))
-                if (!$util.isInteger(message.synced_to))
-                    return "synced_to: integer expected";
+            if (message.syncedTo != null && message.hasOwnProperty("syncedTo"))
+                if (!$util.isInteger(message.syncedTo))
+                    return "syncedTo: integer expected";
             return null;
         };
 
         /**
          * Creates a SyncedTo message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.SyncedTo
+         * @memberof pruntimeRpc.SyncedTo
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.SyncedTo} SyncedTo
+         * @returns {pruntimeRpc.SyncedTo} SyncedTo
          */
         SyncedTo.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.SyncedTo)
+            if (object instanceof $root.pruntimeRpc.SyncedTo)
                 return object;
-            let message = new $root.pruntime_rpc.SyncedTo();
-            if (object.synced_to != null)
-                message.synced_to = object.synced_to >>> 0;
+            let message = new $root.pruntimeRpc.SyncedTo();
+            if (object.syncedTo != null)
+                message.syncedTo = object.syncedTo >>> 0;
             return message;
         };
 
         /**
          * Creates a plain object from a SyncedTo message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.SyncedTo
+         * @memberof pruntimeRpc.SyncedTo
          * @static
-         * @param {pruntime_rpc.SyncedTo} message SyncedTo
+         * @param {pruntimeRpc.SyncedTo} message SyncedTo
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -1939,16 +1939,16 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                 options = {};
             let object = {};
             if (options.defaults)
-                object.synced_to = 0;
-            if (message.synced_to != null && message.hasOwnProperty("synced_to"))
-                object.synced_to = message.synced_to;
+                object.syncedTo = 0;
+            if (message.syncedTo != null && message.hasOwnProperty("syncedTo"))
+                object.syncedTo = message.syncedTo;
             return object;
         };
 
         /**
          * Converts this SyncedTo to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.SyncedTo
+         * @memberof pruntimeRpc.SyncedTo
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -1959,23 +1959,23 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return SyncedTo;
     })();
 
-    pruntime_rpc.HeadersToSync = (function() {
+    pruntimeRpc.HeadersToSync = (function() {
 
         /**
          * Properties of a HeadersToSync.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface IHeadersToSync
-         * @property {Uint8Array|null} [encoded_headers] HeadersToSync encoded_headers
-         * @property {Uint8Array|null} [encoded_authority_set_change] HeadersToSync encoded_authority_set_change
+         * @property {Uint8Array|null} [encodedHeaders] HeadersToSync encodedHeaders
+         * @property {Uint8Array|null} [encodedAuthoritySetChange] HeadersToSync encodedAuthoritySetChange
          */
 
         /**
          * Constructs a new HeadersToSync.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a HeadersToSync.
          * @implements IHeadersToSync
          * @constructor
-         * @param {pruntime_rpc.IHeadersToSync=} [properties] Properties to set
+         * @param {pruntimeRpc.IHeadersToSync=} [properties] Properties to set
          */
         function HeadersToSync(properties) {
             if (properties)
@@ -1985,72 +1985,72 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         }
 
         /**
-         * HeadersToSync encoded_headers.
-         * @member {Uint8Array} encoded_headers
-         * @memberof pruntime_rpc.HeadersToSync
+         * HeadersToSync encodedHeaders.
+         * @member {Uint8Array} encodedHeaders
+         * @memberof pruntimeRpc.HeadersToSync
          * @instance
          */
-        HeadersToSync.prototype.encoded_headers = $util.newBuffer([]);
+        HeadersToSync.prototype.encodedHeaders = $util.newBuffer([]);
 
         /**
-         * HeadersToSync encoded_authority_set_change.
-         * @member {Uint8Array|null|undefined} encoded_authority_set_change
-         * @memberof pruntime_rpc.HeadersToSync
+         * HeadersToSync encodedAuthoritySetChange.
+         * @member {Uint8Array|null|undefined} encodedAuthoritySetChange
+         * @memberof pruntimeRpc.HeadersToSync
          * @instance
          */
-        HeadersToSync.prototype.encoded_authority_set_change = null;
+        HeadersToSync.prototype.encodedAuthoritySetChange = null;
 
         // OneOf field names bound to virtual getters and setters
         let $oneOfFields;
 
         /**
-         * HeadersToSync _encoded_authority_set_change.
-         * @member {"encoded_authority_set_change"|undefined} _encoded_authority_set_change
-         * @memberof pruntime_rpc.HeadersToSync
+         * HeadersToSync _encodedAuthoritySetChange.
+         * @member {"encodedAuthoritySetChange"|undefined} _encodedAuthoritySetChange
+         * @memberof pruntimeRpc.HeadersToSync
          * @instance
          */
-        Object.defineProperty(HeadersToSync.prototype, "_encoded_authority_set_change", {
-            get: $util.oneOfGetter($oneOfFields = ["encoded_authority_set_change"]),
+        Object.defineProperty(HeadersToSync.prototype, "_encodedAuthoritySetChange", {
+            get: $util.oneOfGetter($oneOfFields = ["encodedAuthoritySetChange"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         /**
          * Creates a new HeadersToSync instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.HeadersToSync
+         * @memberof pruntimeRpc.HeadersToSync
          * @static
-         * @param {pruntime_rpc.IHeadersToSync=} [properties] Properties to set
-         * @returns {pruntime_rpc.HeadersToSync} HeadersToSync instance
+         * @param {pruntimeRpc.IHeadersToSync=} [properties] Properties to set
+         * @returns {pruntimeRpc.HeadersToSync} HeadersToSync instance
          */
         HeadersToSync.create = function create(properties) {
             return new HeadersToSync(properties);
         };
 
         /**
-         * Encodes the specified HeadersToSync message. Does not implicitly {@link pruntime_rpc.HeadersToSync.verify|verify} messages.
+         * Encodes the specified HeadersToSync message. Does not implicitly {@link pruntimeRpc.HeadersToSync.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.HeadersToSync
+         * @memberof pruntimeRpc.HeadersToSync
          * @static
-         * @param {pruntime_rpc.IHeadersToSync} message HeadersToSync message or plain object to encode
+         * @param {pruntimeRpc.IHeadersToSync} message HeadersToSync message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
         HeadersToSync.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.encoded_headers != null && Object.hasOwnProperty.call(message, "encoded_headers"))
-                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.encoded_headers);
-            if (message.encoded_authority_set_change != null && Object.hasOwnProperty.call(message, "encoded_authority_set_change"))
-                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.encoded_authority_set_change);
+            if (message.encodedHeaders != null && Object.hasOwnProperty.call(message, "encodedHeaders"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.encodedHeaders);
+            if (message.encodedAuthoritySetChange != null && Object.hasOwnProperty.call(message, "encodedAuthoritySetChange"))
+                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.encodedAuthoritySetChange);
             return writer;
         };
 
         /**
-         * Encodes the specified HeadersToSync message, length delimited. Does not implicitly {@link pruntime_rpc.HeadersToSync.verify|verify} messages.
+         * Encodes the specified HeadersToSync message, length delimited. Does not implicitly {@link pruntimeRpc.HeadersToSync.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.HeadersToSync
+         * @memberof pruntimeRpc.HeadersToSync
          * @static
-         * @param {pruntime_rpc.IHeadersToSync} message HeadersToSync message or plain object to encode
+         * @param {pruntimeRpc.IHeadersToSync} message HeadersToSync message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2061,26 +2061,26 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a HeadersToSync message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.HeadersToSync
+         * @memberof pruntimeRpc.HeadersToSync
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.HeadersToSync} HeadersToSync
+         * @returns {pruntimeRpc.HeadersToSync} HeadersToSync
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         HeadersToSync.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.HeadersToSync();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.HeadersToSync();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.encoded_headers = reader.bytes();
+                    message.encodedHeaders = reader.bytes();
                     break;
                 case 2:
-                    message.encoded_authority_set_change = reader.bytes();
+                    message.encodedAuthoritySetChange = reader.bytes();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2093,10 +2093,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a HeadersToSync message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.HeadersToSync
+         * @memberof pruntimeRpc.HeadersToSync
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.HeadersToSync} HeadersToSync
+         * @returns {pruntimeRpc.HeadersToSync} HeadersToSync
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2109,7 +2109,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies a HeadersToSync message.
          * @function verify
-         * @memberof pruntime_rpc.HeadersToSync
+         * @memberof pruntimeRpc.HeadersToSync
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -2118,13 +2118,13 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             let properties = {};
-            if (message.encoded_headers != null && message.hasOwnProperty("encoded_headers"))
-                if (!(message.encoded_headers && typeof message.encoded_headers.length === "number" || $util.isString(message.encoded_headers)))
-                    return "encoded_headers: buffer expected";
-            if (message.encoded_authority_set_change != null && message.hasOwnProperty("encoded_authority_set_change")) {
-                properties._encoded_authority_set_change = 1;
-                if (!(message.encoded_authority_set_change && typeof message.encoded_authority_set_change.length === "number" || $util.isString(message.encoded_authority_set_change)))
-                    return "encoded_authority_set_change: buffer expected";
+            if (message.encodedHeaders != null && message.hasOwnProperty("encodedHeaders"))
+                if (!(message.encodedHeaders && typeof message.encodedHeaders.length === "number" || $util.isString(message.encodedHeaders)))
+                    return "encodedHeaders: buffer expected";
+            if (message.encodedAuthoritySetChange != null && message.hasOwnProperty("encodedAuthoritySetChange")) {
+                properties._encodedAuthoritySetChange = 1;
+                if (!(message.encodedAuthoritySetChange && typeof message.encodedAuthoritySetChange.length === "number" || $util.isString(message.encodedAuthoritySetChange)))
+                    return "encodedAuthoritySetChange: buffer expected";
             }
             return null;
         };
@@ -2132,34 +2132,34 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a HeadersToSync message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.HeadersToSync
+         * @memberof pruntimeRpc.HeadersToSync
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.HeadersToSync} HeadersToSync
+         * @returns {pruntimeRpc.HeadersToSync} HeadersToSync
          */
         HeadersToSync.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.HeadersToSync)
+            if (object instanceof $root.pruntimeRpc.HeadersToSync)
                 return object;
-            let message = new $root.pruntime_rpc.HeadersToSync();
-            if (object.encoded_headers != null)
-                if (typeof object.encoded_headers === "string")
-                    $util.base64.decode(object.encoded_headers, message.encoded_headers = $util.newBuffer($util.base64.length(object.encoded_headers)), 0);
-                else if (object.encoded_headers.length)
-                    message.encoded_headers = object.encoded_headers;
-            if (object.encoded_authority_set_change != null)
-                if (typeof object.encoded_authority_set_change === "string")
-                    $util.base64.decode(object.encoded_authority_set_change, message.encoded_authority_set_change = $util.newBuffer($util.base64.length(object.encoded_authority_set_change)), 0);
-                else if (object.encoded_authority_set_change.length)
-                    message.encoded_authority_set_change = object.encoded_authority_set_change;
+            let message = new $root.pruntimeRpc.HeadersToSync();
+            if (object.encodedHeaders != null)
+                if (typeof object.encodedHeaders === "string")
+                    $util.base64.decode(object.encodedHeaders, message.encodedHeaders = $util.newBuffer($util.base64.length(object.encodedHeaders)), 0);
+                else if (object.encodedHeaders.length)
+                    message.encodedHeaders = object.encodedHeaders;
+            if (object.encodedAuthoritySetChange != null)
+                if (typeof object.encodedAuthoritySetChange === "string")
+                    $util.base64.decode(object.encodedAuthoritySetChange, message.encodedAuthoritySetChange = $util.newBuffer($util.base64.length(object.encodedAuthoritySetChange)), 0);
+                else if (object.encodedAuthoritySetChange.length)
+                    message.encodedAuthoritySetChange = object.encodedAuthoritySetChange;
             return message;
         };
 
         /**
          * Creates a plain object from a HeadersToSync message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.HeadersToSync
+         * @memberof pruntimeRpc.HeadersToSync
          * @static
-         * @param {pruntime_rpc.HeadersToSync} message HeadersToSync
+         * @param {pruntimeRpc.HeadersToSync} message HeadersToSync
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -2169,18 +2169,18 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             let object = {};
             if (options.defaults)
                 if (options.bytes === String)
-                    object.encoded_headers = "";
+                    object.encodedHeaders = "";
                 else {
-                    object.encoded_headers = [];
+                    object.encodedHeaders = [];
                     if (options.bytes !== Array)
-                        object.encoded_headers = $util.newBuffer(object.encoded_headers);
+                        object.encodedHeaders = $util.newBuffer(object.encodedHeaders);
                 }
-            if (message.encoded_headers != null && message.hasOwnProperty("encoded_headers"))
-                object.encoded_headers = options.bytes === String ? $util.base64.encode(message.encoded_headers, 0, message.encoded_headers.length) : options.bytes === Array ? Array.prototype.slice.call(message.encoded_headers) : message.encoded_headers;
-            if (message.encoded_authority_set_change != null && message.hasOwnProperty("encoded_authority_set_change")) {
-                object.encoded_authority_set_change = options.bytes === String ? $util.base64.encode(message.encoded_authority_set_change, 0, message.encoded_authority_set_change.length) : options.bytes === Array ? Array.prototype.slice.call(message.encoded_authority_set_change) : message.encoded_authority_set_change;
+            if (message.encodedHeaders != null && message.hasOwnProperty("encodedHeaders"))
+                object.encodedHeaders = options.bytes === String ? $util.base64.encode(message.encodedHeaders, 0, message.encodedHeaders.length) : options.bytes === Array ? Array.prototype.slice.call(message.encodedHeaders) : message.encodedHeaders;
+            if (message.encodedAuthoritySetChange != null && message.hasOwnProperty("encodedAuthoritySetChange")) {
+                object.encodedAuthoritySetChange = options.bytes === String ? $util.base64.encode(message.encodedAuthoritySetChange, 0, message.encodedAuthoritySetChange.length) : options.bytes === Array ? Array.prototype.slice.call(message.encodedAuthoritySetChange) : message.encodedAuthoritySetChange;
                 if (options.oneofs)
-                    object._encoded_authority_set_change = "encoded_authority_set_change";
+                    object._encodedAuthoritySetChange = "encodedAuthoritySetChange";
             }
             return object;
         };
@@ -2188,7 +2188,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Converts this HeadersToSync to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.HeadersToSync
+         * @memberof pruntimeRpc.HeadersToSync
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -2199,23 +2199,23 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return HeadersToSync;
     })();
 
-    pruntime_rpc.ParaHeadersToSync = (function() {
+    pruntimeRpc.ParaHeadersToSync = (function() {
 
         /**
          * Properties of a ParaHeadersToSync.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface IParaHeadersToSync
-         * @property {Uint8Array|null} [encoded_headers] ParaHeadersToSync encoded_headers
+         * @property {Uint8Array|null} [encodedHeaders] ParaHeadersToSync encodedHeaders
          * @property {Array.<Uint8Array>|null} [proof] ParaHeadersToSync proof
          */
 
         /**
          * Constructs a new ParaHeadersToSync.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a ParaHeadersToSync.
          * @implements IParaHeadersToSync
          * @constructor
-         * @param {pruntime_rpc.IParaHeadersToSync=} [properties] Properties to set
+         * @param {pruntimeRpc.IParaHeadersToSync=} [properties] Properties to set
          */
         function ParaHeadersToSync(properties) {
             this.proof = [];
@@ -2226,17 +2226,17 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         }
 
         /**
-         * ParaHeadersToSync encoded_headers.
-         * @member {Uint8Array} encoded_headers
-         * @memberof pruntime_rpc.ParaHeadersToSync
+         * ParaHeadersToSync encodedHeaders.
+         * @member {Uint8Array} encodedHeaders
+         * @memberof pruntimeRpc.ParaHeadersToSync
          * @instance
          */
-        ParaHeadersToSync.prototype.encoded_headers = $util.newBuffer([]);
+        ParaHeadersToSync.prototype.encodedHeaders = $util.newBuffer([]);
 
         /**
          * ParaHeadersToSync proof.
          * @member {Array.<Uint8Array>} proof
-         * @memberof pruntime_rpc.ParaHeadersToSync
+         * @memberof pruntimeRpc.ParaHeadersToSync
          * @instance
          */
         ParaHeadersToSync.prototype.proof = $util.emptyArray;
@@ -2244,29 +2244,29 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a new ParaHeadersToSync instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.ParaHeadersToSync
+         * @memberof pruntimeRpc.ParaHeadersToSync
          * @static
-         * @param {pruntime_rpc.IParaHeadersToSync=} [properties] Properties to set
-         * @returns {pruntime_rpc.ParaHeadersToSync} ParaHeadersToSync instance
+         * @param {pruntimeRpc.IParaHeadersToSync=} [properties] Properties to set
+         * @returns {pruntimeRpc.ParaHeadersToSync} ParaHeadersToSync instance
          */
         ParaHeadersToSync.create = function create(properties) {
             return new ParaHeadersToSync(properties);
         };
 
         /**
-         * Encodes the specified ParaHeadersToSync message. Does not implicitly {@link pruntime_rpc.ParaHeadersToSync.verify|verify} messages.
+         * Encodes the specified ParaHeadersToSync message. Does not implicitly {@link pruntimeRpc.ParaHeadersToSync.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.ParaHeadersToSync
+         * @memberof pruntimeRpc.ParaHeadersToSync
          * @static
-         * @param {pruntime_rpc.IParaHeadersToSync} message ParaHeadersToSync message or plain object to encode
+         * @param {pruntimeRpc.IParaHeadersToSync} message ParaHeadersToSync message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
         ParaHeadersToSync.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.encoded_headers != null && Object.hasOwnProperty.call(message, "encoded_headers"))
-                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.encoded_headers);
+            if (message.encodedHeaders != null && Object.hasOwnProperty.call(message, "encodedHeaders"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.encodedHeaders);
             if (message.proof != null && message.proof.length)
                 for (let i = 0; i < message.proof.length; ++i)
                     writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.proof[i]);
@@ -2274,11 +2274,11 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         };
 
         /**
-         * Encodes the specified ParaHeadersToSync message, length delimited. Does not implicitly {@link pruntime_rpc.ParaHeadersToSync.verify|verify} messages.
+         * Encodes the specified ParaHeadersToSync message, length delimited. Does not implicitly {@link pruntimeRpc.ParaHeadersToSync.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.ParaHeadersToSync
+         * @memberof pruntimeRpc.ParaHeadersToSync
          * @static
-         * @param {pruntime_rpc.IParaHeadersToSync} message ParaHeadersToSync message or plain object to encode
+         * @param {pruntimeRpc.IParaHeadersToSync} message ParaHeadersToSync message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2289,23 +2289,23 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a ParaHeadersToSync message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.ParaHeadersToSync
+         * @memberof pruntimeRpc.ParaHeadersToSync
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.ParaHeadersToSync} ParaHeadersToSync
+         * @returns {pruntimeRpc.ParaHeadersToSync} ParaHeadersToSync
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         ParaHeadersToSync.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.ParaHeadersToSync();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.ParaHeadersToSync();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.encoded_headers = reader.bytes();
+                    message.encodedHeaders = reader.bytes();
                     break;
                 case 2:
                     if (!(message.proof && message.proof.length))
@@ -2323,10 +2323,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a ParaHeadersToSync message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.ParaHeadersToSync
+         * @memberof pruntimeRpc.ParaHeadersToSync
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.ParaHeadersToSync} ParaHeadersToSync
+         * @returns {pruntimeRpc.ParaHeadersToSync} ParaHeadersToSync
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2339,7 +2339,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies a ParaHeadersToSync message.
          * @function verify
-         * @memberof pruntime_rpc.ParaHeadersToSync
+         * @memberof pruntimeRpc.ParaHeadersToSync
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -2347,9 +2347,9 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         ParaHeadersToSync.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.encoded_headers != null && message.hasOwnProperty("encoded_headers"))
-                if (!(message.encoded_headers && typeof message.encoded_headers.length === "number" || $util.isString(message.encoded_headers)))
-                    return "encoded_headers: buffer expected";
+            if (message.encodedHeaders != null && message.hasOwnProperty("encodedHeaders"))
+                if (!(message.encodedHeaders && typeof message.encodedHeaders.length === "number" || $util.isString(message.encodedHeaders)))
+                    return "encodedHeaders: buffer expected";
             if (message.proof != null && message.hasOwnProperty("proof")) {
                 if (!Array.isArray(message.proof))
                     return "proof: array expected";
@@ -2363,23 +2363,23 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a ParaHeadersToSync message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.ParaHeadersToSync
+         * @memberof pruntimeRpc.ParaHeadersToSync
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.ParaHeadersToSync} ParaHeadersToSync
+         * @returns {pruntimeRpc.ParaHeadersToSync} ParaHeadersToSync
          */
         ParaHeadersToSync.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.ParaHeadersToSync)
+            if (object instanceof $root.pruntimeRpc.ParaHeadersToSync)
                 return object;
-            let message = new $root.pruntime_rpc.ParaHeadersToSync();
-            if (object.encoded_headers != null)
-                if (typeof object.encoded_headers === "string")
-                    $util.base64.decode(object.encoded_headers, message.encoded_headers = $util.newBuffer($util.base64.length(object.encoded_headers)), 0);
-                else if (object.encoded_headers.length)
-                    message.encoded_headers = object.encoded_headers;
+            let message = new $root.pruntimeRpc.ParaHeadersToSync();
+            if (object.encodedHeaders != null)
+                if (typeof object.encodedHeaders === "string")
+                    $util.base64.decode(object.encodedHeaders, message.encodedHeaders = $util.newBuffer($util.base64.length(object.encodedHeaders)), 0);
+                else if (object.encodedHeaders.length)
+                    message.encodedHeaders = object.encodedHeaders;
             if (object.proof) {
                 if (!Array.isArray(object.proof))
-                    throw TypeError(".pruntime_rpc.ParaHeadersToSync.proof: array expected");
+                    throw TypeError(".pruntimeRpc.ParaHeadersToSync.proof: array expected");
                 message.proof = [];
                 for (let i = 0; i < object.proof.length; ++i)
                     if (typeof object.proof[i] === "string")
@@ -2393,9 +2393,9 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a plain object from a ParaHeadersToSync message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.ParaHeadersToSync
+         * @memberof pruntimeRpc.ParaHeadersToSync
          * @static
-         * @param {pruntime_rpc.ParaHeadersToSync} message ParaHeadersToSync
+         * @param {pruntimeRpc.ParaHeadersToSync} message ParaHeadersToSync
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -2407,14 +2407,14 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                 object.proof = [];
             if (options.defaults)
                 if (options.bytes === String)
-                    object.encoded_headers = "";
+                    object.encodedHeaders = "";
                 else {
-                    object.encoded_headers = [];
+                    object.encodedHeaders = [];
                     if (options.bytes !== Array)
-                        object.encoded_headers = $util.newBuffer(object.encoded_headers);
+                        object.encodedHeaders = $util.newBuffer(object.encodedHeaders);
                 }
-            if (message.encoded_headers != null && message.hasOwnProperty("encoded_headers"))
-                object.encoded_headers = options.bytes === String ? $util.base64.encode(message.encoded_headers, 0, message.encoded_headers.length) : options.bytes === Array ? Array.prototype.slice.call(message.encoded_headers) : message.encoded_headers;
+            if (message.encodedHeaders != null && message.hasOwnProperty("encodedHeaders"))
+                object.encodedHeaders = options.bytes === String ? $util.base64.encode(message.encodedHeaders, 0, message.encodedHeaders.length) : options.bytes === Array ? Array.prototype.slice.call(message.encodedHeaders) : message.encodedHeaders;
             if (message.proof && message.proof.length) {
                 object.proof = [];
                 for (let j = 0; j < message.proof.length; ++j)
@@ -2426,7 +2426,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Converts this ParaHeadersToSync to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.ParaHeadersToSync
+         * @memberof pruntimeRpc.ParaHeadersToSync
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -2437,25 +2437,25 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return ParaHeadersToSync;
     })();
 
-    pruntime_rpc.CombinedHeadersToSync = (function() {
+    pruntimeRpc.CombinedHeadersToSync = (function() {
 
         /**
          * Properties of a CombinedHeadersToSync.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface ICombinedHeadersToSync
-         * @property {Uint8Array|null} [encoded_relaychain_headers] CombinedHeadersToSync encoded_relaychain_headers
-         * @property {Uint8Array|null} [authority_set_change] CombinedHeadersToSync authority_set_change
-         * @property {Uint8Array|null} [encoded_parachain_headers] CombinedHeadersToSync encoded_parachain_headers
+         * @property {Uint8Array|null} [encodedRelaychainHeaders] CombinedHeadersToSync encodedRelaychainHeaders
+         * @property {Uint8Array|null} [authoritySetChange] CombinedHeadersToSync authoritySetChange
+         * @property {Uint8Array|null} [encodedParachainHeaders] CombinedHeadersToSync encodedParachainHeaders
          * @property {Array.<Uint8Array>|null} [proof] CombinedHeadersToSync proof
          */
 
         /**
          * Constructs a new CombinedHeadersToSync.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a CombinedHeadersToSync.
          * @implements ICombinedHeadersToSync
          * @constructor
-         * @param {pruntime_rpc.ICombinedHeadersToSync=} [properties] Properties to set
+         * @param {pruntimeRpc.ICombinedHeadersToSync=} [properties] Properties to set
          */
         function CombinedHeadersToSync(properties) {
             this.proof = [];
@@ -2466,33 +2466,33 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         }
 
         /**
-         * CombinedHeadersToSync encoded_relaychain_headers.
-         * @member {Uint8Array} encoded_relaychain_headers
-         * @memberof pruntime_rpc.CombinedHeadersToSync
+         * CombinedHeadersToSync encodedRelaychainHeaders.
+         * @member {Uint8Array} encodedRelaychainHeaders
+         * @memberof pruntimeRpc.CombinedHeadersToSync
          * @instance
          */
-        CombinedHeadersToSync.prototype.encoded_relaychain_headers = $util.newBuffer([]);
+        CombinedHeadersToSync.prototype.encodedRelaychainHeaders = $util.newBuffer([]);
 
         /**
-         * CombinedHeadersToSync authority_set_change.
-         * @member {Uint8Array|null|undefined} authority_set_change
-         * @memberof pruntime_rpc.CombinedHeadersToSync
+         * CombinedHeadersToSync authoritySetChange.
+         * @member {Uint8Array|null|undefined} authoritySetChange
+         * @memberof pruntimeRpc.CombinedHeadersToSync
          * @instance
          */
-        CombinedHeadersToSync.prototype.authority_set_change = null;
+        CombinedHeadersToSync.prototype.authoritySetChange = null;
 
         /**
-         * CombinedHeadersToSync encoded_parachain_headers.
-         * @member {Uint8Array} encoded_parachain_headers
-         * @memberof pruntime_rpc.CombinedHeadersToSync
+         * CombinedHeadersToSync encodedParachainHeaders.
+         * @member {Uint8Array} encodedParachainHeaders
+         * @memberof pruntimeRpc.CombinedHeadersToSync
          * @instance
          */
-        CombinedHeadersToSync.prototype.encoded_parachain_headers = $util.newBuffer([]);
+        CombinedHeadersToSync.prototype.encodedParachainHeaders = $util.newBuffer([]);
 
         /**
          * CombinedHeadersToSync proof.
          * @member {Array.<Uint8Array>} proof
-         * @memberof pruntime_rpc.CombinedHeadersToSync
+         * @memberof pruntimeRpc.CombinedHeadersToSync
          * @instance
          */
         CombinedHeadersToSync.prototype.proof = $util.emptyArray;
@@ -2501,46 +2501,46 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         let $oneOfFields;
 
         /**
-         * CombinedHeadersToSync _authority_set_change.
-         * @member {"authority_set_change"|undefined} _authority_set_change
-         * @memberof pruntime_rpc.CombinedHeadersToSync
+         * CombinedHeadersToSync _authoritySetChange.
+         * @member {"authoritySetChange"|undefined} _authoritySetChange
+         * @memberof pruntimeRpc.CombinedHeadersToSync
          * @instance
          */
-        Object.defineProperty(CombinedHeadersToSync.prototype, "_authority_set_change", {
-            get: $util.oneOfGetter($oneOfFields = ["authority_set_change"]),
+        Object.defineProperty(CombinedHeadersToSync.prototype, "_authoritySetChange", {
+            get: $util.oneOfGetter($oneOfFields = ["authoritySetChange"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         /**
          * Creates a new CombinedHeadersToSync instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.CombinedHeadersToSync
+         * @memberof pruntimeRpc.CombinedHeadersToSync
          * @static
-         * @param {pruntime_rpc.ICombinedHeadersToSync=} [properties] Properties to set
-         * @returns {pruntime_rpc.CombinedHeadersToSync} CombinedHeadersToSync instance
+         * @param {pruntimeRpc.ICombinedHeadersToSync=} [properties] Properties to set
+         * @returns {pruntimeRpc.CombinedHeadersToSync} CombinedHeadersToSync instance
          */
         CombinedHeadersToSync.create = function create(properties) {
             return new CombinedHeadersToSync(properties);
         };
 
         /**
-         * Encodes the specified CombinedHeadersToSync message. Does not implicitly {@link pruntime_rpc.CombinedHeadersToSync.verify|verify} messages.
+         * Encodes the specified CombinedHeadersToSync message. Does not implicitly {@link pruntimeRpc.CombinedHeadersToSync.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.CombinedHeadersToSync
+         * @memberof pruntimeRpc.CombinedHeadersToSync
          * @static
-         * @param {pruntime_rpc.ICombinedHeadersToSync} message CombinedHeadersToSync message or plain object to encode
+         * @param {pruntimeRpc.ICombinedHeadersToSync} message CombinedHeadersToSync message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
         CombinedHeadersToSync.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.encoded_relaychain_headers != null && Object.hasOwnProperty.call(message, "encoded_relaychain_headers"))
-                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.encoded_relaychain_headers);
-            if (message.authority_set_change != null && Object.hasOwnProperty.call(message, "authority_set_change"))
-                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.authority_set_change);
-            if (message.encoded_parachain_headers != null && Object.hasOwnProperty.call(message, "encoded_parachain_headers"))
-                writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.encoded_parachain_headers);
+            if (message.encodedRelaychainHeaders != null && Object.hasOwnProperty.call(message, "encodedRelaychainHeaders"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.encodedRelaychainHeaders);
+            if (message.authoritySetChange != null && Object.hasOwnProperty.call(message, "authoritySetChange"))
+                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.authoritySetChange);
+            if (message.encodedParachainHeaders != null && Object.hasOwnProperty.call(message, "encodedParachainHeaders"))
+                writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.encodedParachainHeaders);
             if (message.proof != null && message.proof.length)
                 for (let i = 0; i < message.proof.length; ++i)
                     writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.proof[i]);
@@ -2548,11 +2548,11 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         };
 
         /**
-         * Encodes the specified CombinedHeadersToSync message, length delimited. Does not implicitly {@link pruntime_rpc.CombinedHeadersToSync.verify|verify} messages.
+         * Encodes the specified CombinedHeadersToSync message, length delimited. Does not implicitly {@link pruntimeRpc.CombinedHeadersToSync.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.CombinedHeadersToSync
+         * @memberof pruntimeRpc.CombinedHeadersToSync
          * @static
-         * @param {pruntime_rpc.ICombinedHeadersToSync} message CombinedHeadersToSync message or plain object to encode
+         * @param {pruntimeRpc.ICombinedHeadersToSync} message CombinedHeadersToSync message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2563,29 +2563,29 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a CombinedHeadersToSync message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.CombinedHeadersToSync
+         * @memberof pruntimeRpc.CombinedHeadersToSync
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.CombinedHeadersToSync} CombinedHeadersToSync
+         * @returns {pruntimeRpc.CombinedHeadersToSync} CombinedHeadersToSync
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         CombinedHeadersToSync.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.CombinedHeadersToSync();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.CombinedHeadersToSync();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.encoded_relaychain_headers = reader.bytes();
+                    message.encodedRelaychainHeaders = reader.bytes();
                     break;
                 case 2:
-                    message.authority_set_change = reader.bytes();
+                    message.authoritySetChange = reader.bytes();
                     break;
                 case 3:
-                    message.encoded_parachain_headers = reader.bytes();
+                    message.encodedParachainHeaders = reader.bytes();
                     break;
                 case 4:
                     if (!(message.proof && message.proof.length))
@@ -2603,10 +2603,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a CombinedHeadersToSync message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.CombinedHeadersToSync
+         * @memberof pruntimeRpc.CombinedHeadersToSync
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.CombinedHeadersToSync} CombinedHeadersToSync
+         * @returns {pruntimeRpc.CombinedHeadersToSync} CombinedHeadersToSync
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2619,7 +2619,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies a CombinedHeadersToSync message.
          * @function verify
-         * @memberof pruntime_rpc.CombinedHeadersToSync
+         * @memberof pruntimeRpc.CombinedHeadersToSync
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -2628,17 +2628,17 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             let properties = {};
-            if (message.encoded_relaychain_headers != null && message.hasOwnProperty("encoded_relaychain_headers"))
-                if (!(message.encoded_relaychain_headers && typeof message.encoded_relaychain_headers.length === "number" || $util.isString(message.encoded_relaychain_headers)))
-                    return "encoded_relaychain_headers: buffer expected";
-            if (message.authority_set_change != null && message.hasOwnProperty("authority_set_change")) {
-                properties._authority_set_change = 1;
-                if (!(message.authority_set_change && typeof message.authority_set_change.length === "number" || $util.isString(message.authority_set_change)))
-                    return "authority_set_change: buffer expected";
+            if (message.encodedRelaychainHeaders != null && message.hasOwnProperty("encodedRelaychainHeaders"))
+                if (!(message.encodedRelaychainHeaders && typeof message.encodedRelaychainHeaders.length === "number" || $util.isString(message.encodedRelaychainHeaders)))
+                    return "encodedRelaychainHeaders: buffer expected";
+            if (message.authoritySetChange != null && message.hasOwnProperty("authoritySetChange")) {
+                properties._authoritySetChange = 1;
+                if (!(message.authoritySetChange && typeof message.authoritySetChange.length === "number" || $util.isString(message.authoritySetChange)))
+                    return "authoritySetChange: buffer expected";
             }
-            if (message.encoded_parachain_headers != null && message.hasOwnProperty("encoded_parachain_headers"))
-                if (!(message.encoded_parachain_headers && typeof message.encoded_parachain_headers.length === "number" || $util.isString(message.encoded_parachain_headers)))
-                    return "encoded_parachain_headers: buffer expected";
+            if (message.encodedParachainHeaders != null && message.hasOwnProperty("encodedParachainHeaders"))
+                if (!(message.encodedParachainHeaders && typeof message.encodedParachainHeaders.length === "number" || $util.isString(message.encodedParachainHeaders)))
+                    return "encodedParachainHeaders: buffer expected";
             if (message.proof != null && message.hasOwnProperty("proof")) {
                 if (!Array.isArray(message.proof))
                     return "proof: array expected";
@@ -2652,33 +2652,33 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a CombinedHeadersToSync message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.CombinedHeadersToSync
+         * @memberof pruntimeRpc.CombinedHeadersToSync
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.CombinedHeadersToSync} CombinedHeadersToSync
+         * @returns {pruntimeRpc.CombinedHeadersToSync} CombinedHeadersToSync
          */
         CombinedHeadersToSync.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.CombinedHeadersToSync)
+            if (object instanceof $root.pruntimeRpc.CombinedHeadersToSync)
                 return object;
-            let message = new $root.pruntime_rpc.CombinedHeadersToSync();
-            if (object.encoded_relaychain_headers != null)
-                if (typeof object.encoded_relaychain_headers === "string")
-                    $util.base64.decode(object.encoded_relaychain_headers, message.encoded_relaychain_headers = $util.newBuffer($util.base64.length(object.encoded_relaychain_headers)), 0);
-                else if (object.encoded_relaychain_headers.length)
-                    message.encoded_relaychain_headers = object.encoded_relaychain_headers;
-            if (object.authority_set_change != null)
-                if (typeof object.authority_set_change === "string")
-                    $util.base64.decode(object.authority_set_change, message.authority_set_change = $util.newBuffer($util.base64.length(object.authority_set_change)), 0);
-                else if (object.authority_set_change.length)
-                    message.authority_set_change = object.authority_set_change;
-            if (object.encoded_parachain_headers != null)
-                if (typeof object.encoded_parachain_headers === "string")
-                    $util.base64.decode(object.encoded_parachain_headers, message.encoded_parachain_headers = $util.newBuffer($util.base64.length(object.encoded_parachain_headers)), 0);
-                else if (object.encoded_parachain_headers.length)
-                    message.encoded_parachain_headers = object.encoded_parachain_headers;
+            let message = new $root.pruntimeRpc.CombinedHeadersToSync();
+            if (object.encodedRelaychainHeaders != null)
+                if (typeof object.encodedRelaychainHeaders === "string")
+                    $util.base64.decode(object.encodedRelaychainHeaders, message.encodedRelaychainHeaders = $util.newBuffer($util.base64.length(object.encodedRelaychainHeaders)), 0);
+                else if (object.encodedRelaychainHeaders.length)
+                    message.encodedRelaychainHeaders = object.encodedRelaychainHeaders;
+            if (object.authoritySetChange != null)
+                if (typeof object.authoritySetChange === "string")
+                    $util.base64.decode(object.authoritySetChange, message.authoritySetChange = $util.newBuffer($util.base64.length(object.authoritySetChange)), 0);
+                else if (object.authoritySetChange.length)
+                    message.authoritySetChange = object.authoritySetChange;
+            if (object.encodedParachainHeaders != null)
+                if (typeof object.encodedParachainHeaders === "string")
+                    $util.base64.decode(object.encodedParachainHeaders, message.encodedParachainHeaders = $util.newBuffer($util.base64.length(object.encodedParachainHeaders)), 0);
+                else if (object.encodedParachainHeaders.length)
+                    message.encodedParachainHeaders = object.encodedParachainHeaders;
             if (object.proof) {
                 if (!Array.isArray(object.proof))
-                    throw TypeError(".pruntime_rpc.CombinedHeadersToSync.proof: array expected");
+                    throw TypeError(".pruntimeRpc.CombinedHeadersToSync.proof: array expected");
                 message.proof = [];
                 for (let i = 0; i < object.proof.length; ++i)
                     if (typeof object.proof[i] === "string")
@@ -2692,9 +2692,9 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a plain object from a CombinedHeadersToSync message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.CombinedHeadersToSync
+         * @memberof pruntimeRpc.CombinedHeadersToSync
          * @static
-         * @param {pruntime_rpc.CombinedHeadersToSync} message CombinedHeadersToSync
+         * @param {pruntimeRpc.CombinedHeadersToSync} message CombinedHeadersToSync
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -2706,29 +2706,29 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                 object.proof = [];
             if (options.defaults) {
                 if (options.bytes === String)
-                    object.encoded_relaychain_headers = "";
+                    object.encodedRelaychainHeaders = "";
                 else {
-                    object.encoded_relaychain_headers = [];
+                    object.encodedRelaychainHeaders = [];
                     if (options.bytes !== Array)
-                        object.encoded_relaychain_headers = $util.newBuffer(object.encoded_relaychain_headers);
+                        object.encodedRelaychainHeaders = $util.newBuffer(object.encodedRelaychainHeaders);
                 }
                 if (options.bytes === String)
-                    object.encoded_parachain_headers = "";
+                    object.encodedParachainHeaders = "";
                 else {
-                    object.encoded_parachain_headers = [];
+                    object.encodedParachainHeaders = [];
                     if (options.bytes !== Array)
-                        object.encoded_parachain_headers = $util.newBuffer(object.encoded_parachain_headers);
+                        object.encodedParachainHeaders = $util.newBuffer(object.encodedParachainHeaders);
                 }
             }
-            if (message.encoded_relaychain_headers != null && message.hasOwnProperty("encoded_relaychain_headers"))
-                object.encoded_relaychain_headers = options.bytes === String ? $util.base64.encode(message.encoded_relaychain_headers, 0, message.encoded_relaychain_headers.length) : options.bytes === Array ? Array.prototype.slice.call(message.encoded_relaychain_headers) : message.encoded_relaychain_headers;
-            if (message.authority_set_change != null && message.hasOwnProperty("authority_set_change")) {
-                object.authority_set_change = options.bytes === String ? $util.base64.encode(message.authority_set_change, 0, message.authority_set_change.length) : options.bytes === Array ? Array.prototype.slice.call(message.authority_set_change) : message.authority_set_change;
+            if (message.encodedRelaychainHeaders != null && message.hasOwnProperty("encodedRelaychainHeaders"))
+                object.encodedRelaychainHeaders = options.bytes === String ? $util.base64.encode(message.encodedRelaychainHeaders, 0, message.encodedRelaychainHeaders.length) : options.bytes === Array ? Array.prototype.slice.call(message.encodedRelaychainHeaders) : message.encodedRelaychainHeaders;
+            if (message.authoritySetChange != null && message.hasOwnProperty("authoritySetChange")) {
+                object.authoritySetChange = options.bytes === String ? $util.base64.encode(message.authoritySetChange, 0, message.authoritySetChange.length) : options.bytes === Array ? Array.prototype.slice.call(message.authoritySetChange) : message.authoritySetChange;
                 if (options.oneofs)
-                    object._authority_set_change = "authority_set_change";
+                    object._authoritySetChange = "authoritySetChange";
             }
-            if (message.encoded_parachain_headers != null && message.hasOwnProperty("encoded_parachain_headers"))
-                object.encoded_parachain_headers = options.bytes === String ? $util.base64.encode(message.encoded_parachain_headers, 0, message.encoded_parachain_headers.length) : options.bytes === Array ? Array.prototype.slice.call(message.encoded_parachain_headers) : message.encoded_parachain_headers;
+            if (message.encodedParachainHeaders != null && message.hasOwnProperty("encodedParachainHeaders"))
+                object.encodedParachainHeaders = options.bytes === String ? $util.base64.encode(message.encodedParachainHeaders, 0, message.encodedParachainHeaders.length) : options.bytes === Array ? Array.prototype.slice.call(message.encodedParachainHeaders) : message.encodedParachainHeaders;
             if (message.proof && message.proof.length) {
                 object.proof = [];
                 for (let j = 0; j < message.proof.length; ++j)
@@ -2740,7 +2740,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Converts this CombinedHeadersToSync to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.CombinedHeadersToSync
+         * @memberof pruntimeRpc.CombinedHeadersToSync
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -2751,23 +2751,23 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return CombinedHeadersToSync;
     })();
 
-    pruntime_rpc.HeadersSyncedTo = (function() {
+    pruntimeRpc.HeadersSyncedTo = (function() {
 
         /**
          * Properties of a HeadersSyncedTo.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface IHeadersSyncedTo
-         * @property {number|null} [relaychain_synced_to] HeadersSyncedTo relaychain_synced_to
-         * @property {number|null} [parachain_synced_to] HeadersSyncedTo parachain_synced_to
+         * @property {number|null} [relaychainSyncedTo] HeadersSyncedTo relaychainSyncedTo
+         * @property {number|null} [parachainSyncedTo] HeadersSyncedTo parachainSyncedTo
          */
 
         /**
          * Constructs a new HeadersSyncedTo.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a HeadersSyncedTo.
          * @implements IHeadersSyncedTo
          * @constructor
-         * @param {pruntime_rpc.IHeadersSyncedTo=} [properties] Properties to set
+         * @param {pruntimeRpc.IHeadersSyncedTo=} [properties] Properties to set
          */
         function HeadersSyncedTo(properties) {
             if (properties)
@@ -2777,58 +2777,58 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         }
 
         /**
-         * HeadersSyncedTo relaychain_synced_to.
-         * @member {number} relaychain_synced_to
-         * @memberof pruntime_rpc.HeadersSyncedTo
+         * HeadersSyncedTo relaychainSyncedTo.
+         * @member {number} relaychainSyncedTo
+         * @memberof pruntimeRpc.HeadersSyncedTo
          * @instance
          */
-        HeadersSyncedTo.prototype.relaychain_synced_to = 0;
+        HeadersSyncedTo.prototype.relaychainSyncedTo = 0;
 
         /**
-         * HeadersSyncedTo parachain_synced_to.
-         * @member {number} parachain_synced_to
-         * @memberof pruntime_rpc.HeadersSyncedTo
+         * HeadersSyncedTo parachainSyncedTo.
+         * @member {number} parachainSyncedTo
+         * @memberof pruntimeRpc.HeadersSyncedTo
          * @instance
          */
-        HeadersSyncedTo.prototype.parachain_synced_to = 0;
+        HeadersSyncedTo.prototype.parachainSyncedTo = 0;
 
         /**
          * Creates a new HeadersSyncedTo instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.HeadersSyncedTo
+         * @memberof pruntimeRpc.HeadersSyncedTo
          * @static
-         * @param {pruntime_rpc.IHeadersSyncedTo=} [properties] Properties to set
-         * @returns {pruntime_rpc.HeadersSyncedTo} HeadersSyncedTo instance
+         * @param {pruntimeRpc.IHeadersSyncedTo=} [properties] Properties to set
+         * @returns {pruntimeRpc.HeadersSyncedTo} HeadersSyncedTo instance
          */
         HeadersSyncedTo.create = function create(properties) {
             return new HeadersSyncedTo(properties);
         };
 
         /**
-         * Encodes the specified HeadersSyncedTo message. Does not implicitly {@link pruntime_rpc.HeadersSyncedTo.verify|verify} messages.
+         * Encodes the specified HeadersSyncedTo message. Does not implicitly {@link pruntimeRpc.HeadersSyncedTo.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.HeadersSyncedTo
+         * @memberof pruntimeRpc.HeadersSyncedTo
          * @static
-         * @param {pruntime_rpc.IHeadersSyncedTo} message HeadersSyncedTo message or plain object to encode
+         * @param {pruntimeRpc.IHeadersSyncedTo} message HeadersSyncedTo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
         HeadersSyncedTo.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.relaychain_synced_to != null && Object.hasOwnProperty.call(message, "relaychain_synced_to"))
-                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.relaychain_synced_to);
-            if (message.parachain_synced_to != null && Object.hasOwnProperty.call(message, "parachain_synced_to"))
-                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.parachain_synced_to);
+            if (message.relaychainSyncedTo != null && Object.hasOwnProperty.call(message, "relaychainSyncedTo"))
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.relaychainSyncedTo);
+            if (message.parachainSyncedTo != null && Object.hasOwnProperty.call(message, "parachainSyncedTo"))
+                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.parachainSyncedTo);
             return writer;
         };
 
         /**
-         * Encodes the specified HeadersSyncedTo message, length delimited. Does not implicitly {@link pruntime_rpc.HeadersSyncedTo.verify|verify} messages.
+         * Encodes the specified HeadersSyncedTo message, length delimited. Does not implicitly {@link pruntimeRpc.HeadersSyncedTo.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.HeadersSyncedTo
+         * @memberof pruntimeRpc.HeadersSyncedTo
          * @static
-         * @param {pruntime_rpc.IHeadersSyncedTo} message HeadersSyncedTo message or plain object to encode
+         * @param {pruntimeRpc.IHeadersSyncedTo} message HeadersSyncedTo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2839,26 +2839,26 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a HeadersSyncedTo message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.HeadersSyncedTo
+         * @memberof pruntimeRpc.HeadersSyncedTo
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.HeadersSyncedTo} HeadersSyncedTo
+         * @returns {pruntimeRpc.HeadersSyncedTo} HeadersSyncedTo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         HeadersSyncedTo.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.HeadersSyncedTo();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.HeadersSyncedTo();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.relaychain_synced_to = reader.uint32();
+                    message.relaychainSyncedTo = reader.uint32();
                     break;
                 case 2:
-                    message.parachain_synced_to = reader.uint32();
+                    message.parachainSyncedTo = reader.uint32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2871,10 +2871,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a HeadersSyncedTo message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.HeadersSyncedTo
+         * @memberof pruntimeRpc.HeadersSyncedTo
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.HeadersSyncedTo} HeadersSyncedTo
+         * @returns {pruntimeRpc.HeadersSyncedTo} HeadersSyncedTo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -2887,7 +2887,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies a HeadersSyncedTo message.
          * @function verify
-         * @memberof pruntime_rpc.HeadersSyncedTo
+         * @memberof pruntimeRpc.HeadersSyncedTo
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -2895,40 +2895,40 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         HeadersSyncedTo.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.relaychain_synced_to != null && message.hasOwnProperty("relaychain_synced_to"))
-                if (!$util.isInteger(message.relaychain_synced_to))
-                    return "relaychain_synced_to: integer expected";
-            if (message.parachain_synced_to != null && message.hasOwnProperty("parachain_synced_to"))
-                if (!$util.isInteger(message.parachain_synced_to))
-                    return "parachain_synced_to: integer expected";
+            if (message.relaychainSyncedTo != null && message.hasOwnProperty("relaychainSyncedTo"))
+                if (!$util.isInteger(message.relaychainSyncedTo))
+                    return "relaychainSyncedTo: integer expected";
+            if (message.parachainSyncedTo != null && message.hasOwnProperty("parachainSyncedTo"))
+                if (!$util.isInteger(message.parachainSyncedTo))
+                    return "parachainSyncedTo: integer expected";
             return null;
         };
 
         /**
          * Creates a HeadersSyncedTo message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.HeadersSyncedTo
+         * @memberof pruntimeRpc.HeadersSyncedTo
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.HeadersSyncedTo} HeadersSyncedTo
+         * @returns {pruntimeRpc.HeadersSyncedTo} HeadersSyncedTo
          */
         HeadersSyncedTo.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.HeadersSyncedTo)
+            if (object instanceof $root.pruntimeRpc.HeadersSyncedTo)
                 return object;
-            let message = new $root.pruntime_rpc.HeadersSyncedTo();
-            if (object.relaychain_synced_to != null)
-                message.relaychain_synced_to = object.relaychain_synced_to >>> 0;
-            if (object.parachain_synced_to != null)
-                message.parachain_synced_to = object.parachain_synced_to >>> 0;
+            let message = new $root.pruntimeRpc.HeadersSyncedTo();
+            if (object.relaychainSyncedTo != null)
+                message.relaychainSyncedTo = object.relaychainSyncedTo >>> 0;
+            if (object.parachainSyncedTo != null)
+                message.parachainSyncedTo = object.parachainSyncedTo >>> 0;
             return message;
         };
 
         /**
          * Creates a plain object from a HeadersSyncedTo message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.HeadersSyncedTo
+         * @memberof pruntimeRpc.HeadersSyncedTo
          * @static
-         * @param {pruntime_rpc.HeadersSyncedTo} message HeadersSyncedTo
+         * @param {pruntimeRpc.HeadersSyncedTo} message HeadersSyncedTo
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -2937,20 +2937,20 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                 options = {};
             let object = {};
             if (options.defaults) {
-                object.relaychain_synced_to = 0;
-                object.parachain_synced_to = 0;
+                object.relaychainSyncedTo = 0;
+                object.parachainSyncedTo = 0;
             }
-            if (message.relaychain_synced_to != null && message.hasOwnProperty("relaychain_synced_to"))
-                object.relaychain_synced_to = message.relaychain_synced_to;
-            if (message.parachain_synced_to != null && message.hasOwnProperty("parachain_synced_to"))
-                object.parachain_synced_to = message.parachain_synced_to;
+            if (message.relaychainSyncedTo != null && message.hasOwnProperty("relaychainSyncedTo"))
+                object.relaychainSyncedTo = message.relaychainSyncedTo;
+            if (message.parachainSyncedTo != null && message.hasOwnProperty("parachainSyncedTo"))
+                object.parachainSyncedTo = message.parachainSyncedTo;
             return object;
         };
 
         /**
          * Converts this HeadersSyncedTo to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.HeadersSyncedTo
+         * @memberof pruntimeRpc.HeadersSyncedTo
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -2961,22 +2961,22 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return HeadersSyncedTo;
     })();
 
-    pruntime_rpc.Blocks = (function() {
+    pruntimeRpc.Blocks = (function() {
 
         /**
          * Properties of a Blocks.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface IBlocks
-         * @property {Uint8Array|null} [encoded_blocks] Blocks encoded_blocks
+         * @property {Uint8Array|null} [encodedBlocks] Blocks encodedBlocks
          */
 
         /**
          * Constructs a new Blocks.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a Blocks.
          * @implements IBlocks
          * @constructor
-         * @param {pruntime_rpc.IBlocks=} [properties] Properties to set
+         * @param {pruntimeRpc.IBlocks=} [properties] Properties to set
          */
         function Blocks(properties) {
             if (properties)
@@ -2986,48 +2986,48 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         }
 
         /**
-         * Blocks encoded_blocks.
-         * @member {Uint8Array} encoded_blocks
-         * @memberof pruntime_rpc.Blocks
+         * Blocks encodedBlocks.
+         * @member {Uint8Array} encodedBlocks
+         * @memberof pruntimeRpc.Blocks
          * @instance
          */
-        Blocks.prototype.encoded_blocks = $util.newBuffer([]);
+        Blocks.prototype.encodedBlocks = $util.newBuffer([]);
 
         /**
          * Creates a new Blocks instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.Blocks
+         * @memberof pruntimeRpc.Blocks
          * @static
-         * @param {pruntime_rpc.IBlocks=} [properties] Properties to set
-         * @returns {pruntime_rpc.Blocks} Blocks instance
+         * @param {pruntimeRpc.IBlocks=} [properties] Properties to set
+         * @returns {pruntimeRpc.Blocks} Blocks instance
          */
         Blocks.create = function create(properties) {
             return new Blocks(properties);
         };
 
         /**
-         * Encodes the specified Blocks message. Does not implicitly {@link pruntime_rpc.Blocks.verify|verify} messages.
+         * Encodes the specified Blocks message. Does not implicitly {@link pruntimeRpc.Blocks.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.Blocks
+         * @memberof pruntimeRpc.Blocks
          * @static
-         * @param {pruntime_rpc.IBlocks} message Blocks message or plain object to encode
+         * @param {pruntimeRpc.IBlocks} message Blocks message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
         Blocks.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.encoded_blocks != null && Object.hasOwnProperty.call(message, "encoded_blocks"))
-                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.encoded_blocks);
+            if (message.encodedBlocks != null && Object.hasOwnProperty.call(message, "encodedBlocks"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.encodedBlocks);
             return writer;
         };
 
         /**
-         * Encodes the specified Blocks message, length delimited. Does not implicitly {@link pruntime_rpc.Blocks.verify|verify} messages.
+         * Encodes the specified Blocks message, length delimited. Does not implicitly {@link pruntimeRpc.Blocks.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.Blocks
+         * @memberof pruntimeRpc.Blocks
          * @static
-         * @param {pruntime_rpc.IBlocks} message Blocks message or plain object to encode
+         * @param {pruntimeRpc.IBlocks} message Blocks message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3038,23 +3038,23 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a Blocks message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.Blocks
+         * @memberof pruntimeRpc.Blocks
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.Blocks} Blocks
+         * @returns {pruntimeRpc.Blocks} Blocks
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         Blocks.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.Blocks();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.Blocks();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.encoded_blocks = reader.bytes();
+                    message.encodedBlocks = reader.bytes();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3067,10 +3067,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a Blocks message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.Blocks
+         * @memberof pruntimeRpc.Blocks
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.Blocks} Blocks
+         * @returns {pruntimeRpc.Blocks} Blocks
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -3083,7 +3083,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies a Blocks message.
          * @function verify
-         * @memberof pruntime_rpc.Blocks
+         * @memberof pruntimeRpc.Blocks
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -3091,38 +3091,38 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         Blocks.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.encoded_blocks != null && message.hasOwnProperty("encoded_blocks"))
-                if (!(message.encoded_blocks && typeof message.encoded_blocks.length === "number" || $util.isString(message.encoded_blocks)))
-                    return "encoded_blocks: buffer expected";
+            if (message.encodedBlocks != null && message.hasOwnProperty("encodedBlocks"))
+                if (!(message.encodedBlocks && typeof message.encodedBlocks.length === "number" || $util.isString(message.encodedBlocks)))
+                    return "encodedBlocks: buffer expected";
             return null;
         };
 
         /**
          * Creates a Blocks message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.Blocks
+         * @memberof pruntimeRpc.Blocks
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.Blocks} Blocks
+         * @returns {pruntimeRpc.Blocks} Blocks
          */
         Blocks.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.Blocks)
+            if (object instanceof $root.pruntimeRpc.Blocks)
                 return object;
-            let message = new $root.pruntime_rpc.Blocks();
-            if (object.encoded_blocks != null)
-                if (typeof object.encoded_blocks === "string")
-                    $util.base64.decode(object.encoded_blocks, message.encoded_blocks = $util.newBuffer($util.base64.length(object.encoded_blocks)), 0);
-                else if (object.encoded_blocks.length)
-                    message.encoded_blocks = object.encoded_blocks;
+            let message = new $root.pruntimeRpc.Blocks();
+            if (object.encodedBlocks != null)
+                if (typeof object.encodedBlocks === "string")
+                    $util.base64.decode(object.encodedBlocks, message.encodedBlocks = $util.newBuffer($util.base64.length(object.encodedBlocks)), 0);
+                else if (object.encodedBlocks.length)
+                    message.encodedBlocks = object.encodedBlocks;
             return message;
         };
 
         /**
          * Creates a plain object from a Blocks message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.Blocks
+         * @memberof pruntimeRpc.Blocks
          * @static
-         * @param {pruntime_rpc.Blocks} message Blocks
+         * @param {pruntimeRpc.Blocks} message Blocks
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -3132,21 +3132,21 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             let object = {};
             if (options.defaults)
                 if (options.bytes === String)
-                    object.encoded_blocks = "";
+                    object.encodedBlocks = "";
                 else {
-                    object.encoded_blocks = [];
+                    object.encodedBlocks = [];
                     if (options.bytes !== Array)
-                        object.encoded_blocks = $util.newBuffer(object.encoded_blocks);
+                        object.encodedBlocks = $util.newBuffer(object.encodedBlocks);
                 }
-            if (message.encoded_blocks != null && message.hasOwnProperty("encoded_blocks"))
-                object.encoded_blocks = options.bytes === String ? $util.base64.encode(message.encoded_blocks, 0, message.encoded_blocks.length) : options.bytes === Array ? Array.prototype.slice.call(message.encoded_blocks) : message.encoded_blocks;
+            if (message.encodedBlocks != null && message.hasOwnProperty("encodedBlocks"))
+                object.encodedBlocks = options.bytes === String ? $util.base64.encode(message.encodedBlocks, 0, message.encodedBlocks.length) : options.bytes === Array ? Array.prototype.slice.call(message.encodedBlocks) : message.encodedBlocks;
             return object;
         };
 
         /**
          * Converts this Blocks to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.Blocks
+         * @memberof pruntimeRpc.Blocks
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -3157,27 +3157,27 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return Blocks;
     })();
 
-    pruntime_rpc.InitRuntimeRequest = (function() {
+    pruntimeRpc.InitRuntimeRequest = (function() {
 
         /**
          * Properties of an InitRuntimeRequest.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface IInitRuntimeRequest
-         * @property {boolean|null} [skip_ra] InitRuntimeRequest skip_ra
-         * @property {Uint8Array|null} [encoded_genesis_info] InitRuntimeRequest encoded_genesis_info
-         * @property {Uint8Array|null} [debug_set_key] InitRuntimeRequest debug_set_key
-         * @property {Uint8Array|null} [encoded_genesis_state] InitRuntimeRequest encoded_genesis_state
-         * @property {Uint8Array|null} [encoded_operator] InitRuntimeRequest encoded_operator
-         * @property {boolean|null} [is_parachain] InitRuntimeRequest is_parachain
+         * @property {boolean|null} [skipRa] InitRuntimeRequest skipRa
+         * @property {Uint8Array|null} [encodedGenesisInfo] InitRuntimeRequest encodedGenesisInfo
+         * @property {Uint8Array|null} [debugSetKey] InitRuntimeRequest debugSetKey
+         * @property {Uint8Array|null} [encodedGenesisState] InitRuntimeRequest encodedGenesisState
+         * @property {Uint8Array|null} [encodedOperator] InitRuntimeRequest encodedOperator
+         * @property {boolean|null} [isParachain] InitRuntimeRequest isParachain
          */
 
         /**
          * Constructs a new InitRuntimeRequest.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents an InitRuntimeRequest.
          * @implements IInitRuntimeRequest
          * @constructor
-         * @param {pruntime_rpc.IInitRuntimeRequest=} [properties] Properties to set
+         * @param {pruntimeRpc.IInitRuntimeRequest=} [properties] Properties to set
          */
         function InitRuntimeRequest(properties) {
             if (properties)
@@ -3187,123 +3187,123 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         }
 
         /**
-         * InitRuntimeRequest skip_ra.
-         * @member {boolean} skip_ra
-         * @memberof pruntime_rpc.InitRuntimeRequest
+         * InitRuntimeRequest skipRa.
+         * @member {boolean} skipRa
+         * @memberof pruntimeRpc.InitRuntimeRequest
          * @instance
          */
-        InitRuntimeRequest.prototype.skip_ra = false;
+        InitRuntimeRequest.prototype.skipRa = false;
 
         /**
-         * InitRuntimeRequest encoded_genesis_info.
-         * @member {Uint8Array} encoded_genesis_info
-         * @memberof pruntime_rpc.InitRuntimeRequest
+         * InitRuntimeRequest encodedGenesisInfo.
+         * @member {Uint8Array} encodedGenesisInfo
+         * @memberof pruntimeRpc.InitRuntimeRequest
          * @instance
          */
-        InitRuntimeRequest.prototype.encoded_genesis_info = $util.newBuffer([]);
+        InitRuntimeRequest.prototype.encodedGenesisInfo = $util.newBuffer([]);
 
         /**
-         * InitRuntimeRequest debug_set_key.
-         * @member {Uint8Array|null|undefined} debug_set_key
-         * @memberof pruntime_rpc.InitRuntimeRequest
+         * InitRuntimeRequest debugSetKey.
+         * @member {Uint8Array|null|undefined} debugSetKey
+         * @memberof pruntimeRpc.InitRuntimeRequest
          * @instance
          */
-        InitRuntimeRequest.prototype.debug_set_key = null;
+        InitRuntimeRequest.prototype.debugSetKey = null;
 
         /**
-         * InitRuntimeRequest encoded_genesis_state.
-         * @member {Uint8Array} encoded_genesis_state
-         * @memberof pruntime_rpc.InitRuntimeRequest
+         * InitRuntimeRequest encodedGenesisState.
+         * @member {Uint8Array} encodedGenesisState
+         * @memberof pruntimeRpc.InitRuntimeRequest
          * @instance
          */
-        InitRuntimeRequest.prototype.encoded_genesis_state = $util.newBuffer([]);
+        InitRuntimeRequest.prototype.encodedGenesisState = $util.newBuffer([]);
 
         /**
-         * InitRuntimeRequest encoded_operator.
-         * @member {Uint8Array|null|undefined} encoded_operator
-         * @memberof pruntime_rpc.InitRuntimeRequest
+         * InitRuntimeRequest encodedOperator.
+         * @member {Uint8Array|null|undefined} encodedOperator
+         * @memberof pruntimeRpc.InitRuntimeRequest
          * @instance
          */
-        InitRuntimeRequest.prototype.encoded_operator = null;
+        InitRuntimeRequest.prototype.encodedOperator = null;
 
         /**
-         * InitRuntimeRequest is_parachain.
-         * @member {boolean} is_parachain
-         * @memberof pruntime_rpc.InitRuntimeRequest
+         * InitRuntimeRequest isParachain.
+         * @member {boolean} isParachain
+         * @memberof pruntimeRpc.InitRuntimeRequest
          * @instance
          */
-        InitRuntimeRequest.prototype.is_parachain = false;
+        InitRuntimeRequest.prototype.isParachain = false;
 
         // OneOf field names bound to virtual getters and setters
         let $oneOfFields;
 
         /**
-         * InitRuntimeRequest _debug_set_key.
-         * @member {"debug_set_key"|undefined} _debug_set_key
-         * @memberof pruntime_rpc.InitRuntimeRequest
+         * InitRuntimeRequest _debugSetKey.
+         * @member {"debugSetKey"|undefined} _debugSetKey
+         * @memberof pruntimeRpc.InitRuntimeRequest
          * @instance
          */
-        Object.defineProperty(InitRuntimeRequest.prototype, "_debug_set_key", {
-            get: $util.oneOfGetter($oneOfFields = ["debug_set_key"]),
+        Object.defineProperty(InitRuntimeRequest.prototype, "_debugSetKey", {
+            get: $util.oneOfGetter($oneOfFields = ["debugSetKey"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         /**
-         * InitRuntimeRequest _encoded_operator.
-         * @member {"encoded_operator"|undefined} _encoded_operator
-         * @memberof pruntime_rpc.InitRuntimeRequest
+         * InitRuntimeRequest _encodedOperator.
+         * @member {"encodedOperator"|undefined} _encodedOperator
+         * @memberof pruntimeRpc.InitRuntimeRequest
          * @instance
          */
-        Object.defineProperty(InitRuntimeRequest.prototype, "_encoded_operator", {
-            get: $util.oneOfGetter($oneOfFields = ["encoded_operator"]),
+        Object.defineProperty(InitRuntimeRequest.prototype, "_encodedOperator", {
+            get: $util.oneOfGetter($oneOfFields = ["encodedOperator"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         /**
          * Creates a new InitRuntimeRequest instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.InitRuntimeRequest
+         * @memberof pruntimeRpc.InitRuntimeRequest
          * @static
-         * @param {pruntime_rpc.IInitRuntimeRequest=} [properties] Properties to set
-         * @returns {pruntime_rpc.InitRuntimeRequest} InitRuntimeRequest instance
+         * @param {pruntimeRpc.IInitRuntimeRequest=} [properties] Properties to set
+         * @returns {pruntimeRpc.InitRuntimeRequest} InitRuntimeRequest instance
          */
         InitRuntimeRequest.create = function create(properties) {
             return new InitRuntimeRequest(properties);
         };
 
         /**
-         * Encodes the specified InitRuntimeRequest message. Does not implicitly {@link pruntime_rpc.InitRuntimeRequest.verify|verify} messages.
+         * Encodes the specified InitRuntimeRequest message. Does not implicitly {@link pruntimeRpc.InitRuntimeRequest.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.InitRuntimeRequest
+         * @memberof pruntimeRpc.InitRuntimeRequest
          * @static
-         * @param {pruntime_rpc.IInitRuntimeRequest} message InitRuntimeRequest message or plain object to encode
+         * @param {pruntimeRpc.IInitRuntimeRequest} message InitRuntimeRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
         InitRuntimeRequest.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.skip_ra != null && Object.hasOwnProperty.call(message, "skip_ra"))
-                writer.uint32(/* id 1, wireType 0 =*/8).bool(message.skip_ra);
-            if (message.encoded_genesis_info != null && Object.hasOwnProperty.call(message, "encoded_genesis_info"))
-                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.encoded_genesis_info);
-            if (message.debug_set_key != null && Object.hasOwnProperty.call(message, "debug_set_key"))
-                writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.debug_set_key);
-            if (message.encoded_genesis_state != null && Object.hasOwnProperty.call(message, "encoded_genesis_state"))
-                writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.encoded_genesis_state);
-            if (message.encoded_operator != null && Object.hasOwnProperty.call(message, "encoded_operator"))
-                writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.encoded_operator);
-            if (message.is_parachain != null && Object.hasOwnProperty.call(message, "is_parachain"))
-                writer.uint32(/* id 6, wireType 0 =*/48).bool(message.is_parachain);
+            if (message.skipRa != null && Object.hasOwnProperty.call(message, "skipRa"))
+                writer.uint32(/* id 1, wireType 0 =*/8).bool(message.skipRa);
+            if (message.encodedGenesisInfo != null && Object.hasOwnProperty.call(message, "encodedGenesisInfo"))
+                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.encodedGenesisInfo);
+            if (message.debugSetKey != null && Object.hasOwnProperty.call(message, "debugSetKey"))
+                writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.debugSetKey);
+            if (message.encodedGenesisState != null && Object.hasOwnProperty.call(message, "encodedGenesisState"))
+                writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.encodedGenesisState);
+            if (message.encodedOperator != null && Object.hasOwnProperty.call(message, "encodedOperator"))
+                writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.encodedOperator);
+            if (message.isParachain != null && Object.hasOwnProperty.call(message, "isParachain"))
+                writer.uint32(/* id 6, wireType 0 =*/48).bool(message.isParachain);
             return writer;
         };
 
         /**
-         * Encodes the specified InitRuntimeRequest message, length delimited. Does not implicitly {@link pruntime_rpc.InitRuntimeRequest.verify|verify} messages.
+         * Encodes the specified InitRuntimeRequest message, length delimited. Does not implicitly {@link pruntimeRpc.InitRuntimeRequest.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.InitRuntimeRequest
+         * @memberof pruntimeRpc.InitRuntimeRequest
          * @static
-         * @param {pruntime_rpc.IInitRuntimeRequest} message InitRuntimeRequest message or plain object to encode
+         * @param {pruntimeRpc.IInitRuntimeRequest} message InitRuntimeRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3314,38 +3314,38 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes an InitRuntimeRequest message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.InitRuntimeRequest
+         * @memberof pruntimeRpc.InitRuntimeRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.InitRuntimeRequest} InitRuntimeRequest
+         * @returns {pruntimeRpc.InitRuntimeRequest} InitRuntimeRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         InitRuntimeRequest.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.InitRuntimeRequest();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.InitRuntimeRequest();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.skip_ra = reader.bool();
+                    message.skipRa = reader.bool();
                     break;
                 case 2:
-                    message.encoded_genesis_info = reader.bytes();
+                    message.encodedGenesisInfo = reader.bytes();
                     break;
                 case 3:
-                    message.debug_set_key = reader.bytes();
+                    message.debugSetKey = reader.bytes();
                     break;
                 case 4:
-                    message.encoded_genesis_state = reader.bytes();
+                    message.encodedGenesisState = reader.bytes();
                     break;
                 case 5:
-                    message.encoded_operator = reader.bytes();
+                    message.encodedOperator = reader.bytes();
                     break;
                 case 6:
-                    message.is_parachain = reader.bool();
+                    message.isParachain = reader.bool();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3358,10 +3358,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes an InitRuntimeRequest message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.InitRuntimeRequest
+         * @memberof pruntimeRpc.InitRuntimeRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.InitRuntimeRequest} InitRuntimeRequest
+         * @returns {pruntimeRpc.InitRuntimeRequest} InitRuntimeRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -3374,7 +3374,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies an InitRuntimeRequest message.
          * @function verify
-         * @memberof pruntime_rpc.InitRuntimeRequest
+         * @memberof pruntimeRpc.InitRuntimeRequest
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -3383,76 +3383,76 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             let properties = {};
-            if (message.skip_ra != null && message.hasOwnProperty("skip_ra"))
-                if (typeof message.skip_ra !== "boolean")
-                    return "skip_ra: boolean expected";
-            if (message.encoded_genesis_info != null && message.hasOwnProperty("encoded_genesis_info"))
-                if (!(message.encoded_genesis_info && typeof message.encoded_genesis_info.length === "number" || $util.isString(message.encoded_genesis_info)))
-                    return "encoded_genesis_info: buffer expected";
-            if (message.debug_set_key != null && message.hasOwnProperty("debug_set_key")) {
-                properties._debug_set_key = 1;
-                if (!(message.debug_set_key && typeof message.debug_set_key.length === "number" || $util.isString(message.debug_set_key)))
-                    return "debug_set_key: buffer expected";
+            if (message.skipRa != null && message.hasOwnProperty("skipRa"))
+                if (typeof message.skipRa !== "boolean")
+                    return "skipRa: boolean expected";
+            if (message.encodedGenesisInfo != null && message.hasOwnProperty("encodedGenesisInfo"))
+                if (!(message.encodedGenesisInfo && typeof message.encodedGenesisInfo.length === "number" || $util.isString(message.encodedGenesisInfo)))
+                    return "encodedGenesisInfo: buffer expected";
+            if (message.debugSetKey != null && message.hasOwnProperty("debugSetKey")) {
+                properties._debugSetKey = 1;
+                if (!(message.debugSetKey && typeof message.debugSetKey.length === "number" || $util.isString(message.debugSetKey)))
+                    return "debugSetKey: buffer expected";
             }
-            if (message.encoded_genesis_state != null && message.hasOwnProperty("encoded_genesis_state"))
-                if (!(message.encoded_genesis_state && typeof message.encoded_genesis_state.length === "number" || $util.isString(message.encoded_genesis_state)))
-                    return "encoded_genesis_state: buffer expected";
-            if (message.encoded_operator != null && message.hasOwnProperty("encoded_operator")) {
-                properties._encoded_operator = 1;
-                if (!(message.encoded_operator && typeof message.encoded_operator.length === "number" || $util.isString(message.encoded_operator)))
-                    return "encoded_operator: buffer expected";
+            if (message.encodedGenesisState != null && message.hasOwnProperty("encodedGenesisState"))
+                if (!(message.encodedGenesisState && typeof message.encodedGenesisState.length === "number" || $util.isString(message.encodedGenesisState)))
+                    return "encodedGenesisState: buffer expected";
+            if (message.encodedOperator != null && message.hasOwnProperty("encodedOperator")) {
+                properties._encodedOperator = 1;
+                if (!(message.encodedOperator && typeof message.encodedOperator.length === "number" || $util.isString(message.encodedOperator)))
+                    return "encodedOperator: buffer expected";
             }
-            if (message.is_parachain != null && message.hasOwnProperty("is_parachain"))
-                if (typeof message.is_parachain !== "boolean")
-                    return "is_parachain: boolean expected";
+            if (message.isParachain != null && message.hasOwnProperty("isParachain"))
+                if (typeof message.isParachain !== "boolean")
+                    return "isParachain: boolean expected";
             return null;
         };
 
         /**
          * Creates an InitRuntimeRequest message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.InitRuntimeRequest
+         * @memberof pruntimeRpc.InitRuntimeRequest
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.InitRuntimeRequest} InitRuntimeRequest
+         * @returns {pruntimeRpc.InitRuntimeRequest} InitRuntimeRequest
          */
         InitRuntimeRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.InitRuntimeRequest)
+            if (object instanceof $root.pruntimeRpc.InitRuntimeRequest)
                 return object;
-            let message = new $root.pruntime_rpc.InitRuntimeRequest();
-            if (object.skip_ra != null)
-                message.skip_ra = Boolean(object.skip_ra);
-            if (object.encoded_genesis_info != null)
-                if (typeof object.encoded_genesis_info === "string")
-                    $util.base64.decode(object.encoded_genesis_info, message.encoded_genesis_info = $util.newBuffer($util.base64.length(object.encoded_genesis_info)), 0);
-                else if (object.encoded_genesis_info.length)
-                    message.encoded_genesis_info = object.encoded_genesis_info;
-            if (object.debug_set_key != null)
-                if (typeof object.debug_set_key === "string")
-                    $util.base64.decode(object.debug_set_key, message.debug_set_key = $util.newBuffer($util.base64.length(object.debug_set_key)), 0);
-                else if (object.debug_set_key.length)
-                    message.debug_set_key = object.debug_set_key;
-            if (object.encoded_genesis_state != null)
-                if (typeof object.encoded_genesis_state === "string")
-                    $util.base64.decode(object.encoded_genesis_state, message.encoded_genesis_state = $util.newBuffer($util.base64.length(object.encoded_genesis_state)), 0);
-                else if (object.encoded_genesis_state.length)
-                    message.encoded_genesis_state = object.encoded_genesis_state;
-            if (object.encoded_operator != null)
-                if (typeof object.encoded_operator === "string")
-                    $util.base64.decode(object.encoded_operator, message.encoded_operator = $util.newBuffer($util.base64.length(object.encoded_operator)), 0);
-                else if (object.encoded_operator.length)
-                    message.encoded_operator = object.encoded_operator;
-            if (object.is_parachain != null)
-                message.is_parachain = Boolean(object.is_parachain);
+            let message = new $root.pruntimeRpc.InitRuntimeRequest();
+            if (object.skipRa != null)
+                message.skipRa = Boolean(object.skipRa);
+            if (object.encodedGenesisInfo != null)
+                if (typeof object.encodedGenesisInfo === "string")
+                    $util.base64.decode(object.encodedGenesisInfo, message.encodedGenesisInfo = $util.newBuffer($util.base64.length(object.encodedGenesisInfo)), 0);
+                else if (object.encodedGenesisInfo.length)
+                    message.encodedGenesisInfo = object.encodedGenesisInfo;
+            if (object.debugSetKey != null)
+                if (typeof object.debugSetKey === "string")
+                    $util.base64.decode(object.debugSetKey, message.debugSetKey = $util.newBuffer($util.base64.length(object.debugSetKey)), 0);
+                else if (object.debugSetKey.length)
+                    message.debugSetKey = object.debugSetKey;
+            if (object.encodedGenesisState != null)
+                if (typeof object.encodedGenesisState === "string")
+                    $util.base64.decode(object.encodedGenesisState, message.encodedGenesisState = $util.newBuffer($util.base64.length(object.encodedGenesisState)), 0);
+                else if (object.encodedGenesisState.length)
+                    message.encodedGenesisState = object.encodedGenesisState;
+            if (object.encodedOperator != null)
+                if (typeof object.encodedOperator === "string")
+                    $util.base64.decode(object.encodedOperator, message.encodedOperator = $util.newBuffer($util.base64.length(object.encodedOperator)), 0);
+                else if (object.encodedOperator.length)
+                    message.encodedOperator = object.encodedOperator;
+            if (object.isParachain != null)
+                message.isParachain = Boolean(object.isParachain);
             return message;
         };
 
         /**
          * Creates a plain object from an InitRuntimeRequest message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.InitRuntimeRequest
+         * @memberof pruntimeRpc.InitRuntimeRequest
          * @static
-         * @param {pruntime_rpc.InitRuntimeRequest} message InitRuntimeRequest
+         * @param {pruntimeRpc.InitRuntimeRequest} message InitRuntimeRequest
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -3461,48 +3461,48 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                 options = {};
             let object = {};
             if (options.defaults) {
-                object.skip_ra = false;
+                object.skipRa = false;
                 if (options.bytes === String)
-                    object.encoded_genesis_info = "";
+                    object.encodedGenesisInfo = "";
                 else {
-                    object.encoded_genesis_info = [];
+                    object.encodedGenesisInfo = [];
                     if (options.bytes !== Array)
-                        object.encoded_genesis_info = $util.newBuffer(object.encoded_genesis_info);
+                        object.encodedGenesisInfo = $util.newBuffer(object.encodedGenesisInfo);
                 }
                 if (options.bytes === String)
-                    object.encoded_genesis_state = "";
+                    object.encodedGenesisState = "";
                 else {
-                    object.encoded_genesis_state = [];
+                    object.encodedGenesisState = [];
                     if (options.bytes !== Array)
-                        object.encoded_genesis_state = $util.newBuffer(object.encoded_genesis_state);
+                        object.encodedGenesisState = $util.newBuffer(object.encodedGenesisState);
                 }
-                object.is_parachain = false;
+                object.isParachain = false;
             }
-            if (message.skip_ra != null && message.hasOwnProperty("skip_ra"))
-                object.skip_ra = message.skip_ra;
-            if (message.encoded_genesis_info != null && message.hasOwnProperty("encoded_genesis_info"))
-                object.encoded_genesis_info = options.bytes === String ? $util.base64.encode(message.encoded_genesis_info, 0, message.encoded_genesis_info.length) : options.bytes === Array ? Array.prototype.slice.call(message.encoded_genesis_info) : message.encoded_genesis_info;
-            if (message.debug_set_key != null && message.hasOwnProperty("debug_set_key")) {
-                object.debug_set_key = options.bytes === String ? $util.base64.encode(message.debug_set_key, 0, message.debug_set_key.length) : options.bytes === Array ? Array.prototype.slice.call(message.debug_set_key) : message.debug_set_key;
+            if (message.skipRa != null && message.hasOwnProperty("skipRa"))
+                object.skipRa = message.skipRa;
+            if (message.encodedGenesisInfo != null && message.hasOwnProperty("encodedGenesisInfo"))
+                object.encodedGenesisInfo = options.bytes === String ? $util.base64.encode(message.encodedGenesisInfo, 0, message.encodedGenesisInfo.length) : options.bytes === Array ? Array.prototype.slice.call(message.encodedGenesisInfo) : message.encodedGenesisInfo;
+            if (message.debugSetKey != null && message.hasOwnProperty("debugSetKey")) {
+                object.debugSetKey = options.bytes === String ? $util.base64.encode(message.debugSetKey, 0, message.debugSetKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.debugSetKey) : message.debugSetKey;
                 if (options.oneofs)
-                    object._debug_set_key = "debug_set_key";
+                    object._debugSetKey = "debugSetKey";
             }
-            if (message.encoded_genesis_state != null && message.hasOwnProperty("encoded_genesis_state"))
-                object.encoded_genesis_state = options.bytes === String ? $util.base64.encode(message.encoded_genesis_state, 0, message.encoded_genesis_state.length) : options.bytes === Array ? Array.prototype.slice.call(message.encoded_genesis_state) : message.encoded_genesis_state;
-            if (message.encoded_operator != null && message.hasOwnProperty("encoded_operator")) {
-                object.encoded_operator = options.bytes === String ? $util.base64.encode(message.encoded_operator, 0, message.encoded_operator.length) : options.bytes === Array ? Array.prototype.slice.call(message.encoded_operator) : message.encoded_operator;
+            if (message.encodedGenesisState != null && message.hasOwnProperty("encodedGenesisState"))
+                object.encodedGenesisState = options.bytes === String ? $util.base64.encode(message.encodedGenesisState, 0, message.encodedGenesisState.length) : options.bytes === Array ? Array.prototype.slice.call(message.encodedGenesisState) : message.encodedGenesisState;
+            if (message.encodedOperator != null && message.hasOwnProperty("encodedOperator")) {
+                object.encodedOperator = options.bytes === String ? $util.base64.encode(message.encodedOperator, 0, message.encodedOperator.length) : options.bytes === Array ? Array.prototype.slice.call(message.encodedOperator) : message.encodedOperator;
                 if (options.oneofs)
-                    object._encoded_operator = "encoded_operator";
+                    object._encodedOperator = "encodedOperator";
             }
-            if (message.is_parachain != null && message.hasOwnProperty("is_parachain"))
-                object.is_parachain = message.is_parachain;
+            if (message.isParachain != null && message.hasOwnProperty("isParachain"))
+                object.isParachain = message.isParachain;
             return object;
         };
 
         /**
          * Converts this InitRuntimeRequest to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.InitRuntimeRequest
+         * @memberof pruntimeRpc.InitRuntimeRequest
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -3513,26 +3513,26 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return InitRuntimeRequest;
     })();
 
-    pruntime_rpc.InitRuntimeResponse = (function() {
+    pruntimeRpc.InitRuntimeResponse = (function() {
 
         /**
          * Properties of an InitRuntimeResponse.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface IInitRuntimeResponse
-         * @property {Uint8Array|null} [encoded_runtime_info] InitRuntimeResponse encoded_runtime_info
-         * @property {Uint8Array|null} [encoded_genesis_block_hash] InitRuntimeResponse encoded_genesis_block_hash
-         * @property {Uint8Array|null} [encoded_public_key] InitRuntimeResponse encoded_public_key
-         * @property {Uint8Array|null} [encoded_ecdh_public_key] InitRuntimeResponse encoded_ecdh_public_key
-         * @property {pruntime_rpc.IAttestation|null} [attestation] InitRuntimeResponse attestation
+         * @property {Uint8Array|null} [encodedRuntimeInfo] InitRuntimeResponse encodedRuntimeInfo
+         * @property {Uint8Array|null} [encodedGenesisBlockHash] InitRuntimeResponse encodedGenesisBlockHash
+         * @property {Uint8Array|null} [encodedPublicKey] InitRuntimeResponse encodedPublicKey
+         * @property {Uint8Array|null} [encodedEcdhPublicKey] InitRuntimeResponse encodedEcdhPublicKey
+         * @property {pruntimeRpc.IAttestation|null} [attestation] InitRuntimeResponse attestation
          */
 
         /**
          * Constructs a new InitRuntimeResponse.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents an InitRuntimeResponse.
          * @implements IInitRuntimeResponse
          * @constructor
-         * @param {pruntime_rpc.IInitRuntimeResponse=} [properties] Properties to set
+         * @param {pruntimeRpc.IInitRuntimeResponse=} [properties] Properties to set
          */
         function InitRuntimeResponse(properties) {
             if (properties)
@@ -3542,41 +3542,41 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         }
 
         /**
-         * InitRuntimeResponse encoded_runtime_info.
-         * @member {Uint8Array} encoded_runtime_info
-         * @memberof pruntime_rpc.InitRuntimeResponse
+         * InitRuntimeResponse encodedRuntimeInfo.
+         * @member {Uint8Array} encodedRuntimeInfo
+         * @memberof pruntimeRpc.InitRuntimeResponse
          * @instance
          */
-        InitRuntimeResponse.prototype.encoded_runtime_info = $util.newBuffer([]);
+        InitRuntimeResponse.prototype.encodedRuntimeInfo = $util.newBuffer([]);
 
         /**
-         * InitRuntimeResponse encoded_genesis_block_hash.
-         * @member {Uint8Array} encoded_genesis_block_hash
-         * @memberof pruntime_rpc.InitRuntimeResponse
+         * InitRuntimeResponse encodedGenesisBlockHash.
+         * @member {Uint8Array} encodedGenesisBlockHash
+         * @memberof pruntimeRpc.InitRuntimeResponse
          * @instance
          */
-        InitRuntimeResponse.prototype.encoded_genesis_block_hash = $util.newBuffer([]);
+        InitRuntimeResponse.prototype.encodedGenesisBlockHash = $util.newBuffer([]);
 
         /**
-         * InitRuntimeResponse encoded_public_key.
-         * @member {Uint8Array} encoded_public_key
-         * @memberof pruntime_rpc.InitRuntimeResponse
+         * InitRuntimeResponse encodedPublicKey.
+         * @member {Uint8Array} encodedPublicKey
+         * @memberof pruntimeRpc.InitRuntimeResponse
          * @instance
          */
-        InitRuntimeResponse.prototype.encoded_public_key = $util.newBuffer([]);
+        InitRuntimeResponse.prototype.encodedPublicKey = $util.newBuffer([]);
 
         /**
-         * InitRuntimeResponse encoded_ecdh_public_key.
-         * @member {Uint8Array} encoded_ecdh_public_key
-         * @memberof pruntime_rpc.InitRuntimeResponse
+         * InitRuntimeResponse encodedEcdhPublicKey.
+         * @member {Uint8Array} encodedEcdhPublicKey
+         * @memberof pruntimeRpc.InitRuntimeResponse
          * @instance
          */
-        InitRuntimeResponse.prototype.encoded_ecdh_public_key = $util.newBuffer([]);
+        InitRuntimeResponse.prototype.encodedEcdhPublicKey = $util.newBuffer([]);
 
         /**
          * InitRuntimeResponse attestation.
-         * @member {pruntime_rpc.IAttestation|null|undefined} attestation
-         * @memberof pruntime_rpc.InitRuntimeResponse
+         * @member {pruntimeRpc.IAttestation|null|undefined} attestation
+         * @memberof pruntimeRpc.InitRuntimeResponse
          * @instance
          */
         InitRuntimeResponse.prototype.attestation = null;
@@ -3587,7 +3587,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * InitRuntimeResponse _attestation.
          * @member {"attestation"|undefined} _attestation
-         * @memberof pruntime_rpc.InitRuntimeResponse
+         * @memberof pruntimeRpc.InitRuntimeResponse
          * @instance
          */
         Object.defineProperty(InitRuntimeResponse.prototype, "_attestation", {
@@ -3598,46 +3598,46 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a new InitRuntimeResponse instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.InitRuntimeResponse
+         * @memberof pruntimeRpc.InitRuntimeResponse
          * @static
-         * @param {pruntime_rpc.IInitRuntimeResponse=} [properties] Properties to set
-         * @returns {pruntime_rpc.InitRuntimeResponse} InitRuntimeResponse instance
+         * @param {pruntimeRpc.IInitRuntimeResponse=} [properties] Properties to set
+         * @returns {pruntimeRpc.InitRuntimeResponse} InitRuntimeResponse instance
          */
         InitRuntimeResponse.create = function create(properties) {
             return new InitRuntimeResponse(properties);
         };
 
         /**
-         * Encodes the specified InitRuntimeResponse message. Does not implicitly {@link pruntime_rpc.InitRuntimeResponse.verify|verify} messages.
+         * Encodes the specified InitRuntimeResponse message. Does not implicitly {@link pruntimeRpc.InitRuntimeResponse.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.InitRuntimeResponse
+         * @memberof pruntimeRpc.InitRuntimeResponse
          * @static
-         * @param {pruntime_rpc.IInitRuntimeResponse} message InitRuntimeResponse message or plain object to encode
+         * @param {pruntimeRpc.IInitRuntimeResponse} message InitRuntimeResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
         InitRuntimeResponse.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.encoded_runtime_info != null && Object.hasOwnProperty.call(message, "encoded_runtime_info"))
-                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.encoded_runtime_info);
-            if (message.encoded_genesis_block_hash != null && Object.hasOwnProperty.call(message, "encoded_genesis_block_hash"))
-                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.encoded_genesis_block_hash);
-            if (message.encoded_public_key != null && Object.hasOwnProperty.call(message, "encoded_public_key"))
-                writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.encoded_public_key);
-            if (message.encoded_ecdh_public_key != null && Object.hasOwnProperty.call(message, "encoded_ecdh_public_key"))
-                writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.encoded_ecdh_public_key);
+            if (message.encodedRuntimeInfo != null && Object.hasOwnProperty.call(message, "encodedRuntimeInfo"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.encodedRuntimeInfo);
+            if (message.encodedGenesisBlockHash != null && Object.hasOwnProperty.call(message, "encodedGenesisBlockHash"))
+                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.encodedGenesisBlockHash);
+            if (message.encodedPublicKey != null && Object.hasOwnProperty.call(message, "encodedPublicKey"))
+                writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.encodedPublicKey);
+            if (message.encodedEcdhPublicKey != null && Object.hasOwnProperty.call(message, "encodedEcdhPublicKey"))
+                writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.encodedEcdhPublicKey);
             if (message.attestation != null && Object.hasOwnProperty.call(message, "attestation"))
-                $root.pruntime_rpc.Attestation.encode(message.attestation, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+                $root.pruntimeRpc.Attestation.encode(message.attestation, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
             return writer;
         };
 
         /**
-         * Encodes the specified InitRuntimeResponse message, length delimited. Does not implicitly {@link pruntime_rpc.InitRuntimeResponse.verify|verify} messages.
+         * Encodes the specified InitRuntimeResponse message, length delimited. Does not implicitly {@link pruntimeRpc.InitRuntimeResponse.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.InitRuntimeResponse
+         * @memberof pruntimeRpc.InitRuntimeResponse
          * @static
-         * @param {pruntime_rpc.IInitRuntimeResponse} message InitRuntimeResponse message or plain object to encode
+         * @param {pruntimeRpc.IInitRuntimeResponse} message InitRuntimeResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3648,35 +3648,35 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes an InitRuntimeResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.InitRuntimeResponse
+         * @memberof pruntimeRpc.InitRuntimeResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.InitRuntimeResponse} InitRuntimeResponse
+         * @returns {pruntimeRpc.InitRuntimeResponse} InitRuntimeResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         InitRuntimeResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.InitRuntimeResponse();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.InitRuntimeResponse();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.encoded_runtime_info = reader.bytes();
+                    message.encodedRuntimeInfo = reader.bytes();
                     break;
                 case 2:
-                    message.encoded_genesis_block_hash = reader.bytes();
+                    message.encodedGenesisBlockHash = reader.bytes();
                     break;
                 case 3:
-                    message.encoded_public_key = reader.bytes();
+                    message.encodedPublicKey = reader.bytes();
                     break;
                 case 4:
-                    message.encoded_ecdh_public_key = reader.bytes();
+                    message.encodedEcdhPublicKey = reader.bytes();
                     break;
                 case 5:
-                    message.attestation = $root.pruntime_rpc.Attestation.decode(reader, reader.uint32());
+                    message.attestation = $root.pruntimeRpc.Attestation.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3689,10 +3689,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes an InitRuntimeResponse message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.InitRuntimeResponse
+         * @memberof pruntimeRpc.InitRuntimeResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.InitRuntimeResponse} InitRuntimeResponse
+         * @returns {pruntimeRpc.InitRuntimeResponse} InitRuntimeResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -3705,7 +3705,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies an InitRuntimeResponse message.
          * @function verify
-         * @memberof pruntime_rpc.InitRuntimeResponse
+         * @memberof pruntimeRpc.InitRuntimeResponse
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -3714,22 +3714,22 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             let properties = {};
-            if (message.encoded_runtime_info != null && message.hasOwnProperty("encoded_runtime_info"))
-                if (!(message.encoded_runtime_info && typeof message.encoded_runtime_info.length === "number" || $util.isString(message.encoded_runtime_info)))
-                    return "encoded_runtime_info: buffer expected";
-            if (message.encoded_genesis_block_hash != null && message.hasOwnProperty("encoded_genesis_block_hash"))
-                if (!(message.encoded_genesis_block_hash && typeof message.encoded_genesis_block_hash.length === "number" || $util.isString(message.encoded_genesis_block_hash)))
-                    return "encoded_genesis_block_hash: buffer expected";
-            if (message.encoded_public_key != null && message.hasOwnProperty("encoded_public_key"))
-                if (!(message.encoded_public_key && typeof message.encoded_public_key.length === "number" || $util.isString(message.encoded_public_key)))
-                    return "encoded_public_key: buffer expected";
-            if (message.encoded_ecdh_public_key != null && message.hasOwnProperty("encoded_ecdh_public_key"))
-                if (!(message.encoded_ecdh_public_key && typeof message.encoded_ecdh_public_key.length === "number" || $util.isString(message.encoded_ecdh_public_key)))
-                    return "encoded_ecdh_public_key: buffer expected";
+            if (message.encodedRuntimeInfo != null && message.hasOwnProperty("encodedRuntimeInfo"))
+                if (!(message.encodedRuntimeInfo && typeof message.encodedRuntimeInfo.length === "number" || $util.isString(message.encodedRuntimeInfo)))
+                    return "encodedRuntimeInfo: buffer expected";
+            if (message.encodedGenesisBlockHash != null && message.hasOwnProperty("encodedGenesisBlockHash"))
+                if (!(message.encodedGenesisBlockHash && typeof message.encodedGenesisBlockHash.length === "number" || $util.isString(message.encodedGenesisBlockHash)))
+                    return "encodedGenesisBlockHash: buffer expected";
+            if (message.encodedPublicKey != null && message.hasOwnProperty("encodedPublicKey"))
+                if (!(message.encodedPublicKey && typeof message.encodedPublicKey.length === "number" || $util.isString(message.encodedPublicKey)))
+                    return "encodedPublicKey: buffer expected";
+            if (message.encodedEcdhPublicKey != null && message.hasOwnProperty("encodedEcdhPublicKey"))
+                if (!(message.encodedEcdhPublicKey && typeof message.encodedEcdhPublicKey.length === "number" || $util.isString(message.encodedEcdhPublicKey)))
+                    return "encodedEcdhPublicKey: buffer expected";
             if (message.attestation != null && message.hasOwnProperty("attestation")) {
                 properties._attestation = 1;
                 {
-                    let error = $root.pruntime_rpc.Attestation.verify(message.attestation);
+                    let error = $root.pruntimeRpc.Attestation.verify(message.attestation);
                     if (error)
                         return "attestation." + error;
                 }
@@ -3740,39 +3740,39 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates an InitRuntimeResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.InitRuntimeResponse
+         * @memberof pruntimeRpc.InitRuntimeResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.InitRuntimeResponse} InitRuntimeResponse
+         * @returns {pruntimeRpc.InitRuntimeResponse} InitRuntimeResponse
          */
         InitRuntimeResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.InitRuntimeResponse)
+            if (object instanceof $root.pruntimeRpc.InitRuntimeResponse)
                 return object;
-            let message = new $root.pruntime_rpc.InitRuntimeResponse();
-            if (object.encoded_runtime_info != null)
-                if (typeof object.encoded_runtime_info === "string")
-                    $util.base64.decode(object.encoded_runtime_info, message.encoded_runtime_info = $util.newBuffer($util.base64.length(object.encoded_runtime_info)), 0);
-                else if (object.encoded_runtime_info.length)
-                    message.encoded_runtime_info = object.encoded_runtime_info;
-            if (object.encoded_genesis_block_hash != null)
-                if (typeof object.encoded_genesis_block_hash === "string")
-                    $util.base64.decode(object.encoded_genesis_block_hash, message.encoded_genesis_block_hash = $util.newBuffer($util.base64.length(object.encoded_genesis_block_hash)), 0);
-                else if (object.encoded_genesis_block_hash.length)
-                    message.encoded_genesis_block_hash = object.encoded_genesis_block_hash;
-            if (object.encoded_public_key != null)
-                if (typeof object.encoded_public_key === "string")
-                    $util.base64.decode(object.encoded_public_key, message.encoded_public_key = $util.newBuffer($util.base64.length(object.encoded_public_key)), 0);
-                else if (object.encoded_public_key.length)
-                    message.encoded_public_key = object.encoded_public_key;
-            if (object.encoded_ecdh_public_key != null)
-                if (typeof object.encoded_ecdh_public_key === "string")
-                    $util.base64.decode(object.encoded_ecdh_public_key, message.encoded_ecdh_public_key = $util.newBuffer($util.base64.length(object.encoded_ecdh_public_key)), 0);
-                else if (object.encoded_ecdh_public_key.length)
-                    message.encoded_ecdh_public_key = object.encoded_ecdh_public_key;
+            let message = new $root.pruntimeRpc.InitRuntimeResponse();
+            if (object.encodedRuntimeInfo != null)
+                if (typeof object.encodedRuntimeInfo === "string")
+                    $util.base64.decode(object.encodedRuntimeInfo, message.encodedRuntimeInfo = $util.newBuffer($util.base64.length(object.encodedRuntimeInfo)), 0);
+                else if (object.encodedRuntimeInfo.length)
+                    message.encodedRuntimeInfo = object.encodedRuntimeInfo;
+            if (object.encodedGenesisBlockHash != null)
+                if (typeof object.encodedGenesisBlockHash === "string")
+                    $util.base64.decode(object.encodedGenesisBlockHash, message.encodedGenesisBlockHash = $util.newBuffer($util.base64.length(object.encodedGenesisBlockHash)), 0);
+                else if (object.encodedGenesisBlockHash.length)
+                    message.encodedGenesisBlockHash = object.encodedGenesisBlockHash;
+            if (object.encodedPublicKey != null)
+                if (typeof object.encodedPublicKey === "string")
+                    $util.base64.decode(object.encodedPublicKey, message.encodedPublicKey = $util.newBuffer($util.base64.length(object.encodedPublicKey)), 0);
+                else if (object.encodedPublicKey.length)
+                    message.encodedPublicKey = object.encodedPublicKey;
+            if (object.encodedEcdhPublicKey != null)
+                if (typeof object.encodedEcdhPublicKey === "string")
+                    $util.base64.decode(object.encodedEcdhPublicKey, message.encodedEcdhPublicKey = $util.newBuffer($util.base64.length(object.encodedEcdhPublicKey)), 0);
+                else if (object.encodedEcdhPublicKey.length)
+                    message.encodedEcdhPublicKey = object.encodedEcdhPublicKey;
             if (object.attestation != null) {
                 if (typeof object.attestation !== "object")
-                    throw TypeError(".pruntime_rpc.InitRuntimeResponse.attestation: object expected");
-                message.attestation = $root.pruntime_rpc.Attestation.fromObject(object.attestation);
+                    throw TypeError(".pruntimeRpc.InitRuntimeResponse.attestation: object expected");
+                message.attestation = $root.pruntimeRpc.Attestation.fromObject(object.attestation);
             }
             return message;
         };
@@ -3780,9 +3780,9 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a plain object from an InitRuntimeResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.InitRuntimeResponse
+         * @memberof pruntimeRpc.InitRuntimeResponse
          * @static
-         * @param {pruntime_rpc.InitRuntimeResponse} message InitRuntimeResponse
+         * @param {pruntimeRpc.InitRuntimeResponse} message InitRuntimeResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -3792,44 +3792,44 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             let object = {};
             if (options.defaults) {
                 if (options.bytes === String)
-                    object.encoded_runtime_info = "";
+                    object.encodedRuntimeInfo = "";
                 else {
-                    object.encoded_runtime_info = [];
+                    object.encodedRuntimeInfo = [];
                     if (options.bytes !== Array)
-                        object.encoded_runtime_info = $util.newBuffer(object.encoded_runtime_info);
+                        object.encodedRuntimeInfo = $util.newBuffer(object.encodedRuntimeInfo);
                 }
                 if (options.bytes === String)
-                    object.encoded_genesis_block_hash = "";
+                    object.encodedGenesisBlockHash = "";
                 else {
-                    object.encoded_genesis_block_hash = [];
+                    object.encodedGenesisBlockHash = [];
                     if (options.bytes !== Array)
-                        object.encoded_genesis_block_hash = $util.newBuffer(object.encoded_genesis_block_hash);
+                        object.encodedGenesisBlockHash = $util.newBuffer(object.encodedGenesisBlockHash);
                 }
                 if (options.bytes === String)
-                    object.encoded_public_key = "";
+                    object.encodedPublicKey = "";
                 else {
-                    object.encoded_public_key = [];
+                    object.encodedPublicKey = [];
                     if (options.bytes !== Array)
-                        object.encoded_public_key = $util.newBuffer(object.encoded_public_key);
+                        object.encodedPublicKey = $util.newBuffer(object.encodedPublicKey);
                 }
                 if (options.bytes === String)
-                    object.encoded_ecdh_public_key = "";
+                    object.encodedEcdhPublicKey = "";
                 else {
-                    object.encoded_ecdh_public_key = [];
+                    object.encodedEcdhPublicKey = [];
                     if (options.bytes !== Array)
-                        object.encoded_ecdh_public_key = $util.newBuffer(object.encoded_ecdh_public_key);
+                        object.encodedEcdhPublicKey = $util.newBuffer(object.encodedEcdhPublicKey);
                 }
             }
-            if (message.encoded_runtime_info != null && message.hasOwnProperty("encoded_runtime_info"))
-                object.encoded_runtime_info = options.bytes === String ? $util.base64.encode(message.encoded_runtime_info, 0, message.encoded_runtime_info.length) : options.bytes === Array ? Array.prototype.slice.call(message.encoded_runtime_info) : message.encoded_runtime_info;
-            if (message.encoded_genesis_block_hash != null && message.hasOwnProperty("encoded_genesis_block_hash"))
-                object.encoded_genesis_block_hash = options.bytes === String ? $util.base64.encode(message.encoded_genesis_block_hash, 0, message.encoded_genesis_block_hash.length) : options.bytes === Array ? Array.prototype.slice.call(message.encoded_genesis_block_hash) : message.encoded_genesis_block_hash;
-            if (message.encoded_public_key != null && message.hasOwnProperty("encoded_public_key"))
-                object.encoded_public_key = options.bytes === String ? $util.base64.encode(message.encoded_public_key, 0, message.encoded_public_key.length) : options.bytes === Array ? Array.prototype.slice.call(message.encoded_public_key) : message.encoded_public_key;
-            if (message.encoded_ecdh_public_key != null && message.hasOwnProperty("encoded_ecdh_public_key"))
-                object.encoded_ecdh_public_key = options.bytes === String ? $util.base64.encode(message.encoded_ecdh_public_key, 0, message.encoded_ecdh_public_key.length) : options.bytes === Array ? Array.prototype.slice.call(message.encoded_ecdh_public_key) : message.encoded_ecdh_public_key;
+            if (message.encodedRuntimeInfo != null && message.hasOwnProperty("encodedRuntimeInfo"))
+                object.encodedRuntimeInfo = options.bytes === String ? $util.base64.encode(message.encodedRuntimeInfo, 0, message.encodedRuntimeInfo.length) : options.bytes === Array ? Array.prototype.slice.call(message.encodedRuntimeInfo) : message.encodedRuntimeInfo;
+            if (message.encodedGenesisBlockHash != null && message.hasOwnProperty("encodedGenesisBlockHash"))
+                object.encodedGenesisBlockHash = options.bytes === String ? $util.base64.encode(message.encodedGenesisBlockHash, 0, message.encodedGenesisBlockHash.length) : options.bytes === Array ? Array.prototype.slice.call(message.encodedGenesisBlockHash) : message.encodedGenesisBlockHash;
+            if (message.encodedPublicKey != null && message.hasOwnProperty("encodedPublicKey"))
+                object.encodedPublicKey = options.bytes === String ? $util.base64.encode(message.encodedPublicKey, 0, message.encodedPublicKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.encodedPublicKey) : message.encodedPublicKey;
+            if (message.encodedEcdhPublicKey != null && message.hasOwnProperty("encodedEcdhPublicKey"))
+                object.encodedEcdhPublicKey = options.bytes === String ? $util.base64.encode(message.encodedEcdhPublicKey, 0, message.encodedEcdhPublicKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.encodedEcdhPublicKey) : message.encodedEcdhPublicKey;
             if (message.attestation != null && message.hasOwnProperty("attestation")) {
-                object.attestation = $root.pruntime_rpc.Attestation.toObject(message.attestation, options);
+                object.attestation = $root.pruntimeRpc.Attestation.toObject(message.attestation, options);
                 if (options.oneofs)
                     object._attestation = "attestation";
             }
@@ -3839,7 +3839,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Converts this InitRuntimeResponse to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.InitRuntimeResponse
+         * @memberof pruntimeRpc.InitRuntimeResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -3850,25 +3850,25 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return InitRuntimeResponse;
     })();
 
-    pruntime_rpc.Attestation = (function() {
+    pruntimeRpc.Attestation = (function() {
 
         /**
          * Properties of an Attestation.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface IAttestation
          * @property {number|null} [version] Attestation version
          * @property {string|null} [provider] Attestation provider
-         * @property {pruntime_rpc.IAttestationReport|null} [payload] Attestation payload
+         * @property {pruntimeRpc.IAttestationReport|null} [payload] Attestation payload
          * @property {number|Long|null} [timestamp] Attestation timestamp
          */
 
         /**
          * Constructs a new Attestation.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents an Attestation.
          * @implements IAttestation
          * @constructor
-         * @param {pruntime_rpc.IAttestation=} [properties] Properties to set
+         * @param {pruntimeRpc.IAttestation=} [properties] Properties to set
          */
         function Attestation(properties) {
             if (properties)
@@ -3880,7 +3880,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Attestation version.
          * @member {number} version
-         * @memberof pruntime_rpc.Attestation
+         * @memberof pruntimeRpc.Attestation
          * @instance
          */
         Attestation.prototype.version = 0;
@@ -3888,15 +3888,15 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Attestation provider.
          * @member {string} provider
-         * @memberof pruntime_rpc.Attestation
+         * @memberof pruntimeRpc.Attestation
          * @instance
          */
         Attestation.prototype.provider = "";
 
         /**
          * Attestation payload.
-         * @member {pruntime_rpc.IAttestationReport|null|undefined} payload
-         * @memberof pruntime_rpc.Attestation
+         * @member {pruntimeRpc.IAttestationReport|null|undefined} payload
+         * @memberof pruntimeRpc.Attestation
          * @instance
          */
         Attestation.prototype.payload = null;
@@ -3904,7 +3904,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Attestation timestamp.
          * @member {number|Long} timestamp
-         * @memberof pruntime_rpc.Attestation
+         * @memberof pruntimeRpc.Attestation
          * @instance
          */
         Attestation.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
@@ -3912,21 +3912,21 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a new Attestation instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.Attestation
+         * @memberof pruntimeRpc.Attestation
          * @static
-         * @param {pruntime_rpc.IAttestation=} [properties] Properties to set
-         * @returns {pruntime_rpc.Attestation} Attestation instance
+         * @param {pruntimeRpc.IAttestation=} [properties] Properties to set
+         * @returns {pruntimeRpc.Attestation} Attestation instance
          */
         Attestation.create = function create(properties) {
             return new Attestation(properties);
         };
 
         /**
-         * Encodes the specified Attestation message. Does not implicitly {@link pruntime_rpc.Attestation.verify|verify} messages.
+         * Encodes the specified Attestation message. Does not implicitly {@link pruntimeRpc.Attestation.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.Attestation
+         * @memberof pruntimeRpc.Attestation
          * @static
-         * @param {pruntime_rpc.IAttestation} message Attestation message or plain object to encode
+         * @param {pruntimeRpc.IAttestation} message Attestation message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3938,18 +3938,18 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             if (message.provider != null && Object.hasOwnProperty.call(message, "provider"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.provider);
             if (message.payload != null && Object.hasOwnProperty.call(message, "payload"))
-                $root.pruntime_rpc.AttestationReport.encode(message.payload, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                $root.pruntimeRpc.AttestationReport.encode(message.payload, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
             if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
                 writer.uint32(/* id 4, wireType 0 =*/32).uint64(message.timestamp);
             return writer;
         };
 
         /**
-         * Encodes the specified Attestation message, length delimited. Does not implicitly {@link pruntime_rpc.Attestation.verify|verify} messages.
+         * Encodes the specified Attestation message, length delimited. Does not implicitly {@link pruntimeRpc.Attestation.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.Attestation
+         * @memberof pruntimeRpc.Attestation
          * @static
-         * @param {pruntime_rpc.IAttestation} message Attestation message or plain object to encode
+         * @param {pruntimeRpc.IAttestation} message Attestation message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3960,18 +3960,18 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes an Attestation message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.Attestation
+         * @memberof pruntimeRpc.Attestation
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.Attestation} Attestation
+         * @returns {pruntimeRpc.Attestation} Attestation
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         Attestation.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.Attestation();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.Attestation();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -3982,7 +3982,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                     message.provider = reader.string();
                     break;
                 case 3:
-                    message.payload = $root.pruntime_rpc.AttestationReport.decode(reader, reader.uint32());
+                    message.payload = $root.pruntimeRpc.AttestationReport.decode(reader, reader.uint32());
                     break;
                 case 4:
                     message.timestamp = reader.uint64();
@@ -3998,10 +3998,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes an Attestation message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.Attestation
+         * @memberof pruntimeRpc.Attestation
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.Attestation} Attestation
+         * @returns {pruntimeRpc.Attestation} Attestation
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -4014,7 +4014,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies an Attestation message.
          * @function verify
-         * @memberof pruntime_rpc.Attestation
+         * @memberof pruntimeRpc.Attestation
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -4029,7 +4029,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                 if (!$util.isString(message.provider))
                     return "provider: string expected";
             if (message.payload != null && message.hasOwnProperty("payload")) {
-                let error = $root.pruntime_rpc.AttestationReport.verify(message.payload);
+                let error = $root.pruntimeRpc.AttestationReport.verify(message.payload);
                 if (error)
                     return "payload." + error;
             }
@@ -4042,23 +4042,23 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates an Attestation message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.Attestation
+         * @memberof pruntimeRpc.Attestation
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.Attestation} Attestation
+         * @returns {pruntimeRpc.Attestation} Attestation
          */
         Attestation.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.Attestation)
+            if (object instanceof $root.pruntimeRpc.Attestation)
                 return object;
-            let message = new $root.pruntime_rpc.Attestation();
+            let message = new $root.pruntimeRpc.Attestation();
             if (object.version != null)
                 message.version = object.version | 0;
             if (object.provider != null)
                 message.provider = String(object.provider);
             if (object.payload != null) {
                 if (typeof object.payload !== "object")
-                    throw TypeError(".pruntime_rpc.Attestation.payload: object expected");
-                message.payload = $root.pruntime_rpc.AttestationReport.fromObject(object.payload);
+                    throw TypeError(".pruntimeRpc.Attestation.payload: object expected");
+                message.payload = $root.pruntimeRpc.AttestationReport.fromObject(object.payload);
             }
             if (object.timestamp != null)
                 if ($util.Long)
@@ -4075,9 +4075,9 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a plain object from an Attestation message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.Attestation
+         * @memberof pruntimeRpc.Attestation
          * @static
-         * @param {pruntime_rpc.Attestation} message Attestation
+         * @param {pruntimeRpc.Attestation} message Attestation
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -4100,7 +4100,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             if (message.provider != null && message.hasOwnProperty("provider"))
                 object.provider = message.provider;
             if (message.payload != null && message.hasOwnProperty("payload"))
-                object.payload = $root.pruntime_rpc.AttestationReport.toObject(message.payload, options);
+                object.payload = $root.pruntimeRpc.AttestationReport.toObject(message.payload, options);
             if (message.timestamp != null && message.hasOwnProperty("timestamp"))
                 if (typeof message.timestamp === "number")
                     object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
@@ -4112,7 +4112,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Converts this Attestation to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.Attestation
+         * @memberof pruntimeRpc.Attestation
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -4123,24 +4123,24 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return Attestation;
     })();
 
-    pruntime_rpc.AttestationReport = (function() {
+    pruntimeRpc.AttestationReport = (function() {
 
         /**
          * Properties of an AttestationReport.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface IAttestationReport
          * @property {string|null} [report] AttestationReport report
          * @property {Uint8Array|null} [signature] AttestationReport signature
-         * @property {Uint8Array|null} [signing_cert] AttestationReport signing_cert
+         * @property {Uint8Array|null} [signingCert] AttestationReport signingCert
          */
 
         /**
          * Constructs a new AttestationReport.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents an AttestationReport.
          * @implements IAttestationReport
          * @constructor
-         * @param {pruntime_rpc.IAttestationReport=} [properties] Properties to set
+         * @param {pruntimeRpc.IAttestationReport=} [properties] Properties to set
          */
         function AttestationReport(properties) {
             if (properties)
@@ -4152,7 +4152,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * AttestationReport report.
          * @member {string} report
-         * @memberof pruntime_rpc.AttestationReport
+         * @memberof pruntimeRpc.AttestationReport
          * @instance
          */
         AttestationReport.prototype.report = "";
@@ -4160,37 +4160,37 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * AttestationReport signature.
          * @member {Uint8Array} signature
-         * @memberof pruntime_rpc.AttestationReport
+         * @memberof pruntimeRpc.AttestationReport
          * @instance
          */
         AttestationReport.prototype.signature = $util.newBuffer([]);
 
         /**
-         * AttestationReport signing_cert.
-         * @member {Uint8Array} signing_cert
-         * @memberof pruntime_rpc.AttestationReport
+         * AttestationReport signingCert.
+         * @member {Uint8Array} signingCert
+         * @memberof pruntimeRpc.AttestationReport
          * @instance
          */
-        AttestationReport.prototype.signing_cert = $util.newBuffer([]);
+        AttestationReport.prototype.signingCert = $util.newBuffer([]);
 
         /**
          * Creates a new AttestationReport instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.AttestationReport
+         * @memberof pruntimeRpc.AttestationReport
          * @static
-         * @param {pruntime_rpc.IAttestationReport=} [properties] Properties to set
-         * @returns {pruntime_rpc.AttestationReport} AttestationReport instance
+         * @param {pruntimeRpc.IAttestationReport=} [properties] Properties to set
+         * @returns {pruntimeRpc.AttestationReport} AttestationReport instance
          */
         AttestationReport.create = function create(properties) {
             return new AttestationReport(properties);
         };
 
         /**
-         * Encodes the specified AttestationReport message. Does not implicitly {@link pruntime_rpc.AttestationReport.verify|verify} messages.
+         * Encodes the specified AttestationReport message. Does not implicitly {@link pruntimeRpc.AttestationReport.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.AttestationReport
+         * @memberof pruntimeRpc.AttestationReport
          * @static
-         * @param {pruntime_rpc.IAttestationReport} message AttestationReport message or plain object to encode
+         * @param {pruntimeRpc.IAttestationReport} message AttestationReport message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -4201,17 +4201,17 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.report);
             if (message.signature != null && Object.hasOwnProperty.call(message, "signature"))
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.signature);
-            if (message.signing_cert != null && Object.hasOwnProperty.call(message, "signing_cert"))
-                writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.signing_cert);
+            if (message.signingCert != null && Object.hasOwnProperty.call(message, "signingCert"))
+                writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.signingCert);
             return writer;
         };
 
         /**
-         * Encodes the specified AttestationReport message, length delimited. Does not implicitly {@link pruntime_rpc.AttestationReport.verify|verify} messages.
+         * Encodes the specified AttestationReport message, length delimited. Does not implicitly {@link pruntimeRpc.AttestationReport.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.AttestationReport
+         * @memberof pruntimeRpc.AttestationReport
          * @static
-         * @param {pruntime_rpc.IAttestationReport} message AttestationReport message or plain object to encode
+         * @param {pruntimeRpc.IAttestationReport} message AttestationReport message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -4222,18 +4222,18 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes an AttestationReport message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.AttestationReport
+         * @memberof pruntimeRpc.AttestationReport
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.AttestationReport} AttestationReport
+         * @returns {pruntimeRpc.AttestationReport} AttestationReport
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         AttestationReport.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.AttestationReport();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.AttestationReport();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -4244,7 +4244,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                     message.signature = reader.bytes();
                     break;
                 case 3:
-                    message.signing_cert = reader.bytes();
+                    message.signingCert = reader.bytes();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4257,10 +4257,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes an AttestationReport message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.AttestationReport
+         * @memberof pruntimeRpc.AttestationReport
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.AttestationReport} AttestationReport
+         * @returns {pruntimeRpc.AttestationReport} AttestationReport
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -4273,7 +4273,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies an AttestationReport message.
          * @function verify
-         * @memberof pruntime_rpc.AttestationReport
+         * @memberof pruntimeRpc.AttestationReport
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -4287,24 +4287,24 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             if (message.signature != null && message.hasOwnProperty("signature"))
                 if (!(message.signature && typeof message.signature.length === "number" || $util.isString(message.signature)))
                     return "signature: buffer expected";
-            if (message.signing_cert != null && message.hasOwnProperty("signing_cert"))
-                if (!(message.signing_cert && typeof message.signing_cert.length === "number" || $util.isString(message.signing_cert)))
-                    return "signing_cert: buffer expected";
+            if (message.signingCert != null && message.hasOwnProperty("signingCert"))
+                if (!(message.signingCert && typeof message.signingCert.length === "number" || $util.isString(message.signingCert)))
+                    return "signingCert: buffer expected";
             return null;
         };
 
         /**
          * Creates an AttestationReport message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.AttestationReport
+         * @memberof pruntimeRpc.AttestationReport
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.AttestationReport} AttestationReport
+         * @returns {pruntimeRpc.AttestationReport} AttestationReport
          */
         AttestationReport.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.AttestationReport)
+            if (object instanceof $root.pruntimeRpc.AttestationReport)
                 return object;
-            let message = new $root.pruntime_rpc.AttestationReport();
+            let message = new $root.pruntimeRpc.AttestationReport();
             if (object.report != null)
                 message.report = String(object.report);
             if (object.signature != null)
@@ -4312,20 +4312,20 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                     $util.base64.decode(object.signature, message.signature = $util.newBuffer($util.base64.length(object.signature)), 0);
                 else if (object.signature.length)
                     message.signature = object.signature;
-            if (object.signing_cert != null)
-                if (typeof object.signing_cert === "string")
-                    $util.base64.decode(object.signing_cert, message.signing_cert = $util.newBuffer($util.base64.length(object.signing_cert)), 0);
-                else if (object.signing_cert.length)
-                    message.signing_cert = object.signing_cert;
+            if (object.signingCert != null)
+                if (typeof object.signingCert === "string")
+                    $util.base64.decode(object.signingCert, message.signingCert = $util.newBuffer($util.base64.length(object.signingCert)), 0);
+                else if (object.signingCert.length)
+                    message.signingCert = object.signingCert;
             return message;
         };
 
         /**
          * Creates a plain object from an AttestationReport message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.AttestationReport
+         * @memberof pruntimeRpc.AttestationReport
          * @static
-         * @param {pruntime_rpc.AttestationReport} message AttestationReport
+         * @param {pruntimeRpc.AttestationReport} message AttestationReport
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -4343,26 +4343,26 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                         object.signature = $util.newBuffer(object.signature);
                 }
                 if (options.bytes === String)
-                    object.signing_cert = "";
+                    object.signingCert = "";
                 else {
-                    object.signing_cert = [];
+                    object.signingCert = [];
                     if (options.bytes !== Array)
-                        object.signing_cert = $util.newBuffer(object.signing_cert);
+                        object.signingCert = $util.newBuffer(object.signingCert);
                 }
             }
             if (message.report != null && message.hasOwnProperty("report"))
                 object.report = message.report;
             if (message.signature != null && message.hasOwnProperty("signature"))
                 object.signature = options.bytes === String ? $util.base64.encode(message.signature, 0, message.signature.length) : options.bytes === Array ? Array.prototype.slice.call(message.signature) : message.signature;
-            if (message.signing_cert != null && message.hasOwnProperty("signing_cert"))
-                object.signing_cert = options.bytes === String ? $util.base64.encode(message.signing_cert, 0, message.signing_cert.length) : options.bytes === Array ? Array.prototype.slice.call(message.signing_cert) : message.signing_cert;
+            if (message.signingCert != null && message.hasOwnProperty("signingCert"))
+                object.signingCert = options.bytes === String ? $util.base64.encode(message.signingCert, 0, message.signingCert.length) : options.bytes === Array ? Array.prototype.slice.call(message.signingCert) : message.signingCert;
             return object;
         };
 
         /**
          * Converts this AttestationReport to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.AttestationReport
+         * @memberof pruntimeRpc.AttestationReport
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -4373,22 +4373,22 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return AttestationReport;
     })();
 
-    pruntime_rpc.GetEgressMessagesResponse = (function() {
+    pruntimeRpc.GetEgressMessagesResponse = (function() {
 
         /**
          * Properties of a GetEgressMessagesResponse.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface IGetEgressMessagesResponse
-         * @property {Uint8Array|null} [encoded_messages] GetEgressMessagesResponse encoded_messages
+         * @property {Uint8Array|null} [encodedMessages] GetEgressMessagesResponse encodedMessages
          */
 
         /**
          * Constructs a new GetEgressMessagesResponse.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a GetEgressMessagesResponse.
          * @implements IGetEgressMessagesResponse
          * @constructor
-         * @param {pruntime_rpc.IGetEgressMessagesResponse=} [properties] Properties to set
+         * @param {pruntimeRpc.IGetEgressMessagesResponse=} [properties] Properties to set
          */
         function GetEgressMessagesResponse(properties) {
             if (properties)
@@ -4398,48 +4398,48 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         }
 
         /**
-         * GetEgressMessagesResponse encoded_messages.
-         * @member {Uint8Array} encoded_messages
-         * @memberof pruntime_rpc.GetEgressMessagesResponse
+         * GetEgressMessagesResponse encodedMessages.
+         * @member {Uint8Array} encodedMessages
+         * @memberof pruntimeRpc.GetEgressMessagesResponse
          * @instance
          */
-        GetEgressMessagesResponse.prototype.encoded_messages = $util.newBuffer([]);
+        GetEgressMessagesResponse.prototype.encodedMessages = $util.newBuffer([]);
 
         /**
          * Creates a new GetEgressMessagesResponse instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.GetEgressMessagesResponse
+         * @memberof pruntimeRpc.GetEgressMessagesResponse
          * @static
-         * @param {pruntime_rpc.IGetEgressMessagesResponse=} [properties] Properties to set
-         * @returns {pruntime_rpc.GetEgressMessagesResponse} GetEgressMessagesResponse instance
+         * @param {pruntimeRpc.IGetEgressMessagesResponse=} [properties] Properties to set
+         * @returns {pruntimeRpc.GetEgressMessagesResponse} GetEgressMessagesResponse instance
          */
         GetEgressMessagesResponse.create = function create(properties) {
             return new GetEgressMessagesResponse(properties);
         };
 
         /**
-         * Encodes the specified GetEgressMessagesResponse message. Does not implicitly {@link pruntime_rpc.GetEgressMessagesResponse.verify|verify} messages.
+         * Encodes the specified GetEgressMessagesResponse message. Does not implicitly {@link pruntimeRpc.GetEgressMessagesResponse.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.GetEgressMessagesResponse
+         * @memberof pruntimeRpc.GetEgressMessagesResponse
          * @static
-         * @param {pruntime_rpc.IGetEgressMessagesResponse} message GetEgressMessagesResponse message or plain object to encode
+         * @param {pruntimeRpc.IGetEgressMessagesResponse} message GetEgressMessagesResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
         GetEgressMessagesResponse.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.encoded_messages != null && Object.hasOwnProperty.call(message, "encoded_messages"))
-                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.encoded_messages);
+            if (message.encodedMessages != null && Object.hasOwnProperty.call(message, "encodedMessages"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.encodedMessages);
             return writer;
         };
 
         /**
-         * Encodes the specified GetEgressMessagesResponse message, length delimited. Does not implicitly {@link pruntime_rpc.GetEgressMessagesResponse.verify|verify} messages.
+         * Encodes the specified GetEgressMessagesResponse message, length delimited. Does not implicitly {@link pruntimeRpc.GetEgressMessagesResponse.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.GetEgressMessagesResponse
+         * @memberof pruntimeRpc.GetEgressMessagesResponse
          * @static
-         * @param {pruntime_rpc.IGetEgressMessagesResponse} message GetEgressMessagesResponse message or plain object to encode
+         * @param {pruntimeRpc.IGetEgressMessagesResponse} message GetEgressMessagesResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -4450,23 +4450,23 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a GetEgressMessagesResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.GetEgressMessagesResponse
+         * @memberof pruntimeRpc.GetEgressMessagesResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.GetEgressMessagesResponse} GetEgressMessagesResponse
+         * @returns {pruntimeRpc.GetEgressMessagesResponse} GetEgressMessagesResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         GetEgressMessagesResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.GetEgressMessagesResponse();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.GetEgressMessagesResponse();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.encoded_messages = reader.bytes();
+                    message.encodedMessages = reader.bytes();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4479,10 +4479,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a GetEgressMessagesResponse message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.GetEgressMessagesResponse
+         * @memberof pruntimeRpc.GetEgressMessagesResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.GetEgressMessagesResponse} GetEgressMessagesResponse
+         * @returns {pruntimeRpc.GetEgressMessagesResponse} GetEgressMessagesResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -4495,7 +4495,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies a GetEgressMessagesResponse message.
          * @function verify
-         * @memberof pruntime_rpc.GetEgressMessagesResponse
+         * @memberof pruntimeRpc.GetEgressMessagesResponse
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -4503,38 +4503,38 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         GetEgressMessagesResponse.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.encoded_messages != null && message.hasOwnProperty("encoded_messages"))
-                if (!(message.encoded_messages && typeof message.encoded_messages.length === "number" || $util.isString(message.encoded_messages)))
-                    return "encoded_messages: buffer expected";
+            if (message.encodedMessages != null && message.hasOwnProperty("encodedMessages"))
+                if (!(message.encodedMessages && typeof message.encodedMessages.length === "number" || $util.isString(message.encodedMessages)))
+                    return "encodedMessages: buffer expected";
             return null;
         };
 
         /**
          * Creates a GetEgressMessagesResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.GetEgressMessagesResponse
+         * @memberof pruntimeRpc.GetEgressMessagesResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.GetEgressMessagesResponse} GetEgressMessagesResponse
+         * @returns {pruntimeRpc.GetEgressMessagesResponse} GetEgressMessagesResponse
          */
         GetEgressMessagesResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.GetEgressMessagesResponse)
+            if (object instanceof $root.pruntimeRpc.GetEgressMessagesResponse)
                 return object;
-            let message = new $root.pruntime_rpc.GetEgressMessagesResponse();
-            if (object.encoded_messages != null)
-                if (typeof object.encoded_messages === "string")
-                    $util.base64.decode(object.encoded_messages, message.encoded_messages = $util.newBuffer($util.base64.length(object.encoded_messages)), 0);
-                else if (object.encoded_messages.length)
-                    message.encoded_messages = object.encoded_messages;
+            let message = new $root.pruntimeRpc.GetEgressMessagesResponse();
+            if (object.encodedMessages != null)
+                if (typeof object.encodedMessages === "string")
+                    $util.base64.decode(object.encodedMessages, message.encodedMessages = $util.newBuffer($util.base64.length(object.encodedMessages)), 0);
+                else if (object.encodedMessages.length)
+                    message.encodedMessages = object.encodedMessages;
             return message;
         };
 
         /**
          * Creates a plain object from a GetEgressMessagesResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.GetEgressMessagesResponse
+         * @memberof pruntimeRpc.GetEgressMessagesResponse
          * @static
-         * @param {pruntime_rpc.GetEgressMessagesResponse} message GetEgressMessagesResponse
+         * @param {pruntimeRpc.GetEgressMessagesResponse} message GetEgressMessagesResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -4544,21 +4544,21 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             let object = {};
             if (options.defaults)
                 if (options.bytes === String)
-                    object.encoded_messages = "";
+                    object.encodedMessages = "";
                 else {
-                    object.encoded_messages = [];
+                    object.encodedMessages = [];
                     if (options.bytes !== Array)
-                        object.encoded_messages = $util.newBuffer(object.encoded_messages);
+                        object.encodedMessages = $util.newBuffer(object.encodedMessages);
                 }
-            if (message.encoded_messages != null && message.hasOwnProperty("encoded_messages"))
-                object.encoded_messages = options.bytes === String ? $util.base64.encode(message.encoded_messages, 0, message.encoded_messages.length) : options.bytes === Array ? Array.prototype.slice.call(message.encoded_messages) : message.encoded_messages;
+            if (message.encodedMessages != null && message.hasOwnProperty("encodedMessages"))
+                object.encodedMessages = options.bytes === String ? $util.base64.encode(message.encodedMessages, 0, message.encodedMessages.length) : options.bytes === Array ? Array.prototype.slice.call(message.encodedMessages) : message.encodedMessages;
             return object;
         };
 
         /**
          * Converts this GetEgressMessagesResponse to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.GetEgressMessagesResponse
+         * @memberof pruntimeRpc.GetEgressMessagesResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -4569,23 +4569,23 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return GetEgressMessagesResponse;
     })();
 
-    pruntime_rpc.ContractQueryRequest = (function() {
+    pruntimeRpc.ContractQueryRequest = (function() {
 
         /**
          * Properties of a ContractQueryRequest.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface IContractQueryRequest
-         * @property {Uint8Array|null} [encoded_encrypted_data] ContractQueryRequest encoded_encrypted_data
-         * @property {pruntime_rpc.ISignature|null} [signature] ContractQueryRequest signature
+         * @property {Uint8Array|null} [encodedEncryptedData] ContractQueryRequest encodedEncryptedData
+         * @property {pruntimeRpc.ISignature|null} [signature] ContractQueryRequest signature
          */
 
         /**
          * Constructs a new ContractQueryRequest.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a ContractQueryRequest.
          * @implements IContractQueryRequest
          * @constructor
-         * @param {pruntime_rpc.IContractQueryRequest=} [properties] Properties to set
+         * @param {pruntimeRpc.IContractQueryRequest=} [properties] Properties to set
          */
         function ContractQueryRequest(properties) {
             if (properties)
@@ -4595,17 +4595,17 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         }
 
         /**
-         * ContractQueryRequest encoded_encrypted_data.
-         * @member {Uint8Array} encoded_encrypted_data
-         * @memberof pruntime_rpc.ContractQueryRequest
+         * ContractQueryRequest encodedEncryptedData.
+         * @member {Uint8Array} encodedEncryptedData
+         * @memberof pruntimeRpc.ContractQueryRequest
          * @instance
          */
-        ContractQueryRequest.prototype.encoded_encrypted_data = $util.newBuffer([]);
+        ContractQueryRequest.prototype.encodedEncryptedData = $util.newBuffer([]);
 
         /**
          * ContractQueryRequest signature.
-         * @member {pruntime_rpc.ISignature|null|undefined} signature
-         * @memberof pruntime_rpc.ContractQueryRequest
+         * @member {pruntimeRpc.ISignature|null|undefined} signature
+         * @memberof pruntimeRpc.ContractQueryRequest
          * @instance
          */
         ContractQueryRequest.prototype.signature = null;
@@ -4613,40 +4613,40 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a new ContractQueryRequest instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.ContractQueryRequest
+         * @memberof pruntimeRpc.ContractQueryRequest
          * @static
-         * @param {pruntime_rpc.IContractQueryRequest=} [properties] Properties to set
-         * @returns {pruntime_rpc.ContractQueryRequest} ContractQueryRequest instance
+         * @param {pruntimeRpc.IContractQueryRequest=} [properties] Properties to set
+         * @returns {pruntimeRpc.ContractQueryRequest} ContractQueryRequest instance
          */
         ContractQueryRequest.create = function create(properties) {
             return new ContractQueryRequest(properties);
         };
 
         /**
-         * Encodes the specified ContractQueryRequest message. Does not implicitly {@link pruntime_rpc.ContractQueryRequest.verify|verify} messages.
+         * Encodes the specified ContractQueryRequest message. Does not implicitly {@link pruntimeRpc.ContractQueryRequest.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.ContractQueryRequest
+         * @memberof pruntimeRpc.ContractQueryRequest
          * @static
-         * @param {pruntime_rpc.IContractQueryRequest} message ContractQueryRequest message or plain object to encode
+         * @param {pruntimeRpc.IContractQueryRequest} message ContractQueryRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
         ContractQueryRequest.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.encoded_encrypted_data != null && Object.hasOwnProperty.call(message, "encoded_encrypted_data"))
-                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.encoded_encrypted_data);
+            if (message.encodedEncryptedData != null && Object.hasOwnProperty.call(message, "encodedEncryptedData"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.encodedEncryptedData);
             if (message.signature != null && Object.hasOwnProperty.call(message, "signature"))
-                $root.pruntime_rpc.Signature.encode(message.signature, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                $root.pruntimeRpc.Signature.encode(message.signature, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
             return writer;
         };
 
         /**
-         * Encodes the specified ContractQueryRequest message, length delimited. Does not implicitly {@link pruntime_rpc.ContractQueryRequest.verify|verify} messages.
+         * Encodes the specified ContractQueryRequest message, length delimited. Does not implicitly {@link pruntimeRpc.ContractQueryRequest.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.ContractQueryRequest
+         * @memberof pruntimeRpc.ContractQueryRequest
          * @static
-         * @param {pruntime_rpc.IContractQueryRequest} message ContractQueryRequest message or plain object to encode
+         * @param {pruntimeRpc.IContractQueryRequest} message ContractQueryRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -4657,26 +4657,26 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a ContractQueryRequest message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.ContractQueryRequest
+         * @memberof pruntimeRpc.ContractQueryRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.ContractQueryRequest} ContractQueryRequest
+         * @returns {pruntimeRpc.ContractQueryRequest} ContractQueryRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         ContractQueryRequest.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.ContractQueryRequest();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.ContractQueryRequest();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.encoded_encrypted_data = reader.bytes();
+                    message.encodedEncryptedData = reader.bytes();
                     break;
                 case 2:
-                    message.signature = $root.pruntime_rpc.Signature.decode(reader, reader.uint32());
+                    message.signature = $root.pruntimeRpc.Signature.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4689,10 +4689,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a ContractQueryRequest message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.ContractQueryRequest
+         * @memberof pruntimeRpc.ContractQueryRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.ContractQueryRequest} ContractQueryRequest
+         * @returns {pruntimeRpc.ContractQueryRequest} ContractQueryRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -4705,7 +4705,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies a ContractQueryRequest message.
          * @function verify
-         * @memberof pruntime_rpc.ContractQueryRequest
+         * @memberof pruntimeRpc.ContractQueryRequest
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -4713,11 +4713,11 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         ContractQueryRequest.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.encoded_encrypted_data != null && message.hasOwnProperty("encoded_encrypted_data"))
-                if (!(message.encoded_encrypted_data && typeof message.encoded_encrypted_data.length === "number" || $util.isString(message.encoded_encrypted_data)))
-                    return "encoded_encrypted_data: buffer expected";
+            if (message.encodedEncryptedData != null && message.hasOwnProperty("encodedEncryptedData"))
+                if (!(message.encodedEncryptedData && typeof message.encodedEncryptedData.length === "number" || $util.isString(message.encodedEncryptedData)))
+                    return "encodedEncryptedData: buffer expected";
             if (message.signature != null && message.hasOwnProperty("signature")) {
-                let error = $root.pruntime_rpc.Signature.verify(message.signature);
+                let error = $root.pruntimeRpc.Signature.verify(message.signature);
                 if (error)
                     return "signature." + error;
             }
@@ -4727,24 +4727,24 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a ContractQueryRequest message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.ContractQueryRequest
+         * @memberof pruntimeRpc.ContractQueryRequest
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.ContractQueryRequest} ContractQueryRequest
+         * @returns {pruntimeRpc.ContractQueryRequest} ContractQueryRequest
          */
         ContractQueryRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.ContractQueryRequest)
+            if (object instanceof $root.pruntimeRpc.ContractQueryRequest)
                 return object;
-            let message = new $root.pruntime_rpc.ContractQueryRequest();
-            if (object.encoded_encrypted_data != null)
-                if (typeof object.encoded_encrypted_data === "string")
-                    $util.base64.decode(object.encoded_encrypted_data, message.encoded_encrypted_data = $util.newBuffer($util.base64.length(object.encoded_encrypted_data)), 0);
-                else if (object.encoded_encrypted_data.length)
-                    message.encoded_encrypted_data = object.encoded_encrypted_data;
+            let message = new $root.pruntimeRpc.ContractQueryRequest();
+            if (object.encodedEncryptedData != null)
+                if (typeof object.encodedEncryptedData === "string")
+                    $util.base64.decode(object.encodedEncryptedData, message.encodedEncryptedData = $util.newBuffer($util.base64.length(object.encodedEncryptedData)), 0);
+                else if (object.encodedEncryptedData.length)
+                    message.encodedEncryptedData = object.encodedEncryptedData;
             if (object.signature != null) {
                 if (typeof object.signature !== "object")
-                    throw TypeError(".pruntime_rpc.ContractQueryRequest.signature: object expected");
-                message.signature = $root.pruntime_rpc.Signature.fromObject(object.signature);
+                    throw TypeError(".pruntimeRpc.ContractQueryRequest.signature: object expected");
+                message.signature = $root.pruntimeRpc.Signature.fromObject(object.signature);
             }
             return message;
         };
@@ -4752,9 +4752,9 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a plain object from a ContractQueryRequest message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.ContractQueryRequest
+         * @memberof pruntimeRpc.ContractQueryRequest
          * @static
-         * @param {pruntime_rpc.ContractQueryRequest} message ContractQueryRequest
+         * @param {pruntimeRpc.ContractQueryRequest} message ContractQueryRequest
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -4764,25 +4764,25 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             let object = {};
             if (options.defaults) {
                 if (options.bytes === String)
-                    object.encoded_encrypted_data = "";
+                    object.encodedEncryptedData = "";
                 else {
-                    object.encoded_encrypted_data = [];
+                    object.encodedEncryptedData = [];
                     if (options.bytes !== Array)
-                        object.encoded_encrypted_data = $util.newBuffer(object.encoded_encrypted_data);
+                        object.encodedEncryptedData = $util.newBuffer(object.encodedEncryptedData);
                 }
                 object.signature = null;
             }
-            if (message.encoded_encrypted_data != null && message.hasOwnProperty("encoded_encrypted_data"))
-                object.encoded_encrypted_data = options.bytes === String ? $util.base64.encode(message.encoded_encrypted_data, 0, message.encoded_encrypted_data.length) : options.bytes === Array ? Array.prototype.slice.call(message.encoded_encrypted_data) : message.encoded_encrypted_data;
+            if (message.encodedEncryptedData != null && message.hasOwnProperty("encodedEncryptedData"))
+                object.encodedEncryptedData = options.bytes === String ? $util.base64.encode(message.encodedEncryptedData, 0, message.encodedEncryptedData.length) : options.bytes === Array ? Array.prototype.slice.call(message.encodedEncryptedData) : message.encodedEncryptedData;
             if (message.signature != null && message.hasOwnProperty("signature"))
-                object.signature = $root.pruntime_rpc.Signature.toObject(message.signature, options);
+                object.signature = $root.pruntimeRpc.Signature.toObject(message.signature, options);
             return object;
         };
 
         /**
          * Converts this ContractQueryRequest to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.ContractQueryRequest
+         * @memberof pruntimeRpc.ContractQueryRequest
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -4793,24 +4793,24 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return ContractQueryRequest;
     })();
 
-    pruntime_rpc.Signature = (function() {
+    pruntimeRpc.Signature = (function() {
 
         /**
          * Properties of a Signature.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface ISignature
-         * @property {pruntime_rpc.ICertificate|null} [signed_by] Signature signed_by
-         * @property {pruntime_rpc.SignatureType|null} [signature_type] Signature signature_type
+         * @property {pruntimeRpc.ICertificate|null} [signedBy] Signature signedBy
+         * @property {pruntimeRpc.SignatureType|null} [signatureType] Signature signatureType
          * @property {Uint8Array|null} [signature] Signature signature
          */
 
         /**
          * Constructs a new Signature.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a Signature.
          * @implements ISignature
          * @constructor
-         * @param {pruntime_rpc.ISignature=} [properties] Properties to set
+         * @param {pruntimeRpc.ISignature=} [properties] Properties to set
          */
         function Signature(properties) {
             if (properties)
@@ -4820,25 +4820,25 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         }
 
         /**
-         * Signature signed_by.
-         * @member {pruntime_rpc.ICertificate|null|undefined} signed_by
-         * @memberof pruntime_rpc.Signature
+         * Signature signedBy.
+         * @member {pruntimeRpc.ICertificate|null|undefined} signedBy
+         * @memberof pruntimeRpc.Signature
          * @instance
          */
-        Signature.prototype.signed_by = null;
+        Signature.prototype.signedBy = null;
 
         /**
-         * Signature signature_type.
-         * @member {pruntime_rpc.SignatureType} signature_type
-         * @memberof pruntime_rpc.Signature
+         * Signature signatureType.
+         * @member {pruntimeRpc.SignatureType} signatureType
+         * @memberof pruntimeRpc.Signature
          * @instance
          */
-        Signature.prototype.signature_type = 0;
+        Signature.prototype.signatureType = 0;
 
         /**
          * Signature signature.
          * @member {Uint8Array} signature
-         * @memberof pruntime_rpc.Signature
+         * @memberof pruntimeRpc.Signature
          * @instance
          */
         Signature.prototype.signature = $util.newBuffer([]);
@@ -4846,42 +4846,42 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a new Signature instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.Signature
+         * @memberof pruntimeRpc.Signature
          * @static
-         * @param {pruntime_rpc.ISignature=} [properties] Properties to set
-         * @returns {pruntime_rpc.Signature} Signature instance
+         * @param {pruntimeRpc.ISignature=} [properties] Properties to set
+         * @returns {pruntimeRpc.Signature} Signature instance
          */
         Signature.create = function create(properties) {
             return new Signature(properties);
         };
 
         /**
-         * Encodes the specified Signature message. Does not implicitly {@link pruntime_rpc.Signature.verify|verify} messages.
+         * Encodes the specified Signature message. Does not implicitly {@link pruntimeRpc.Signature.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.Signature
+         * @memberof pruntimeRpc.Signature
          * @static
-         * @param {pruntime_rpc.ISignature} message Signature message or plain object to encode
+         * @param {pruntimeRpc.ISignature} message Signature message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
         Signature.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.signed_by != null && Object.hasOwnProperty.call(message, "signed_by"))
-                $root.pruntime_rpc.Certificate.encode(message.signed_by, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-            if (message.signature_type != null && Object.hasOwnProperty.call(message, "signature_type"))
-                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.signature_type);
+            if (message.signedBy != null && Object.hasOwnProperty.call(message, "signedBy"))
+                $root.pruntimeRpc.Certificate.encode(message.signedBy, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.signatureType != null && Object.hasOwnProperty.call(message, "signatureType"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.signatureType);
             if (message.signature != null && Object.hasOwnProperty.call(message, "signature"))
                 writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.signature);
             return writer;
         };
 
         /**
-         * Encodes the specified Signature message, length delimited. Does not implicitly {@link pruntime_rpc.Signature.verify|verify} messages.
+         * Encodes the specified Signature message, length delimited. Does not implicitly {@link pruntimeRpc.Signature.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.Signature
+         * @memberof pruntimeRpc.Signature
          * @static
-         * @param {pruntime_rpc.ISignature} message Signature message or plain object to encode
+         * @param {pruntimeRpc.ISignature} message Signature message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -4892,26 +4892,26 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a Signature message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.Signature
+         * @memberof pruntimeRpc.Signature
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.Signature} Signature
+         * @returns {pruntimeRpc.Signature} Signature
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         Signature.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.Signature();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.Signature();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.signed_by = $root.pruntime_rpc.Certificate.decode(reader, reader.uint32());
+                    message.signedBy = $root.pruntimeRpc.Certificate.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.signature_type = reader.int32();
+                    message.signatureType = reader.int32();
                     break;
                 case 3:
                     message.signature = reader.bytes();
@@ -4927,10 +4927,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a Signature message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.Signature
+         * @memberof pruntimeRpc.Signature
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.Signature} Signature
+         * @returns {pruntimeRpc.Signature} Signature
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -4943,7 +4943,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies a Signature message.
          * @function verify
-         * @memberof pruntime_rpc.Signature
+         * @memberof pruntimeRpc.Signature
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -4951,15 +4951,15 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         Signature.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.signed_by != null && message.hasOwnProperty("signed_by")) {
-                let error = $root.pruntime_rpc.Certificate.verify(message.signed_by);
+            if (message.signedBy != null && message.hasOwnProperty("signedBy")) {
+                let error = $root.pruntimeRpc.Certificate.verify(message.signedBy);
                 if (error)
-                    return "signed_by." + error;
+                    return "signedBy." + error;
             }
-            if (message.signature_type != null && message.hasOwnProperty("signature_type"))
-                switch (message.signature_type) {
+            if (message.signatureType != null && message.hasOwnProperty("signatureType"))
+                switch (message.signatureType) {
                 default:
-                    return "signature_type: enum value expected";
+                    return "signatureType: enum value expected";
                 case 0:
                 case 1:
                 case 2:
@@ -4977,44 +4977,44 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a Signature message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.Signature
+         * @memberof pruntimeRpc.Signature
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.Signature} Signature
+         * @returns {pruntimeRpc.Signature} Signature
          */
         Signature.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.Signature)
+            if (object instanceof $root.pruntimeRpc.Signature)
                 return object;
-            let message = new $root.pruntime_rpc.Signature();
-            if (object.signed_by != null) {
-                if (typeof object.signed_by !== "object")
-                    throw TypeError(".pruntime_rpc.Signature.signed_by: object expected");
-                message.signed_by = $root.pruntime_rpc.Certificate.fromObject(object.signed_by);
+            let message = new $root.pruntimeRpc.Signature();
+            if (object.signedBy != null) {
+                if (typeof object.signedBy !== "object")
+                    throw TypeError(".pruntimeRpc.Signature.signedBy: object expected");
+                message.signedBy = $root.pruntimeRpc.Certificate.fromObject(object.signedBy);
             }
-            switch (object.signature_type) {
+            switch (object.signatureType) {
             case "Ed25519":
             case 0:
-                message.signature_type = 0;
+                message.signatureType = 0;
                 break;
             case "Sr25519":
             case 1:
-                message.signature_type = 1;
+                message.signatureType = 1;
                 break;
             case "Ecdsa":
             case 2:
-                message.signature_type = 2;
+                message.signatureType = 2;
                 break;
             case "Ed25519WrapBytes":
             case 3:
-                message.signature_type = 3;
+                message.signatureType = 3;
                 break;
             case "Sr25519WrapBytes":
             case 4:
-                message.signature_type = 4;
+                message.signatureType = 4;
                 break;
             case "EcdsaWrapBytes":
             case 5:
-                message.signature_type = 5;
+                message.signatureType = 5;
                 break;
             }
             if (object.signature != null)
@@ -5028,9 +5028,9 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a plain object from a Signature message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.Signature
+         * @memberof pruntimeRpc.Signature
          * @static
-         * @param {pruntime_rpc.Signature} message Signature
+         * @param {pruntimeRpc.Signature} message Signature
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -5039,8 +5039,8 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                 options = {};
             let object = {};
             if (options.defaults) {
-                object.signed_by = null;
-                object.signature_type = options.enums === String ? "Ed25519" : 0;
+                object.signedBy = null;
+                object.signatureType = options.enums === String ? "Ed25519" : 0;
                 if (options.bytes === String)
                     object.signature = "";
                 else {
@@ -5049,10 +5049,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                         object.signature = $util.newBuffer(object.signature);
                 }
             }
-            if (message.signed_by != null && message.hasOwnProperty("signed_by"))
-                object.signed_by = $root.pruntime_rpc.Certificate.toObject(message.signed_by, options);
-            if (message.signature_type != null && message.hasOwnProperty("signature_type"))
-                object.signature_type = options.enums === String ? $root.pruntime_rpc.SignatureType[message.signature_type] : message.signature_type;
+            if (message.signedBy != null && message.hasOwnProperty("signedBy"))
+                object.signedBy = $root.pruntimeRpc.Certificate.toObject(message.signedBy, options);
+            if (message.signatureType != null && message.hasOwnProperty("signatureType"))
+                object.signatureType = options.enums === String ? $root.pruntimeRpc.SignatureType[message.signatureType] : message.signatureType;
             if (message.signature != null && message.hasOwnProperty("signature"))
                 object.signature = options.bytes === String ? $util.base64.encode(message.signature, 0, message.signature.length) : options.bytes === Array ? Array.prototype.slice.call(message.signature) : message.signature;
             return object;
@@ -5061,7 +5061,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Converts this Signature to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.Signature
+         * @memberof pruntimeRpc.Signature
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -5072,23 +5072,23 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return Signature;
     })();
 
-    pruntime_rpc.Certificate = (function() {
+    pruntimeRpc.Certificate = (function() {
 
         /**
          * Properties of a Certificate.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface ICertificate
-         * @property {Uint8Array|null} [encoded_body] Certificate encoded_body
-         * @property {pruntime_rpc.ISignature|null} [signature] Certificate signature
+         * @property {Uint8Array|null} [encodedBody] Certificate encodedBody
+         * @property {pruntimeRpc.ISignature|null} [signature] Certificate signature
          */
 
         /**
          * Constructs a new Certificate.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a Certificate.
          * @implements ICertificate
          * @constructor
-         * @param {pruntime_rpc.ICertificate=} [properties] Properties to set
+         * @param {pruntimeRpc.ICertificate=} [properties] Properties to set
          */
         function Certificate(properties) {
             if (properties)
@@ -5098,17 +5098,17 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         }
 
         /**
-         * Certificate encoded_body.
-         * @member {Uint8Array} encoded_body
-         * @memberof pruntime_rpc.Certificate
+         * Certificate encodedBody.
+         * @member {Uint8Array} encodedBody
+         * @memberof pruntimeRpc.Certificate
          * @instance
          */
-        Certificate.prototype.encoded_body = $util.newBuffer([]);
+        Certificate.prototype.encodedBody = $util.newBuffer([]);
 
         /**
          * Certificate signature.
-         * @member {pruntime_rpc.ISignature|null|undefined} signature
-         * @memberof pruntime_rpc.Certificate
+         * @member {pruntimeRpc.ISignature|null|undefined} signature
+         * @memberof pruntimeRpc.Certificate
          * @instance
          */
         Certificate.prototype.signature = null;
@@ -5116,40 +5116,40 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a new Certificate instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.Certificate
+         * @memberof pruntimeRpc.Certificate
          * @static
-         * @param {pruntime_rpc.ICertificate=} [properties] Properties to set
-         * @returns {pruntime_rpc.Certificate} Certificate instance
+         * @param {pruntimeRpc.ICertificate=} [properties] Properties to set
+         * @returns {pruntimeRpc.Certificate} Certificate instance
          */
         Certificate.create = function create(properties) {
             return new Certificate(properties);
         };
 
         /**
-         * Encodes the specified Certificate message. Does not implicitly {@link pruntime_rpc.Certificate.verify|verify} messages.
+         * Encodes the specified Certificate message. Does not implicitly {@link pruntimeRpc.Certificate.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.Certificate
+         * @memberof pruntimeRpc.Certificate
          * @static
-         * @param {pruntime_rpc.ICertificate} message Certificate message or plain object to encode
+         * @param {pruntimeRpc.ICertificate} message Certificate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
         Certificate.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.encoded_body != null && Object.hasOwnProperty.call(message, "encoded_body"))
-                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.encoded_body);
+            if (message.encodedBody != null && Object.hasOwnProperty.call(message, "encodedBody"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.encodedBody);
             if (message.signature != null && Object.hasOwnProperty.call(message, "signature"))
-                $root.pruntime_rpc.Signature.encode(message.signature, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                $root.pruntimeRpc.Signature.encode(message.signature, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
             return writer;
         };
 
         /**
-         * Encodes the specified Certificate message, length delimited. Does not implicitly {@link pruntime_rpc.Certificate.verify|verify} messages.
+         * Encodes the specified Certificate message, length delimited. Does not implicitly {@link pruntimeRpc.Certificate.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.Certificate
+         * @memberof pruntimeRpc.Certificate
          * @static
-         * @param {pruntime_rpc.ICertificate} message Certificate message or plain object to encode
+         * @param {pruntimeRpc.ICertificate} message Certificate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -5160,26 +5160,26 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a Certificate message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.Certificate
+         * @memberof pruntimeRpc.Certificate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.Certificate} Certificate
+         * @returns {pruntimeRpc.Certificate} Certificate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         Certificate.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.Certificate();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.Certificate();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.encoded_body = reader.bytes();
+                    message.encodedBody = reader.bytes();
                     break;
                 case 2:
-                    message.signature = $root.pruntime_rpc.Signature.decode(reader, reader.uint32());
+                    message.signature = $root.pruntimeRpc.Signature.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5192,10 +5192,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a Certificate message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.Certificate
+         * @memberof pruntimeRpc.Certificate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.Certificate} Certificate
+         * @returns {pruntimeRpc.Certificate} Certificate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -5208,7 +5208,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies a Certificate message.
          * @function verify
-         * @memberof pruntime_rpc.Certificate
+         * @memberof pruntimeRpc.Certificate
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -5216,11 +5216,11 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         Certificate.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.encoded_body != null && message.hasOwnProperty("encoded_body"))
-                if (!(message.encoded_body && typeof message.encoded_body.length === "number" || $util.isString(message.encoded_body)))
-                    return "encoded_body: buffer expected";
+            if (message.encodedBody != null && message.hasOwnProperty("encodedBody"))
+                if (!(message.encodedBody && typeof message.encodedBody.length === "number" || $util.isString(message.encodedBody)))
+                    return "encodedBody: buffer expected";
             if (message.signature != null && message.hasOwnProperty("signature")) {
-                let error = $root.pruntime_rpc.Signature.verify(message.signature);
+                let error = $root.pruntimeRpc.Signature.verify(message.signature);
                 if (error)
                     return "signature." + error;
             }
@@ -5230,24 +5230,24 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a Certificate message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.Certificate
+         * @memberof pruntimeRpc.Certificate
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.Certificate} Certificate
+         * @returns {pruntimeRpc.Certificate} Certificate
          */
         Certificate.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.Certificate)
+            if (object instanceof $root.pruntimeRpc.Certificate)
                 return object;
-            let message = new $root.pruntime_rpc.Certificate();
-            if (object.encoded_body != null)
-                if (typeof object.encoded_body === "string")
-                    $util.base64.decode(object.encoded_body, message.encoded_body = $util.newBuffer($util.base64.length(object.encoded_body)), 0);
-                else if (object.encoded_body.length)
-                    message.encoded_body = object.encoded_body;
+            let message = new $root.pruntimeRpc.Certificate();
+            if (object.encodedBody != null)
+                if (typeof object.encodedBody === "string")
+                    $util.base64.decode(object.encodedBody, message.encodedBody = $util.newBuffer($util.base64.length(object.encodedBody)), 0);
+                else if (object.encodedBody.length)
+                    message.encodedBody = object.encodedBody;
             if (object.signature != null) {
                 if (typeof object.signature !== "object")
-                    throw TypeError(".pruntime_rpc.Certificate.signature: object expected");
-                message.signature = $root.pruntime_rpc.Signature.fromObject(object.signature);
+                    throw TypeError(".pruntimeRpc.Certificate.signature: object expected");
+                message.signature = $root.pruntimeRpc.Signature.fromObject(object.signature);
             }
             return message;
         };
@@ -5255,9 +5255,9 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a plain object from a Certificate message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.Certificate
+         * @memberof pruntimeRpc.Certificate
          * @static
-         * @param {pruntime_rpc.Certificate} message Certificate
+         * @param {pruntimeRpc.Certificate} message Certificate
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -5267,25 +5267,25 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             let object = {};
             if (options.defaults) {
                 if (options.bytes === String)
-                    object.encoded_body = "";
+                    object.encodedBody = "";
                 else {
-                    object.encoded_body = [];
+                    object.encodedBody = [];
                     if (options.bytes !== Array)
-                        object.encoded_body = $util.newBuffer(object.encoded_body);
+                        object.encodedBody = $util.newBuffer(object.encodedBody);
                 }
                 object.signature = null;
             }
-            if (message.encoded_body != null && message.hasOwnProperty("encoded_body"))
-                object.encoded_body = options.bytes === String ? $util.base64.encode(message.encoded_body, 0, message.encoded_body.length) : options.bytes === Array ? Array.prototype.slice.call(message.encoded_body) : message.encoded_body;
+            if (message.encodedBody != null && message.hasOwnProperty("encodedBody"))
+                object.encodedBody = options.bytes === String ? $util.base64.encode(message.encodedBody, 0, message.encodedBody.length) : options.bytes === Array ? Array.prototype.slice.call(message.encodedBody) : message.encodedBody;
             if (message.signature != null && message.hasOwnProperty("signature"))
-                object.signature = $root.pruntime_rpc.Signature.toObject(message.signature, options);
+                object.signature = $root.pruntimeRpc.Signature.toObject(message.signature, options);
             return object;
         };
 
         /**
          * Converts this Certificate to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.Certificate
+         * @memberof pruntimeRpc.Certificate
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -5298,7 +5298,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
 
     /**
      * SignatureType enum.
-     * @name pruntime_rpc.SignatureType
+     * @name pruntimeRpc.SignatureType
      * @enum {number}
      * @property {number} Ed25519=0 Ed25519 value
      * @property {number} Sr25519=1 Sr25519 value
@@ -5307,7 +5307,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
      * @property {number} Sr25519WrapBytes=4 Sr25519WrapBytes value
      * @property {number} EcdsaWrapBytes=5 EcdsaWrapBytes value
      */
-    pruntime_rpc.SignatureType = (function() {
+    pruntimeRpc.SignatureType = (function() {
         const valuesById = {}, values = Object.create(valuesById);
         values[valuesById[0] = "Ed25519"] = 0;
         values[valuesById[1] = "Sr25519"] = 1;
@@ -5318,22 +5318,22 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return values;
     })();
 
-    pruntime_rpc.ContractQueryResponse = (function() {
+    pruntimeRpc.ContractQueryResponse = (function() {
 
         /**
          * Properties of a ContractQueryResponse.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface IContractQueryResponse
-         * @property {Uint8Array|null} [encoded_encrypted_data] ContractQueryResponse encoded_encrypted_data
+         * @property {Uint8Array|null} [encodedEncryptedData] ContractQueryResponse encodedEncryptedData
          */
 
         /**
          * Constructs a new ContractQueryResponse.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a ContractQueryResponse.
          * @implements IContractQueryResponse
          * @constructor
-         * @param {pruntime_rpc.IContractQueryResponse=} [properties] Properties to set
+         * @param {pruntimeRpc.IContractQueryResponse=} [properties] Properties to set
          */
         function ContractQueryResponse(properties) {
             if (properties)
@@ -5343,48 +5343,48 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         }
 
         /**
-         * ContractQueryResponse encoded_encrypted_data.
-         * @member {Uint8Array} encoded_encrypted_data
-         * @memberof pruntime_rpc.ContractQueryResponse
+         * ContractQueryResponse encodedEncryptedData.
+         * @member {Uint8Array} encodedEncryptedData
+         * @memberof pruntimeRpc.ContractQueryResponse
          * @instance
          */
-        ContractQueryResponse.prototype.encoded_encrypted_data = $util.newBuffer([]);
+        ContractQueryResponse.prototype.encodedEncryptedData = $util.newBuffer([]);
 
         /**
          * Creates a new ContractQueryResponse instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.ContractQueryResponse
+         * @memberof pruntimeRpc.ContractQueryResponse
          * @static
-         * @param {pruntime_rpc.IContractQueryResponse=} [properties] Properties to set
-         * @returns {pruntime_rpc.ContractQueryResponse} ContractQueryResponse instance
+         * @param {pruntimeRpc.IContractQueryResponse=} [properties] Properties to set
+         * @returns {pruntimeRpc.ContractQueryResponse} ContractQueryResponse instance
          */
         ContractQueryResponse.create = function create(properties) {
             return new ContractQueryResponse(properties);
         };
 
         /**
-         * Encodes the specified ContractQueryResponse message. Does not implicitly {@link pruntime_rpc.ContractQueryResponse.verify|verify} messages.
+         * Encodes the specified ContractQueryResponse message. Does not implicitly {@link pruntimeRpc.ContractQueryResponse.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.ContractQueryResponse
+         * @memberof pruntimeRpc.ContractQueryResponse
          * @static
-         * @param {pruntime_rpc.IContractQueryResponse} message ContractQueryResponse message or plain object to encode
+         * @param {pruntimeRpc.IContractQueryResponse} message ContractQueryResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
         ContractQueryResponse.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.encoded_encrypted_data != null && Object.hasOwnProperty.call(message, "encoded_encrypted_data"))
-                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.encoded_encrypted_data);
+            if (message.encodedEncryptedData != null && Object.hasOwnProperty.call(message, "encodedEncryptedData"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.encodedEncryptedData);
             return writer;
         };
 
         /**
-         * Encodes the specified ContractQueryResponse message, length delimited. Does not implicitly {@link pruntime_rpc.ContractQueryResponse.verify|verify} messages.
+         * Encodes the specified ContractQueryResponse message, length delimited. Does not implicitly {@link pruntimeRpc.ContractQueryResponse.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.ContractQueryResponse
+         * @memberof pruntimeRpc.ContractQueryResponse
          * @static
-         * @param {pruntime_rpc.IContractQueryResponse} message ContractQueryResponse message or plain object to encode
+         * @param {pruntimeRpc.IContractQueryResponse} message ContractQueryResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -5395,23 +5395,23 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a ContractQueryResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.ContractQueryResponse
+         * @memberof pruntimeRpc.ContractQueryResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.ContractQueryResponse} ContractQueryResponse
+         * @returns {pruntimeRpc.ContractQueryResponse} ContractQueryResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         ContractQueryResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.ContractQueryResponse();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.ContractQueryResponse();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.encoded_encrypted_data = reader.bytes();
+                    message.encodedEncryptedData = reader.bytes();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5424,10 +5424,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a ContractQueryResponse message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.ContractQueryResponse
+         * @memberof pruntimeRpc.ContractQueryResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.ContractQueryResponse} ContractQueryResponse
+         * @returns {pruntimeRpc.ContractQueryResponse} ContractQueryResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -5440,7 +5440,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies a ContractQueryResponse message.
          * @function verify
-         * @memberof pruntime_rpc.ContractQueryResponse
+         * @memberof pruntimeRpc.ContractQueryResponse
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -5448,38 +5448,38 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         ContractQueryResponse.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.encoded_encrypted_data != null && message.hasOwnProperty("encoded_encrypted_data"))
-                if (!(message.encoded_encrypted_data && typeof message.encoded_encrypted_data.length === "number" || $util.isString(message.encoded_encrypted_data)))
-                    return "encoded_encrypted_data: buffer expected";
+            if (message.encodedEncryptedData != null && message.hasOwnProperty("encodedEncryptedData"))
+                if (!(message.encodedEncryptedData && typeof message.encodedEncryptedData.length === "number" || $util.isString(message.encodedEncryptedData)))
+                    return "encodedEncryptedData: buffer expected";
             return null;
         };
 
         /**
          * Creates a ContractQueryResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.ContractQueryResponse
+         * @memberof pruntimeRpc.ContractQueryResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.ContractQueryResponse} ContractQueryResponse
+         * @returns {pruntimeRpc.ContractQueryResponse} ContractQueryResponse
          */
         ContractQueryResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.ContractQueryResponse)
+            if (object instanceof $root.pruntimeRpc.ContractQueryResponse)
                 return object;
-            let message = new $root.pruntime_rpc.ContractQueryResponse();
-            if (object.encoded_encrypted_data != null)
-                if (typeof object.encoded_encrypted_data === "string")
-                    $util.base64.decode(object.encoded_encrypted_data, message.encoded_encrypted_data = $util.newBuffer($util.base64.length(object.encoded_encrypted_data)), 0);
-                else if (object.encoded_encrypted_data.length)
-                    message.encoded_encrypted_data = object.encoded_encrypted_data;
+            let message = new $root.pruntimeRpc.ContractQueryResponse();
+            if (object.encodedEncryptedData != null)
+                if (typeof object.encodedEncryptedData === "string")
+                    $util.base64.decode(object.encodedEncryptedData, message.encodedEncryptedData = $util.newBuffer($util.base64.length(object.encodedEncryptedData)), 0);
+                else if (object.encodedEncryptedData.length)
+                    message.encodedEncryptedData = object.encodedEncryptedData;
             return message;
         };
 
         /**
          * Creates a plain object from a ContractQueryResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.ContractQueryResponse
+         * @memberof pruntimeRpc.ContractQueryResponse
          * @static
-         * @param {pruntime_rpc.ContractQueryResponse} message ContractQueryResponse
+         * @param {pruntimeRpc.ContractQueryResponse} message ContractQueryResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -5489,21 +5489,21 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             let object = {};
             if (options.defaults)
                 if (options.bytes === String)
-                    object.encoded_encrypted_data = "";
+                    object.encodedEncryptedData = "";
                 else {
-                    object.encoded_encrypted_data = [];
+                    object.encodedEncryptedData = [];
                     if (options.bytes !== Array)
-                        object.encoded_encrypted_data = $util.newBuffer(object.encoded_encrypted_data);
+                        object.encodedEncryptedData = $util.newBuffer(object.encodedEncryptedData);
                 }
-            if (message.encoded_encrypted_data != null && message.hasOwnProperty("encoded_encrypted_data"))
-                object.encoded_encrypted_data = options.bytes === String ? $util.base64.encode(message.encoded_encrypted_data, 0, message.encoded_encrypted_data.length) : options.bytes === Array ? Array.prototype.slice.call(message.encoded_encrypted_data) : message.encoded_encrypted_data;
+            if (message.encodedEncryptedData != null && message.hasOwnProperty("encodedEncryptedData"))
+                object.encodedEncryptedData = options.bytes === String ? $util.base64.encode(message.encodedEncryptedData, 0, message.encodedEncryptedData.length) : options.bytes === Array ? Array.prototype.slice.call(message.encodedEncryptedData) : message.encodedEncryptedData;
             return object;
         };
 
         /**
          * Converts this ContractQueryResponse to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.ContractQueryResponse
+         * @memberof pruntimeRpc.ContractQueryResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -5514,22 +5514,22 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return ContractQueryResponse;
     })();
 
-    pruntime_rpc.GetWorkerStateRequest = (function() {
+    pruntimeRpc.GetWorkerStateRequest = (function() {
 
         /**
          * Properties of a GetWorkerStateRequest.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface IGetWorkerStateRequest
-         * @property {Uint8Array|null} [public_key] GetWorkerStateRequest public_key
+         * @property {Uint8Array|null} [publicKey] GetWorkerStateRequest publicKey
          */
 
         /**
          * Constructs a new GetWorkerStateRequest.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a GetWorkerStateRequest.
          * @implements IGetWorkerStateRequest
          * @constructor
-         * @param {pruntime_rpc.IGetWorkerStateRequest=} [properties] Properties to set
+         * @param {pruntimeRpc.IGetWorkerStateRequest=} [properties] Properties to set
          */
         function GetWorkerStateRequest(properties) {
             if (properties)
@@ -5539,48 +5539,48 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         }
 
         /**
-         * GetWorkerStateRequest public_key.
-         * @member {Uint8Array} public_key
-         * @memberof pruntime_rpc.GetWorkerStateRequest
+         * GetWorkerStateRequest publicKey.
+         * @member {Uint8Array} publicKey
+         * @memberof pruntimeRpc.GetWorkerStateRequest
          * @instance
          */
-        GetWorkerStateRequest.prototype.public_key = $util.newBuffer([]);
+        GetWorkerStateRequest.prototype.publicKey = $util.newBuffer([]);
 
         /**
          * Creates a new GetWorkerStateRequest instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.GetWorkerStateRequest
+         * @memberof pruntimeRpc.GetWorkerStateRequest
          * @static
-         * @param {pruntime_rpc.IGetWorkerStateRequest=} [properties] Properties to set
-         * @returns {pruntime_rpc.GetWorkerStateRequest} GetWorkerStateRequest instance
+         * @param {pruntimeRpc.IGetWorkerStateRequest=} [properties] Properties to set
+         * @returns {pruntimeRpc.GetWorkerStateRequest} GetWorkerStateRequest instance
          */
         GetWorkerStateRequest.create = function create(properties) {
             return new GetWorkerStateRequest(properties);
         };
 
         /**
-         * Encodes the specified GetWorkerStateRequest message. Does not implicitly {@link pruntime_rpc.GetWorkerStateRequest.verify|verify} messages.
+         * Encodes the specified GetWorkerStateRequest message. Does not implicitly {@link pruntimeRpc.GetWorkerStateRequest.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.GetWorkerStateRequest
+         * @memberof pruntimeRpc.GetWorkerStateRequest
          * @static
-         * @param {pruntime_rpc.IGetWorkerStateRequest} message GetWorkerStateRequest message or plain object to encode
+         * @param {pruntimeRpc.IGetWorkerStateRequest} message GetWorkerStateRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
         GetWorkerStateRequest.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.public_key != null && Object.hasOwnProperty.call(message, "public_key"))
-                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.public_key);
+            if (message.publicKey != null && Object.hasOwnProperty.call(message, "publicKey"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.publicKey);
             return writer;
         };
 
         /**
-         * Encodes the specified GetWorkerStateRequest message, length delimited. Does not implicitly {@link pruntime_rpc.GetWorkerStateRequest.verify|verify} messages.
+         * Encodes the specified GetWorkerStateRequest message, length delimited. Does not implicitly {@link pruntimeRpc.GetWorkerStateRequest.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.GetWorkerStateRequest
+         * @memberof pruntimeRpc.GetWorkerStateRequest
          * @static
-         * @param {pruntime_rpc.IGetWorkerStateRequest} message GetWorkerStateRequest message or plain object to encode
+         * @param {pruntimeRpc.IGetWorkerStateRequest} message GetWorkerStateRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -5591,23 +5591,23 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a GetWorkerStateRequest message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.GetWorkerStateRequest
+         * @memberof pruntimeRpc.GetWorkerStateRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.GetWorkerStateRequest} GetWorkerStateRequest
+         * @returns {pruntimeRpc.GetWorkerStateRequest} GetWorkerStateRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         GetWorkerStateRequest.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.GetWorkerStateRequest();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.GetWorkerStateRequest();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.public_key = reader.bytes();
+                    message.publicKey = reader.bytes();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5620,10 +5620,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a GetWorkerStateRequest message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.GetWorkerStateRequest
+         * @memberof pruntimeRpc.GetWorkerStateRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.GetWorkerStateRequest} GetWorkerStateRequest
+         * @returns {pruntimeRpc.GetWorkerStateRequest} GetWorkerStateRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -5636,7 +5636,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies a GetWorkerStateRequest message.
          * @function verify
-         * @memberof pruntime_rpc.GetWorkerStateRequest
+         * @memberof pruntimeRpc.GetWorkerStateRequest
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -5644,38 +5644,38 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         GetWorkerStateRequest.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.public_key != null && message.hasOwnProperty("public_key"))
-                if (!(message.public_key && typeof message.public_key.length === "number" || $util.isString(message.public_key)))
-                    return "public_key: buffer expected";
+            if (message.publicKey != null && message.hasOwnProperty("publicKey"))
+                if (!(message.publicKey && typeof message.publicKey.length === "number" || $util.isString(message.publicKey)))
+                    return "publicKey: buffer expected";
             return null;
         };
 
         /**
          * Creates a GetWorkerStateRequest message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.GetWorkerStateRequest
+         * @memberof pruntimeRpc.GetWorkerStateRequest
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.GetWorkerStateRequest} GetWorkerStateRequest
+         * @returns {pruntimeRpc.GetWorkerStateRequest} GetWorkerStateRequest
          */
         GetWorkerStateRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.GetWorkerStateRequest)
+            if (object instanceof $root.pruntimeRpc.GetWorkerStateRequest)
                 return object;
-            let message = new $root.pruntime_rpc.GetWorkerStateRequest();
-            if (object.public_key != null)
-                if (typeof object.public_key === "string")
-                    $util.base64.decode(object.public_key, message.public_key = $util.newBuffer($util.base64.length(object.public_key)), 0);
-                else if (object.public_key.length)
-                    message.public_key = object.public_key;
+            let message = new $root.pruntimeRpc.GetWorkerStateRequest();
+            if (object.publicKey != null)
+                if (typeof object.publicKey === "string")
+                    $util.base64.decode(object.publicKey, message.publicKey = $util.newBuffer($util.base64.length(object.publicKey)), 0);
+                else if (object.publicKey.length)
+                    message.publicKey = object.publicKey;
             return message;
         };
 
         /**
          * Creates a plain object from a GetWorkerStateRequest message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.GetWorkerStateRequest
+         * @memberof pruntimeRpc.GetWorkerStateRequest
          * @static
-         * @param {pruntime_rpc.GetWorkerStateRequest} message GetWorkerStateRequest
+         * @param {pruntimeRpc.GetWorkerStateRequest} message GetWorkerStateRequest
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -5685,21 +5685,21 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             let object = {};
             if (options.defaults)
                 if (options.bytes === String)
-                    object.public_key = "";
+                    object.publicKey = "";
                 else {
-                    object.public_key = [];
+                    object.publicKey = [];
                     if (options.bytes !== Array)
-                        object.public_key = $util.newBuffer(object.public_key);
+                        object.publicKey = $util.newBuffer(object.publicKey);
                 }
-            if (message.public_key != null && message.hasOwnProperty("public_key"))
-                object.public_key = options.bytes === String ? $util.base64.encode(message.public_key, 0, message.public_key.length) : options.bytes === Array ? Array.prototype.slice.call(message.public_key) : message.public_key;
+            if (message.publicKey != null && message.hasOwnProperty("publicKey"))
+                object.publicKey = options.bytes === String ? $util.base64.encode(message.publicKey, 0, message.publicKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.publicKey) : message.publicKey;
             return object;
         };
 
         /**
          * Converts this GetWorkerStateRequest to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.GetWorkerStateRequest
+         * @memberof pruntimeRpc.GetWorkerStateRequest
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -5710,34 +5710,34 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return GetWorkerStateRequest;
     })();
 
-    pruntime_rpc.WorkerState = (function() {
+    pruntimeRpc.WorkerState = (function() {
 
         /**
          * Properties of a WorkerState.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface IWorkerState
          * @property {boolean|null} [registered] WorkerState registered
          * @property {boolean|null} [unresponsive] WorkerState unresponsive
-         * @property {pruntime_rpc.IBenchState|null} [bench_state] WorkerState bench_state
-         * @property {pruntime_rpc.IMiningState|null} [mining_state] WorkerState mining_state
-         * @property {Array.<number>|null} [waiting_heartbeats] WorkerState waiting_heartbeats
-         * @property {number|null} [last_heartbeat_for_block] WorkerState last_heartbeat_for_block
-         * @property {number|null} [last_heartbeat_at_block] WorkerState last_heartbeat_at_block
-         * @property {pruntime_rpc.ResponsiveEvent|null} [last_gk_responsive_event] WorkerState last_gk_responsive_event
-         * @property {number|null} [last_gk_responsive_event_at_block] WorkerState last_gk_responsive_event_at_block
-         * @property {pruntime_rpc.ITokenomicInfo|null} [tokenomic_info] WorkerState tokenomic_info
+         * @property {pruntimeRpc.IBenchState|null} [benchState] WorkerState benchState
+         * @property {pruntimeRpc.IMiningState|null} [miningState] WorkerState miningState
+         * @property {Array.<number>|null} [waitingHeartbeats] WorkerState waitingHeartbeats
+         * @property {number|null} [lastHeartbeatForBlock] WorkerState lastHeartbeatForBlock
+         * @property {number|null} [lastHeartbeatAtBlock] WorkerState lastHeartbeatAtBlock
+         * @property {pruntimeRpc.ResponsiveEvent|null} [lastGkResponsiveEvent] WorkerState lastGkResponsiveEvent
+         * @property {number|null} [lastGkResponsiveEventAtBlock] WorkerState lastGkResponsiveEventAtBlock
+         * @property {pruntimeRpc.ITokenomicInfo|null} [tokenomicInfo] WorkerState tokenomicInfo
          */
 
         /**
          * Constructs a new WorkerState.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a WorkerState.
          * @implements IWorkerState
          * @constructor
-         * @param {pruntime_rpc.IWorkerState=} [properties] Properties to set
+         * @param {pruntimeRpc.IWorkerState=} [properties] Properties to set
          */
         function WorkerState(properties) {
-            this.waiting_heartbeats = [];
+            this.waitingHeartbeats = [];
             if (properties)
                 for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -5747,7 +5747,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * WorkerState registered.
          * @member {boolean} registered
-         * @memberof pruntime_rpc.WorkerState
+         * @memberof pruntimeRpc.WorkerState
          * @instance
          */
         WorkerState.prototype.registered = false;
@@ -5755,93 +5755,93 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * WorkerState unresponsive.
          * @member {boolean} unresponsive
-         * @memberof pruntime_rpc.WorkerState
+         * @memberof pruntimeRpc.WorkerState
          * @instance
          */
         WorkerState.prototype.unresponsive = false;
 
         /**
-         * WorkerState bench_state.
-         * @member {pruntime_rpc.IBenchState|null|undefined} bench_state
-         * @memberof pruntime_rpc.WorkerState
+         * WorkerState benchState.
+         * @member {pruntimeRpc.IBenchState|null|undefined} benchState
+         * @memberof pruntimeRpc.WorkerState
          * @instance
          */
-        WorkerState.prototype.bench_state = null;
+        WorkerState.prototype.benchState = null;
 
         /**
-         * WorkerState mining_state.
-         * @member {pruntime_rpc.IMiningState|null|undefined} mining_state
-         * @memberof pruntime_rpc.WorkerState
+         * WorkerState miningState.
+         * @member {pruntimeRpc.IMiningState|null|undefined} miningState
+         * @memberof pruntimeRpc.WorkerState
          * @instance
          */
-        WorkerState.prototype.mining_state = null;
+        WorkerState.prototype.miningState = null;
 
         /**
-         * WorkerState waiting_heartbeats.
-         * @member {Array.<number>} waiting_heartbeats
-         * @memberof pruntime_rpc.WorkerState
+         * WorkerState waitingHeartbeats.
+         * @member {Array.<number>} waitingHeartbeats
+         * @memberof pruntimeRpc.WorkerState
          * @instance
          */
-        WorkerState.prototype.waiting_heartbeats = $util.emptyArray;
+        WorkerState.prototype.waitingHeartbeats = $util.emptyArray;
 
         /**
-         * WorkerState last_heartbeat_for_block.
-         * @member {number} last_heartbeat_for_block
-         * @memberof pruntime_rpc.WorkerState
+         * WorkerState lastHeartbeatForBlock.
+         * @member {number} lastHeartbeatForBlock
+         * @memberof pruntimeRpc.WorkerState
          * @instance
          */
-        WorkerState.prototype.last_heartbeat_for_block = 0;
+        WorkerState.prototype.lastHeartbeatForBlock = 0;
 
         /**
-         * WorkerState last_heartbeat_at_block.
-         * @member {number} last_heartbeat_at_block
-         * @memberof pruntime_rpc.WorkerState
+         * WorkerState lastHeartbeatAtBlock.
+         * @member {number} lastHeartbeatAtBlock
+         * @memberof pruntimeRpc.WorkerState
          * @instance
          */
-        WorkerState.prototype.last_heartbeat_at_block = 0;
+        WorkerState.prototype.lastHeartbeatAtBlock = 0;
 
         /**
-         * WorkerState last_gk_responsive_event.
-         * @member {pruntime_rpc.ResponsiveEvent} last_gk_responsive_event
-         * @memberof pruntime_rpc.WorkerState
+         * WorkerState lastGkResponsiveEvent.
+         * @member {pruntimeRpc.ResponsiveEvent} lastGkResponsiveEvent
+         * @memberof pruntimeRpc.WorkerState
          * @instance
          */
-        WorkerState.prototype.last_gk_responsive_event = 0;
+        WorkerState.prototype.lastGkResponsiveEvent = 0;
 
         /**
-         * WorkerState last_gk_responsive_event_at_block.
-         * @member {number} last_gk_responsive_event_at_block
-         * @memberof pruntime_rpc.WorkerState
+         * WorkerState lastGkResponsiveEventAtBlock.
+         * @member {number} lastGkResponsiveEventAtBlock
+         * @memberof pruntimeRpc.WorkerState
          * @instance
          */
-        WorkerState.prototype.last_gk_responsive_event_at_block = 0;
+        WorkerState.prototype.lastGkResponsiveEventAtBlock = 0;
 
         /**
-         * WorkerState tokenomic_info.
-         * @member {pruntime_rpc.ITokenomicInfo|null|undefined} tokenomic_info
-         * @memberof pruntime_rpc.WorkerState
+         * WorkerState tokenomicInfo.
+         * @member {pruntimeRpc.ITokenomicInfo|null|undefined} tokenomicInfo
+         * @memberof pruntimeRpc.WorkerState
          * @instance
          */
-        WorkerState.prototype.tokenomic_info = null;
+        WorkerState.prototype.tokenomicInfo = null;
 
         /**
          * Creates a new WorkerState instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.WorkerState
+         * @memberof pruntimeRpc.WorkerState
          * @static
-         * @param {pruntime_rpc.IWorkerState=} [properties] Properties to set
-         * @returns {pruntime_rpc.WorkerState} WorkerState instance
+         * @param {pruntimeRpc.IWorkerState=} [properties] Properties to set
+         * @returns {pruntimeRpc.WorkerState} WorkerState instance
          */
         WorkerState.create = function create(properties) {
             return new WorkerState(properties);
         };
 
         /**
-         * Encodes the specified WorkerState message. Does not implicitly {@link pruntime_rpc.WorkerState.verify|verify} messages.
+         * Encodes the specified WorkerState message. Does not implicitly {@link pruntimeRpc.WorkerState.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.WorkerState
+         * @memberof pruntimeRpc.WorkerState
          * @static
-         * @param {pruntime_rpc.IWorkerState} message WorkerState message or plain object to encode
+         * @param {pruntimeRpc.IWorkerState} message WorkerState message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -5852,35 +5852,35 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                 writer.uint32(/* id 1, wireType 0 =*/8).bool(message.registered);
             if (message.unresponsive != null && Object.hasOwnProperty.call(message, "unresponsive"))
                 writer.uint32(/* id 2, wireType 0 =*/16).bool(message.unresponsive);
-            if (message.bench_state != null && Object.hasOwnProperty.call(message, "bench_state"))
-                $root.pruntime_rpc.BenchState.encode(message.bench_state, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
-            if (message.mining_state != null && Object.hasOwnProperty.call(message, "mining_state"))
-                $root.pruntime_rpc.MiningState.encode(message.mining_state, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
-            if (message.waiting_heartbeats != null && message.waiting_heartbeats.length) {
+            if (message.benchState != null && Object.hasOwnProperty.call(message, "benchState"))
+                $root.pruntimeRpc.BenchState.encode(message.benchState, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+            if (message.miningState != null && Object.hasOwnProperty.call(message, "miningState"))
+                $root.pruntimeRpc.MiningState.encode(message.miningState, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+            if (message.waitingHeartbeats != null && message.waitingHeartbeats.length) {
                 writer.uint32(/* id 5, wireType 2 =*/42).fork();
-                for (let i = 0; i < message.waiting_heartbeats.length; ++i)
-                    writer.uint32(message.waiting_heartbeats[i]);
+                for (let i = 0; i < message.waitingHeartbeats.length; ++i)
+                    writer.uint32(message.waitingHeartbeats[i]);
                 writer.ldelim();
             }
-            if (message.last_heartbeat_for_block != null && Object.hasOwnProperty.call(message, "last_heartbeat_for_block"))
-                writer.uint32(/* id 6, wireType 0 =*/48).uint32(message.last_heartbeat_for_block);
-            if (message.last_heartbeat_at_block != null && Object.hasOwnProperty.call(message, "last_heartbeat_at_block"))
-                writer.uint32(/* id 7, wireType 0 =*/56).uint32(message.last_heartbeat_at_block);
-            if (message.last_gk_responsive_event != null && Object.hasOwnProperty.call(message, "last_gk_responsive_event"))
-                writer.uint32(/* id 8, wireType 0 =*/64).int32(message.last_gk_responsive_event);
-            if (message.last_gk_responsive_event_at_block != null && Object.hasOwnProperty.call(message, "last_gk_responsive_event_at_block"))
-                writer.uint32(/* id 9, wireType 0 =*/72).uint32(message.last_gk_responsive_event_at_block);
-            if (message.tokenomic_info != null && Object.hasOwnProperty.call(message, "tokenomic_info"))
-                $root.pruntime_rpc.TokenomicInfo.encode(message.tokenomic_info, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
+            if (message.lastHeartbeatForBlock != null && Object.hasOwnProperty.call(message, "lastHeartbeatForBlock"))
+                writer.uint32(/* id 6, wireType 0 =*/48).uint32(message.lastHeartbeatForBlock);
+            if (message.lastHeartbeatAtBlock != null && Object.hasOwnProperty.call(message, "lastHeartbeatAtBlock"))
+                writer.uint32(/* id 7, wireType 0 =*/56).uint32(message.lastHeartbeatAtBlock);
+            if (message.lastGkResponsiveEvent != null && Object.hasOwnProperty.call(message, "lastGkResponsiveEvent"))
+                writer.uint32(/* id 8, wireType 0 =*/64).int32(message.lastGkResponsiveEvent);
+            if (message.lastGkResponsiveEventAtBlock != null && Object.hasOwnProperty.call(message, "lastGkResponsiveEventAtBlock"))
+                writer.uint32(/* id 9, wireType 0 =*/72).uint32(message.lastGkResponsiveEventAtBlock);
+            if (message.tokenomicInfo != null && Object.hasOwnProperty.call(message, "tokenomicInfo"))
+                $root.pruntimeRpc.TokenomicInfo.encode(message.tokenomicInfo, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
             return writer;
         };
 
         /**
-         * Encodes the specified WorkerState message, length delimited. Does not implicitly {@link pruntime_rpc.WorkerState.verify|verify} messages.
+         * Encodes the specified WorkerState message, length delimited. Does not implicitly {@link pruntimeRpc.WorkerState.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.WorkerState
+         * @memberof pruntimeRpc.WorkerState
          * @static
-         * @param {pruntime_rpc.IWorkerState} message WorkerState message or plain object to encode
+         * @param {pruntimeRpc.IWorkerState} message WorkerState message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -5891,18 +5891,18 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a WorkerState message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.WorkerState
+         * @memberof pruntimeRpc.WorkerState
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.WorkerState} WorkerState
+         * @returns {pruntimeRpc.WorkerState} WorkerState
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         WorkerState.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.WorkerState();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.WorkerState();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -5913,35 +5913,35 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                     message.unresponsive = reader.bool();
                     break;
                 case 3:
-                    message.bench_state = $root.pruntime_rpc.BenchState.decode(reader, reader.uint32());
+                    message.benchState = $root.pruntimeRpc.BenchState.decode(reader, reader.uint32());
                     break;
                 case 4:
-                    message.mining_state = $root.pruntime_rpc.MiningState.decode(reader, reader.uint32());
+                    message.miningState = $root.pruntimeRpc.MiningState.decode(reader, reader.uint32());
                     break;
                 case 5:
-                    if (!(message.waiting_heartbeats && message.waiting_heartbeats.length))
-                        message.waiting_heartbeats = [];
+                    if (!(message.waitingHeartbeats && message.waitingHeartbeats.length))
+                        message.waitingHeartbeats = [];
                     if ((tag & 7) === 2) {
                         let end2 = reader.uint32() + reader.pos;
                         while (reader.pos < end2)
-                            message.waiting_heartbeats.push(reader.uint32());
+                            message.waitingHeartbeats.push(reader.uint32());
                     } else
-                        message.waiting_heartbeats.push(reader.uint32());
+                        message.waitingHeartbeats.push(reader.uint32());
                     break;
                 case 6:
-                    message.last_heartbeat_for_block = reader.uint32();
+                    message.lastHeartbeatForBlock = reader.uint32();
                     break;
                 case 7:
-                    message.last_heartbeat_at_block = reader.uint32();
+                    message.lastHeartbeatAtBlock = reader.uint32();
                     break;
                 case 8:
-                    message.last_gk_responsive_event = reader.int32();
+                    message.lastGkResponsiveEvent = reader.int32();
                     break;
                 case 9:
-                    message.last_gk_responsive_event_at_block = reader.uint32();
+                    message.lastGkResponsiveEventAtBlock = reader.uint32();
                     break;
                 case 10:
-                    message.tokenomic_info = $root.pruntime_rpc.TokenomicInfo.decode(reader, reader.uint32());
+                    message.tokenomicInfo = $root.pruntimeRpc.TokenomicInfo.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5954,10 +5954,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a WorkerState message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.WorkerState
+         * @memberof pruntimeRpc.WorkerState
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.WorkerState} WorkerState
+         * @returns {pruntimeRpc.WorkerState} WorkerState
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -5970,7 +5970,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies a WorkerState message.
          * @function verify
-         * @memberof pruntime_rpc.WorkerState
+         * @memberof pruntimeRpc.WorkerState
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -5984,45 +5984,45 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             if (message.unresponsive != null && message.hasOwnProperty("unresponsive"))
                 if (typeof message.unresponsive !== "boolean")
                     return "unresponsive: boolean expected";
-            if (message.bench_state != null && message.hasOwnProperty("bench_state")) {
-                let error = $root.pruntime_rpc.BenchState.verify(message.bench_state);
+            if (message.benchState != null && message.hasOwnProperty("benchState")) {
+                let error = $root.pruntimeRpc.BenchState.verify(message.benchState);
                 if (error)
-                    return "bench_state." + error;
+                    return "benchState." + error;
             }
-            if (message.mining_state != null && message.hasOwnProperty("mining_state")) {
-                let error = $root.pruntime_rpc.MiningState.verify(message.mining_state);
+            if (message.miningState != null && message.hasOwnProperty("miningState")) {
+                let error = $root.pruntimeRpc.MiningState.verify(message.miningState);
                 if (error)
-                    return "mining_state." + error;
+                    return "miningState." + error;
             }
-            if (message.waiting_heartbeats != null && message.hasOwnProperty("waiting_heartbeats")) {
-                if (!Array.isArray(message.waiting_heartbeats))
-                    return "waiting_heartbeats: array expected";
-                for (let i = 0; i < message.waiting_heartbeats.length; ++i)
-                    if (!$util.isInteger(message.waiting_heartbeats[i]))
-                        return "waiting_heartbeats: integer[] expected";
+            if (message.waitingHeartbeats != null && message.hasOwnProperty("waitingHeartbeats")) {
+                if (!Array.isArray(message.waitingHeartbeats))
+                    return "waitingHeartbeats: array expected";
+                for (let i = 0; i < message.waitingHeartbeats.length; ++i)
+                    if (!$util.isInteger(message.waitingHeartbeats[i]))
+                        return "waitingHeartbeats: integer[] expected";
             }
-            if (message.last_heartbeat_for_block != null && message.hasOwnProperty("last_heartbeat_for_block"))
-                if (!$util.isInteger(message.last_heartbeat_for_block))
-                    return "last_heartbeat_for_block: integer expected";
-            if (message.last_heartbeat_at_block != null && message.hasOwnProperty("last_heartbeat_at_block"))
-                if (!$util.isInteger(message.last_heartbeat_at_block))
-                    return "last_heartbeat_at_block: integer expected";
-            if (message.last_gk_responsive_event != null && message.hasOwnProperty("last_gk_responsive_event"))
-                switch (message.last_gk_responsive_event) {
+            if (message.lastHeartbeatForBlock != null && message.hasOwnProperty("lastHeartbeatForBlock"))
+                if (!$util.isInteger(message.lastHeartbeatForBlock))
+                    return "lastHeartbeatForBlock: integer expected";
+            if (message.lastHeartbeatAtBlock != null && message.hasOwnProperty("lastHeartbeatAtBlock"))
+                if (!$util.isInteger(message.lastHeartbeatAtBlock))
+                    return "lastHeartbeatAtBlock: integer expected";
+            if (message.lastGkResponsiveEvent != null && message.hasOwnProperty("lastGkResponsiveEvent"))
+                switch (message.lastGkResponsiveEvent) {
                 default:
-                    return "last_gk_responsive_event: enum value expected";
+                    return "lastGkResponsiveEvent: enum value expected";
                 case 0:
                 case 1:
                 case 2:
                     break;
                 }
-            if (message.last_gk_responsive_event_at_block != null && message.hasOwnProperty("last_gk_responsive_event_at_block"))
-                if (!$util.isInteger(message.last_gk_responsive_event_at_block))
-                    return "last_gk_responsive_event_at_block: integer expected";
-            if (message.tokenomic_info != null && message.hasOwnProperty("tokenomic_info")) {
-                let error = $root.pruntime_rpc.TokenomicInfo.verify(message.tokenomic_info);
+            if (message.lastGkResponsiveEventAtBlock != null && message.hasOwnProperty("lastGkResponsiveEventAtBlock"))
+                if (!$util.isInteger(message.lastGkResponsiveEventAtBlock))
+                    return "lastGkResponsiveEventAtBlock: integer expected";
+            if (message.tokenomicInfo != null && message.hasOwnProperty("tokenomicInfo")) {
+                let error = $root.pruntimeRpc.TokenomicInfo.verify(message.tokenomicInfo);
                 if (error)
-                    return "tokenomic_info." + error;
+                    return "tokenomicInfo." + error;
             }
             return null;
         };
@@ -6030,60 +6030,60 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a WorkerState message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.WorkerState
+         * @memberof pruntimeRpc.WorkerState
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.WorkerState} WorkerState
+         * @returns {pruntimeRpc.WorkerState} WorkerState
          */
         WorkerState.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.WorkerState)
+            if (object instanceof $root.pruntimeRpc.WorkerState)
                 return object;
-            let message = new $root.pruntime_rpc.WorkerState();
+            let message = new $root.pruntimeRpc.WorkerState();
             if (object.registered != null)
                 message.registered = Boolean(object.registered);
             if (object.unresponsive != null)
                 message.unresponsive = Boolean(object.unresponsive);
-            if (object.bench_state != null) {
-                if (typeof object.bench_state !== "object")
-                    throw TypeError(".pruntime_rpc.WorkerState.bench_state: object expected");
-                message.bench_state = $root.pruntime_rpc.BenchState.fromObject(object.bench_state);
+            if (object.benchState != null) {
+                if (typeof object.benchState !== "object")
+                    throw TypeError(".pruntimeRpc.WorkerState.benchState: object expected");
+                message.benchState = $root.pruntimeRpc.BenchState.fromObject(object.benchState);
             }
-            if (object.mining_state != null) {
-                if (typeof object.mining_state !== "object")
-                    throw TypeError(".pruntime_rpc.WorkerState.mining_state: object expected");
-                message.mining_state = $root.pruntime_rpc.MiningState.fromObject(object.mining_state);
+            if (object.miningState != null) {
+                if (typeof object.miningState !== "object")
+                    throw TypeError(".pruntimeRpc.WorkerState.miningState: object expected");
+                message.miningState = $root.pruntimeRpc.MiningState.fromObject(object.miningState);
             }
-            if (object.waiting_heartbeats) {
-                if (!Array.isArray(object.waiting_heartbeats))
-                    throw TypeError(".pruntime_rpc.WorkerState.waiting_heartbeats: array expected");
-                message.waiting_heartbeats = [];
-                for (let i = 0; i < object.waiting_heartbeats.length; ++i)
-                    message.waiting_heartbeats[i] = object.waiting_heartbeats[i] >>> 0;
+            if (object.waitingHeartbeats) {
+                if (!Array.isArray(object.waitingHeartbeats))
+                    throw TypeError(".pruntimeRpc.WorkerState.waitingHeartbeats: array expected");
+                message.waitingHeartbeats = [];
+                for (let i = 0; i < object.waitingHeartbeats.length; ++i)
+                    message.waitingHeartbeats[i] = object.waitingHeartbeats[i] >>> 0;
             }
-            if (object.last_heartbeat_for_block != null)
-                message.last_heartbeat_for_block = object.last_heartbeat_for_block >>> 0;
-            if (object.last_heartbeat_at_block != null)
-                message.last_heartbeat_at_block = object.last_heartbeat_at_block >>> 0;
-            switch (object.last_gk_responsive_event) {
+            if (object.lastHeartbeatForBlock != null)
+                message.lastHeartbeatForBlock = object.lastHeartbeatForBlock >>> 0;
+            if (object.lastHeartbeatAtBlock != null)
+                message.lastHeartbeatAtBlock = object.lastHeartbeatAtBlock >>> 0;
+            switch (object.lastGkResponsiveEvent) {
             case "NoEvent":
             case 0:
-                message.last_gk_responsive_event = 0;
+                message.lastGkResponsiveEvent = 0;
                 break;
             case "EnterUnresponsive":
             case 1:
-                message.last_gk_responsive_event = 1;
+                message.lastGkResponsiveEvent = 1;
                 break;
             case "ExitUnresponsive":
             case 2:
-                message.last_gk_responsive_event = 2;
+                message.lastGkResponsiveEvent = 2;
                 break;
             }
-            if (object.last_gk_responsive_event_at_block != null)
-                message.last_gk_responsive_event_at_block = object.last_gk_responsive_event_at_block >>> 0;
-            if (object.tokenomic_info != null) {
-                if (typeof object.tokenomic_info !== "object")
-                    throw TypeError(".pruntime_rpc.WorkerState.tokenomic_info: object expected");
-                message.tokenomic_info = $root.pruntime_rpc.TokenomicInfo.fromObject(object.tokenomic_info);
+            if (object.lastGkResponsiveEventAtBlock != null)
+                message.lastGkResponsiveEventAtBlock = object.lastGkResponsiveEventAtBlock >>> 0;
+            if (object.tokenomicInfo != null) {
+                if (typeof object.tokenomicInfo !== "object")
+                    throw TypeError(".pruntimeRpc.WorkerState.tokenomicInfo: object expected");
+                message.tokenomicInfo = $root.pruntimeRpc.TokenomicInfo.fromObject(object.tokenomicInfo);
             }
             return message;
         };
@@ -6091,9 +6091,9 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a plain object from a WorkerState message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.WorkerState
+         * @memberof pruntimeRpc.WorkerState
          * @static
-         * @param {pruntime_rpc.WorkerState} message WorkerState
+         * @param {pruntimeRpc.WorkerState} message WorkerState
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -6102,48 +6102,48 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                 options = {};
             let object = {};
             if (options.arrays || options.defaults)
-                object.waiting_heartbeats = [];
+                object.waitingHeartbeats = [];
             if (options.defaults) {
                 object.registered = false;
                 object.unresponsive = false;
-                object.bench_state = null;
-                object.mining_state = null;
-                object.last_heartbeat_for_block = 0;
-                object.last_heartbeat_at_block = 0;
-                object.last_gk_responsive_event = options.enums === String ? "NoEvent" : 0;
-                object.last_gk_responsive_event_at_block = 0;
-                object.tokenomic_info = null;
+                object.benchState = null;
+                object.miningState = null;
+                object.lastHeartbeatForBlock = 0;
+                object.lastHeartbeatAtBlock = 0;
+                object.lastGkResponsiveEvent = options.enums === String ? "NoEvent" : 0;
+                object.lastGkResponsiveEventAtBlock = 0;
+                object.tokenomicInfo = null;
             }
             if (message.registered != null && message.hasOwnProperty("registered"))
                 object.registered = message.registered;
             if (message.unresponsive != null && message.hasOwnProperty("unresponsive"))
                 object.unresponsive = message.unresponsive;
-            if (message.bench_state != null && message.hasOwnProperty("bench_state"))
-                object.bench_state = $root.pruntime_rpc.BenchState.toObject(message.bench_state, options);
-            if (message.mining_state != null && message.hasOwnProperty("mining_state"))
-                object.mining_state = $root.pruntime_rpc.MiningState.toObject(message.mining_state, options);
-            if (message.waiting_heartbeats && message.waiting_heartbeats.length) {
-                object.waiting_heartbeats = [];
-                for (let j = 0; j < message.waiting_heartbeats.length; ++j)
-                    object.waiting_heartbeats[j] = message.waiting_heartbeats[j];
+            if (message.benchState != null && message.hasOwnProperty("benchState"))
+                object.benchState = $root.pruntimeRpc.BenchState.toObject(message.benchState, options);
+            if (message.miningState != null && message.hasOwnProperty("miningState"))
+                object.miningState = $root.pruntimeRpc.MiningState.toObject(message.miningState, options);
+            if (message.waitingHeartbeats && message.waitingHeartbeats.length) {
+                object.waitingHeartbeats = [];
+                for (let j = 0; j < message.waitingHeartbeats.length; ++j)
+                    object.waitingHeartbeats[j] = message.waitingHeartbeats[j];
             }
-            if (message.last_heartbeat_for_block != null && message.hasOwnProperty("last_heartbeat_for_block"))
-                object.last_heartbeat_for_block = message.last_heartbeat_for_block;
-            if (message.last_heartbeat_at_block != null && message.hasOwnProperty("last_heartbeat_at_block"))
-                object.last_heartbeat_at_block = message.last_heartbeat_at_block;
-            if (message.last_gk_responsive_event != null && message.hasOwnProperty("last_gk_responsive_event"))
-                object.last_gk_responsive_event = options.enums === String ? $root.pruntime_rpc.ResponsiveEvent[message.last_gk_responsive_event] : message.last_gk_responsive_event;
-            if (message.last_gk_responsive_event_at_block != null && message.hasOwnProperty("last_gk_responsive_event_at_block"))
-                object.last_gk_responsive_event_at_block = message.last_gk_responsive_event_at_block;
-            if (message.tokenomic_info != null && message.hasOwnProperty("tokenomic_info"))
-                object.tokenomic_info = $root.pruntime_rpc.TokenomicInfo.toObject(message.tokenomic_info, options);
+            if (message.lastHeartbeatForBlock != null && message.hasOwnProperty("lastHeartbeatForBlock"))
+                object.lastHeartbeatForBlock = message.lastHeartbeatForBlock;
+            if (message.lastHeartbeatAtBlock != null && message.hasOwnProperty("lastHeartbeatAtBlock"))
+                object.lastHeartbeatAtBlock = message.lastHeartbeatAtBlock;
+            if (message.lastGkResponsiveEvent != null && message.hasOwnProperty("lastGkResponsiveEvent"))
+                object.lastGkResponsiveEvent = options.enums === String ? $root.pruntimeRpc.ResponsiveEvent[message.lastGkResponsiveEvent] : message.lastGkResponsiveEvent;
+            if (message.lastGkResponsiveEventAtBlock != null && message.hasOwnProperty("lastGkResponsiveEventAtBlock"))
+                object.lastGkResponsiveEventAtBlock = message.lastGkResponsiveEventAtBlock;
+            if (message.tokenomicInfo != null && message.hasOwnProperty("tokenomicInfo"))
+                object.tokenomicInfo = $root.pruntimeRpc.TokenomicInfo.toObject(message.tokenomicInfo, options);
             return object;
         };
 
         /**
          * Converts this WorkerState to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.WorkerState
+         * @memberof pruntimeRpc.WorkerState
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -6154,24 +6154,24 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return WorkerState;
     })();
 
-    pruntime_rpc.BenchState = (function() {
+    pruntimeRpc.BenchState = (function() {
 
         /**
          * Properties of a BenchState.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface IBenchState
-         * @property {number|null} [start_block] BenchState start_block
-         * @property {number|Long|null} [start_time] BenchState start_time
+         * @property {number|null} [startBlock] BenchState startBlock
+         * @property {number|Long|null} [startTime] BenchState startTime
          * @property {number|null} [duration] BenchState duration
          */
 
         /**
          * Constructs a new BenchState.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a BenchState.
          * @implements IBenchState
          * @constructor
-         * @param {pruntime_rpc.IBenchState=} [properties] Properties to set
+         * @param {pruntimeRpc.IBenchState=} [properties] Properties to set
          */
         function BenchState(properties) {
             if (properties)
@@ -6181,25 +6181,25 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         }
 
         /**
-         * BenchState start_block.
-         * @member {number} start_block
-         * @memberof pruntime_rpc.BenchState
+         * BenchState startBlock.
+         * @member {number} startBlock
+         * @memberof pruntimeRpc.BenchState
          * @instance
          */
-        BenchState.prototype.start_block = 0;
+        BenchState.prototype.startBlock = 0;
 
         /**
-         * BenchState start_time.
-         * @member {number|Long} start_time
-         * @memberof pruntime_rpc.BenchState
+         * BenchState startTime.
+         * @member {number|Long} startTime
+         * @memberof pruntimeRpc.BenchState
          * @instance
          */
-        BenchState.prototype.start_time = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        BenchState.prototype.startTime = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
          * BenchState duration.
          * @member {number} duration
-         * @memberof pruntime_rpc.BenchState
+         * @memberof pruntimeRpc.BenchState
          * @instance
          */
         BenchState.prototype.duration = 0;
@@ -6207,42 +6207,42 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a new BenchState instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.BenchState
+         * @memberof pruntimeRpc.BenchState
          * @static
-         * @param {pruntime_rpc.IBenchState=} [properties] Properties to set
-         * @returns {pruntime_rpc.BenchState} BenchState instance
+         * @param {pruntimeRpc.IBenchState=} [properties] Properties to set
+         * @returns {pruntimeRpc.BenchState} BenchState instance
          */
         BenchState.create = function create(properties) {
             return new BenchState(properties);
         };
 
         /**
-         * Encodes the specified BenchState message. Does not implicitly {@link pruntime_rpc.BenchState.verify|verify} messages.
+         * Encodes the specified BenchState message. Does not implicitly {@link pruntimeRpc.BenchState.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.BenchState
+         * @memberof pruntimeRpc.BenchState
          * @static
-         * @param {pruntime_rpc.IBenchState} message BenchState message or plain object to encode
+         * @param {pruntimeRpc.IBenchState} message BenchState message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
         BenchState.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.start_block != null && Object.hasOwnProperty.call(message, "start_block"))
-                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.start_block);
-            if (message.start_time != null && Object.hasOwnProperty.call(message, "start_time"))
-                writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.start_time);
+            if (message.startBlock != null && Object.hasOwnProperty.call(message, "startBlock"))
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.startBlock);
+            if (message.startTime != null && Object.hasOwnProperty.call(message, "startTime"))
+                writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.startTime);
             if (message.duration != null && Object.hasOwnProperty.call(message, "duration"))
                 writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.duration);
             return writer;
         };
 
         /**
-         * Encodes the specified BenchState message, length delimited. Does not implicitly {@link pruntime_rpc.BenchState.verify|verify} messages.
+         * Encodes the specified BenchState message, length delimited. Does not implicitly {@link pruntimeRpc.BenchState.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.BenchState
+         * @memberof pruntimeRpc.BenchState
          * @static
-         * @param {pruntime_rpc.IBenchState} message BenchState message or plain object to encode
+         * @param {pruntimeRpc.IBenchState} message BenchState message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -6253,26 +6253,26 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a BenchState message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.BenchState
+         * @memberof pruntimeRpc.BenchState
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.BenchState} BenchState
+         * @returns {pruntimeRpc.BenchState} BenchState
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         BenchState.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.BenchState();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.BenchState();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.start_block = reader.uint32();
+                    message.startBlock = reader.uint32();
                     break;
                 case 2:
-                    message.start_time = reader.uint64();
+                    message.startTime = reader.uint64();
                     break;
                 case 4:
                     message.duration = reader.uint32();
@@ -6288,10 +6288,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a BenchState message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.BenchState
+         * @memberof pruntimeRpc.BenchState
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.BenchState} BenchState
+         * @returns {pruntimeRpc.BenchState} BenchState
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -6304,7 +6304,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies a BenchState message.
          * @function verify
-         * @memberof pruntime_rpc.BenchState
+         * @memberof pruntimeRpc.BenchState
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -6312,12 +6312,12 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         BenchState.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.start_block != null && message.hasOwnProperty("start_block"))
-                if (!$util.isInteger(message.start_block))
-                    return "start_block: integer expected";
-            if (message.start_time != null && message.hasOwnProperty("start_time"))
-                if (!$util.isInteger(message.start_time) && !(message.start_time && $util.isInteger(message.start_time.low) && $util.isInteger(message.start_time.high)))
-                    return "start_time: integer|Long expected";
+            if (message.startBlock != null && message.hasOwnProperty("startBlock"))
+                if (!$util.isInteger(message.startBlock))
+                    return "startBlock: integer expected";
+            if (message.startTime != null && message.hasOwnProperty("startTime"))
+                if (!$util.isInteger(message.startTime) && !(message.startTime && $util.isInteger(message.startTime.low) && $util.isInteger(message.startTime.high)))
+                    return "startTime: integer|Long expected";
             if (message.duration != null && message.hasOwnProperty("duration"))
                 if (!$util.isInteger(message.duration))
                     return "duration: integer expected";
@@ -6327,26 +6327,26 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a BenchState message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.BenchState
+         * @memberof pruntimeRpc.BenchState
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.BenchState} BenchState
+         * @returns {pruntimeRpc.BenchState} BenchState
          */
         BenchState.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.BenchState)
+            if (object instanceof $root.pruntimeRpc.BenchState)
                 return object;
-            let message = new $root.pruntime_rpc.BenchState();
-            if (object.start_block != null)
-                message.start_block = object.start_block >>> 0;
-            if (object.start_time != null)
+            let message = new $root.pruntimeRpc.BenchState();
+            if (object.startBlock != null)
+                message.startBlock = object.startBlock >>> 0;
+            if (object.startTime != null)
                 if ($util.Long)
-                    (message.start_time = $util.Long.fromValue(object.start_time)).unsigned = true;
-                else if (typeof object.start_time === "string")
-                    message.start_time = parseInt(object.start_time, 10);
-                else if (typeof object.start_time === "number")
-                    message.start_time = object.start_time;
-                else if (typeof object.start_time === "object")
-                    message.start_time = new $util.LongBits(object.start_time.low >>> 0, object.start_time.high >>> 0).toNumber(true);
+                    (message.startTime = $util.Long.fromValue(object.startTime)).unsigned = true;
+                else if (typeof object.startTime === "string")
+                    message.startTime = parseInt(object.startTime, 10);
+                else if (typeof object.startTime === "number")
+                    message.startTime = object.startTime;
+                else if (typeof object.startTime === "object")
+                    message.startTime = new $util.LongBits(object.startTime.low >>> 0, object.startTime.high >>> 0).toNumber(true);
             if (object.duration != null)
                 message.duration = object.duration >>> 0;
             return message;
@@ -6355,9 +6355,9 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Creates a plain object from a BenchState message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.BenchState
+         * @memberof pruntimeRpc.BenchState
          * @static
-         * @param {pruntime_rpc.BenchState} message BenchState
+         * @param {pruntimeRpc.BenchState} message BenchState
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -6366,21 +6366,21 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                 options = {};
             let object = {};
             if (options.defaults) {
-                object.start_block = 0;
+                object.startBlock = 0;
                 if ($util.Long) {
                     let long = new $util.Long(0, 0, true);
-                    object.start_time = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    object.startTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
-                    object.start_time = options.longs === String ? "0" : 0;
+                    object.startTime = options.longs === String ? "0" : 0;
                 object.duration = 0;
             }
-            if (message.start_block != null && message.hasOwnProperty("start_block"))
-                object.start_block = message.start_block;
-            if (message.start_time != null && message.hasOwnProperty("start_time"))
-                if (typeof message.start_time === "number")
-                    object.start_time = options.longs === String ? String(message.start_time) : message.start_time;
+            if (message.startBlock != null && message.hasOwnProperty("startBlock"))
+                object.startBlock = message.startBlock;
+            if (message.startTime != null && message.hasOwnProperty("startTime"))
+                if (typeof message.startTime === "number")
+                    object.startTime = options.longs === String ? String(message.startTime) : message.startTime;
                 else
-                    object.start_time = options.longs === String ? $util.Long.prototype.toString.call(message.start_time) : options.longs === Number ? new $util.LongBits(message.start_time.low >>> 0, message.start_time.high >>> 0).toNumber(true) : message.start_time;
+                    object.startTime = options.longs === String ? $util.Long.prototype.toString.call(message.startTime) : options.longs === Number ? new $util.LongBits(message.startTime.low >>> 0, message.startTime.high >>> 0).toNumber(true) : message.startTime;
             if (message.duration != null && message.hasOwnProperty("duration"))
                 object.duration = message.duration;
             return object;
@@ -6389,7 +6389,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Converts this BenchState to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.BenchState
+         * @memberof pruntimeRpc.BenchState
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -6400,24 +6400,24 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return BenchState;
     })();
 
-    pruntime_rpc.MiningState = (function() {
+    pruntimeRpc.MiningState = (function() {
 
         /**
          * Properties of a MiningState.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface IMiningState
-         * @property {number|null} [session_id] MiningState session_id
+         * @property {number|null} [sessionId] MiningState sessionId
          * @property {boolean|null} [paused] MiningState paused
-         * @property {number|Long|null} [start_time] MiningState start_time
+         * @property {number|Long|null} [startTime] MiningState startTime
          */
 
         /**
          * Constructs a new MiningState.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a MiningState.
          * @implements IMiningState
          * @constructor
-         * @param {pruntime_rpc.IMiningState=} [properties] Properties to set
+         * @param {pruntimeRpc.IMiningState=} [properties] Properties to set
          */
         function MiningState(properties) {
             if (properties)
@@ -6427,68 +6427,68 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         }
 
         /**
-         * MiningState session_id.
-         * @member {number} session_id
-         * @memberof pruntime_rpc.MiningState
+         * MiningState sessionId.
+         * @member {number} sessionId
+         * @memberof pruntimeRpc.MiningState
          * @instance
          */
-        MiningState.prototype.session_id = 0;
+        MiningState.prototype.sessionId = 0;
 
         /**
          * MiningState paused.
          * @member {boolean} paused
-         * @memberof pruntime_rpc.MiningState
+         * @memberof pruntimeRpc.MiningState
          * @instance
          */
         MiningState.prototype.paused = false;
 
         /**
-         * MiningState start_time.
-         * @member {number|Long} start_time
-         * @memberof pruntime_rpc.MiningState
+         * MiningState startTime.
+         * @member {number|Long} startTime
+         * @memberof pruntimeRpc.MiningState
          * @instance
          */
-        MiningState.prototype.start_time = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        MiningState.prototype.startTime = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
          * Creates a new MiningState instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.MiningState
+         * @memberof pruntimeRpc.MiningState
          * @static
-         * @param {pruntime_rpc.IMiningState=} [properties] Properties to set
-         * @returns {pruntime_rpc.MiningState} MiningState instance
+         * @param {pruntimeRpc.IMiningState=} [properties] Properties to set
+         * @returns {pruntimeRpc.MiningState} MiningState instance
          */
         MiningState.create = function create(properties) {
             return new MiningState(properties);
         };
 
         /**
-         * Encodes the specified MiningState message. Does not implicitly {@link pruntime_rpc.MiningState.verify|verify} messages.
+         * Encodes the specified MiningState message. Does not implicitly {@link pruntimeRpc.MiningState.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.MiningState
+         * @memberof pruntimeRpc.MiningState
          * @static
-         * @param {pruntime_rpc.IMiningState} message MiningState message or plain object to encode
+         * @param {pruntimeRpc.IMiningState} message MiningState message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
         MiningState.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.session_id != null && Object.hasOwnProperty.call(message, "session_id"))
-                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.session_id);
+            if (message.sessionId != null && Object.hasOwnProperty.call(message, "sessionId"))
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.sessionId);
             if (message.paused != null && Object.hasOwnProperty.call(message, "paused"))
                 writer.uint32(/* id 2, wireType 0 =*/16).bool(message.paused);
-            if (message.start_time != null && Object.hasOwnProperty.call(message, "start_time"))
-                writer.uint32(/* id 3, wireType 0 =*/24).uint64(message.start_time);
+            if (message.startTime != null && Object.hasOwnProperty.call(message, "startTime"))
+                writer.uint32(/* id 3, wireType 0 =*/24).uint64(message.startTime);
             return writer;
         };
 
         /**
-         * Encodes the specified MiningState message, length delimited. Does not implicitly {@link pruntime_rpc.MiningState.verify|verify} messages.
+         * Encodes the specified MiningState message, length delimited. Does not implicitly {@link pruntimeRpc.MiningState.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.MiningState
+         * @memberof pruntimeRpc.MiningState
          * @static
-         * @param {pruntime_rpc.IMiningState} message MiningState message or plain object to encode
+         * @param {pruntimeRpc.IMiningState} message MiningState message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -6499,29 +6499,29 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a MiningState message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.MiningState
+         * @memberof pruntimeRpc.MiningState
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.MiningState} MiningState
+         * @returns {pruntimeRpc.MiningState} MiningState
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         MiningState.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.MiningState();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.MiningState();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.session_id = reader.uint32();
+                    message.sessionId = reader.uint32();
                     break;
                 case 2:
                     message.paused = reader.bool();
                     break;
                 case 3:
-                    message.start_time = reader.uint64();
+                    message.startTime = reader.uint64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -6534,10 +6534,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a MiningState message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.MiningState
+         * @memberof pruntimeRpc.MiningState
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.MiningState} MiningState
+         * @returns {pruntimeRpc.MiningState} MiningState
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -6550,7 +6550,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies a MiningState message.
          * @function verify
-         * @memberof pruntime_rpc.MiningState
+         * @memberof pruntimeRpc.MiningState
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -6558,52 +6558,52 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         MiningState.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.session_id != null && message.hasOwnProperty("session_id"))
-                if (!$util.isInteger(message.session_id))
-                    return "session_id: integer expected";
+            if (message.sessionId != null && message.hasOwnProperty("sessionId"))
+                if (!$util.isInteger(message.sessionId))
+                    return "sessionId: integer expected";
             if (message.paused != null && message.hasOwnProperty("paused"))
                 if (typeof message.paused !== "boolean")
                     return "paused: boolean expected";
-            if (message.start_time != null && message.hasOwnProperty("start_time"))
-                if (!$util.isInteger(message.start_time) && !(message.start_time && $util.isInteger(message.start_time.low) && $util.isInteger(message.start_time.high)))
-                    return "start_time: integer|Long expected";
+            if (message.startTime != null && message.hasOwnProperty("startTime"))
+                if (!$util.isInteger(message.startTime) && !(message.startTime && $util.isInteger(message.startTime.low) && $util.isInteger(message.startTime.high)))
+                    return "startTime: integer|Long expected";
             return null;
         };
 
         /**
          * Creates a MiningState message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.MiningState
+         * @memberof pruntimeRpc.MiningState
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.MiningState} MiningState
+         * @returns {pruntimeRpc.MiningState} MiningState
          */
         MiningState.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.MiningState)
+            if (object instanceof $root.pruntimeRpc.MiningState)
                 return object;
-            let message = new $root.pruntime_rpc.MiningState();
-            if (object.session_id != null)
-                message.session_id = object.session_id >>> 0;
+            let message = new $root.pruntimeRpc.MiningState();
+            if (object.sessionId != null)
+                message.sessionId = object.sessionId >>> 0;
             if (object.paused != null)
                 message.paused = Boolean(object.paused);
-            if (object.start_time != null)
+            if (object.startTime != null)
                 if ($util.Long)
-                    (message.start_time = $util.Long.fromValue(object.start_time)).unsigned = true;
-                else if (typeof object.start_time === "string")
-                    message.start_time = parseInt(object.start_time, 10);
-                else if (typeof object.start_time === "number")
-                    message.start_time = object.start_time;
-                else if (typeof object.start_time === "object")
-                    message.start_time = new $util.LongBits(object.start_time.low >>> 0, object.start_time.high >>> 0).toNumber(true);
+                    (message.startTime = $util.Long.fromValue(object.startTime)).unsigned = true;
+                else if (typeof object.startTime === "string")
+                    message.startTime = parseInt(object.startTime, 10);
+                else if (typeof object.startTime === "number")
+                    message.startTime = object.startTime;
+                else if (typeof object.startTime === "object")
+                    message.startTime = new $util.LongBits(object.startTime.low >>> 0, object.startTime.high >>> 0).toNumber(true);
             return message;
         };
 
         /**
          * Creates a plain object from a MiningState message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.MiningState
+         * @memberof pruntimeRpc.MiningState
          * @static
-         * @param {pruntime_rpc.MiningState} message MiningState
+         * @param {pruntimeRpc.MiningState} message MiningState
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -6612,30 +6612,30 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                 options = {};
             let object = {};
             if (options.defaults) {
-                object.session_id = 0;
+                object.sessionId = 0;
                 object.paused = false;
                 if ($util.Long) {
                     let long = new $util.Long(0, 0, true);
-                    object.start_time = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    object.startTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
-                    object.start_time = options.longs === String ? "0" : 0;
+                    object.startTime = options.longs === String ? "0" : 0;
             }
-            if (message.session_id != null && message.hasOwnProperty("session_id"))
-                object.session_id = message.session_id;
+            if (message.sessionId != null && message.hasOwnProperty("sessionId"))
+                object.sessionId = message.sessionId;
             if (message.paused != null && message.hasOwnProperty("paused"))
                 object.paused = message.paused;
-            if (message.start_time != null && message.hasOwnProperty("start_time"))
-                if (typeof message.start_time === "number")
-                    object.start_time = options.longs === String ? String(message.start_time) : message.start_time;
+            if (message.startTime != null && message.hasOwnProperty("startTime"))
+                if (typeof message.startTime === "number")
+                    object.startTime = options.longs === String ? String(message.startTime) : message.startTime;
                 else
-                    object.start_time = options.longs === String ? $util.Long.prototype.toString.call(message.start_time) : options.longs === Number ? new $util.LongBits(message.start_time.low >>> 0, message.start_time.high >>> 0).toNumber(true) : message.start_time;
+                    object.startTime = options.longs === String ? $util.Long.prototype.toString.call(message.startTime) : options.longs === Number ? new $util.LongBits(message.startTime.low >>> 0, message.startTime.high >>> 0).toNumber(true) : message.startTime;
             return object;
         };
 
         /**
          * Converts this MiningState to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.MiningState
+         * @memberof pruntimeRpc.MiningState
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -6646,22 +6646,22 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return MiningState;
     })();
 
-    pruntime_rpc.EchoMessage = (function() {
+    pruntimeRpc.EchoMessage = (function() {
 
         /**
          * Properties of an EchoMessage.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface IEchoMessage
-         * @property {Uint8Array|null} [echo_msg] EchoMessage echo_msg
+         * @property {Uint8Array|null} [echoMsg] EchoMessage echoMsg
          */
 
         /**
          * Constructs a new EchoMessage.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents an EchoMessage.
          * @implements IEchoMessage
          * @constructor
-         * @param {pruntime_rpc.IEchoMessage=} [properties] Properties to set
+         * @param {pruntimeRpc.IEchoMessage=} [properties] Properties to set
          */
         function EchoMessage(properties) {
             if (properties)
@@ -6671,48 +6671,48 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         }
 
         /**
-         * EchoMessage echo_msg.
-         * @member {Uint8Array} echo_msg
-         * @memberof pruntime_rpc.EchoMessage
+         * EchoMessage echoMsg.
+         * @member {Uint8Array} echoMsg
+         * @memberof pruntimeRpc.EchoMessage
          * @instance
          */
-        EchoMessage.prototype.echo_msg = $util.newBuffer([]);
+        EchoMessage.prototype.echoMsg = $util.newBuffer([]);
 
         /**
          * Creates a new EchoMessage instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.EchoMessage
+         * @memberof pruntimeRpc.EchoMessage
          * @static
-         * @param {pruntime_rpc.IEchoMessage=} [properties] Properties to set
-         * @returns {pruntime_rpc.EchoMessage} EchoMessage instance
+         * @param {pruntimeRpc.IEchoMessage=} [properties] Properties to set
+         * @returns {pruntimeRpc.EchoMessage} EchoMessage instance
          */
         EchoMessage.create = function create(properties) {
             return new EchoMessage(properties);
         };
 
         /**
-         * Encodes the specified EchoMessage message. Does not implicitly {@link pruntime_rpc.EchoMessage.verify|verify} messages.
+         * Encodes the specified EchoMessage message. Does not implicitly {@link pruntimeRpc.EchoMessage.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.EchoMessage
+         * @memberof pruntimeRpc.EchoMessage
          * @static
-         * @param {pruntime_rpc.IEchoMessage} message EchoMessage message or plain object to encode
+         * @param {pruntimeRpc.IEchoMessage} message EchoMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
         EchoMessage.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.echo_msg != null && Object.hasOwnProperty.call(message, "echo_msg"))
-                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.echo_msg);
+            if (message.echoMsg != null && Object.hasOwnProperty.call(message, "echoMsg"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.echoMsg);
             return writer;
         };
 
         /**
-         * Encodes the specified EchoMessage message, length delimited. Does not implicitly {@link pruntime_rpc.EchoMessage.verify|verify} messages.
+         * Encodes the specified EchoMessage message, length delimited. Does not implicitly {@link pruntimeRpc.EchoMessage.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.EchoMessage
+         * @memberof pruntimeRpc.EchoMessage
          * @static
-         * @param {pruntime_rpc.IEchoMessage} message EchoMessage message or plain object to encode
+         * @param {pruntimeRpc.IEchoMessage} message EchoMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -6723,23 +6723,23 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes an EchoMessage message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.EchoMessage
+         * @memberof pruntimeRpc.EchoMessage
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.EchoMessage} EchoMessage
+         * @returns {pruntimeRpc.EchoMessage} EchoMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         EchoMessage.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.EchoMessage();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.EchoMessage();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.echo_msg = reader.bytes();
+                    message.echoMsg = reader.bytes();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -6752,10 +6752,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes an EchoMessage message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.EchoMessage
+         * @memberof pruntimeRpc.EchoMessage
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.EchoMessage} EchoMessage
+         * @returns {pruntimeRpc.EchoMessage} EchoMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -6768,7 +6768,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies an EchoMessage message.
          * @function verify
-         * @memberof pruntime_rpc.EchoMessage
+         * @memberof pruntimeRpc.EchoMessage
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -6776,38 +6776,38 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         EchoMessage.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.echo_msg != null && message.hasOwnProperty("echo_msg"))
-                if (!(message.echo_msg && typeof message.echo_msg.length === "number" || $util.isString(message.echo_msg)))
-                    return "echo_msg: buffer expected";
+            if (message.echoMsg != null && message.hasOwnProperty("echoMsg"))
+                if (!(message.echoMsg && typeof message.echoMsg.length === "number" || $util.isString(message.echoMsg)))
+                    return "echoMsg: buffer expected";
             return null;
         };
 
         /**
          * Creates an EchoMessage message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.EchoMessage
+         * @memberof pruntimeRpc.EchoMessage
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.EchoMessage} EchoMessage
+         * @returns {pruntimeRpc.EchoMessage} EchoMessage
          */
         EchoMessage.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.EchoMessage)
+            if (object instanceof $root.pruntimeRpc.EchoMessage)
                 return object;
-            let message = new $root.pruntime_rpc.EchoMessage();
-            if (object.echo_msg != null)
-                if (typeof object.echo_msg === "string")
-                    $util.base64.decode(object.echo_msg, message.echo_msg = $util.newBuffer($util.base64.length(object.echo_msg)), 0);
-                else if (object.echo_msg.length)
-                    message.echo_msg = object.echo_msg;
+            let message = new $root.pruntimeRpc.EchoMessage();
+            if (object.echoMsg != null)
+                if (typeof object.echoMsg === "string")
+                    $util.base64.decode(object.echoMsg, message.echoMsg = $util.newBuffer($util.base64.length(object.echoMsg)), 0);
+                else if (object.echoMsg.length)
+                    message.echoMsg = object.echoMsg;
             return message;
         };
 
         /**
          * Creates a plain object from an EchoMessage message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.EchoMessage
+         * @memberof pruntimeRpc.EchoMessage
          * @static
-         * @param {pruntime_rpc.EchoMessage} message EchoMessage
+         * @param {pruntimeRpc.EchoMessage} message EchoMessage
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -6817,21 +6817,21 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             let object = {};
             if (options.defaults)
                 if (options.bytes === String)
-                    object.echo_msg = "";
+                    object.echoMsg = "";
                 else {
-                    object.echo_msg = [];
+                    object.echoMsg = [];
                     if (options.bytes !== Array)
-                        object.echo_msg = $util.newBuffer(object.echo_msg);
+                        object.echoMsg = $util.newBuffer(object.echoMsg);
                 }
-            if (message.echo_msg != null && message.hasOwnProperty("echo_msg"))
-                object.echo_msg = options.bytes === String ? $util.base64.encode(message.echo_msg, 0, message.echo_msg.length) : options.bytes === Array ? Array.prototype.slice.call(message.echo_msg) : message.echo_msg;
+            if (message.echoMsg != null && message.hasOwnProperty("echoMsg"))
+                object.echoMsg = options.bytes === String ? $util.base64.encode(message.echoMsg, 0, message.echoMsg.length) : options.bytes === Array ? Array.prototype.slice.call(message.echoMsg) : message.echoMsg;
             return object;
         };
 
         /**
          * Converts this EchoMessage to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.EchoMessage
+         * @memberof pruntimeRpc.EchoMessage
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -6844,13 +6844,13 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
 
     /**
      * ResponsiveEvent enum.
-     * @name pruntime_rpc.ResponsiveEvent
+     * @name pruntimeRpc.ResponsiveEvent
      * @enum {number}
      * @property {number} NoEvent=0 NoEvent value
      * @property {number} EnterUnresponsive=1 EnterUnresponsive value
      * @property {number} ExitUnresponsive=2 ExitUnresponsive value
      */
-    pruntime_rpc.ResponsiveEvent = (function() {
+    pruntimeRpc.ResponsiveEvent = (function() {
         const valuesById = {}, values = Object.create(valuesById);
         values[valuesById[0] = "NoEvent"] = 0;
         values[valuesById[1] = "EnterUnresponsive"] = 1;
@@ -6858,39 +6858,39 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return values;
     })();
 
-    pruntime_rpc.TokenomicInfo = (function() {
+    pruntimeRpc.TokenomicInfo = (function() {
 
         /**
          * Properties of a TokenomicInfo.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @interface ITokenomicInfo
          * @property {string|null} [v] TokenomicInfo v
-         * @property {string|null} [v_init] TokenomicInfo v_init
+         * @property {string|null} [vInit] TokenomicInfo vInit
          * @property {string|null} [payable] TokenomicInfo payable
-         * @property {number|Long|null} [v_update_at] TokenomicInfo v_update_at
-         * @property {number|null} [v_update_block] TokenomicInfo v_update_block
-         * @property {number|Long|null} [iteration_last] TokenomicInfo iteration_last
-         * @property {number|Long|null} [challenge_time_last] TokenomicInfo challenge_time_last
-         * @property {string|null} [p_bench] TokenomicInfo p_bench
-         * @property {string|null} [p_instant] TokenomicInfo p_instant
-         * @property {number|null} [confidence_level] TokenomicInfo confidence_level
-         * @property {string|null} [last_payout] TokenomicInfo last_payout
-         * @property {number|null} [last_payout_at_block] TokenomicInfo last_payout_at_block
-         * @property {string|null} [total_payout] TokenomicInfo total_payout
-         * @property {number|null} [total_payout_count] TokenomicInfo total_payout_count
-         * @property {string|null} [last_slash] TokenomicInfo last_slash
-         * @property {number|null} [last_slash_at_block] TokenomicInfo last_slash_at_block
-         * @property {string|null} [total_slash] TokenomicInfo total_slash
-         * @property {number|null} [total_slash_count] TokenomicInfo total_slash_count
+         * @property {number|Long|null} [vUpdateAt] TokenomicInfo vUpdateAt
+         * @property {number|null} [vUpdateBlock] TokenomicInfo vUpdateBlock
+         * @property {number|Long|null} [iterationLast] TokenomicInfo iterationLast
+         * @property {number|Long|null} [challengeTimeLast] TokenomicInfo challengeTimeLast
+         * @property {string|null} [pBench] TokenomicInfo pBench
+         * @property {string|null} [pInstant] TokenomicInfo pInstant
+         * @property {number|null} [confidenceLevel] TokenomicInfo confidenceLevel
+         * @property {string|null} [lastPayout] TokenomicInfo lastPayout
+         * @property {number|null} [lastPayoutAtBlock] TokenomicInfo lastPayoutAtBlock
+         * @property {string|null} [totalPayout] TokenomicInfo totalPayout
+         * @property {number|null} [totalPayoutCount] TokenomicInfo totalPayoutCount
+         * @property {string|null} [lastSlash] TokenomicInfo lastSlash
+         * @property {number|null} [lastSlashAtBlock] TokenomicInfo lastSlashAtBlock
+         * @property {string|null} [totalSlash] TokenomicInfo totalSlash
+         * @property {number|null} [totalSlashCount] TokenomicInfo totalSlashCount
          */
 
         /**
          * Constructs a new TokenomicInfo.
-         * @memberof pruntime_rpc
+         * @memberof pruntimeRpc
          * @classdesc Represents a TokenomicInfo.
          * @implements ITokenomicInfo
          * @constructor
-         * @param {pruntime_rpc.ITokenomicInfo=} [properties] Properties to set
+         * @param {pruntimeRpc.ITokenomicInfo=} [properties] Properties to set
          */
         function TokenomicInfo(properties) {
             if (properties)
@@ -6902,165 +6902,165 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * TokenomicInfo v.
          * @member {string} v
-         * @memberof pruntime_rpc.TokenomicInfo
+         * @memberof pruntimeRpc.TokenomicInfo
          * @instance
          */
         TokenomicInfo.prototype.v = "";
 
         /**
-         * TokenomicInfo v_init.
-         * @member {string} v_init
-         * @memberof pruntime_rpc.TokenomicInfo
+         * TokenomicInfo vInit.
+         * @member {string} vInit
+         * @memberof pruntimeRpc.TokenomicInfo
          * @instance
          */
-        TokenomicInfo.prototype.v_init = "";
+        TokenomicInfo.prototype.vInit = "";
 
         /**
          * TokenomicInfo payable.
          * @member {string} payable
-         * @memberof pruntime_rpc.TokenomicInfo
+         * @memberof pruntimeRpc.TokenomicInfo
          * @instance
          */
         TokenomicInfo.prototype.payable = "";
 
         /**
-         * TokenomicInfo v_update_at.
-         * @member {number|Long} v_update_at
-         * @memberof pruntime_rpc.TokenomicInfo
+         * TokenomicInfo vUpdateAt.
+         * @member {number|Long} vUpdateAt
+         * @memberof pruntimeRpc.TokenomicInfo
          * @instance
          */
-        TokenomicInfo.prototype.v_update_at = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        TokenomicInfo.prototype.vUpdateAt = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
-         * TokenomicInfo v_update_block.
-         * @member {number} v_update_block
-         * @memberof pruntime_rpc.TokenomicInfo
+         * TokenomicInfo vUpdateBlock.
+         * @member {number} vUpdateBlock
+         * @memberof pruntimeRpc.TokenomicInfo
          * @instance
          */
-        TokenomicInfo.prototype.v_update_block = 0;
+        TokenomicInfo.prototype.vUpdateBlock = 0;
 
         /**
-         * TokenomicInfo iteration_last.
-         * @member {number|Long} iteration_last
-         * @memberof pruntime_rpc.TokenomicInfo
+         * TokenomicInfo iterationLast.
+         * @member {number|Long} iterationLast
+         * @memberof pruntimeRpc.TokenomicInfo
          * @instance
          */
-        TokenomicInfo.prototype.iteration_last = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        TokenomicInfo.prototype.iterationLast = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
-         * TokenomicInfo challenge_time_last.
-         * @member {number|Long} challenge_time_last
-         * @memberof pruntime_rpc.TokenomicInfo
+         * TokenomicInfo challengeTimeLast.
+         * @member {number|Long} challengeTimeLast
+         * @memberof pruntimeRpc.TokenomicInfo
          * @instance
          */
-        TokenomicInfo.prototype.challenge_time_last = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        TokenomicInfo.prototype.challengeTimeLast = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
         /**
-         * TokenomicInfo p_bench.
-         * @member {string} p_bench
-         * @memberof pruntime_rpc.TokenomicInfo
+         * TokenomicInfo pBench.
+         * @member {string} pBench
+         * @memberof pruntimeRpc.TokenomicInfo
          * @instance
          */
-        TokenomicInfo.prototype.p_bench = "";
+        TokenomicInfo.prototype.pBench = "";
 
         /**
-         * TokenomicInfo p_instant.
-         * @member {string} p_instant
-         * @memberof pruntime_rpc.TokenomicInfo
+         * TokenomicInfo pInstant.
+         * @member {string} pInstant
+         * @memberof pruntimeRpc.TokenomicInfo
          * @instance
          */
-        TokenomicInfo.prototype.p_instant = "";
+        TokenomicInfo.prototype.pInstant = "";
 
         /**
-         * TokenomicInfo confidence_level.
-         * @member {number} confidence_level
-         * @memberof pruntime_rpc.TokenomicInfo
+         * TokenomicInfo confidenceLevel.
+         * @member {number} confidenceLevel
+         * @memberof pruntimeRpc.TokenomicInfo
          * @instance
          */
-        TokenomicInfo.prototype.confidence_level = 0;
+        TokenomicInfo.prototype.confidenceLevel = 0;
 
         /**
-         * TokenomicInfo last_payout.
-         * @member {string} last_payout
-         * @memberof pruntime_rpc.TokenomicInfo
+         * TokenomicInfo lastPayout.
+         * @member {string} lastPayout
+         * @memberof pruntimeRpc.TokenomicInfo
          * @instance
          */
-        TokenomicInfo.prototype.last_payout = "";
+        TokenomicInfo.prototype.lastPayout = "";
 
         /**
-         * TokenomicInfo last_payout_at_block.
-         * @member {number} last_payout_at_block
-         * @memberof pruntime_rpc.TokenomicInfo
+         * TokenomicInfo lastPayoutAtBlock.
+         * @member {number} lastPayoutAtBlock
+         * @memberof pruntimeRpc.TokenomicInfo
          * @instance
          */
-        TokenomicInfo.prototype.last_payout_at_block = 0;
+        TokenomicInfo.prototype.lastPayoutAtBlock = 0;
 
         /**
-         * TokenomicInfo total_payout.
-         * @member {string} total_payout
-         * @memberof pruntime_rpc.TokenomicInfo
+         * TokenomicInfo totalPayout.
+         * @member {string} totalPayout
+         * @memberof pruntimeRpc.TokenomicInfo
          * @instance
          */
-        TokenomicInfo.prototype.total_payout = "";
+        TokenomicInfo.prototype.totalPayout = "";
 
         /**
-         * TokenomicInfo total_payout_count.
-         * @member {number} total_payout_count
-         * @memberof pruntime_rpc.TokenomicInfo
+         * TokenomicInfo totalPayoutCount.
+         * @member {number} totalPayoutCount
+         * @memberof pruntimeRpc.TokenomicInfo
          * @instance
          */
-        TokenomicInfo.prototype.total_payout_count = 0;
+        TokenomicInfo.prototype.totalPayoutCount = 0;
 
         /**
-         * TokenomicInfo last_slash.
-         * @member {string} last_slash
-         * @memberof pruntime_rpc.TokenomicInfo
+         * TokenomicInfo lastSlash.
+         * @member {string} lastSlash
+         * @memberof pruntimeRpc.TokenomicInfo
          * @instance
          */
-        TokenomicInfo.prototype.last_slash = "";
+        TokenomicInfo.prototype.lastSlash = "";
 
         /**
-         * TokenomicInfo last_slash_at_block.
-         * @member {number} last_slash_at_block
-         * @memberof pruntime_rpc.TokenomicInfo
+         * TokenomicInfo lastSlashAtBlock.
+         * @member {number} lastSlashAtBlock
+         * @memberof pruntimeRpc.TokenomicInfo
          * @instance
          */
-        TokenomicInfo.prototype.last_slash_at_block = 0;
+        TokenomicInfo.prototype.lastSlashAtBlock = 0;
 
         /**
-         * TokenomicInfo total_slash.
-         * @member {string} total_slash
-         * @memberof pruntime_rpc.TokenomicInfo
+         * TokenomicInfo totalSlash.
+         * @member {string} totalSlash
+         * @memberof pruntimeRpc.TokenomicInfo
          * @instance
          */
-        TokenomicInfo.prototype.total_slash = "";
+        TokenomicInfo.prototype.totalSlash = "";
 
         /**
-         * TokenomicInfo total_slash_count.
-         * @member {number} total_slash_count
-         * @memberof pruntime_rpc.TokenomicInfo
+         * TokenomicInfo totalSlashCount.
+         * @member {number} totalSlashCount
+         * @memberof pruntimeRpc.TokenomicInfo
          * @instance
          */
-        TokenomicInfo.prototype.total_slash_count = 0;
+        TokenomicInfo.prototype.totalSlashCount = 0;
 
         /**
          * Creates a new TokenomicInfo instance using the specified properties.
          * @function create
-         * @memberof pruntime_rpc.TokenomicInfo
+         * @memberof pruntimeRpc.TokenomicInfo
          * @static
-         * @param {pruntime_rpc.ITokenomicInfo=} [properties] Properties to set
-         * @returns {pruntime_rpc.TokenomicInfo} TokenomicInfo instance
+         * @param {pruntimeRpc.ITokenomicInfo=} [properties] Properties to set
+         * @returns {pruntimeRpc.TokenomicInfo} TokenomicInfo instance
          */
         TokenomicInfo.create = function create(properties) {
             return new TokenomicInfo(properties);
         };
 
         /**
-         * Encodes the specified TokenomicInfo message. Does not implicitly {@link pruntime_rpc.TokenomicInfo.verify|verify} messages.
+         * Encodes the specified TokenomicInfo message. Does not implicitly {@link pruntimeRpc.TokenomicInfo.verify|verify} messages.
          * @function encode
-         * @memberof pruntime_rpc.TokenomicInfo
+         * @memberof pruntimeRpc.TokenomicInfo
          * @static
-         * @param {pruntime_rpc.ITokenomicInfo} message TokenomicInfo message or plain object to encode
+         * @param {pruntimeRpc.ITokenomicInfo} message TokenomicInfo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -7069,49 +7069,49 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                 writer = $Writer.create();
             if (message.v != null && Object.hasOwnProperty.call(message, "v"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.v);
-            if (message.v_init != null && Object.hasOwnProperty.call(message, "v_init"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.v_init);
-            if (message.v_update_at != null && Object.hasOwnProperty.call(message, "v_update_at"))
-                writer.uint32(/* id 4, wireType 0 =*/32).uint64(message.v_update_at);
-            if (message.v_update_block != null && Object.hasOwnProperty.call(message, "v_update_block"))
-                writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.v_update_block);
-            if (message.iteration_last != null && Object.hasOwnProperty.call(message, "iteration_last"))
-                writer.uint32(/* id 6, wireType 0 =*/48).uint64(message.iteration_last);
-            if (message.challenge_time_last != null && Object.hasOwnProperty.call(message, "challenge_time_last"))
-                writer.uint32(/* id 7, wireType 0 =*/56).uint64(message.challenge_time_last);
-            if (message.p_bench != null && Object.hasOwnProperty.call(message, "p_bench"))
-                writer.uint32(/* id 8, wireType 2 =*/66).string(message.p_bench);
-            if (message.p_instant != null && Object.hasOwnProperty.call(message, "p_instant"))
-                writer.uint32(/* id 9, wireType 2 =*/74).string(message.p_instant);
-            if (message.confidence_level != null && Object.hasOwnProperty.call(message, "confidence_level"))
-                writer.uint32(/* id 10, wireType 0 =*/80).uint32(message.confidence_level);
-            if (message.last_payout != null && Object.hasOwnProperty.call(message, "last_payout"))
-                writer.uint32(/* id 11, wireType 2 =*/90).string(message.last_payout);
-            if (message.last_payout_at_block != null && Object.hasOwnProperty.call(message, "last_payout_at_block"))
-                writer.uint32(/* id 12, wireType 0 =*/96).uint32(message.last_payout_at_block);
-            if (message.total_payout != null && Object.hasOwnProperty.call(message, "total_payout"))
-                writer.uint32(/* id 13, wireType 2 =*/106).string(message.total_payout);
-            if (message.total_payout_count != null && Object.hasOwnProperty.call(message, "total_payout_count"))
-                writer.uint32(/* id 14, wireType 0 =*/112).uint32(message.total_payout_count);
-            if (message.last_slash != null && Object.hasOwnProperty.call(message, "last_slash"))
-                writer.uint32(/* id 15, wireType 2 =*/122).string(message.last_slash);
-            if (message.last_slash_at_block != null && Object.hasOwnProperty.call(message, "last_slash_at_block"))
-                writer.uint32(/* id 16, wireType 0 =*/128).uint32(message.last_slash_at_block);
-            if (message.total_slash != null && Object.hasOwnProperty.call(message, "total_slash"))
-                writer.uint32(/* id 17, wireType 2 =*/138).string(message.total_slash);
-            if (message.total_slash_count != null && Object.hasOwnProperty.call(message, "total_slash_count"))
-                writer.uint32(/* id 18, wireType 0 =*/144).uint32(message.total_slash_count);
+            if (message.vInit != null && Object.hasOwnProperty.call(message, "vInit"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.vInit);
+            if (message.vUpdateAt != null && Object.hasOwnProperty.call(message, "vUpdateAt"))
+                writer.uint32(/* id 4, wireType 0 =*/32).uint64(message.vUpdateAt);
+            if (message.vUpdateBlock != null && Object.hasOwnProperty.call(message, "vUpdateBlock"))
+                writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.vUpdateBlock);
+            if (message.iterationLast != null && Object.hasOwnProperty.call(message, "iterationLast"))
+                writer.uint32(/* id 6, wireType 0 =*/48).uint64(message.iterationLast);
+            if (message.challengeTimeLast != null && Object.hasOwnProperty.call(message, "challengeTimeLast"))
+                writer.uint32(/* id 7, wireType 0 =*/56).uint64(message.challengeTimeLast);
+            if (message.pBench != null && Object.hasOwnProperty.call(message, "pBench"))
+                writer.uint32(/* id 8, wireType 2 =*/66).string(message.pBench);
+            if (message.pInstant != null && Object.hasOwnProperty.call(message, "pInstant"))
+                writer.uint32(/* id 9, wireType 2 =*/74).string(message.pInstant);
+            if (message.confidenceLevel != null && Object.hasOwnProperty.call(message, "confidenceLevel"))
+                writer.uint32(/* id 10, wireType 0 =*/80).uint32(message.confidenceLevel);
+            if (message.lastPayout != null && Object.hasOwnProperty.call(message, "lastPayout"))
+                writer.uint32(/* id 11, wireType 2 =*/90).string(message.lastPayout);
+            if (message.lastPayoutAtBlock != null && Object.hasOwnProperty.call(message, "lastPayoutAtBlock"))
+                writer.uint32(/* id 12, wireType 0 =*/96).uint32(message.lastPayoutAtBlock);
+            if (message.totalPayout != null && Object.hasOwnProperty.call(message, "totalPayout"))
+                writer.uint32(/* id 13, wireType 2 =*/106).string(message.totalPayout);
+            if (message.totalPayoutCount != null && Object.hasOwnProperty.call(message, "totalPayoutCount"))
+                writer.uint32(/* id 14, wireType 0 =*/112).uint32(message.totalPayoutCount);
+            if (message.lastSlash != null && Object.hasOwnProperty.call(message, "lastSlash"))
+                writer.uint32(/* id 15, wireType 2 =*/122).string(message.lastSlash);
+            if (message.lastSlashAtBlock != null && Object.hasOwnProperty.call(message, "lastSlashAtBlock"))
+                writer.uint32(/* id 16, wireType 0 =*/128).uint32(message.lastSlashAtBlock);
+            if (message.totalSlash != null && Object.hasOwnProperty.call(message, "totalSlash"))
+                writer.uint32(/* id 17, wireType 2 =*/138).string(message.totalSlash);
+            if (message.totalSlashCount != null && Object.hasOwnProperty.call(message, "totalSlashCount"))
+                writer.uint32(/* id 18, wireType 0 =*/144).uint32(message.totalSlashCount);
             if (message.payable != null && Object.hasOwnProperty.call(message, "payable"))
                 writer.uint32(/* id 19, wireType 2 =*/154).string(message.payable);
             return writer;
         };
 
         /**
-         * Encodes the specified TokenomicInfo message, length delimited. Does not implicitly {@link pruntime_rpc.TokenomicInfo.verify|verify} messages.
+         * Encodes the specified TokenomicInfo message, length delimited. Does not implicitly {@link pruntimeRpc.TokenomicInfo.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof pruntime_rpc.TokenomicInfo
+         * @memberof pruntimeRpc.TokenomicInfo
          * @static
-         * @param {pruntime_rpc.ITokenomicInfo} message TokenomicInfo message or plain object to encode
+         * @param {pruntimeRpc.ITokenomicInfo} message TokenomicInfo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -7122,18 +7122,18 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a TokenomicInfo message from the specified reader or buffer.
          * @function decode
-         * @memberof pruntime_rpc.TokenomicInfo
+         * @memberof pruntimeRpc.TokenomicInfo
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {pruntime_rpc.TokenomicInfo} TokenomicInfo
+         * @returns {pruntimeRpc.TokenomicInfo} TokenomicInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         TokenomicInfo.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntime_rpc.TokenomicInfo();
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.pruntimeRpc.TokenomicInfo();
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -7141,55 +7141,55 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
                     message.v = reader.string();
                     break;
                 case 2:
-                    message.v_init = reader.string();
+                    message.vInit = reader.string();
                     break;
                 case 19:
                     message.payable = reader.string();
                     break;
                 case 4:
-                    message.v_update_at = reader.uint64();
+                    message.vUpdateAt = reader.uint64();
                     break;
                 case 5:
-                    message.v_update_block = reader.uint32();
+                    message.vUpdateBlock = reader.uint32();
                     break;
                 case 6:
-                    message.iteration_last = reader.uint64();
+                    message.iterationLast = reader.uint64();
                     break;
                 case 7:
-                    message.challenge_time_last = reader.uint64();
+                    message.challengeTimeLast = reader.uint64();
                     break;
                 case 8:
-                    message.p_bench = reader.string();
+                    message.pBench = reader.string();
                     break;
                 case 9:
-                    message.p_instant = reader.string();
+                    message.pInstant = reader.string();
                     break;
                 case 10:
-                    message.confidence_level = reader.uint32();
+                    message.confidenceLevel = reader.uint32();
                     break;
                 case 11:
-                    message.last_payout = reader.string();
+                    message.lastPayout = reader.string();
                     break;
                 case 12:
-                    message.last_payout_at_block = reader.uint32();
+                    message.lastPayoutAtBlock = reader.uint32();
                     break;
                 case 13:
-                    message.total_payout = reader.string();
+                    message.totalPayout = reader.string();
                     break;
                 case 14:
-                    message.total_payout_count = reader.uint32();
+                    message.totalPayoutCount = reader.uint32();
                     break;
                 case 15:
-                    message.last_slash = reader.string();
+                    message.lastSlash = reader.string();
                     break;
                 case 16:
-                    message.last_slash_at_block = reader.uint32();
+                    message.lastSlashAtBlock = reader.uint32();
                     break;
                 case 17:
-                    message.total_slash = reader.string();
+                    message.totalSlash = reader.string();
                     break;
                 case 18:
-                    message.total_slash_count = reader.uint32();
+                    message.totalSlashCount = reader.uint32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -7202,10 +7202,10 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Decodes a TokenomicInfo message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof pruntime_rpc.TokenomicInfo
+         * @memberof pruntimeRpc.TokenomicInfo
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {pruntime_rpc.TokenomicInfo} TokenomicInfo
+         * @returns {pruntimeRpc.TokenomicInfo} TokenomicInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
@@ -7218,7 +7218,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Verifies a TokenomicInfo message.
          * @function verify
-         * @memberof pruntime_rpc.TokenomicInfo
+         * @memberof pruntimeRpc.TokenomicInfo
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -7229,138 +7229,138 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             if (message.v != null && message.hasOwnProperty("v"))
                 if (!$util.isString(message.v))
                     return "v: string expected";
-            if (message.v_init != null && message.hasOwnProperty("v_init"))
-                if (!$util.isString(message.v_init))
-                    return "v_init: string expected";
+            if (message.vInit != null && message.hasOwnProperty("vInit"))
+                if (!$util.isString(message.vInit))
+                    return "vInit: string expected";
             if (message.payable != null && message.hasOwnProperty("payable"))
                 if (!$util.isString(message.payable))
                     return "payable: string expected";
-            if (message.v_update_at != null && message.hasOwnProperty("v_update_at"))
-                if (!$util.isInteger(message.v_update_at) && !(message.v_update_at && $util.isInteger(message.v_update_at.low) && $util.isInteger(message.v_update_at.high)))
-                    return "v_update_at: integer|Long expected";
-            if (message.v_update_block != null && message.hasOwnProperty("v_update_block"))
-                if (!$util.isInteger(message.v_update_block))
-                    return "v_update_block: integer expected";
-            if (message.iteration_last != null && message.hasOwnProperty("iteration_last"))
-                if (!$util.isInteger(message.iteration_last) && !(message.iteration_last && $util.isInteger(message.iteration_last.low) && $util.isInteger(message.iteration_last.high)))
-                    return "iteration_last: integer|Long expected";
-            if (message.challenge_time_last != null && message.hasOwnProperty("challenge_time_last"))
-                if (!$util.isInteger(message.challenge_time_last) && !(message.challenge_time_last && $util.isInteger(message.challenge_time_last.low) && $util.isInteger(message.challenge_time_last.high)))
-                    return "challenge_time_last: integer|Long expected";
-            if (message.p_bench != null && message.hasOwnProperty("p_bench"))
-                if (!$util.isString(message.p_bench))
-                    return "p_bench: string expected";
-            if (message.p_instant != null && message.hasOwnProperty("p_instant"))
-                if (!$util.isString(message.p_instant))
-                    return "p_instant: string expected";
-            if (message.confidence_level != null && message.hasOwnProperty("confidence_level"))
-                if (!$util.isInteger(message.confidence_level))
-                    return "confidence_level: integer expected";
-            if (message.last_payout != null && message.hasOwnProperty("last_payout"))
-                if (!$util.isString(message.last_payout))
-                    return "last_payout: string expected";
-            if (message.last_payout_at_block != null && message.hasOwnProperty("last_payout_at_block"))
-                if (!$util.isInteger(message.last_payout_at_block))
-                    return "last_payout_at_block: integer expected";
-            if (message.total_payout != null && message.hasOwnProperty("total_payout"))
-                if (!$util.isString(message.total_payout))
-                    return "total_payout: string expected";
-            if (message.total_payout_count != null && message.hasOwnProperty("total_payout_count"))
-                if (!$util.isInteger(message.total_payout_count))
-                    return "total_payout_count: integer expected";
-            if (message.last_slash != null && message.hasOwnProperty("last_slash"))
-                if (!$util.isString(message.last_slash))
-                    return "last_slash: string expected";
-            if (message.last_slash_at_block != null && message.hasOwnProperty("last_slash_at_block"))
-                if (!$util.isInteger(message.last_slash_at_block))
-                    return "last_slash_at_block: integer expected";
-            if (message.total_slash != null && message.hasOwnProperty("total_slash"))
-                if (!$util.isString(message.total_slash))
-                    return "total_slash: string expected";
-            if (message.total_slash_count != null && message.hasOwnProperty("total_slash_count"))
-                if (!$util.isInteger(message.total_slash_count))
-                    return "total_slash_count: integer expected";
+            if (message.vUpdateAt != null && message.hasOwnProperty("vUpdateAt"))
+                if (!$util.isInteger(message.vUpdateAt) && !(message.vUpdateAt && $util.isInteger(message.vUpdateAt.low) && $util.isInteger(message.vUpdateAt.high)))
+                    return "vUpdateAt: integer|Long expected";
+            if (message.vUpdateBlock != null && message.hasOwnProperty("vUpdateBlock"))
+                if (!$util.isInteger(message.vUpdateBlock))
+                    return "vUpdateBlock: integer expected";
+            if (message.iterationLast != null && message.hasOwnProperty("iterationLast"))
+                if (!$util.isInteger(message.iterationLast) && !(message.iterationLast && $util.isInteger(message.iterationLast.low) && $util.isInteger(message.iterationLast.high)))
+                    return "iterationLast: integer|Long expected";
+            if (message.challengeTimeLast != null && message.hasOwnProperty("challengeTimeLast"))
+                if (!$util.isInteger(message.challengeTimeLast) && !(message.challengeTimeLast && $util.isInteger(message.challengeTimeLast.low) && $util.isInteger(message.challengeTimeLast.high)))
+                    return "challengeTimeLast: integer|Long expected";
+            if (message.pBench != null && message.hasOwnProperty("pBench"))
+                if (!$util.isString(message.pBench))
+                    return "pBench: string expected";
+            if (message.pInstant != null && message.hasOwnProperty("pInstant"))
+                if (!$util.isString(message.pInstant))
+                    return "pInstant: string expected";
+            if (message.confidenceLevel != null && message.hasOwnProperty("confidenceLevel"))
+                if (!$util.isInteger(message.confidenceLevel))
+                    return "confidenceLevel: integer expected";
+            if (message.lastPayout != null && message.hasOwnProperty("lastPayout"))
+                if (!$util.isString(message.lastPayout))
+                    return "lastPayout: string expected";
+            if (message.lastPayoutAtBlock != null && message.hasOwnProperty("lastPayoutAtBlock"))
+                if (!$util.isInteger(message.lastPayoutAtBlock))
+                    return "lastPayoutAtBlock: integer expected";
+            if (message.totalPayout != null && message.hasOwnProperty("totalPayout"))
+                if (!$util.isString(message.totalPayout))
+                    return "totalPayout: string expected";
+            if (message.totalPayoutCount != null && message.hasOwnProperty("totalPayoutCount"))
+                if (!$util.isInteger(message.totalPayoutCount))
+                    return "totalPayoutCount: integer expected";
+            if (message.lastSlash != null && message.hasOwnProperty("lastSlash"))
+                if (!$util.isString(message.lastSlash))
+                    return "lastSlash: string expected";
+            if (message.lastSlashAtBlock != null && message.hasOwnProperty("lastSlashAtBlock"))
+                if (!$util.isInteger(message.lastSlashAtBlock))
+                    return "lastSlashAtBlock: integer expected";
+            if (message.totalSlash != null && message.hasOwnProperty("totalSlash"))
+                if (!$util.isString(message.totalSlash))
+                    return "totalSlash: string expected";
+            if (message.totalSlashCount != null && message.hasOwnProperty("totalSlashCount"))
+                if (!$util.isInteger(message.totalSlashCount))
+                    return "totalSlashCount: integer expected";
             return null;
         };
 
         /**
          * Creates a TokenomicInfo message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof pruntime_rpc.TokenomicInfo
+         * @memberof pruntimeRpc.TokenomicInfo
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {pruntime_rpc.TokenomicInfo} TokenomicInfo
+         * @returns {pruntimeRpc.TokenomicInfo} TokenomicInfo
          */
         TokenomicInfo.fromObject = function fromObject(object) {
-            if (object instanceof $root.pruntime_rpc.TokenomicInfo)
+            if (object instanceof $root.pruntimeRpc.TokenomicInfo)
                 return object;
-            let message = new $root.pruntime_rpc.TokenomicInfo();
+            let message = new $root.pruntimeRpc.TokenomicInfo();
             if (object.v != null)
                 message.v = String(object.v);
-            if (object.v_init != null)
-                message.v_init = String(object.v_init);
+            if (object.vInit != null)
+                message.vInit = String(object.vInit);
             if (object.payable != null)
                 message.payable = String(object.payable);
-            if (object.v_update_at != null)
+            if (object.vUpdateAt != null)
                 if ($util.Long)
-                    (message.v_update_at = $util.Long.fromValue(object.v_update_at)).unsigned = true;
-                else if (typeof object.v_update_at === "string")
-                    message.v_update_at = parseInt(object.v_update_at, 10);
-                else if (typeof object.v_update_at === "number")
-                    message.v_update_at = object.v_update_at;
-                else if (typeof object.v_update_at === "object")
-                    message.v_update_at = new $util.LongBits(object.v_update_at.low >>> 0, object.v_update_at.high >>> 0).toNumber(true);
-            if (object.v_update_block != null)
-                message.v_update_block = object.v_update_block >>> 0;
-            if (object.iteration_last != null)
+                    (message.vUpdateAt = $util.Long.fromValue(object.vUpdateAt)).unsigned = true;
+                else if (typeof object.vUpdateAt === "string")
+                    message.vUpdateAt = parseInt(object.vUpdateAt, 10);
+                else if (typeof object.vUpdateAt === "number")
+                    message.vUpdateAt = object.vUpdateAt;
+                else if (typeof object.vUpdateAt === "object")
+                    message.vUpdateAt = new $util.LongBits(object.vUpdateAt.low >>> 0, object.vUpdateAt.high >>> 0).toNumber(true);
+            if (object.vUpdateBlock != null)
+                message.vUpdateBlock = object.vUpdateBlock >>> 0;
+            if (object.iterationLast != null)
                 if ($util.Long)
-                    (message.iteration_last = $util.Long.fromValue(object.iteration_last)).unsigned = true;
-                else if (typeof object.iteration_last === "string")
-                    message.iteration_last = parseInt(object.iteration_last, 10);
-                else if (typeof object.iteration_last === "number")
-                    message.iteration_last = object.iteration_last;
-                else if (typeof object.iteration_last === "object")
-                    message.iteration_last = new $util.LongBits(object.iteration_last.low >>> 0, object.iteration_last.high >>> 0).toNumber(true);
-            if (object.challenge_time_last != null)
+                    (message.iterationLast = $util.Long.fromValue(object.iterationLast)).unsigned = true;
+                else if (typeof object.iterationLast === "string")
+                    message.iterationLast = parseInt(object.iterationLast, 10);
+                else if (typeof object.iterationLast === "number")
+                    message.iterationLast = object.iterationLast;
+                else if (typeof object.iterationLast === "object")
+                    message.iterationLast = new $util.LongBits(object.iterationLast.low >>> 0, object.iterationLast.high >>> 0).toNumber(true);
+            if (object.challengeTimeLast != null)
                 if ($util.Long)
-                    (message.challenge_time_last = $util.Long.fromValue(object.challenge_time_last)).unsigned = true;
-                else if (typeof object.challenge_time_last === "string")
-                    message.challenge_time_last = parseInt(object.challenge_time_last, 10);
-                else if (typeof object.challenge_time_last === "number")
-                    message.challenge_time_last = object.challenge_time_last;
-                else if (typeof object.challenge_time_last === "object")
-                    message.challenge_time_last = new $util.LongBits(object.challenge_time_last.low >>> 0, object.challenge_time_last.high >>> 0).toNumber(true);
-            if (object.p_bench != null)
-                message.p_bench = String(object.p_bench);
-            if (object.p_instant != null)
-                message.p_instant = String(object.p_instant);
-            if (object.confidence_level != null)
-                message.confidence_level = object.confidence_level >>> 0;
-            if (object.last_payout != null)
-                message.last_payout = String(object.last_payout);
-            if (object.last_payout_at_block != null)
-                message.last_payout_at_block = object.last_payout_at_block >>> 0;
-            if (object.total_payout != null)
-                message.total_payout = String(object.total_payout);
-            if (object.total_payout_count != null)
-                message.total_payout_count = object.total_payout_count >>> 0;
-            if (object.last_slash != null)
-                message.last_slash = String(object.last_slash);
-            if (object.last_slash_at_block != null)
-                message.last_slash_at_block = object.last_slash_at_block >>> 0;
-            if (object.total_slash != null)
-                message.total_slash = String(object.total_slash);
-            if (object.total_slash_count != null)
-                message.total_slash_count = object.total_slash_count >>> 0;
+                    (message.challengeTimeLast = $util.Long.fromValue(object.challengeTimeLast)).unsigned = true;
+                else if (typeof object.challengeTimeLast === "string")
+                    message.challengeTimeLast = parseInt(object.challengeTimeLast, 10);
+                else if (typeof object.challengeTimeLast === "number")
+                    message.challengeTimeLast = object.challengeTimeLast;
+                else if (typeof object.challengeTimeLast === "object")
+                    message.challengeTimeLast = new $util.LongBits(object.challengeTimeLast.low >>> 0, object.challengeTimeLast.high >>> 0).toNumber(true);
+            if (object.pBench != null)
+                message.pBench = String(object.pBench);
+            if (object.pInstant != null)
+                message.pInstant = String(object.pInstant);
+            if (object.confidenceLevel != null)
+                message.confidenceLevel = object.confidenceLevel >>> 0;
+            if (object.lastPayout != null)
+                message.lastPayout = String(object.lastPayout);
+            if (object.lastPayoutAtBlock != null)
+                message.lastPayoutAtBlock = object.lastPayoutAtBlock >>> 0;
+            if (object.totalPayout != null)
+                message.totalPayout = String(object.totalPayout);
+            if (object.totalPayoutCount != null)
+                message.totalPayoutCount = object.totalPayoutCount >>> 0;
+            if (object.lastSlash != null)
+                message.lastSlash = String(object.lastSlash);
+            if (object.lastSlashAtBlock != null)
+                message.lastSlashAtBlock = object.lastSlashAtBlock >>> 0;
+            if (object.totalSlash != null)
+                message.totalSlash = String(object.totalSlash);
+            if (object.totalSlashCount != null)
+                message.totalSlashCount = object.totalSlashCount >>> 0;
             return message;
         };
 
         /**
          * Creates a plain object from a TokenomicInfo message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof pruntime_rpc.TokenomicInfo
+         * @memberof pruntimeRpc.TokenomicInfo
          * @static
-         * @param {pruntime_rpc.TokenomicInfo} message TokenomicInfo
+         * @param {pruntimeRpc.TokenomicInfo} message TokenomicInfo
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -7370,79 +7370,79 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
             let object = {};
             if (options.defaults) {
                 object.v = "";
-                object.v_init = "";
+                object.vInit = "";
                 if ($util.Long) {
                     let long = new $util.Long(0, 0, true);
-                    object.v_update_at = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    object.vUpdateAt = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
-                    object.v_update_at = options.longs === String ? "0" : 0;
-                object.v_update_block = 0;
+                    object.vUpdateAt = options.longs === String ? "0" : 0;
+                object.vUpdateBlock = 0;
                 if ($util.Long) {
                     let long = new $util.Long(0, 0, true);
-                    object.iteration_last = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    object.iterationLast = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
-                    object.iteration_last = options.longs === String ? "0" : 0;
+                    object.iterationLast = options.longs === String ? "0" : 0;
                 if ($util.Long) {
                     let long = new $util.Long(0, 0, true);
-                    object.challenge_time_last = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    object.challengeTimeLast = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
-                    object.challenge_time_last = options.longs === String ? "0" : 0;
-                object.p_bench = "";
-                object.p_instant = "";
-                object.confidence_level = 0;
-                object.last_payout = "";
-                object.last_payout_at_block = 0;
-                object.total_payout = "";
-                object.total_payout_count = 0;
-                object.last_slash = "";
-                object.last_slash_at_block = 0;
-                object.total_slash = "";
-                object.total_slash_count = 0;
+                    object.challengeTimeLast = options.longs === String ? "0" : 0;
+                object.pBench = "";
+                object.pInstant = "";
+                object.confidenceLevel = 0;
+                object.lastPayout = "";
+                object.lastPayoutAtBlock = 0;
+                object.totalPayout = "";
+                object.totalPayoutCount = 0;
+                object.lastSlash = "";
+                object.lastSlashAtBlock = 0;
+                object.totalSlash = "";
+                object.totalSlashCount = 0;
                 object.payable = "";
             }
             if (message.v != null && message.hasOwnProperty("v"))
                 object.v = message.v;
-            if (message.v_init != null && message.hasOwnProperty("v_init"))
-                object.v_init = message.v_init;
-            if (message.v_update_at != null && message.hasOwnProperty("v_update_at"))
-                if (typeof message.v_update_at === "number")
-                    object.v_update_at = options.longs === String ? String(message.v_update_at) : message.v_update_at;
+            if (message.vInit != null && message.hasOwnProperty("vInit"))
+                object.vInit = message.vInit;
+            if (message.vUpdateAt != null && message.hasOwnProperty("vUpdateAt"))
+                if (typeof message.vUpdateAt === "number")
+                    object.vUpdateAt = options.longs === String ? String(message.vUpdateAt) : message.vUpdateAt;
                 else
-                    object.v_update_at = options.longs === String ? $util.Long.prototype.toString.call(message.v_update_at) : options.longs === Number ? new $util.LongBits(message.v_update_at.low >>> 0, message.v_update_at.high >>> 0).toNumber(true) : message.v_update_at;
-            if (message.v_update_block != null && message.hasOwnProperty("v_update_block"))
-                object.v_update_block = message.v_update_block;
-            if (message.iteration_last != null && message.hasOwnProperty("iteration_last"))
-                if (typeof message.iteration_last === "number")
-                    object.iteration_last = options.longs === String ? String(message.iteration_last) : message.iteration_last;
+                    object.vUpdateAt = options.longs === String ? $util.Long.prototype.toString.call(message.vUpdateAt) : options.longs === Number ? new $util.LongBits(message.vUpdateAt.low >>> 0, message.vUpdateAt.high >>> 0).toNumber(true) : message.vUpdateAt;
+            if (message.vUpdateBlock != null && message.hasOwnProperty("vUpdateBlock"))
+                object.vUpdateBlock = message.vUpdateBlock;
+            if (message.iterationLast != null && message.hasOwnProperty("iterationLast"))
+                if (typeof message.iterationLast === "number")
+                    object.iterationLast = options.longs === String ? String(message.iterationLast) : message.iterationLast;
                 else
-                    object.iteration_last = options.longs === String ? $util.Long.prototype.toString.call(message.iteration_last) : options.longs === Number ? new $util.LongBits(message.iteration_last.low >>> 0, message.iteration_last.high >>> 0).toNumber(true) : message.iteration_last;
-            if (message.challenge_time_last != null && message.hasOwnProperty("challenge_time_last"))
-                if (typeof message.challenge_time_last === "number")
-                    object.challenge_time_last = options.longs === String ? String(message.challenge_time_last) : message.challenge_time_last;
+                    object.iterationLast = options.longs === String ? $util.Long.prototype.toString.call(message.iterationLast) : options.longs === Number ? new $util.LongBits(message.iterationLast.low >>> 0, message.iterationLast.high >>> 0).toNumber(true) : message.iterationLast;
+            if (message.challengeTimeLast != null && message.hasOwnProperty("challengeTimeLast"))
+                if (typeof message.challengeTimeLast === "number")
+                    object.challengeTimeLast = options.longs === String ? String(message.challengeTimeLast) : message.challengeTimeLast;
                 else
-                    object.challenge_time_last = options.longs === String ? $util.Long.prototype.toString.call(message.challenge_time_last) : options.longs === Number ? new $util.LongBits(message.challenge_time_last.low >>> 0, message.challenge_time_last.high >>> 0).toNumber(true) : message.challenge_time_last;
-            if (message.p_bench != null && message.hasOwnProperty("p_bench"))
-                object.p_bench = message.p_bench;
-            if (message.p_instant != null && message.hasOwnProperty("p_instant"))
-                object.p_instant = message.p_instant;
-            if (message.confidence_level != null && message.hasOwnProperty("confidence_level"))
-                object.confidence_level = message.confidence_level;
-            if (message.last_payout != null && message.hasOwnProperty("last_payout"))
-                object.last_payout = message.last_payout;
-            if (message.last_payout_at_block != null && message.hasOwnProperty("last_payout_at_block"))
-                object.last_payout_at_block = message.last_payout_at_block;
-            if (message.total_payout != null && message.hasOwnProperty("total_payout"))
-                object.total_payout = message.total_payout;
-            if (message.total_payout_count != null && message.hasOwnProperty("total_payout_count"))
-                object.total_payout_count = message.total_payout_count;
-            if (message.last_slash != null && message.hasOwnProperty("last_slash"))
-                object.last_slash = message.last_slash;
-            if (message.last_slash_at_block != null && message.hasOwnProperty("last_slash_at_block"))
-                object.last_slash_at_block = message.last_slash_at_block;
-            if (message.total_slash != null && message.hasOwnProperty("total_slash"))
-                object.total_slash = message.total_slash;
-            if (message.total_slash_count != null && message.hasOwnProperty("total_slash_count"))
-                object.total_slash_count = message.total_slash_count;
+                    object.challengeTimeLast = options.longs === String ? $util.Long.prototype.toString.call(message.challengeTimeLast) : options.longs === Number ? new $util.LongBits(message.challengeTimeLast.low >>> 0, message.challengeTimeLast.high >>> 0).toNumber(true) : message.challengeTimeLast;
+            if (message.pBench != null && message.hasOwnProperty("pBench"))
+                object.pBench = message.pBench;
+            if (message.pInstant != null && message.hasOwnProperty("pInstant"))
+                object.pInstant = message.pInstant;
+            if (message.confidenceLevel != null && message.hasOwnProperty("confidenceLevel"))
+                object.confidenceLevel = message.confidenceLevel;
+            if (message.lastPayout != null && message.hasOwnProperty("lastPayout"))
+                object.lastPayout = message.lastPayout;
+            if (message.lastPayoutAtBlock != null && message.hasOwnProperty("lastPayoutAtBlock"))
+                object.lastPayoutAtBlock = message.lastPayoutAtBlock;
+            if (message.totalPayout != null && message.hasOwnProperty("totalPayout"))
+                object.totalPayout = message.totalPayout;
+            if (message.totalPayoutCount != null && message.hasOwnProperty("totalPayoutCount"))
+                object.totalPayoutCount = message.totalPayoutCount;
+            if (message.lastSlash != null && message.hasOwnProperty("lastSlash"))
+                object.lastSlash = message.lastSlash;
+            if (message.lastSlashAtBlock != null && message.hasOwnProperty("lastSlashAtBlock"))
+                object.lastSlashAtBlock = message.lastSlashAtBlock;
+            if (message.totalSlash != null && message.hasOwnProperty("totalSlash"))
+                object.totalSlash = message.totalSlash;
+            if (message.totalSlashCount != null && message.hasOwnProperty("totalSlashCount"))
+                object.totalSlashCount = message.totalSlashCount;
             if (message.payable != null && message.hasOwnProperty("payable"))
                 object.payable = message.payable;
             return object;
@@ -7451,7 +7451,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         /**
          * Converts this TokenomicInfo to JSON.
          * @function toJSON
-         * @memberof pruntime_rpc.TokenomicInfo
+         * @memberof pruntimeRpc.TokenomicInfo
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -7462,7 +7462,7 @@ export const pruntime_rpc = $root.pruntime_rpc = (() => {
         return TokenomicInfo;
     })();
 
-    return pruntime_rpc;
+    return pruntimeRpc;
 })();
 
 export const google = $root.google = (() => {

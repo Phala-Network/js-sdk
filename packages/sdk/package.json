@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@phala/typedefs": "^0.2.30",
-    "@polkadot/api": "^6.12.1",
+    "@polkadot/api": "^7.7.1",
     "@polkadot/util": "^8.3.3",
     "@polkadot/util-crypto": "^8.3.3",
     "@polkadot/wasm-crypto": "4.5.1",

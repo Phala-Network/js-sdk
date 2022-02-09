@@ -9,6 +9,7 @@
     "phala",
     "phactory",
     "prpc",
-    "pruntime"
+    "pruntime",
+    "protobuf"
   ]
 }

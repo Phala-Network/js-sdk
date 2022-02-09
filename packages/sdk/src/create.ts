@@ -19,7 +19,7 @@ import {from} from 'rxjs'
 import {encrypt, decrypt} from './lib/aes-256-gcm'
 import {randomHex} from './lib/hex'
 import type {CertificateData} from './certificate'
-import {pruntime_rpc, prpc} from './proto'
+import {pruntimeRpc, prpc} from './proto'
 import type {SubmittableExtrinsic} from '@polkadot/api/types'
 
 export type Query = (
@@ -67,23 +67,23 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
   }).post
 
   // Get public key from remote for encrypting
-  const {public_key} = pruntime_rpc.PhactoryInfo.decode(
+  const {publicKey} = pruntimeRpc.PhactoryInfo.decode(
     new Uint8Array((await http<ArrayBuffer>('/prpc/PhactoryAPI.GetInfo')).data)
   )
 
-  if (!public_key) throw new Error('No remote pubkey')
-  const remotePubkey = hexAddPrefix(public_key)
+  if (!publicKey) throw new Error('No remote pubkey')
+  const remotePubkey = hexAddPrefix(publicKey)
 
   // Create a query instance with protobuf set
-  const contractQuery = (data: pruntime_rpc.IContractQueryRequest) =>
+  const contractQuery = (data: pruntimeRpc.IContractQueryRequest) =>
     http<ArrayBuffer>('/prpc/PhactoryAPI.ContractQuery', data, {
-      transformRequest: (data: pruntime_rpc.IContractQueryRequest) =>
-        pruntime_rpc.ContractQueryRequest.encode(data).finish(),
+      transformRequest: (data: pruntimeRpc.IContractQueryRequest) =>
+        pruntimeRpc.ContractQueryRequest.encode(data).finish(),
     })
       .then((res) => {
         return {
           ...res,
-          data: pruntime_rpc.ContractQueryResponse.decode(
+          data: pruntimeRpc.ContractQueryResponse.decode(
             new Uint8Array(res.data)
           ),
         }
@@ -108,7 +108,7 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
     sk
   )
   const contractKey = (
-    await api.query.phalaFatContracts.contractKey(contractId)
+    await api.query.phalaRegistry.contractKeys(contractId)
   ).toString()
   const commandAgreementKey = sr25519Agree(hexToU8a(contractKey), sk)
 
@@ -126,19 +126,19 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
       .toU8a()
 
     // Sign the encrypted data.
-    const signature: pruntime_rpc.ISignature = {
-      signed_by: certificate,
-      signature_type: pruntime_rpc.SignatureType.Sr25519,
+    const signature: pruntimeRpc.ISignature = {
+      signedBy: certificate,
+      signatureType: pruntimeRpc.SignatureType.Sr25519,
       signature: sr25519Sign(pubkey, secret, encodedEncryptedData),
     }
 
     // Send request.
     const requestData = {
-      encoded_encrypted_data: encodedEncryptedData,
+      encodedEncryptedData,
       signature,
     }
     return contractQuery(requestData).then((res) => {
-      const encodedEncryptedData = res.data.encoded_encrypted_data
+      const {encodedEncryptedData} = res.data
       const {data: encryptedData, iv} = api
         .createType('EncryptedData', encodedEncryptedData)
         .toJSON() as {
@@ -163,25 +163,39 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
     )
   }
 
+  const txContracts = (
+    dest: AccountId,
+    value: any,
+    gasLimit: any,
+    data: Uint8Array
+  ) => {
+    return command({
+      contractId: dest.toHex(),
+      payload: api
+        .createType('InkCommand', {
+          InkMessage: {
+            nonce: hexAddPrefix(randomHex(32)),
+            // FIXME: unexpected u8a prefix
+            message: api.createType('Vec<u8>', data).toHex(),
+          },
+        })
+        .toHex(),
+    })
+  }
+
+  Object.defineProperty(txContracts, 'meta', {
+    value: {args: []},
+    enumerable: true,
+  })
+
   Object.defineProperty(api.tx, 'contracts', {
     value: {
       instantiateWithCode: () => null,
-      call: (dest: AccountId, value: any, gasLimit: any, data: Uint8Array) => {
-        return command({
-          contractId: dest.toHex(),
-          payload: api
-            .createType('InkCommand', {
-              InkMessage: {
-                nonce: hexAddPrefix(randomHex(32)),
-                // FIXME: unexpected u8a prefix
-                message: api.createType('Vec<u8>', data).toHex(),
-              },
-            })
-            .toHex(),
-        })
-      },
+      call: txContracts,
     },
+    enumerable: true,
   })
+
   Object.defineProperty(api.rx.rpc, 'contracts', {
     value: {
       call: ({origin, dest, inputData}: ContractCallRequest) => {
@@ -212,6 +226,7 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
         )
       },
     },
+    enumerable: true,
   })
 
   return api
