@@ -90,6 +90,8 @@ const Flip: Page = () => {
   const onQuery = () => {
     if (!certificateData || !contract) return
     contract.query.getIp(certificateData as any as string, {}).then((res) => {
+      // eslint-disable-next-line no-console
+      console.log(res.output?.toHuman())
       toaster.info(JSON.stringify(res.output?.toHuman()), {})
     })
   }
