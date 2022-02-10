@@ -4,8 +4,8 @@ import Link from 'next/link'
 import {StyledLink} from 'baseui/link'
 
 const LINKS: [string, string][] = [
-  ['/guess-number', 'Guess Number'],
-  ['/btc-price-bot', 'BTC Price Bot'],
+  ['/pink-flip', 'Flip'],
+  ['/get-ip', 'Get IP'],
 ]
 
 const Home: NextPage = () => {
@@ -14,10 +14,6 @@ const Home: NextPage = () => {
       <Head>
         <title>Phala SDK Example</title>
       </Head>
-
-      <Link href="/template" passHref>
-        <StyledLink>Template</StyledLink>
-      </Link>
 
       <ol>
         {LINKS.map(([href, label], index) => (

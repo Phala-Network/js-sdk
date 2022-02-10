@@ -3,21 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "yarn workspace @phala/sdk build && next build",
-    "dev": "yarn workspace @phala/sdk build && next dev",
+    "build": "next build",
+    "dev": "next dev",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "start": "next start"
   },
   "dependencies": {
     "@phala/sdk": "workspace:packages/sdk",
-    "@phala/typedefs": "^0.2.29",
-    "@polkadot/api": "^6.11.1",
-    "@polkadot/extension-dapp": "^0.42.2",
-    "@polkadot/util": "^8.1.2",
-    "baseui": "^10.6.0",
-    "jotai": "^1.4.7",
-    "next": "12.0.7",
+    "@phala/typedefs": "^0.2.30",
+    "@polkadot/api": "^7.7.1",
+    "@polkadot/api-contract": "^7.7.1",
+    "@polkadot/extension-dapp": "^0.42.7",
+    "@polkadot/util": "^8.3.3",
+    "baseui": "^10.8.0",
+    "jotai": "^1.5.3",
+    "next": "12.0.10",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "styletron-engine-atomic": "^1.4.8",
@@ -28,9 +29,9 @@
     "@types/styletron-engine-atomic": "^1.1.1",
     "@types/styletron-react": "^5.0.3",
     "@types/styletron-standard": "^2.0.2",
-    "eslint": "^8.4.1",
-    "eslint-config-next": "12.0.7",
-    "eslint-plugin-baseui": "^10.6.0",
-    "typescript": "4.5.3"
+    "eslint": "^8.8.0",
+    "eslint-config-next": "12.0.10",
+    "eslint-plugin-baseui": "^10.8.0",
+    "typescript": "4.5.5"
   }
 }

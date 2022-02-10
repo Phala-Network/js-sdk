@@ -1,5 +1,4 @@
-// FIXME: should use crypto in node.js
-import crypto from 'crypto-browserify'
+import {createCipheriv, createDecipheriv} from 'crypto-browserify'
 import {hexToU8a, hexAddPrefix, hexStripPrefix} from '@polkadot/util'
 
 const ALGO = 'aes-256-gcm'
@@ -18,7 +17,7 @@ const toU8a = (param: Param): Uint8Array => {
 
 export const encrypt = (data: string, key: Param, iv: Param): string => {
   data = hexStripPrefix(data)
-  const cipher = crypto.createCipheriv(ALGO, toU8a(key), toU8a(iv))
+  const cipher = createCipheriv(ALGO, toU8a(key), toU8a(iv))
   const enc = cipher.update(data, 'hex', 'hex')
   cipher.final()
   return `${enc}${cipher.getAuthTag().toString('hex')}`
@@ -26,7 +25,7 @@ export const encrypt = (data: string, key: Param, iv: Param): string => {
 
 export const decrypt = (enc: string, key: Param, iv: Param): string => {
   enc = hexStripPrefix(enc)
-  const decipher = crypto.createDecipheriv(ALGO, toU8a(key), toU8a(iv))
+  const decipher = createDecipheriv(ALGO, toU8a(key), toU8a(iv))
   const authTag = hexToU8a(hexAddPrefix(enc.slice(-AUTH_TAG_LENGTH)))
   decipher.setAuthTag(authTag)
   const data = decipher.update(enc.slice(0, -AUTH_TAG_LENGTH), 'hex', 'hex')

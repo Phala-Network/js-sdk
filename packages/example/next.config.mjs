@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
   reactStrictMode: true,
   webpack: function (config) {
     config.externals = config.externals || {}
@@ -17,3 +17,5 @@ module.exports = {
     ]
   },
 }
+
+export default nextConfig
