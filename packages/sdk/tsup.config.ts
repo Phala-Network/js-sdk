@@ -4,6 +4,7 @@ export default defineConfig({
   entry: ['src/index.ts'],
   dts: true,
   format: ['cjs', 'esm'],
-  target: 'node16',
   ignoreWatch: ['*.test.ts'],
+  target: 'node16',
+  clean: true,
 })

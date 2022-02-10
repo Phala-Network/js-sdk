@@ -17,7 +17,7 @@
     }
   },
   "scripts": {
-    "build": "rm -rf dist && tsup",
+    "build": "tsup",
     "build:proto": "scripts/build_proto.sh",
     "dev": "tsup --watch",
     "lint": "eslint --cache .",
