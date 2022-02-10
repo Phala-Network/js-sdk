@@ -16,6 +16,9 @@
       "import": "./dist/index.js"
     }
   },
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "build": "tsup",
     "build:proto": "scripts/build_proto.sh",

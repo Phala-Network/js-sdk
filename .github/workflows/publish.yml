@@ -13,7 +13,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           cache: 'yarn'
       - run: yarn
-      - run: yarn test
       - run: yarn workspace @phala/sdk build
       - run: yarn workspace @phala/sdk publish
         env:
