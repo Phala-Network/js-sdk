@@ -74,28 +74,24 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
   if (!publicKey) throw new Error('No remote pubkey')
   const remotePubkey = hexAddPrefix(publicKey)
 
-  // Create a query instance with protobuf set
-  const contractQuery = (data: pruntimeRpc.IContractQueryRequest) =>
-    http<ArrayBuffer>('/prpc/PhactoryAPI.ContractQuery', data, {
-      transformRequest: (data: pruntimeRpc.IContractQueryRequest) =>
-        pruntimeRpc.ContractQueryRequest.encode(data).finish(),
-    })
-      .then((res) => {
-        return {
-          ...res,
-          data: pruntimeRpc.ContractQueryResponse.decode(
-            new Uint8Array(res.data)
-          ),
-        }
-      })
-      .catch((err) => {
-        if (err.response?.data instanceof ArrayBuffer) {
+  const pruntimeApi = pruntimeRpc.PhactoryAPI.create(
+    async (method, requestData, callback) => {
+      try {
+        const res = await http<ArrayBuffer>(
+          `/prpc/PhactoryAPI.${method.name}`,
+          new Uint8Array(requestData)
+        )
+        callback(null, new Uint8Array(res.data))
+      } catch (err: any) {
+        if (err?.response?.data instanceof ArrayBuffer) {
           const message = new Uint8Array(err.response.data)
-          throw new Error(prpc.PrpcError.decode(message).message)
+          callback(new Error(prpc.PrpcError.decode(message).message))
+        } else {
+          throw err
         }
-
-        throw err
-      })
+      }
+    }
+  )
 
   // Generate a keypair for encryption
   // NOTE: each instance only has a pre-generated pair now, it maybe better to generate a new keypair every time encrypting
@@ -137,8 +133,8 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
       encodedEncryptedData,
       signature,
     }
-    return contractQuery(requestData).then((res) => {
-      const {encodedEncryptedData} = res.data
+    return pruntimeApi.contractQuery(requestData).then((res) => {
+      const {encodedEncryptedData} = res
       const {data: encryptedData, iv} = api
         .createType('EncryptedData', encodedEncryptedData)
         .toJSON() as {
