@@ -21,7 +21,8 @@
     "build:proto": "scripts/build_proto.sh",
     "dev": "tsup --watch",
     "lint": "eslint --cache .",
-    "lint:fix": "eslint --cache --fix ."
+    "lint:fix": "eslint --cache --fix .",
+    "publish": "npm publish --access public"
   },
   "dependencies": {
     "@phala/typedefs": "^0.2.30",

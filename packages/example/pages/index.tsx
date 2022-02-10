@@ -3,7 +3,10 @@ import Head from 'next/head'
 import Link from 'next/link'
 import {StyledLink} from 'baseui/link'
 
-const LINKS: [string, string][] = [['/pink-flip', 'Flip']]
+const LINKS: [string, string][] = [
+  ['/pink-flip', 'Flip'],
+  ['/get-ip', 'Get IP'],
+]
 
 const Home: NextPage = () => {
   return (

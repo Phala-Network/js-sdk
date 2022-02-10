@@ -18,11 +18,11 @@ import ClientOnly from '../components/ClientOnly'
 
 const baseURL = '/'
 
-const contractIdAtom = atomWithStorage<string>('flipContractId', '')
+const contractIdAtom = atomWithStorage<string>('getIPContractId', '')
 
-const metadataStringAtom = atomWithStorage<string>('flipMetadataString', '')
+const metadataStringAtom = atomWithStorage<string>('getIPMetadataString', '')
 
-const Flip: Page = () => {
+const GetIP: Page = () => {
   const [account] = useAtom(accountAtom)
   const [contractId, setContractId] = useAtom(contractIdAtom)
   const [metadataString, setMetadataString] = useAtom(metadataStringAtom)
@@ -83,22 +83,22 @@ const Flip: Page = () => {
 
   const onQuery = () => {
     if (!certificateData || !contract) return
-    contract.query.get(certificateData as any as string, {}).then((res) => {
+    contract.query.getIp(certificateData as any as string, {}).then((res) => {
       // eslint-disable-next-line no-console
       console.log(res.output?.toHuman())
       toaster.info(JSON.stringify(res.output?.toHuman()), {})
     })
   }
 
-  const onCommand = async () => {
-    if (!contract || !account) return
-    const signer = await getSigner(account)
-    contract.tx.flip({}).signAndSend(account.address, {signer}, (status) => {
-      if (status.isInBlock) {
-        toaster.positive('In Block', {})
-      }
-    })
-  }
+  // const onCommand = async () => {
+  //   if (!contract || !account) return
+  //   const signer = await getSigner(account)
+  //   contract.tx.flip({}).signAndSend(account.address, {signer}, (status) => {
+  //     if (status.isInBlock) {
+  //       toaster.positive('In Block', {})
+  //     }
+  //   })
+  // }
 
   return (
     <div>
@@ -140,16 +140,16 @@ const Flip: Page = () => {
           Sign Certificate
         </Button>
         <Button disabled={!certificateData} onClick={onQuery}>
-          Get
+          Get IP
         </Button>
-        <Button disabled={!contract} onClick={onCommand}>
-          Flip
-        </Button>
+        {/* <Button disabled={!contract} onClick={onCommand}>
+          Get IP
+        </Button> */}
       </ButtonGroup>
     </div>
   )
 }
 
-Flip.title = 'Flip'
+GetIP.title = 'Get IP'
 
-export default Flip
+export default GetIP

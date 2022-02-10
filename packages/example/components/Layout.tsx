@@ -1,6 +1,6 @@
 import type {FC} from 'react'
 import Head from 'next/head'
-import {H2} from 'baseui/typography'
+import {HeadingXLarge} from 'baseui/typography'
 import useIsClient from 'hooks/useIsClient'
 import {ToasterContainer} from 'baseui/toast'
 import {Block} from 'baseui/block'
@@ -22,7 +22,7 @@ const Layout: FC<{title?: string}> = ({title, children}) => {
         alignItems="center"
         justifyContent="space-between"
       >
-        <H2>{displayTitle}</H2>
+        <HeadingXLarge>{displayTitle}</HeadingXLarge>
         {isClient && <AccountSelect></AccountSelect>}
       </Block>
 

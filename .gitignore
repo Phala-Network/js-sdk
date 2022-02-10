@@ -1,6 +1,5 @@
 node_modules
 dist
-esm
 .yarn/*
 !.yarn/releases
 !.yarn/plugins
