@@ -81,13 +81,15 @@ const Flip: Page = () => {
     }
   }, [api, account])
 
-  const onQuery = () => {
+  const onQuery = async () => {
     if (!certificateData || !contract) return
-    contract.query.get(certificateData as any as string, {}).then((res) => {
-      // eslint-disable-next-line no-console
-      console.log(res.output?.toHuman())
-      toaster.info(JSON.stringify(res.output?.toHuman()), {})
-    })
+    const {output} = await contract.query.get(
+      certificateData as any as string,
+      {}
+    )
+    // eslint-disable-next-line no-console
+    console.log(output?.toHuman())
+    toaster.info(JSON.stringify(output?.toHuman()), {})
   }
 
   const onCommand = async () => {
