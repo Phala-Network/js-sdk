@@ -19,22 +19,25 @@ const AccountSelect = (): JSX.Element => {
   useEffect(() => {
     let unsubscribe: () => void
 
-    enablePolkadotExtension()
-      .then(async () => {
-        const handleAccounts = (accounts: InjectedAccountWithMeta[]): void => {
-          setOptions(accounts)
-        }
-        const {web3Accounts, web3AccountsSubscribe} = await import(
-          '@polkadot/extension-dapp'
-        )
-        const accounts = await web3Accounts()
-        handleAccounts(accounts)
-        unsubscribe = await web3AccountsSubscribe(handleAccounts)
-      })
-      .catch((err) => {
-        setError(true)
-        throw err
-      })
+    const subscribeAccounts = async () => {
+      await enablePolkadotExtension()
+      const handleAccounts = (accounts: InjectedAccountWithMeta[]): void => {
+        setOptions(accounts)
+      }
+      const {web3Accounts, web3AccountsSubscribe} = await import(
+        '@polkadot/extension-dapp'
+      )
+      const accounts = await web3Accounts()
+      handleAccounts(accounts)
+      unsubscribe = await web3AccountsSubscribe(handleAccounts)
+    }
+
+    try {
+      subscribeAccounts()
+    } catch (err) {
+      setError(true)
+      throw err
+    }
 
     return () => unsubscribe?.()
   }, [])
