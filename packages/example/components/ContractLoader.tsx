@@ -13,8 +13,14 @@ import {useRef, VFC} from 'react'
 import useIsClient from '../hooks/useIsClient'
 import {createApi} from '../lib/polkadotApi'
 
-const baseURL = '/'
-
+const endpointAtom = atomWithStorage<string>(
+  'atom:endpoint',
+  'ws://localhost:9944'
+)
+const pruntimeURLAtom = atomWithStorage<string>(
+  'atom:pruntime_url',
+  'http://localhost:8000'
+)
 const contractsAtom = atomWithStorage<
   Record<string, {contractId: string; metadata: string}>
 >('atom:contracts', {})
@@ -27,15 +33,17 @@ const ContractLoader: VFC<{
     focusAtom(contractsAtom, (optic) => optic.prop(contractKey))
   )
   const [contractInfo, setContractInfo] = useAtom(contractInfoAtom.current)
+  const [endpoint, setEndpoint] = useAtom(endpointAtom)
+  const [pruntimeURL, setPruntimeURL] = useAtom(pruntimeURLAtom)
   const {contractId = '', metadata = ''} = contractInfo || {}
   const isClient = useIsClient()
   if (!isClient) return null
 
   const loadContract = async () => {
     try {
-      const api = await createApi()
+      const api = await createApi(endpoint)
       const contract = new ContractPromise(
-        await create({api, baseURL, contractId}),
+        await create({api, baseURL: pruntimeURL, contractId}),
         JSON.parse(metadata),
         contractId
       )
@@ -48,6 +56,34 @@ const ContractLoader: VFC<{
 
   return (
     <>
+      <FormControl label="WS Endpoint">
+        <Input
+          placeholder="ws://localhost:9944"
+          overrides={{
+            Input: {
+              style: {
+                fontFamily: 'monospace',
+              },
+            },
+          }}
+          value={endpoint}
+          onChange={(e) => setEndpoint(e.currentTarget.value)}
+        ></Input>
+      </FormControl>
+      <FormControl label="Pruntime URL">
+        <Input
+          placeholder="http://localhost:8000"
+          overrides={{
+            Input: {
+              style: {
+                fontFamily: 'monospace',
+              },
+            },
+          }}
+          value={pruntimeURL}
+          onChange={(e) => setPruntimeURL(e.currentTarget.value)}
+        ></Input>
+      </FormControl>
       <FormControl label="Contract Id">
         <Input
           overrides={{
@@ -57,7 +93,6 @@ const ContractLoader: VFC<{
               },
             },
           }}
-          autoFocus
           value={contractId}
           onChange={(e) =>
             setContractInfo((contractInfo) => ({
