@@ -1,4 +1,4 @@
-import {FC, useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 
 const useIsClient = (): boolean => {
   const [mounted, setMounted] = useState(false)

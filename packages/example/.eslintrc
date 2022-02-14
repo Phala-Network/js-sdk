@@ -5,6 +5,7 @@
     "plugin:baseui/recommended"
   ],
   "rules": {
-    "no-console": "error"
+    "no-console": "error",
+    "no-unused-vars": "error"
   }
 }

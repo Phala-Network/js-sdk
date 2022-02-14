@@ -10,7 +10,7 @@ import accountAtom from '../atoms/account'
 import {getSigner} from '../lib/polkadotExtension'
 import ContractLoader from '../components/ContractLoader'
 
-const GetIP: Page = () => {
+const Flipper: Page = () => {
   const [account] = useAtom(accountAtom)
   const [certificateData, setCertificateData] = useState<CertificateData>()
   const [api, setApi] = useState<ApiPromise>()
@@ -42,13 +42,23 @@ const GetIP: Page = () => {
 
   const onQuery = async () => {
     if (!certificateData || !contract) return
-    const {output} = await contract.query.getIp(
+    const {output} = await contract.query.get(
       certificateData as any as string,
       {}
     )
     // eslint-disable-next-line no-console
     console.log(output?.toHuman())
     toaster.info(JSON.stringify(output?.toHuman()), {})
+  }
+
+  const onCommand = async () => {
+    if (!contract || !account) return
+    const signer = await getSigner(account)
+    contract.tx.flip({}).signAndSend(account.address, {signer}, (status) => {
+      if (status.isInBlock) {
+        toaster.positive('In Block', {})
+      }
+    })
   }
 
   return contract ? (
@@ -58,13 +68,16 @@ const GetIP: Page = () => {
           Sign Certificate
         </Button>
         <Button disabled={!certificateData} onClick={onQuery}>
-          Get IP
+          Get
+        </Button>
+        <Button disabled={!account} onClick={onCommand}>
+          Flip
         </Button>
       </ButtonGroup>
     </>
   ) : (
     <ContractLoader
-      contractKey="getIP"
+      contractKey="flipper"
       onLoad={({api, contract}) => {
         setApi(api)
         setContract(contract)
@@ -73,6 +86,6 @@ const GetIP: Page = () => {
   )
 }
 
-GetIP.title = 'Get IP'
+Flipper.title = 'Flipper'
 
-export default GetIP
+export default Flipper

@@ -1,12 +1,12 @@
 import {useState, useEffect} from 'react'
+import type {InjectedAccountWithMeta} from '@polkadot/extension-inject/types'
 import {useAtom} from 'jotai'
 import {Select} from 'baseui/select'
 import {LabelSmall, MonoParagraphXSmall} from 'baseui/typography'
 import {Block} from 'baseui/block'
 import {FormControl} from 'baseui/form-control'
-import type {InjectedAccountWithMeta} from '@polkadot/extension-inject/types'
-import {enablePolkadotExtension} from 'lib/polkadotExtension'
-import accountAtom from 'atoms/account'
+import accountAtom from '../atoms/account'
+import {enablePolkadotExtension} from '../lib/polkadotExtension'
 
 const trimAddress = (address: string) =>
   `${address.slice(0, 6)}…${address.slice(-6)}`
@@ -56,6 +56,13 @@ const AccountSelect = (): JSX.Element => {
     <Block padding="0 20px" flex="0">
       <FormControl
         disabled={error}
+        overrides={{
+          ControlContainer: {
+            style: {
+              marginBottom: 0,
+            },
+          },
+        }}
         {...(error && {error: 'Polkadot{.js} extension error'})}
       >
         <Select

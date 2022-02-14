@@ -8,3 +8,8 @@ body {
 * {
   box-sizing: border-box;
 }
+
+ol {
+  margin: 0;
+  padding: 0;
+}
