@@ -10,6 +10,8 @@
     "phactory",
     "prpc",
     "pruntime",
-    "protobuf"
+    "protobuf",
+    "poap",
+    "typedefs"
   ]
 }

@@ -1,11 +1,12 @@
 import type {NextPage} from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import {StyledLink} from 'baseui/link'
+import {ListItem, ListItemLabel} from 'baseui/list'
 
 const LINKS: [string, string][] = [
-  ['/pink-flip', 'Flip'],
+  ['/flipper', 'Flipper'],
   ['/get-ip', 'Get IP'],
+  ['/redeem-poap', 'Redeem POAP'],
 ]
 
 const Home: NextPage = () => {
@@ -17,11 +18,11 @@ const Home: NextPage = () => {
 
       <ol>
         {LINKS.map(([href, label], index) => (
-          <li key={href}>
-            <Link href={href} passHref>
-              <StyledLink>{label}</StyledLink>
-            </Link>
-          </li>
+          <ListItem key={label} artwork={() => index + 1}>
+            <ListItemLabel>
+              <Link href={href}>{label}</Link>
+            </ListItemLabel>
+          </ListItem>
         ))}
       </ol>
     </div>

@@ -2,8 +2,10 @@
   "extends": [
     "next/core-web-vitals",
     "plugin:prettier/recommended",
-    "plugin:baseui/recommended"
+    "plugin:baseui/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
+  "parser": "@typescript-eslint/parser",
   "rules": {
     "no-console": "error"
   }
