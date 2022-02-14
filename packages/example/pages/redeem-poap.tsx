@@ -1,7 +1,7 @@
 import {ApiPromise, Keyring} from '@polkadot/api'
 import {u8aToHex} from '@polkadot/util'
 import {ContractPromise} from '@polkadot/api-contract'
-import {useEffect, useState} from 'react'
+import {Key, useEffect, useRef, useState} from 'react'
 import {signCertificate, CertificateData} from '@phala/sdk'
 import {Button} from 'baseui/button'
 import {Block} from 'baseui/block'
@@ -9,12 +9,14 @@ import {Input} from 'baseui/input'
 import {toaster} from 'baseui/toast'
 import {StyledLink} from 'baseui/link'
 import {HeadingMedium, ParagraphSmall} from 'baseui/typography'
+import {StatefulPanel} from 'baseui/accordion'
 import {useAtom} from 'jotai'
 import accountAtom from '../atoms/account'
 import {getSigner} from '../lib/polkadotExtension'
 import ContractLoader from '../components/ContractLoader'
 import {copy} from '../lib/copy'
 import useInterval from '../hooks/useInterval'
+import {Textarea} from 'baseui/textarea'
 
 const RedeemPOAP: Page = () => {
   const [account] = useAtom(accountAtom)
@@ -26,12 +28,14 @@ const RedeemPOAP: Page = () => {
   const [gistURL, setGistURL] = useState('')
   const [redemptionCode, setRedemptionCode] = useState('')
   const [verified, setVerified] = useState(false)
+  const [devParam, setDevParam] = useState('')
+  const redemptionCodeToastKey = useRef<Key>()
 
   useEffect(() => {
     if (account) {
       const keyring = new Keyring()
       setGist(
-        `This gist is owned by: ${u8aToHex(
+        `This gist is owned by address: ${u8aToHex(
           keyring.decodeAddress(account.address)
         )}`
       )
@@ -44,29 +48,32 @@ const RedeemPOAP: Page = () => {
     setCertificateData(undefined)
   }, [account])
 
+  const getRedemptionCode = async () => {
+    if (!certificateData || !contract) return
+
+    if (!redemptionCodeToastKey.current) {
+      redemptionCodeToastKey.current = toaster.info(
+        'Requesting POAP redemption code...',
+        {
+          autoHideDuration: 0,
+        }
+      )
+    }
+
+    const {output} = await contract.query.myPoap(certificateData as any, {})
+    const code = output?.toString()
+
+    if (code) {
+      toaster.clear(redemptionCodeToastKey.current)
+      setRedemptionCode(code)
+    }
+  }
+
   useInterval(
     () => {
-      if (!certificateData || !contract) return
-      const toasterKey = toaster.info('Requesting POAP redemption code...', {
-        autoHideDuration: 0,
-      })
-      const getRedemptionCode = async () => {
-        const {output, result} = await contract.query.myPoap(
-          certificateData as any,
-          {}
-        )
-        if (result.isOk) {
-          const code = output?.toString()
-          if (typeof code === 'string') {
-            toaster.clear(toasterKey)
-            setRedemptionCode(code)
-          }
-        }
-      }
-
       getRedemptionCode()
     },
-    verified ? 3000 : null
+    verified && !redemptionCode ? 2000 : null
   )
 
   const onSignCertificate = async () => {
@@ -92,33 +99,36 @@ const RedeemPOAP: Page = () => {
   const onVerify = async () => {
     if (!certificateData || !contract || !account) return
     setVerified(false)
-    const {output, result} = await contract.query.attestGist(
+    const {output} = await contract.query.attestGist(
       certificateData as any,
       {},
       gistURL
     )
 
-    if (result.isOk) {
-      toaster.positive('Gist verified successfully', {})
-      const attestGist = output?.toHex()
+    const outputJson = output?.toJSON() as any
 
-      if (typeof attestGist === 'string') {
+    if (outputJson.ok) {
+      toaster.positive('Gist verified successfully', {})
+      const toastKey = toaster.info('Sending redeem transaction...', {
+        autoHideDuration: 0,
+      })
+      try {
         const signer = await getSigner(account)
-        const toasterKey = toaster.info('Sending redeem transaction...', {
-          autoHideDuration: 0,
-        })
-        contract.tx
-          .redeem({}, attestGist)
+        await contract.tx
+          .redeem({}, outputJson.ok)
           .signAndSend(account.address, {signer}, (status) => {
             if (status.isFinalized) {
-              toaster.clear(toasterKey)
+              toaster.clear(toastKey)
               toaster.positive('Transaction is finalized', {})
               setVerified(true)
             }
           })
+      } catch (err) {
+        toaster.clear(toastKey)
+        toaster.negative((err as Error).message, {})
       }
     } else {
-      toaster.negative('Gist verification failed', {})
+      toaster.negative(outputJson.err, {})
     }
   }
 
@@ -159,11 +169,13 @@ const RedeemPOAP: Page = () => {
         <HeadingMedium marginTop="scale1000" as="h1">
           2. Verify Your Gist
         </HeadingMedium>
-        <ParagraphSmall>Input your gist URL:</ParagraphSmall>
+        <ParagraphSmall>
+          Input your gist <b>raw</b> URL:
+        </ParagraphSmall>
 
         <Block display="flex">
           <Input
-            placeholder="https://gist.github.com/..."
+            placeholder="https://gist.githubusercontent.com/..."
             overrides={{
               Root: {
                 style: ({$theme}) => ({
@@ -175,7 +187,9 @@ const RedeemPOAP: Page = () => {
             onChange={(e) => setGistURL(e.currentTarget.value)}
           />
           <Button
-            disabled={!gistURL.startsWith('https://gist.github.com/')}
+            disabled={
+              !gistURL.startsWith('https://gist.githubusercontent.com/')
+            }
             onClick={onVerify}
             kind="secondary"
           >
@@ -184,11 +198,11 @@ const RedeemPOAP: Page = () => {
         </Block>
 
         <HeadingMedium marginTop="scale1000" as="h1">
-          3. Get POAP Redeem Code
+          3. Get POAP Redemption Code
         </HeadingMedium>
         <ParagraphSmall>
-          Your POAP redeem code will appear here when your gist is successfully
-          verified
+          Your POAP redemption code will appear here when your gist is
+          successfully verified
         </ParagraphSmall>
 
         <Block display="flex">
@@ -212,6 +226,47 @@ const RedeemPOAP: Page = () => {
             Copy
           </Button>
         </Block>
+
+        <StatefulPanel
+          title="Dev Options"
+          overrides={{
+            PanelContainer: {
+              style: ({$theme}) => ({marginTop: $theme.sizing.scale1000}),
+            },
+          }}
+        >
+          <Textarea
+            placeholder='["code1", "code2", "code3"]'
+            value={devParam}
+            onChange={(e) => setDevParam(e.currentTarget.value)}
+          ></Textarea>
+          <Button
+            overrides={{
+              Root: {
+                style: ({$theme}) => ({marginTop: $theme.sizing.scale400}),
+              },
+            }}
+            onClick={async () => {
+              if (!account || !contract) return
+              const signer = await getSigner(account)
+
+              try {
+                await contract.tx
+                  .adminSetPoapCode({}, JSON.parse(devParam))
+                  .signAndSend(account.address, {signer}, (status) => {
+                    if (status.isFinalized) {
+                      toaster.positive('Transaction is finalized', {})
+                    }
+                  })
+              } catch (err) {
+                toaster.negative((err as Error).message, {})
+                throw err
+              }
+            }}
+          >
+            Admin Set POAP Code
+          </Button>
+        </StatefulPanel>
       </>
     ) : (
       <Button disabled={!account} onClick={onSignCertificate}>
