@@ -16,6 +16,13 @@ const Flipper: Page = () => {
   const [api, setApi] = useState<ApiPromise>()
   const [contract, setContract] = useState<ContractPromise>()
 
+  useEffect(
+    () => () => {
+      api?.disconnect()
+    },
+    [api]
+  )
+
   useEffect(() => {
     setCertificateData(undefined)
   }, [account])
@@ -42,10 +49,7 @@ const Flipper: Page = () => {
 
   const onQuery = async () => {
     if (!certificateData || !contract) return
-    const {output} = await contract.query.get(
-      certificateData as any as string,
-      {}
-    )
+    const {output} = await contract.query.get(certificateData as any, {})
     // eslint-disable-next-line no-console
     console.log(output?.toHuman())
     toaster.info(JSON.stringify(output?.toHuman()), {})
@@ -77,7 +81,7 @@ const Flipper: Page = () => {
     </>
   ) : (
     <ContractLoader
-      contractKey="flipper"
+      name="flipper"
       onLoad={({api, contract}) => {
         setApi(api)
         setContract(contract)

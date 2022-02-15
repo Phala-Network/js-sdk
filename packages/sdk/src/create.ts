@@ -98,7 +98,6 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
   const seed = hexToU8a(hexAddPrefix(randomHex(32)))
   const pair = sr25519KeypairFromSeed(seed)
   const [sk, pk] = [pair.slice(0, 64), pair.slice(64)]
-  const iv = hexAddPrefix(randomHex(12))
   const queryAgreementKey = sr25519Agree(
     hexToU8a(hexAddPrefix(remotePubkey)),
     sk
@@ -108,11 +107,14 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
   ).toString()
   const commandAgreementKey = sr25519Agree(hexToU8a(contractKey), sk)
 
-  const createEncryptedData: CreateEncryptedData = (data, agreementKey) => ({
-    iv,
-    pubkey: u8aToHex(pk),
-    data: hexAddPrefix(encrypt(data, agreementKey, hexToU8a(iv))),
-  })
+  const createEncryptedData: CreateEncryptedData = (data, agreementKey) => {
+    const iv = hexAddPrefix(randomHex(12))
+    return {
+      iv,
+      pubkey: u8aToHex(pk),
+      data: hexAddPrefix(encrypt(data, agreementKey, hexToU8a(iv))),
+    }
+  }
 
   const query: Query = async (encodedQuery, {certificate, pubkey, secret}) => {
     // Encrypt the ContractQuery.

@@ -1,6 +1,6 @@
 {
   "name": "@phala/sdk",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Phala JS SDK",
   "homepage": "https://github.com/Phala-Network/js-sdk/tree/main/packages/sdk#readme",
   "repository": {
@@ -30,6 +30,7 @@
   "dependencies": {
     "@phala/typedefs": "^0.2.30",
     "@polkadot/api": "^7.8.1",
+    "@polkadot/keyring": "^8.4.1",
     "@polkadot/util": "^8.4.1",
     "@polkadot/util-crypto": "^8.4.1",
     "@polkadot/wasm-crypto": "4.5.1",

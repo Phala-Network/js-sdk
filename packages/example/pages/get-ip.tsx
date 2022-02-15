@@ -16,6 +16,13 @@ const GetIP: Page = () => {
   const [api, setApi] = useState<ApiPromise>()
   const [contract, setContract] = useState<ContractPromise>()
 
+  useEffect(
+    () => () => {
+      api?.disconnect()
+    },
+    [api]
+  )
+
   useEffect(() => {
     setCertificateData(undefined)
   }, [account])
@@ -42,10 +49,7 @@ const GetIP: Page = () => {
 
   const onQuery = async () => {
     if (!certificateData || !contract) return
-    const {output} = await contract.query.getIp(
-      certificateData as any as string,
-      {}
-    )
+    const {output} = await contract.query.getIp(certificateData as any, {})
     // eslint-disable-next-line no-console
     console.log(output?.toHuman())
     toaster.info(JSON.stringify(output?.toHuman()), {})
@@ -64,7 +68,7 @@ const GetIP: Page = () => {
     </>
   ) : (
     <ContractLoader
-      contractKey="getIP"
+      name="getIP"
       onLoad={({api, contract}) => {
         setApi(api)
         setContract(contract)

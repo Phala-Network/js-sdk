@@ -26,11 +26,11 @@ const contractsAtom = atomWithStorage<
 >('atom:contracts', {})
 
 const ContractLoader: VFC<{
-  contractKey: string
+  name: string
   onLoad: (res: {api: ApiPromise; contract: ContractPromise}) => void
-}> = ({contractKey, onLoad}) => {
+}> = ({name, onLoad}) => {
   const contractInfoAtom = useRef(
-    focusAtom(contractsAtom, (optic) => optic.prop(contractKey))
+    focusAtom(contractsAtom, (optic) => optic.prop(name))
   )
   const [contractInfo, setContractInfo] = useAtom(contractInfoAtom.current)
   const [endpoint, setEndpoint] = useAtom(endpointAtom)
