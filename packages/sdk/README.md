@@ -85,7 +85,7 @@ Commands are always encrypted by the Phala SDK. It generates an ephemeral key to
 
 Queries are sent to the Secure Enclave worker directly via a RPC call. Unlike the original ink! contract where the read calls are not authenticated, Fat Contract queries are usually signed and encrypted. This enables Access Control in Fat Contracts.
 
-To send a query, you need to create a `Certificate` object and use it to sign the query.
+To send a query, you need to create a `Certificate` object and use it to sign the query. With Polkadot.js Extension, you can create it with the account and the signer object:
 
 ```js
 // Imports
@@ -98,7 +98,20 @@ const certificate = await signCertificate({
     account,
     signer,
 });
+```
 
+With `Keyring`, you can create it with a keypair:
+
+```js
+const certificateData = await signCertificate({
+    api,
+    pair: keypair,
+})
+```
+
+Send a query with the certificate.
+
+```js
 // Send the query
 const outcome = await contract.query.methodName(certificate, {}, arg0, arg1, ...);
 ```
