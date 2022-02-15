@@ -52,12 +52,13 @@ export const signCertificate = async (
     })
     .toU8a()
 
-  let address: string
+  let signerPubkey: string
   let signatureType = params.signatureType
   let signature: Uint8Array
   if (isUsingSigner(params)) {
     const {account, signer} = params
-    address = account.address
+    const address = account.address
+    signerPubkey = u8aToHex(decodeAddress(address))
     if (!signatureType) {
       signatureType = getSignatureTypeFromAccount(account)
     }
@@ -73,7 +74,7 @@ export const signCertificate = async (
     }
   } else {
     const {pair} = params
-    address = pair.address
+    signerPubkey = u8aToHex(pair.publicKey)
     if (!signatureType) {
       signatureType = getSignatureTypeFromPair(pair)
     }
@@ -86,7 +87,7 @@ export const signCertificate = async (
       signedBy: {
         encodedBody: api
           .createType('CertificateBody', {
-            pubkey: u8aToHex(decodeAddress(address)),
+            pubkey: signerPubkey,
             ttl: 0x7fffffff, // FIXME: max ttl is not safe
             config_bits: 0,
           })
