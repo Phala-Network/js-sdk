@@ -1,5 +1,6 @@
 import {waitReady, sr25519KeypairFromSeed} from '@polkadot/wasm-crypto'
 import type {ApiPromise} from '@polkadot/api'
+import type {KeyringPair} from '@polkadot/keyring/types'
 import type {Signer} from '@polkadot/types/types'
 import {u8aToHex, hexToU8a, hexAddPrefix} from '@polkadot/util'
 import {decodeAddress} from '@polkadot/util-crypto'
@@ -13,23 +14,35 @@ export type CertificateData = {
   secret: Uint8Array
 }
 
-export const signCertificate = async ({
-  api,
-  address,
-  signer,
-  account,
-  signatureType,
-}: {
+interface CertificateBaseParams {
   api: ApiPromise
-  address?: string
-  signer: Signer
-  account?: InjectedAccountWithMeta
   signatureType?: pruntimeRpc.SignatureType
-}): Promise<CertificateData> => {
+}
+
+interface CertificateParamsWithSigner extends CertificateBaseParams {
+  signer: Signer
+  account: InjectedAccountWithMeta
+}
+
+interface CertificateParamsWithPair extends CertificateBaseParams {
+  pair: KeyringPair
+}
+
+type CertificateParams = CertificateParamsWithSigner | CertificateParamsWithPair
+
+const isUsingSigner = (
+  params: CertificateParams
+): params is CertificateParamsWithSigner =>
+  (params as CertificateParamsWithSigner).signer !== undefined
+
+export const signCertificate = async (
+  params: CertificateParams
+): Promise<CertificateData> => {
   await waitReady()
-  const seed = hexToU8a(hexAddPrefix(randomHex(32)))
-  const pair = sr25519KeypairFromSeed(seed)
-  const [secret, pubkey] = [pair.slice(0, 64), pair.slice(64)]
+  const {api} = params
+  const generatedSeed = hexToU8a(hexAddPrefix(randomHex(32)))
+  const generatedPair = sr25519KeypairFromSeed(generatedSeed)
+  const [secret, pubkey] = [generatedPair.slice(0, 64), generatedPair.slice(64)]
 
   const encodedCertificateBody = api
     .createType('CertificateBody', {
@@ -39,17 +52,33 @@ export const signCertificate = async ({
     })
     .toU8a()
 
-  const signerAddress = account ? account.address : address
-  if (!signerAddress)
-    throw new Error('Signer Address or Account should be provided')
-
-  const signerResult = await signer.signRaw?.({
-    address: signerAddress,
-    data: u8aToHex(encodedCertificateBody),
-    type: 'bytes',
-  })
-
-  if (!signerResult) throw new Error('No signer result')
+  let address: string
+  let signatureType = params.signatureType
+  let signature: Uint8Array
+  if (isUsingSigner(params)) {
+    const {account, signer} = params
+    address = account.address
+    if (!signatureType) {
+      signatureType = getSignatureTypeFromAccount(account)
+    }
+    const signerResult = await signer.signRaw?.({
+      address,
+      data: u8aToHex(encodedCertificateBody),
+      type: 'bytes',
+    })
+    if (signerResult) {
+      signature = hexToU8a(signerResult.signature)
+    } else {
+      throw new Error('Failed to sign certificate')
+    }
+  } else {
+    const {pair} = params
+    address = pair.address
+    if (!signatureType) {
+      signatureType = getSignatureTypeFromPair(pair)
+    }
+    signature = pair.sign(encodedCertificateBody)
+  }
 
   const certificate: pruntimeRpc.ICertificate = {
     encodedBody: encodedCertificateBody,
@@ -57,15 +86,15 @@ export const signCertificate = async ({
       signedBy: {
         encodedBody: api
           .createType('CertificateBody', {
-            pubkey: u8aToHex(decodeAddress(signerAddress)),
+            pubkey: u8aToHex(decodeAddress(address)),
             ttl: 0x7fffffff, // FIXME: max ttl is not safe
             config_bits: 0,
           })
           .toU8a(),
         signature: null,
       },
-      signatureType: signatureType || getSignatureTypeFromAccount(account),
-      signature: hexToU8a(signerResult.signature),
+      signatureType,
+      signature,
     },
   }
 
@@ -76,16 +105,8 @@ export const signCertificate = async ({
   }
 }
 
-// Assume signature came from Polkadot JS as sr25519
-const defaultSignatureType = pruntimeRpc.SignatureType.Sr25519WrapBytes
-
-const getSignatureTypeFromAccount = (
-  account: InjectedAccountWithMeta | undefined
-) => {
-  if (!account) {
-    return defaultSignatureType
-  }
-  const keypairType = account.type ? account.type : 'sr25519'
+const getSignatureTypeFromAccount = (account: InjectedAccountWithMeta) => {
+  const keypairType = account.type || 'sr25519'
   // Polkadot JS signature use wrapBytes
   const useWrapBytes = account.meta.source === 'polkadot-js'
   switch (keypairType) {
@@ -101,6 +122,19 @@ const getSignatureTypeFromAccount = (
       return useWrapBytes
         ? pruntimeRpc.SignatureType.EcdsaWrapBytes
         : pruntimeRpc.SignatureType.Ecdsa
+    default:
+      throw new Error('Unsupported keypair type')
+  }
+}
+
+const getSignatureTypeFromPair = (pair: KeyringPair) => {
+  switch (pair.type) {
+    case 'sr25519':
+      return pruntimeRpc.SignatureType.Sr25519
+    case 'ed25519':
+      return pruntimeRpc.SignatureType.Ed25519
+    case 'ecdsa':
+      return pruntimeRpc.SignatureType.Ecdsa
     default:
       throw new Error('Unsupported keypair type')
   }

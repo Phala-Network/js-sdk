@@ -31,6 +31,13 @@ const RedeemPOAP: Page = () => {
   const [devParam, setDevParam] = useState('')
   const redemptionCodeToastKey = useRef<Key>()
 
+  useEffect(
+    () => () => {
+      api?.disconnect()
+    },
+    [api]
+  )
+
   useEffect(() => {
     if (account) {
       const keyring = new Keyring()
@@ -275,7 +282,7 @@ const RedeemPOAP: Page = () => {
     )
   ) : (
     <ContractLoader
-      contractKey="redeemPOAP"
+      name="redeemPOAP"
       onLoad={({api, contract}) => {
         setApi(api)
         setContract(contract)
