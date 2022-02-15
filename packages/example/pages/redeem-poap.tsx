@@ -19,11 +19,13 @@ import useInterval from '../hooks/useInterval'
 import {Textarea} from 'baseui/textarea'
 
 const RedeemPOAP: Page = () => {
+  // Basic states for contract interaction
   const [account] = useAtom(accountAtom)
   const [certificateData, setCertificateData] = useState<CertificateData>()
   const [api, setApi] = useState<ApiPromise>()
   const [contract, setContract] = useState<ContractPromise>()
 
+  // UI-related states
   const [gist, setGist] = useState('')
   const [gistURL, setGistURL] = useState('')
   const [redemptionCode, setRedemptionCode] = useState('')
@@ -38,6 +40,7 @@ const RedeemPOAP: Page = () => {
     [api]
   )
 
+  // Reset the UI when the selected account is changed
   useEffect(() => {
     if (account) {
       const keyring = new Keyring()
@@ -55,6 +58,7 @@ const RedeemPOAP: Page = () => {
     setCertificateData(undefined)
   }, [account])
 
+  // Try to read the POAP code from the Fat Contract
   const getRedemptionCode = async () => {
     if (!certificateData || !contract) return
 
@@ -67,6 +71,7 @@ const RedeemPOAP: Page = () => {
       )
     }
 
+    // Send a query to the POAP contract (`FatSample::my_poap()`)
     const {output} = await contract.query.myPoap(certificateData as any, {})
     const code = output?.toString()
 
@@ -76,6 +81,7 @@ const RedeemPOAP: Page = () => {
     }
   }
 
+  // Once the Gist is attested, we start to refresh the redemption code every 2s
   useInterval(
     () => {
       getRedemptionCode()
@@ -103,23 +109,30 @@ const RedeemPOAP: Page = () => {
     }
   }
 
+  // Logic of the Verify button
   const onVerify = async () => {
     if (!certificateData || !contract || !account) return
     setVerified(false)
+
+    // Send a query to attest the gist from the given url.
     const {output} = await contract.query.attestGist(
       certificateData as any,
       {},
       gistURL
     )
 
+    // outputJson is a `Result<SignedAttestation>`
     const outputJson = output?.toJSON() as any
 
     if (outputJson.ok) {
       toaster.positive('Gist verified successfully', {})
+      // We have received the attestation from the worker. Now send a command to redeem the POAP
+      // with the attestation.
       const toastKey = toaster.info('Sending redeem transaction...', {
         autoHideDuration: 0,
       })
       try {
+        // Send the command
         const signer = await getSigner(account)
         await contract.tx
           .redeem({}, outputJson.ok)
@@ -127,6 +140,8 @@ const RedeemPOAP: Page = () => {
             if (status.isFinalized) {
               toaster.clear(toastKey)
               toaster.positive('Transaction is finalized', {})
+              // After the transaction is included in a finalized block, we start to poll the Fat
+              // Contract to see if we can get the redemption code. This will start the 2s timer.
               setVerified(true)
             }
           })
@@ -258,6 +273,7 @@ const RedeemPOAP: Page = () => {
               const signer = await getSigner(account)
 
               try {
+                // Send a command to set the POAP code. Must be signed by the admin account.
                 await contract.tx
                   .adminSetPoapCode({}, JSON.parse(devParam))
                   .signAndSend(account.address, {signer}, (status) => {
