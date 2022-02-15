@@ -1,6 +1,6 @@
 {
   "name": "@phala/sdk",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Phala JS SDK",
   "homepage": "https://github.com/Phala-Network/js-sdk/tree/main/packages/sdk#readme",
   "repository": {
