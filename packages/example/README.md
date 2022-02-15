@@ -7,6 +7,8 @@ yarn
 yarn dev
 ```
 
+**Important**: You must build `@phala/sdk` before this project (`cd ../sdk; yarn build (dev)`). Or you can build the two packages together under the monorepo root directory (`yarn build (dev)`).
+
 Open [http://localhost:3000](http://localhost:3000).
 
 ## Examples
