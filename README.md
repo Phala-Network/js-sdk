@@ -4,5 +4,5 @@
 
 JavaScript SDK for Phala.
 
-- [SDK Package 🔗](packages/sdk)
-- [Example 🔗](packages/example)
+- [SDK Package 🔗](packages/sdk): The SDK can be used both in-browser or on the server end.
+- [Example 🔗](packages/example): DApp UI Scaffold with examples.
