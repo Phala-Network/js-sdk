@@ -100,10 +100,19 @@ const certificate = await signCertificate({
 });
 
 // Send the query
-const result = await contract.query.methodName(certificate, {}, arg0, arg1, ...);
+const outcome = await contract.query.methodName(certificate, {}, arg0, arg1, ...);
 ```
 
 Similar to a command, you can send a query via the generated methods. The first two arguments are the certificate object and the call option. Then the arguments to the method follow.
+
+The return value `outcome` is a `ContractCallOutcome` object. It includes the following fields:
+
+- `output`: - The return value of the call
+- `result`: ContractExecResultResult - The execution result indicating if it's successful or not
+- `debugMessage`: Text - Debug message
+- `gasConsumed`: u64 - Consumed gas (not used in Fat Contract)
+- `gasRequired`: u64 - Required gas (not used in Fat Contract)
+- `storageDeposit`: StorageDeposit - not used in Fat Contract
 
 ### The certificate object
 
