@@ -29,25 +29,25 @@
   },
   "dependencies": {
     "@phala/typedefs": "^0.2.30",
-    "@polkadot/api": "^7.8.1",
+    "@polkadot/api": "^7.11.1",
     "@polkadot/keyring": "^8.4.1",
     "@polkadot/util": "^8.4.1",
     "@polkadot/util-crypto": "^8.4.1",
     "@polkadot/wasm-crypto": "4.5.1",
-    "axios": "^0.26.0",
+    "axios": "^0.26.1",
     "crypto-browserify": "^3.12.0",
     "protobufjs": "^6.11.2",
-    "rxjs": "^7.5.4"
+    "rxjs": "^7.5.5"
   },
   "devDependencies": {
-    "@types/node": "^16.11.25",
-    "@typescript-eslint/eslint-plugin": "^5.12.0",
-    "@typescript-eslint/parser": "^5.12.0",
-    "eslint": "^8.9.0",
-    "eslint-config-prettier": "^8.3.0",
+    "@types/node": "^16.11.26",
+    "@typescript-eslint/eslint-plugin": "^5.14.0",
+    "@typescript-eslint/parser": "^5.14.0",
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "tsup": "^5.11.13",
-    "typescript": "^4.5.5"
+    "tsup": "^5.12.0",
+    "typescript": "^4.6.2"
   },
   "engines": {
     "node": ">=16"
