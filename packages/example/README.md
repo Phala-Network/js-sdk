@@ -32,9 +32,9 @@ await contract.tx.methodName({}, arg0, arg1, ...)
     .signAndSend(account.address, {signer})
 ```
 
-To send a _query_, a _certificate_ is required. 
+To send a _query_, a _certificate_ is required.
 
-```js 
+```js
 const certificate = await signCertificate({
     api,
     account,

@@ -45,8 +45,8 @@ const contract = new ContractPromise(
 ```
 
 ## The contract object
- 
-Fat Contract is an extension to [Parity ink!](https://paritytech.github.io/ink-docs/) smart contract. Phala SDK allows you to create the contract object compatible to the ink! contract object. In the above sample code,  the `contract` object is a [`ContractPromise`](https://polkadot.js.org/docs/api-contract/start/contract.read) which share the same interface with the original Polkadot.js contract APIs.
+
+Fat Contract is an extension to [Parity ink!](https://paritytech.github.io/ink-docs/) smart contract. Phala SDK allows you to create the contract object compatible to the ink! contract object. In the above sample code, the `contract` object is a [`ContractPromise`](https://polkadot.js.org/docs/api-contract/start/contract.read) which share the same interface with the original Polkadot.js contract APIs.
 
 However, in Fat Contract the intreaction under the hood is different from the original ink. In Fat Contract, the read and write operations (query and command) are end-to-end encrypted. In addition, the queries are sent to the Secure Enclave workers directly, rather than the blockchain node. Phala SDK takes care of the encryption and transport of the data. Therefore when creating the `ContractPromise` object, we pass an `ApiPromise` _deocrated_ by the Phala SDK's `create()` function as the first argument.
 
@@ -61,7 +61,7 @@ You can learn more about how to interact with a contract object from the officia
 
 Commands are carried by signed transactions. You will need to sign the transaction. Usually you connect to a browser extension ([Polkadot.js Extension](https://polkadot.js.org/docs/extension)) or an in-memory [keyring](https://polkadot.js.org/docs/keyring). The former one is often used in DApps, while the latter one is often used in node.
 
-To work with Polkadot.js Extension, you need to get the injected `Signer` object, and then call with the method name. 
+To work with Polkadot.js Extension, you need to get the injected `Signer` object, and then call with the method name.
 
 ```js
 const r = await contract.tx.methodName({}, arg1, arg2, ...)
@@ -104,8 +104,8 @@ With `Keyring`, you can create it with a keypair:
 
 ```js
 const certificateData = await signCertificate({
-    api,
-    pair: keypair,
+  api,
+  pair: keypair,
 })
 ```
 
@@ -131,7 +131,7 @@ The return value `outcome` is a `ContractCallOutcome` object. It includes the fo
 
 A certificate represents the ownership of an on-chain account. Instead of using the wallet to sign the query directly, Fat Contract adopts a chain of certificates to sign the query.
 
-Interactive wallets like Polkadot.js Extension triggers a popup everytime when signing a message. This becomes annoying for frequent queries in Fat Contracts. To overcome the limitation, we can make an one-time grant by signing a certificate chain, and use the leaf certificate to sign the queries. Some additional advantages are fine-grained permission and TTL control on the authentication.
+Interactive wallets like Polkadot.js Extension triggers a popup every time when signing a message. This becomes annoying for frequent queries in Fat Contracts. To overcome the limitation, we can make an one-time grant by signing a certificate chain, and use the leaf certificate to sign the queries. Some additional advantages are fine-grained permission and TTL control on the authentication.
 
 Although non-interactive wallets like `Keyring` doesn't require user interaction, we still make certificate object as a unified interface.
 
