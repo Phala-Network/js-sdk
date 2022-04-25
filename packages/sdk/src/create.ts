@@ -98,6 +98,7 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
   const seed = hexToU8a(hexAddPrefix(randomHex(32)))
   const pair = sr25519KeypairFromSeed(seed)
   const [sk, pk] = [pair.slice(0, 64), pair.slice(64)]
+
   const queryAgreementKey = sr25519Agree(
     hexToU8a(hexAddPrefix(remotePubkey)),
     sk
@@ -105,6 +106,11 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
   const contractKey = (
     await api.query.phalaRegistry.contractKeys(contractId)
   ).toString()
+
+  if (!contractKey) {
+    throw new Error(`No contract key for ${contractId}`)
+  }
+
   const commandAgreementKey = sr25519Agree(hexToU8a(contractKey), sk)
 
   const createEncryptedData: CreateEncryptedData = (data, agreementKey) => {

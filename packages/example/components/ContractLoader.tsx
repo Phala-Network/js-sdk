@@ -51,6 +51,7 @@ const ContractLoader: VFC<{
       toaster.positive('Contract loaded successfully', {})
     } catch (err) {
       toaster.negative((err as Error).message, {})
+      throw err
     }
   }
 
