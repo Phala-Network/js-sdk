@@ -1,26 +1,26 @@
-import axios from 'axios'
 import type {ApiPromise} from '@polkadot/api'
+import type {SubmittableExtrinsic} from '@polkadot/api/types'
+import type {AccountId, ContractCallRequest} from '@polkadot/types/interfaces'
+import type {ISubmittableResult} from '@polkadot/types/types'
 import {
-  u8aToHex,
-  hexToU8a,
   hexAddPrefix,
-  stringToHex,
   hexStripPrefix,
+  hexToU8a,
+  stringToHex,
+  u8aToHex,
 } from '@polkadot/util'
 import {
-  waitReady,
+  sr25519Agree,
   sr25519KeypairFromSeed,
   sr25519Sign,
-  sr25519Agree,
+  waitReady,
 } from '@polkadot/wasm-crypto'
-import type {ContractCallRequest, AccountId} from '@polkadot/types/interfaces'
-import type {ISubmittableResult} from '@polkadot/types/types'
+import axios, {AxiosError} from 'axios'
 import {from} from 'rxjs'
-import {encrypt, decrypt} from './lib/aes-256-gcm'
-import {randomHex} from './lib/hex'
 import type {CertificateData} from './certificate'
-import {pruntimeRpc, prpc} from './proto'
-import type {SubmittableExtrinsic} from '@polkadot/api/types'
+import {decrypt, encrypt} from './lib/aes-256-gcm'
+import {randomHex} from './lib/hex'
+import {prpc, pruntimeRpc} from './proto'
 
 export type Query = (
   encodedQuery: string,
@@ -54,9 +54,7 @@ type CreateFn = (options: {
   contractId: string
 }) => Promise<ApiPromise>
 
-export const create: CreateFn = async ({api, baseURL, contractId}) => {
-  await waitReady()
-
+export const createPruntimeApi = (baseURL: string) => {
   // Create a http client prepared for protobuf
   const http = axios.create({
     baseURL,
@@ -66,14 +64,6 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
     responseType: 'arraybuffer',
   }).post
 
-  // Get public key from remote for encrypting
-  const {publicKey} = pruntimeRpc.PhactoryInfo.decode(
-    new Uint8Array((await http<ArrayBuffer>('/prpc/PhactoryAPI.GetInfo')).data)
-  )
-
-  if (!publicKey) throw new Error('No remote pubkey')
-  const remotePubkey = hexAddPrefix(publicKey)
-
   const pruntimeApi = pruntimeRpc.PhactoryAPI.create(
     async (method, requestData, callback) => {
       try {
@@ -82,8 +72,11 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
           new Uint8Array(requestData)
         )
         callback(null, new Uint8Array(res.data))
-      } catch (err: any) {
-        if (err?.response?.data instanceof ArrayBuffer) {
+      } catch (err: unknown) {
+        if (
+          err instanceof AxiosError &&
+          err.response?.data instanceof ArrayBuffer
+        ) {
           const message = new Uint8Array(err.response.data)
           callback(new Error(prpc.PrpcError.decode(message).message))
         } else {
@@ -92,6 +85,20 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
       }
     }
   )
+
+  return pruntimeApi
+}
+
+export const create: CreateFn = async ({api, baseURL, contractId}) => {
+  await waitReady()
+
+  const pruntimeApi = createPruntimeApi(baseURL)
+
+  // Get public key from remote for encrypting
+  const {publicKey} = await pruntimeApi.getInfo({})
+
+  if (!publicKey) throw new Error('No remote pubkey')
+  const remotePubkey = hexAddPrefix(publicKey)
 
   // Generate a keypair for encryption
   // NOTE: each instance only has a pre-generated pair now, it maybe better to generate a new keypair every time encrypting
@@ -169,8 +176,8 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
 
   const txContracts = (
     dest: AccountId,
-    value: any,
-    gasLimit: any,
+    value: unknown,
+    gasLimit: unknown,
     data: Uint8Array
   ) => {
     return command({
@@ -216,7 +223,7 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
                 },
               })
               .toHex(),
-            origin as any as CertificateData
+            origin as unknown as CertificateData
           ).then((data) => {
             return api.createType(
               'ContractExecResult',

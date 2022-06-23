@@ -2,6 +2,7 @@ import {RegistryTypes} from '@polkadot/types/types'
 
 export const types: RegistryTypes = {
   ContractId: 'H256',
+  EcdhPublicKey: 'SpCoreSr25519Public',
   ContractQueryHead: {
     id: 'ContractId',
     nonce: '[u8; 32]',

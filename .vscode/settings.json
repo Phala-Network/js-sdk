@@ -1,4 +1,9 @@
 {
+  "editor.codeActionsOnSave": {
+    "source.addMissingImports": true,
+    "source.fixAll.eslint": true,
+    "source.sortImports": true
+  },
   "eslint.workingDirectories": [{"pattern": "./packages/*/"}],
   "cSpell.ignoreWords": [
     "polkadot",

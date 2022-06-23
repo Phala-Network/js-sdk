@@ -1,12 +1,12 @@
-import {waitReady, sr25519KeypairFromSeed} from '@polkadot/wasm-crypto'
 import type {ApiPromise} from '@polkadot/api'
+import type {InjectedAccountWithMeta} from '@polkadot/extension-inject/types'
 import type {KeyringPair} from '@polkadot/keyring/types'
 import type {Signer} from '@polkadot/types/types'
-import {u8aToHex, hexToU8a, hexAddPrefix} from '@polkadot/util'
+import {hexAddPrefix, hexToU8a, u8aToHex} from '@polkadot/util'
 import {decodeAddress} from '@polkadot/util-crypto'
+import {sr25519KeypairFromSeed, waitReady} from '@polkadot/wasm-crypto'
 import {randomHex} from './lib/hex'
 import {pruntimeRpc} from './proto'
-import type {InjectedAccountWithMeta} from '@polkadot/extension-inject/types'
 
 export type CertificateData = {
   certificate: pruntimeRpc.ICertificate
