@@ -98,7 +98,11 @@ const AccountSelect = (): JSX.Element => {
         ></Select>
       </FormControl>
 
-      <Block flex="none" marginLeft="scale200">
+      <Block
+        flex="none"
+        marginLeft="scale200"
+        display={account ? 'block' : 'none'}
+      >
         <SendButton />
       </Block>
     </Block>
