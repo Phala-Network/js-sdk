@@ -77,7 +77,7 @@ const AdvChallenge: Page = () => {
     if (!certificateData || !contract || !account) return
     setVerified(false)
 
-    // Send a query to attest the gist from the given url.
+    // Send a query to check the contract submission.
     const {output} = await contract.query.checkContract(
       certificateData as any,
       {},
@@ -89,7 +89,7 @@ const AdvChallenge: Page = () => {
     const outputJson = output?.toJSON() as any
 
     if (outputJson.ok) {
-      toaster.positive('Gist verified successfully', {})
+      toaster.positive('Submission verified successfully', {})
       // We have received the attestation from the worker. Now send a command to redeem the POAP
       // with the attestation.
       const toastKey = toaster.info('Sending redeem transaction...', {
@@ -128,11 +128,11 @@ const AdvChallenge: Page = () => {
       <ParagraphSmall>
         Deploy a fat contract on{' '}
         <StyledLink
-          href="https://phat.github.com/"
+          href="https://phat.phala.network/"
           target="_blank"
           rel="noreferrer noopener"
         >
-          Fat Contract
+          Fat Contract UI
         </StyledLink>
         .
       </ParagraphSmall>
