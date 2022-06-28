@@ -140,10 +140,11 @@ const AdvChallenge: Page = () => {
       <HeadingMedium marginTop="scale1000" as="h1">
         2. Verify Your Solution
       </HeadingMedium>
-      <ParagraphSmall>Input your contract address:</ParagraphSmall>
+      <ParagraphSmall>Input your contract address and the invoke arg:</ParagraphSmall>
 
       <Block display="flex">
         <Input
+          placeholder='0x...'
           overrides={{
             Root: {
               style: ({$theme}) => ({
@@ -155,6 +156,7 @@ const AdvChallenge: Page = () => {
           onChange={(e) => setAttestContract(e.currentTarget.value)}
         />
         <Input
+          placeholder='https://...'
           overrides={{
             Root: {
               style: ({$theme}) => ({

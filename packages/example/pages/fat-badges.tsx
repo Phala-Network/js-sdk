@@ -99,7 +99,7 @@ const Flipper: Page = () => {
       const code = await contract.query.get(certificateData as any, {}, i)
       const codeOutput = code?.output as Result<Text, any>
       badges.push({
-        info: (badgeInfo?.output as BadgeInfoReulst).asOk,
+        info: (badgeInfo?.output as BadgeInfoReulst).asOk.toJSON() as unknown as BadgeInfo,
         code: codeOutput.isOk ? codeOutput.asOk.toString() : undefined,
       })
     }
@@ -109,14 +109,6 @@ const Flipper: Page = () => {
   const loadDisplayPoapCode = async () => {
     setBadges(await readPoapCode())
   }
-
-  useEffect(() => {
-    readPoapCode().then((badges) => {
-      if (badges) {
-        badges.forEach((badge) => console.warn(badge.info.toJSON(), badge.code))
-      }
-    })
-  }, [certificateData, contract])
 
   if (!contract) {
     return <Spinner />
