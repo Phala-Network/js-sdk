@@ -1,5 +1,5 @@
 import {CertificateData, signCertificate} from '@phala/sdk'
-import {ApiPromise, Keyring} from '@polkadot/api'
+import {ApiPromise} from '@polkadot/api'
 import {ContractPromise} from '@polkadot/api-contract'
 import {Block} from 'baseui/block'
 import {Button} from 'baseui/button'
@@ -10,11 +10,10 @@ import {toaster} from 'baseui/toast'
 import {HeadingMedium, ParagraphSmall} from 'baseui/typography'
 import {useAtom} from 'jotai'
 import {loadContract} from 'lib/contract'
+import Link from 'next/link'
 import {useEffect, useState} from 'react'
 import advanced_judger_metadata from '../assets/advanced_judger.metadata.json'
 import accountAtom from '../atoms/account'
-import useInterval from '../hooks/useInterval'
-import {copy} from '../lib/copy'
 import {getSigner} from '../lib/polkadotExtension'
 
 const AdvChallenge: Page = () => {
@@ -27,7 +26,6 @@ const AdvChallenge: Page = () => {
   // UI-related states
   const [attestContract, setAttestContract] = useState('')
   const [attestArg, setAttestArg] = useState('')
-  const [verified, setVerified] = useState(false)
 
   useEffect(
     () => () => {
@@ -48,7 +46,6 @@ const AdvChallenge: Page = () => {
 
   // Reset the UI when the selected account is changed
   useEffect(() => {
-    setVerified(false)
     setCertificateData(undefined)
   }, [account])
 
@@ -75,7 +72,6 @@ const AdvChallenge: Page = () => {
   // Logic of the Verify button
   const onVerify = async () => {
     if (!certificateData || !contract || !account) return
-    setVerified(false)
 
     // Send a query to check the contract submission.
     const {output} = await contract.query.checkContract(
@@ -104,9 +100,6 @@ const AdvChallenge: Page = () => {
             if (status.isFinalized) {
               toaster.clear(toastKey)
               toaster.positive('Transaction is finalized', {})
-              // After the transaction is included in a finalized block, we start to poll the Fat
-              // Contract to see if we can get the redemption code. This will start the 2s timer.
-              setVerified(true)
             }
           })
       } catch (err) {
@@ -140,11 +133,13 @@ const AdvChallenge: Page = () => {
       <HeadingMedium marginTop="scale1000" as="h1">
         2. Verify Your Solution
       </HeadingMedium>
-      <ParagraphSmall>Input your contract address and the invoke arg:</ParagraphSmall>
+      <ParagraphSmall>
+        Input your contract address and the invoke arg:
+      </ParagraphSmall>
 
       <Block display="flex">
         <Input
-          placeholder='0x...'
+          placeholder="0x..."
           overrides={{
             Root: {
               style: ({$theme}) => ({
@@ -156,7 +151,7 @@ const AdvChallenge: Page = () => {
           onChange={(e) => setAttestContract(e.currentTarget.value)}
         />
         <Input
-          placeholder='https://...'
+          placeholder="https://..."
           overrides={{
             Root: {
               style: ({$theme}) => ({
@@ -182,10 +177,12 @@ const AdvChallenge: Page = () => {
         3. Get POAP Redemption Code
       </HeadingMedium>
       <ParagraphSmall>
-        Your POAP redemption code can be found in the FatBadges contract page if
-        the verification is passed.
+        Your POAP redemption code can be found in the{' '}
+        <Link href="/fat-badges" passHref>
+          <StyledLink>FatBadges</StyledLink>
+        </Link>{' '}
+        contract page if the verification is passed.
       </ParagraphSmall>
-
     </>
   ) : (
     <Button disabled={!account} onClick={onSignCertificate}>

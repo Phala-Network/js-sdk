@@ -3,14 +3,13 @@ import {ChevronLeft} from 'baseui/icon'
 import {ToasterContainer} from 'baseui/toast'
 import {HeadingLarge} from 'baseui/typography'
 import Head from 'next/head'
-import Link from 'next/link'
 import {useRouter} from 'next/router'
 import {FC} from 'react'
 import useIsClient from '../hooks/useIsClient'
 import AccountSelect from './AccountSelect'
 
 const Layout: FC<{title?: string}> = ({title, children}) => {
-  const {pathname} = useRouter()
+  const {pathname, back} = useRouter()
   const isClient = useIsClient()
   const displayTitle = title || 'Polkadot Decoded 2022 Phala Workshop'
 
@@ -21,30 +20,41 @@ const Layout: FC<{title?: string}> = ({title, children}) => {
       </Head>
 
       <Block
+        marginTop="40px"
+        marginBottom="40px"
         as="header"
-        height="120px"
+        height="70px"
         display="flex"
         alignItems="center"
-        justifyContent="space-between"
       >
-        <Block display="flex" alignItems="center">
+        <Block flex="1" display="flex" alignItems="center">
           {pathname !== '/' && (
-            <Link href="/">
+            <Block onClick={back}>
               <ChevronLeft
                 size={36}
                 overrides={{
                   Svg: {
                     style: {
                       marginLeft: '-12px',
+                      cursor: 'pointer',
                     },
                   },
                 }}
               />
-            </Link>
+            </Block>
           )}
-          <HeadingLarge as="div">{displayTitle}</HeadingLarge>
         </Block>
-        {isClient && <AccountSelect></AccountSelect>}
+        <HeadingLarge as="div" flex="none">
+          {displayTitle}
+        </HeadingLarge>
+        <Block
+          flex="1"
+          alignItems="center"
+          justifyContent="flex-end"
+          display="flex"
+        >
+          {isClient && pathname !== '/' && <AccountSelect />}
+        </Block>
       </Block>
 
       <main>{children}</main>

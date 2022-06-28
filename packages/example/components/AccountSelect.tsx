@@ -54,7 +54,7 @@ const AccountSelect = (): JSX.Element => {
   }, [options, account, setAccount])
 
   return (
-    <Block marginLeft="20px" flex="none" display="flex" alignItems="center">
+    <Block flex="none" position="relative">
       <FormControl
         disabled={error}
         overrides={{
@@ -94,17 +94,11 @@ const AccountSelect = (): JSX.Element => {
           onChange={({value}) =>
             setAccount((value[0] as InjectedAccountWithMeta) || null)
           }
-          overrides={{Root: {style: {width: '200px'}}}}
+          overrides={{Root: {style: {width: '170px'}}}}
         ></Select>
       </FormControl>
 
-      <Block
-        flex="none"
-        marginLeft="scale200"
-        display={account ? 'block' : 'none'}
-      >
-        <SendButton />
-      </Block>
+      {Boolean(account) && <SendButton />}
     </Block>
   )
 }

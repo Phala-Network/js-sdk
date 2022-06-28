@@ -11,7 +11,8 @@ import {toaster} from 'baseui/toast'
 import {HeadingMedium, ParagraphSmall} from 'baseui/typography'
 import {useAtom} from 'jotai'
 import {loadContract} from 'lib/contract'
-import {Key, useEffect, useRef, useState} from 'react'
+import Link from 'next/link'
+import {useEffect, useState} from 'react'
 import easy_oracle_metadata from '../assets/easy_oracle.metadata.json'
 import accountAtom from '../atoms/account'
 import {copy} from '../lib/copy'
@@ -27,9 +28,6 @@ const EasyChallenge: Page = () => {
   // UI-related states
   const [gist, setGist] = useState('')
   const [gistURL, setGistURL] = useState('')
-  const [redemptionCode, setRedemptionCode] = useState('')
-  const [verified, setVerified] = useState(false)
-  const redemptionCodeToastKey = useRef<Key>()
 
   useEffect(
     () => () => {
@@ -60,9 +58,7 @@ const EasyChallenge: Page = () => {
     } else {
       setGist('')
     }
-    setVerified(false)
     setGistURL('')
-    setRedemptionCode('')
     setCertificateData(undefined)
   }, [account])
 
@@ -89,7 +85,6 @@ const EasyChallenge: Page = () => {
   // Logic of the Verify button
   const onVerify = async () => {
     if (!certificateData || !contract || !account) return
-    setVerified(false)
 
     // Send a query to attest the gist from the given url.
     const {output} = await contract.query['submittableOracle::attest'](
@@ -117,9 +112,6 @@ const EasyChallenge: Page = () => {
             if (status.isFinalized) {
               toaster.clear(toastKey)
               toaster.positive('Transaction is finalized', {})
-              // After the transaction is included in a finalized block, we start to poll the Fat
-              // Contract to see if we can get the redemption code. This will start the 2s timer.
-              setVerified(true)
             }
           })
       } catch (err) {
@@ -201,8 +193,11 @@ const EasyChallenge: Page = () => {
         3. Get Your Easy Challenge POAP
       </HeadingMedium>
       <ParagraphSmall>
-        Your POAP redemption code can be found in the FatBadges contract page if
-        the verification is passed.
+        Your POAP redemption code can be found in the{' '}
+        <Link href="/fat-badges" passHref>
+          <StyledLink>FatBadges</StyledLink>
+        </Link>{' '}
+        contract page if the verification is passed.
       </ParagraphSmall>
     </>
   ) : (

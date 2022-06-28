@@ -37,7 +37,16 @@ const SendButton: FC = () => {
   }
 
   return (
-    <Button kind="secondary" onClick={send}>
+    <Button
+      kind="tertiary"
+      size="mini"
+      onClick={send}
+      $style={{
+        position: 'absolute',
+        right: 0,
+        bottom: '-30px',
+      }}
+    >
       Get 10 PHA
     </Button>
   )

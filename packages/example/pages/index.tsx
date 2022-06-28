@@ -1,14 +1,48 @@
+import {useStyletron} from 'baseui'
+import {Block} from 'baseui/block'
 import {StyledLink} from 'baseui/link'
-import {ListItem, ListItemLabel} from 'baseui/list'
+import {HeadingMedium} from 'baseui/typography'
 import type {NextPage} from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import badge0 from '../assets/badge-0.png'
+import badge1 from '../assets/badge-1.png'
 
-const LINKS: [string, string][] = [
-  ['/fat-badges', 'Decoded 2022 - Your Badges'],
-  ['/easy-challenge', 'Decoded 2022 - Easy Challenge'],
-  ['/adv-challenge', 'Decoded 2022 - Advanced Challenge'],
-]
+const Entry = ({
+  href,
+  label,
+  src,
+}: {
+  href: string
+  label: string
+  src: string
+}) => {
+  const [css] = useStyletron()
+  return (
+    <Link href={href}>
+      <Block
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        margin="0 20px"
+        overrides={{
+          Block: {
+            style: {
+              cursor: 'pointer',
+            },
+          },
+        }}
+      >
+        <img
+          src={src}
+          className={css({maxWidth: '240px', display: 'block'})}
+          alt=""
+        />
+        <HeadingMedium>{label}</HeadingMedium>
+      </Block>
+    </Link>
+  )
+}
 
 const Home: NextPage = () => {
   return (
@@ -16,18 +50,28 @@ const Home: NextPage = () => {
       <Head>
         <title>Polkadot Decoded 2022 Phala Workshop</title>
       </Head>
+      <Block
+        display="flex"
+        justifyContent="space-around"
+        flexWrap
+        marginTop="100px"
+      >
+        <Entry href="/easy-challenge" label="Easy Challenge" src={badge0.src} />
+        <Entry
+          href="/adv-challenge"
+          label="Advanced Challenge"
+          src={badge1.src}
+        />
+      </Block>
 
-      <ol>
-        {LINKS.map(([href, label], index) => (
-          <ListItem key={label} artwork={() => index + 1}>
-            <ListItemLabel>
-              <Link href={href} passHref>
-                <StyledLink>{label}</StyledLink>
-              </Link>
-            </ListItemLabel>
-          </ListItem>
-        ))}
-      </ol>
+      <Block justifyContent="center" display="flex" marginTop="160px">
+        Already finished?
+        <Link href="/fat-badges" passHref>
+          <StyledLink $style={{marginLeft: '10px'}}>
+            Get your redemption code in FatBadges
+          </StyledLink>
+        </Link>
+      </Block>
     </div>
   )
 }

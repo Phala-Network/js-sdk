@@ -7,6 +7,7 @@ import {BN} from '@polkadot/util'
 import {Block} from 'baseui/block'
 import {Button} from 'baseui/button'
 import {ButtonGroup} from 'baseui/button-group'
+import {StyledLink} from 'baseui/link'
 import {Spinner} from 'baseui/spinner'
 import {toaster} from 'baseui/toast'
 import {useAtom} from 'jotai'
@@ -26,7 +27,7 @@ interface MyBadgeInfo {
   info: BadgeInfo
   code?: string
 }
-type BadgeInfoReulst = Result<BadgeInfo, any>
+type BadgeInfoResults = Result<BadgeInfo, any>
 
 const Flipper: Page = () => {
   const [account] = useAtom(accountAtom)
@@ -99,7 +100,9 @@ const Flipper: Page = () => {
       const code = await contract.query.get(certificateData as any, {}, i)
       const codeOutput = code?.output as Result<Text, any>
       badges.push({
-        info: (badgeInfo?.output as BadgeInfoReulst).asOk.toJSON() as unknown as BadgeInfo,
+        info: (
+          badgeInfo?.output as BadgeInfoResults
+        ).asOk.toJSON() as unknown as BadgeInfo,
         code: codeOutput.isOk ? codeOutput.asOk.toString() : undefined,
       })
     }
@@ -129,7 +132,14 @@ const Flipper: Page = () => {
           <p key={idx}>
             Badge {myBadge.info.id}: {myBadge.info.name} (
             {myBadge.info.numIssued} / {myBadge.info.numCode}).
-            {myBadge.code && `My code is: ${myBadge.code}`}
+            {myBadge.code && (
+              <>
+                My code is:{' '}
+                <StyledLink href={myBadge.code} target="_blank" rel="noopener">
+                  {myBadge.code}
+                </StyledLink>
+              </>
+            )}
           </p>
         ))}
       </Block>
