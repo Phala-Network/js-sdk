@@ -2,19 +2,18 @@ import {CertificateData, signCertificate} from '@phala/sdk'
 import {ApiPromise, Keyring} from '@polkadot/api'
 import {ContractPromise} from '@polkadot/api-contract'
 import {u8aToHex} from '@polkadot/util'
-import {StatefulPanel} from 'baseui/accordion'
 import {Block} from 'baseui/block'
 import {Button} from 'baseui/button'
 import {Input} from 'baseui/input'
 import {StyledLink} from 'baseui/link'
-import {Textarea} from 'baseui/textarea'
+import {Spinner} from 'baseui/spinner'
 import {toaster} from 'baseui/toast'
 import {HeadingMedium, ParagraphSmall} from 'baseui/typography'
 import {useAtom} from 'jotai'
+import {loadContract} from 'lib/contract'
 import {Key, useEffect, useRef, useState} from 'react'
+import easy_oracle_metadata from '../assets/easy_oracle.metadata.json'
 import accountAtom from '../atoms/account'
-import ContractLoader from '../components/ContractLoader'
-import useInterval from '../hooks/useInterval'
 import {copy} from '../lib/copy'
 import {getSigner} from '../lib/polkadotExtension'
 
@@ -38,6 +37,16 @@ const EasyChallenge: Page = () => {
     },
     [api]
   )
+
+  useEffect(() => {
+    loadContract(
+      '0x9ac9545119a993a457009901425a6ac9d12ec4ea9efb45d95d9b95127b204d36',
+      easy_oracle_metadata
+    ).then((res) => {
+      setApi(res.api)
+      setContract(res.contract)
+    })
+  }, [])
 
   // Reset the UI when the selected account is changed
   useEffect(() => {
@@ -122,92 +131,84 @@ const EasyChallenge: Page = () => {
     }
   }
 
-  return contract ? (
-    certificateData ? (
-      <>
-        <HeadingMedium as="h1">1. Create a Gist</HeadingMedium>
-        <ParagraphSmall>
-          Create a gist on{' '}
-          <StyledLink
-            href="https://gist.github.com/"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            GitHub
-          </StyledLink>{' '}
-          with the following:
-        </ParagraphSmall>
+  if (!contract) {
+    return <Spinner />
+  }
 
-        <Block display="flex">
-          <Input
-            overrides={{
-              Root: {
-                style: ({$theme}) => ({
-                  flex: 1,
-                  marginRight: $theme.sizing.scale400,
-                }),
-              },
-            }}
-            value={gist}
-            disabled={!gist}
-          />
-          <Button onClick={() => copy(gist)} kind="secondary">
-            Copy
-          </Button>
-        </Block>
+  return certificateData ? (
+    <>
+      <HeadingMedium as="h1">1. Create a Gist</HeadingMedium>
+      <ParagraphSmall>
+        Create a gist on{' '}
+        <StyledLink
+          href="https://gist.github.com/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          GitHub
+        </StyledLink>{' '}
+        with the following:
+      </ParagraphSmall>
 
-        <HeadingMedium marginTop="scale1000" as="h1">
-          2. Verify Your Gist
-        </HeadingMedium>
-        <ParagraphSmall>
-          Input your gist <b>raw</b> URL:
-        </ParagraphSmall>
+      <Block display="flex">
+        <Input
+          overrides={{
+            Root: {
+              style: ({$theme}) => ({
+                flex: 1,
+                marginRight: $theme.sizing.scale400,
+              }),
+            },
+          }}
+          value={gist}
+          disabled={!gist}
+        />
+        <Button onClick={() => copy(gist)} kind="secondary">
+          Copy
+        </Button>
+      </Block>
 
-        <Block display="flex">
-          <Input
-            placeholder="https://gist.githubusercontent.com/..."
-            overrides={{
-              Root: {
-                style: ({$theme}) => ({
-                  flex: 1,
-                  marginRight: $theme.sizing.scale400,
-                }),
-              },
-            }}
-            onChange={(e) => setGistURL(e.currentTarget.value)}
-          />
-          <Button
-            disabled={
-              !gistURL.startsWith('https://gist.githubusercontent.com/')
-            }
-            onClick={onVerify}
-            kind="secondary"
-          >
-            Verify
-          </Button>
-        </Block>
+      <HeadingMedium marginTop="scale1000" as="h1">
+        2. Verify Your Gist
+      </HeadingMedium>
+      <ParagraphSmall>
+        Input your gist <b>raw</b> URL:
+      </ParagraphSmall>
 
-        <HeadingMedium marginTop="scale1000" as="h1">
-          3. Get Your Easy Challenge POAP
-        </HeadingMedium>
-        <ParagraphSmall>
-          Your POAP redemption code can be found in the FatBadges contract page
-          if the verification is passed.
-        </ParagraphSmall>
-      </>
-    ) : (
-      <Button disabled={!account} onClick={onSignCertificate}>
-        Sign Certificate
-      </Button>
-    )
+      <Block display="flex">
+        <Input
+          placeholder="https://gist.githubusercontent.com/..."
+          overrides={{
+            Root: {
+              style: ({$theme}) => ({
+                flex: 1,
+                marginRight: $theme.sizing.scale400,
+              }),
+            },
+          }}
+          onChange={(e) => setGistURL(e.currentTarget.value)}
+        />
+        <Button
+          disabled={!gistURL.startsWith('https://gist.githubusercontent.com/')}
+          onClick={onVerify}
+          kind="secondary"
+        >
+          Verify
+        </Button>
+      </Block>
+
+      <HeadingMedium marginTop="scale1000" as="h1">
+        3. Get Your Easy Challenge POAP
+      </HeadingMedium>
+      <ParagraphSmall>
+        Your POAP redemption code can be found in the FatBadges contract page if
+        the verification is passed.
+      </ParagraphSmall>
+    </>
   ) : (
-    <ContractLoader
-      name="easyChallenge"
-      onLoad={({api, contract}) => {
-        setApi(api)
-        setContract(contract)
-      }}
-    />
+    <Button disabled={!account} onClick={onSignCertificate}>
+      Sign Certificate
+    </Button>
   )
 }
 

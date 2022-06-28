@@ -12,6 +12,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "lib/*.json"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "assets/*.json"],
   "exclude": ["node_modules"]
 }

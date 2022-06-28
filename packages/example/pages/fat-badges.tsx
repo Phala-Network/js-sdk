@@ -7,11 +7,13 @@ import {BN} from '@polkadot/util'
 import {Block} from 'baseui/block'
 import {Button} from 'baseui/button'
 import {ButtonGroup} from 'baseui/button-group'
+import {Spinner} from 'baseui/spinner'
 import {toaster} from 'baseui/toast'
 import {useAtom} from 'jotai'
+import {loadContract} from 'lib/contract'
 import {useEffect, useState} from 'react'
+import fat_badges_metadata from '../assets/fat_badges.metadata.json'
 import accountAtom from '../atoms/account'
-import ContractLoader from '../components/ContractLoader'
 import {getSigner} from '../lib/polkadotExtension'
 
 interface BadgeInfo extends Codec {
@@ -44,6 +46,16 @@ const Flipper: Page = () => {
   useEffect(() => {
     setCertificateData(undefined)
   }, [account])
+
+  useEffect(() => {
+    loadContract(
+      '0x083872054018c5b1890b8a901fc4213a385e3e4df5ddcc71405e4000e4244c6c',
+      fat_badges_metadata
+    ).then((res) => {
+      setApi(res.api)
+      setContract(res.contract)
+    })
+  }, [])
 
   const onSignCertificate = async () => {
     if (account && api) {
@@ -106,7 +118,11 @@ const Flipper: Page = () => {
     })
   }, [certificateData, contract])
 
-  return contract ? (
+  if (!contract) {
+    return <Spinner />
+  }
+
+  return (
     <>
       <ButtonGroup>
         <Button disabled={!account} onClick={onSignCertificate}>
@@ -126,14 +142,6 @@ const Flipper: Page = () => {
         ))}
       </Block>
     </>
-  ) : (
-    <ContractLoader
-      name="fatBadges"
-      onLoad={({api, contract}) => {
-        setApi(api)
-        setContract(contract)
-      }}
-    />
   )
 }
 

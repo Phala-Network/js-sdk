@@ -1,6 +1,6 @@
-import { StyledLink } from 'baseui/link'
-import { ListItem, ListItemLabel } from 'baseui/list'
-import type { NextPage } from 'next'
+import {StyledLink} from 'baseui/link'
+import {ListItem, ListItemLabel} from 'baseui/list'
+import type {NextPage} from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 
