@@ -1,12 +1,13 @@
-import {useState, useEffect} from 'react'
 import type {InjectedAccountWithMeta} from '@polkadot/extension-inject/types'
-import {useAtom} from 'jotai'
-import {Select} from 'baseui/select'
-import {LabelSmall, MonoParagraphXSmall} from 'baseui/typography'
 import {Block} from 'baseui/block'
 import {FormControl} from 'baseui/form-control'
+import {Select} from 'baseui/select'
+import {LabelSmall, MonoParagraphXSmall} from 'baseui/typography'
+import {useAtom} from 'jotai'
+import {useEffect, useState} from 'react'
 import accountAtom from '../atoms/account'
 import {enablePolkadotExtension} from '../lib/polkadotExtension'
+import SendButton from './SendButton'
 
 const trimAddress = (address: string) =>
   `${address.slice(0, 6)}…${address.slice(-6)}`
@@ -53,7 +54,7 @@ const AccountSelect = (): JSX.Element => {
   }, [options, account, setAccount])
 
   return (
-    <Block padding="0 20px" flex="0">
+    <Block marginLeft="20px" flex="none" display="flex" alignItems="center">
       <FormControl
         disabled={error}
         overrides={{
@@ -96,6 +97,10 @@ const AccountSelect = (): JSX.Element => {
           overrides={{Root: {style: {width: '200px'}}}}
         ></Select>
       </FormControl>
+
+      <Block flex="none" marginLeft="scale200">
+        <SendButton />
+      </Block>
     </Block>
   )
 }
