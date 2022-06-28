@@ -1,6 +1,9 @@
 import { CertificateData, signCertificate } from '@phala/sdk'
 import type { ApiPromise } from '@polkadot/api'
 import { ContractPromise } from '@polkadot/api-contract'
+import type { Result, Text } from '@polkadot/types-codec'
+import type { Codec } from '@polkadot/types/types'
+import { BN } from '@polkadot/util'
 import { Block } from 'baseui/block'
 import { Button } from 'baseui/button'
 import { ButtonGroup } from 'baseui/button-group'
@@ -11,7 +14,7 @@ import accountAtom from '../atoms/account'
 import ContractLoader from '../components/ContractLoader'
 import { getSigner } from '../lib/polkadotExtension'
 
-interface BadgeInfo {
+interface BadgeInfo extends Codec {
   id: number,
   name: string,
   numCode: number,
@@ -21,6 +24,7 @@ interface MyBadgeInfo {
   info: BadgeInfo,
   code?: string,
 }
+type BadgeInfoReulst = Result<BadgeInfo, any>
 
 const Flipper: Page = () => {
   const [account] = useAtom(accountAtom)
@@ -67,14 +71,15 @@ const Flipper: Page = () => {
     if (!totalBadges?.output) {
       return []
     }
-    const numTotalBadges: number = totalBadges.output.toNumber()
+    const numTotalBadges: number = (totalBadges.output as unknown as BN).toNumber()
     const badges = [];
     for (let i = 0; i < numTotalBadges; i++) {
       const badgeInfo = await contract.query.getBadgeInfo(certificateData as any, {}, i)
-      const code = await contract.query.get(certificateData as any, {}, i);
+      const code = await contract.query.get(certificateData as any, {}, i)
+      const codeOutput = code?.output as Result<Text, any>
       badges.push({
-        info: badgeInfo?.output?.asOk as BadgeInfo,
-        code: code?.output?.asOk as string,
+        info: (badgeInfo?.output as BadgeInfoReulst).asOk,
+        code: codeOutput.isOk ? codeOutput.asOk.toString() : undefined,
       })
     }
     return badges
@@ -87,7 +92,7 @@ const Flipper: Page = () => {
   useEffect(() => {
     readPoapCode().then(badges => {
       if (badges) {
-        badges.forEach(badge => console.warn(badge.info.toJson(), badge.code.toJson()))
+        badges.forEach(badge => console.warn(badge.info.toJSON(), badge.code))
       }
     })
   }, [certificateData, contract]);
