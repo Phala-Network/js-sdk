@@ -1,22 +1,22 @@
-import { CertificateData, signCertificate } from '@phala/sdk'
-import { ApiPromise, Keyring } from '@polkadot/api'
-import { ContractPromise } from '@polkadot/api-contract'
-import { u8aToHex } from '@polkadot/util'
-import { StatefulPanel } from 'baseui/accordion'
-import { Block } from 'baseui/block'
-import { Button } from 'baseui/button'
-import { Input } from 'baseui/input'
-import { StyledLink } from 'baseui/link'
-import { Textarea } from 'baseui/textarea'
-import { toaster } from 'baseui/toast'
-import { HeadingMedium, ParagraphSmall } from 'baseui/typography'
-import { useAtom } from 'jotai'
-import { Key, useEffect, useRef, useState } from 'react'
+import {CertificateData, signCertificate} from '@phala/sdk'
+import {ApiPromise, Keyring} from '@polkadot/api'
+import {ContractPromise} from '@polkadot/api-contract'
+import {u8aToHex} from '@polkadot/util'
+import {StatefulPanel} from 'baseui/accordion'
+import {Block} from 'baseui/block'
+import {Button} from 'baseui/button'
+import {Input} from 'baseui/input'
+import {StyledLink} from 'baseui/link'
+import {Textarea} from 'baseui/textarea'
+import {toaster} from 'baseui/toast'
+import {HeadingMedium, ParagraphSmall} from 'baseui/typography'
+import {useAtom} from 'jotai'
+import {Key, useEffect, useRef, useState} from 'react'
 import accountAtom from '../atoms/account'
 import ContractLoader from '../components/ContractLoader'
 import useInterval from '../hooks/useInterval'
-import { copy } from '../lib/copy'
-import { getSigner } from '../lib/polkadotExtension'
+import {copy} from '../lib/copy'
+import {getSigner} from '../lib/polkadotExtension'
 
 const EasyChallenge: Page = () => {
   // Basic states for contract interaction
@@ -191,8 +191,8 @@ const EasyChallenge: Page = () => {
           3. Get Your Easy Challenge POAP
         </HeadingMedium>
         <ParagraphSmall>
-          Your POAP redemption code can be found in the FatBadges contract page if the verification
-          is passed.
+          Your POAP redemption code can be found in the FatBadges contract page
+          if the verification is passed.
         </ParagraphSmall>
       </>
     ) : (
