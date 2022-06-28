@@ -35,7 +35,7 @@ const Entry = ({
       >
         <img
           src={src}
-          className={css({maxWidth: '240px', display: 'block'})}
+          className={css({width: '240px', height: '240px', display: 'block'})}
           alt=""
         />
         <HeadingMedium>{label}</HeadingMedium>
