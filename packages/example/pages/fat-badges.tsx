@@ -1,20 +1,34 @@
-import type {ApiPromise} from '@polkadot/api'
-import {ContractPromise} from '@polkadot/api-contract'
-import {useEffect, useState} from 'react'
-import {signCertificate, CertificateData} from '@phala/sdk'
-import {Button} from 'baseui/button'
-import {ButtonGroup} from 'baseui/button-group'
-import {toaster} from 'baseui/toast'
-import {useAtom} from 'jotai'
+import { CertificateData, signCertificate } from '@phala/sdk'
+import type { ApiPromise } from '@polkadot/api'
+import { ContractPromise } from '@polkadot/api-contract'
+import { Block } from 'baseui/block'
+import { Button } from 'baseui/button'
+import { ButtonGroup } from 'baseui/button-group'
+import { toaster } from 'baseui/toast'
+import { useAtom } from 'jotai'
+import { useEffect, useState } from 'react'
 import accountAtom from '../atoms/account'
-import {getSigner} from '../lib/polkadotExtension'
 import ContractLoader from '../components/ContractLoader'
+import { getSigner } from '../lib/polkadotExtension'
+
+interface BadgeInfo {
+  id: number,
+  name: string,
+  numCode: number,
+  numIssued: number,
+}
+interface MyBadgeInfo {
+  info: BadgeInfo,
+  code?: string,
+}
 
 const Flipper: Page = () => {
   const [account] = useAtom(accountAtom)
   const [certificateData, setCertificateData] = useState<CertificateData>()
   const [api, setApi] = useState<ApiPromise>()
   const [contract, setContract] = useState<ContractPromise>()
+
+  const [badges, setBadges] = useState<MyBadgeInfo[]>([])
 
   useEffect(
     () => () => {
@@ -47,23 +61,36 @@ const Flipper: Page = () => {
     }
   }
 
-  const onQuery = async () => {
-    if (!certificateData || !contract) return
-    const {output} = await contract.query.get(certificateData as any, {})
-    // eslint-disable-next-line no-console
-    console.log(output?.toHuman())
-    toaster.info(JSON.stringify(output?.toHuman()), {})
+  const readPoapCode = async (): Promise<MyBadgeInfo[]> => {
+    if (!certificateData || !contract) return []
+    const totalBadges = await contract.query.getTotalBadges(certificateData as any, {})
+    if (!totalBadges?.output) {
+      return []
+    }
+    const numTotalBadges: number = totalBadges.output.toNumber()
+    const badges = [];
+    for (let i = 0; i < numTotalBadges; i++) {
+      const badgeInfo = await contract.query.getBadgeInfo(certificateData as any, {}, i)
+      const code = await contract.query.get(certificateData as any, {}, i);
+      badges.push({
+        info: badgeInfo?.output?.asOk as BadgeInfo,
+        code: code?.output?.asOk as string,
+      })
+    }
+    return badges
   }
 
-  const onCommand = async () => {
-    if (!contract || !account) return
-    const signer = await getSigner(account)
-    contract.tx.flip({}).signAndSend(account.address, {signer}, (status) => {
-      if (status.isInBlock) {
-        toaster.positive('In Block', {})
+  const loadDisplayPoapCode = async () => {
+    setBadges(await readPoapCode())
+  }
+
+  useEffect(() => {
+    readPoapCode().then(badges => {
+      if (badges) {
+        badges.forEach(badge => console.warn(badge.info.toJson(), badge.code.toJson()))
       }
     })
-  }
+  }, [certificateData, contract]);
 
   return contract ? (
     <>
@@ -71,17 +98,22 @@ const Flipper: Page = () => {
         <Button disabled={!account} onClick={onSignCertificate}>
           Sign Certificate
         </Button>
-        <Button disabled={!certificateData} onClick={onQuery}>
-          Get
-        </Button>
-        <Button disabled={!account} onClick={onCommand}>
-          Flip
+        <Button disabled={!certificateData} onClick={loadDisplayPoapCode}>
+          Load
         </Button>
       </ButtonGroup>
+      <Block>
+        {badges.map((myBadge, idx) => (
+          <p key={idx}>
+            Badge {myBadge.info.id}: {myBadge.info.name} ({myBadge.info.numIssued} / {myBadge.info.numCode}).
+            {myBadge.code && `My code is: ${myBadge.code}`}
+          </p>
+        ))}
+      </Block>
     </>
   ) : (
     <ContractLoader
-      name="flipper"
+      name="fatBadges"
       onLoad={({api, contract}) => {
         setApi(api)
         setContract(contract)
@@ -90,6 +122,6 @@ const Flipper: Page = () => {
   )
 }
 
-Flipper.title = 'Flipper'
+Flipper.title = 'Fat Contract Badges'
 
 export default Flipper

@@ -188,34 +188,12 @@ const EasyChallenge: Page = () => {
         </Block>
 
         <HeadingMedium marginTop="scale1000" as="h1">
-          3. Get POAP Redemption Code
+          3. Get Your Easy Challenge POAP
         </HeadingMedium>
         <ParagraphSmall>
           Your POAP redemption code can be found in the FatBadges contract page if the verification
           is passed.
         </ParagraphSmall>
-
-        {/* <Block display="flex">
-          <Input
-            overrides={{
-              Root: {
-                style: ({$theme}) => ({
-                  flex: 1,
-                  marginRight: $theme.sizing.scale400,
-                }),
-              },
-            }}
-            value={redemptionCode}
-            disabled={!redemptionCode}
-          />
-          <Button
-            disabled={!redemptionCode}
-            onClick={() => copy(redemptionCode)}
-            kind="secondary"
-          >
-            Copy
-          </Button>
-        </Block> */}
       </>
     ) : (
       <Button disabled={!account} onClick={onSignCertificate}>

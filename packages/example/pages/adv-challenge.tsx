@@ -17,7 +17,6 @@ import ContractLoader from '../components/ContractLoader'
 import useInterval from '../hooks/useInterval'
 import { copy } from '../lib/copy'
 import { getSigner } from '../lib/polkadotExtension'
-import EasyChallenge from './easy-challenge'
 
 const AdvChallenge: Page = () => {
   // Basic states for contract interaction
@@ -134,6 +133,7 @@ const AdvChallenge: Page = () => {
 
         <Block display="flex">
           <Input
+            placeholder='0x...'
             overrides={{
               Root: {
                 style: ({$theme}) => ({
@@ -145,6 +145,7 @@ const AdvChallenge: Page = () => {
             onChange={(e) => setAttestContract(e.currentTarget.value)}
           />
           <Input
+            placeholder='https://...'
             overrides={{
               Root: {
                 style: ({$theme}) => ({
@@ -167,34 +168,12 @@ const AdvChallenge: Page = () => {
         </Block>
 
         <HeadingMedium marginTop="scale1000" as="h1">
-          3. Get POAP Redemption Code
+          3. Get Your Advanced Challenge POAP
         </HeadingMedium>
         <ParagraphSmall>
           Your POAP redemption code can be found in the FatBadges contract page if the verification
           is passed.
         </ParagraphSmall>
-
-        {/* <Block display="flex">
-          <Input
-            overrides={{
-              Root: {
-                style: ({$theme}) => ({
-                  flex: 1,
-                  marginRight: $theme.sizing.scale400,
-                }),
-              },
-            }}
-            value={redemptionCode}
-            disabled={!redemptionCode}
-          />
-          <Button
-            disabled={!redemptionCode}
-            onClick={() => copy(redemptionCode)}
-            kind="secondary"
-          >
-            Copy
-          </Button>
-        </Block> */}
       </>
     ) : (
       <Button disabled={!account} onClick={onSignCertificate}>
@@ -203,7 +182,7 @@ const AdvChallenge: Page = () => {
     )
   ) : (
     <ContractLoader
-      name="easyChallenge"
+      name="advChallenge"
       onLoad={({api, contract}) => {
         setApi(api)
         setContract(contract)
@@ -212,6 +191,6 @@ const AdvChallenge: Page = () => {
   )
 }
 
-EasyChallenge.title = 'Easy Challenge'
+AdvChallenge.title = 'Advanced Challenge'
 
-export default EasyChallenge
+export default AdvChallenge
