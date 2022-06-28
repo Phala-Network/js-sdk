@@ -1,19 +1,16 @@
 import {CertificateData, signCertificate} from '@phala/sdk'
 import {ApiPromise, Keyring} from '@polkadot/api'
 import {ContractPromise} from '@polkadot/api-contract'
-import {u8aToHex} from '@polkadot/util'
-import {StatefulPanel} from 'baseui/accordion'
 import {Block} from 'baseui/block'
 import {Button} from 'baseui/button'
 import {Input} from 'baseui/input'
 import {StyledLink} from 'baseui/link'
 import {Spinner} from 'baseui/spinner'
-import {Textarea} from 'baseui/textarea'
 import {toaster} from 'baseui/toast'
 import {HeadingMedium, ParagraphSmall} from 'baseui/typography'
 import {useAtom} from 'jotai'
 import {loadContract} from 'lib/contract'
-import {useEffect, useRef, useState} from 'react'
+import {useEffect, useState} from 'react'
 import advanced_judger_metadata from '../assets/advanced_judger.metadata.json'
 import accountAtom from '../atoms/account'
 import useInterval from '../hooks/useInterval'
@@ -143,10 +140,11 @@ const AdvChallenge: Page = () => {
       <HeadingMedium marginTop="scale1000" as="h1">
         2. Verify Your Solution
       </HeadingMedium>
-      <ParagraphSmall>Input your contract address:</ParagraphSmall>
+      <ParagraphSmall>Input your contract address and the invoke arg:</ParagraphSmall>
 
       <Block display="flex">
         <Input
+          placeholder='0x...'
           overrides={{
             Root: {
               style: ({$theme}) => ({
@@ -158,6 +156,7 @@ const AdvChallenge: Page = () => {
           onChange={(e) => setAttestContract(e.currentTarget.value)}
         />
         <Input
+          placeholder='https://...'
           overrides={{
             Root: {
               style: ({$theme}) => ({
@@ -187,27 +186,6 @@ const AdvChallenge: Page = () => {
         the verification is passed.
       </ParagraphSmall>
 
-      {/* <Block display="flex">
-          <Input
-            overrides={{
-              Root: {
-                style: ({$theme}) => ({
-                  flex: 1,
-                  marginRight: $theme.sizing.scale400,
-                }),
-              },
-            }}
-            value={redemptionCode}
-            disabled={!redemptionCode}
-          />
-          <Button
-            disabled={!redemptionCode}
-            onClick={() => copy(redemptionCode)}
-            kind="secondary"
-          >
-            Copy
-          </Button>
-        </Block> */}
     </>
   ) : (
     <Button disabled={!account} onClick={onSignCertificate}>
@@ -216,6 +194,6 @@ const AdvChallenge: Page = () => {
   )
 }
 
-AdvChallenge.title = 'Adv Challenge'
+AdvChallenge.title = 'Advanced Challenge'
 
 export default AdvChallenge
