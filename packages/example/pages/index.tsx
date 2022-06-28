@@ -1,20 +1,20 @@
-import type {NextPage} from 'next'
+import { StyledLink } from 'baseui/link'
+import { ListItem, ListItemLabel } from 'baseui/list'
+import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import {ListItem, ListItemLabel} from 'baseui/list'
-import {StyledLink} from 'baseui/link'
 
 const LINKS: [string, string][] = [
-  ['/flipper', 'Flipper'],
-  ['/get-ip', 'Get IP'],
-  ['/redeem-poap', 'Redeem POAP'],
+  ['/fat-badges', 'Decoded 2022 - Your Badges'],
+  ['/easy-challenge', 'Decoded 2022 - Easy Challenge'],
+  ['/adv-challenge', 'Decoded 2022 - Advanced Challenge'],
 ]
 
 const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Phala SDK Example</title>
+        <title>Polkadot Decoded 2022 Phala Workshop</title>
       </Head>
 
       <ol>

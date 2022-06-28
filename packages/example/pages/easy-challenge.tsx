@@ -1,24 +1,24 @@
-import {ApiPromise, Keyring} from '@polkadot/api'
-import {u8aToHex} from '@polkadot/util'
-import {ContractPromise} from '@polkadot/api-contract'
-import {Key, useEffect, useRef, useState} from 'react'
-import {signCertificate, CertificateData} from '@phala/sdk'
-import {Button} from 'baseui/button'
-import {Block} from 'baseui/block'
-import {Input} from 'baseui/input'
-import {toaster} from 'baseui/toast'
-import {StyledLink} from 'baseui/link'
-import {HeadingMedium, ParagraphSmall} from 'baseui/typography'
-import {StatefulPanel} from 'baseui/accordion'
-import {useAtom} from 'jotai'
+import { CertificateData, signCertificate } from '@phala/sdk'
+import { ApiPromise, Keyring } from '@polkadot/api'
+import { ContractPromise } from '@polkadot/api-contract'
+import { u8aToHex } from '@polkadot/util'
+import { StatefulPanel } from 'baseui/accordion'
+import { Block } from 'baseui/block'
+import { Button } from 'baseui/button'
+import { Input } from 'baseui/input'
+import { StyledLink } from 'baseui/link'
+import { Textarea } from 'baseui/textarea'
+import { toaster } from 'baseui/toast'
+import { HeadingMedium, ParagraphSmall } from 'baseui/typography'
+import { useAtom } from 'jotai'
+import { Key, useEffect, useRef, useState } from 'react'
 import accountAtom from '../atoms/account'
-import {getSigner} from '../lib/polkadotExtension'
 import ContractLoader from '../components/ContractLoader'
-import {copy} from '../lib/copy'
 import useInterval from '../hooks/useInterval'
-import {Textarea} from 'baseui/textarea'
+import { copy } from '../lib/copy'
+import { getSigner } from '../lib/polkadotExtension'
 
-const RedeemPOAP: Page = () => {
+const EasyChallenge: Page = () => {
   // Basic states for contract interaction
   const [account] = useAtom(accountAtom)
   const [certificateData, setCertificateData] = useState<CertificateData>()
@@ -30,7 +30,6 @@ const RedeemPOAP: Page = () => {
   const [gistURL, setGistURL] = useState('')
   const [redemptionCode, setRedemptionCode] = useState('')
   const [verified, setVerified] = useState(false)
-  const [devParam, setDevParam] = useState('')
   const redemptionCodeToastKey = useRef<Key>()
 
   useEffect(
@@ -58,37 +57,6 @@ const RedeemPOAP: Page = () => {
     setCertificateData(undefined)
   }, [account])
 
-  // Try to read the POAP code from the Fat Contract
-  const getRedemptionCode = async () => {
-    if (!certificateData || !contract) return
-
-    if (!redemptionCodeToastKey.current) {
-      redemptionCodeToastKey.current = toaster.info(
-        'Requesting POAP redemption code...',
-        {
-          autoHideDuration: 0,
-        }
-      )
-    }
-
-    // Send a query to the POAP contract (`FatSample::my_poap()`)
-    const {output} = await contract.query.myPoap(certificateData as any, {})
-    const code = output?.toString()
-
-    if (code) {
-      toaster.clear(redemptionCodeToastKey.current)
-      setRedemptionCode(code)
-    }
-  }
-
-  // Once the Gist is attested, we start to refresh the redemption code every 2s
-  useInterval(
-    () => {
-      getRedemptionCode()
-    },
-    verified && !redemptionCode ? 2000 : null
-  )
-
   const onSignCertificate = async () => {
     if (account && api) {
       try {
@@ -115,13 +83,13 @@ const RedeemPOAP: Page = () => {
     setVerified(false)
 
     // Send a query to attest the gist from the given url.
-    const {output} = await contract.query.attestGist(
+    const {output} = await contract.query['submittableOracle::attest'](
       certificateData as any,
       {},
       gistURL
     )
 
-    // outputJson is a `Result<SignedAttestation>`
+    // outputJson is a `Result<Attestation>`
     const outputJson = output?.toJSON() as any
 
     if (outputJson.ok) {
@@ -223,11 +191,11 @@ const RedeemPOAP: Page = () => {
           3. Get POAP Redemption Code
         </HeadingMedium>
         <ParagraphSmall>
-          Your POAP redemption code will appear here when your gist is
-          successfully verified
+          Your POAP redemption code can be found in the FatBadges contract page if the verification
+          is passed.
         </ParagraphSmall>
 
-        <Block display="flex">
+        {/* <Block display="flex">
           <Input
             overrides={{
               Root: {
@@ -247,49 +215,7 @@ const RedeemPOAP: Page = () => {
           >
             Copy
           </Button>
-        </Block>
-
-        <StatefulPanel
-          title="Dev Options"
-          overrides={{
-            PanelContainer: {
-              style: ({$theme}) => ({marginTop: $theme.sizing.scale1000}),
-            },
-          }}
-        >
-          <Textarea
-            placeholder='["code1", "code2", "code3"]'
-            value={devParam}
-            onChange={(e) => setDevParam(e.currentTarget.value)}
-          ></Textarea>
-          <Button
-            overrides={{
-              Root: {
-                style: ({$theme}) => ({marginTop: $theme.sizing.scale400}),
-              },
-            }}
-            onClick={async () => {
-              if (!account || !contract) return
-              const signer = await getSigner(account)
-
-              try {
-                // Send a command to set the POAP code. Must be signed by the admin account.
-                await contract.tx
-                  .adminSetPoapCode({}, JSON.parse(devParam))
-                  .signAndSend(account.address, {signer}, (status) => {
-                    if (status.isFinalized) {
-                      toaster.positive('Transaction is finalized', {})
-                    }
-                  })
-              } catch (err) {
-                toaster.negative((err as Error).message, {})
-                throw err
-              }
-            }}
-          >
-            Admin Set POAP Code
-          </Button>
-        </StatefulPanel>
+        </Block> */}
       </>
     ) : (
       <Button disabled={!account} onClick={onSignCertificate}>
@@ -298,7 +224,7 @@ const RedeemPOAP: Page = () => {
     )
   ) : (
     <ContractLoader
-      name="redeemPOAP"
+      name="easyChallenge"
       onLoad={({api, contract}) => {
         setApi(api)
         setContract(contract)
@@ -307,6 +233,6 @@ const RedeemPOAP: Page = () => {
   )
 }
 
-RedeemPOAP.title = 'Redeem POAP'
+EasyChallenge.title = 'Easy Challenge'
 
-export default RedeemPOAP
+export default EasyChallenge
