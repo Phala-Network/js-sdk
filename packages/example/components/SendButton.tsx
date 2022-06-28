@@ -1,7 +1,7 @@
 import {ApiPromise, Keyring} from '@polkadot/api'
 import accountAtom from 'atoms/account'
 import {Button} from 'baseui/button'
-import {DURATION, useSnackbar} from 'baseui/snackbar'
+import {toaster} from 'baseui/toast'
 import {useAtomValue} from 'jotai'
 import {createApi} from 'lib/polkadotApi'
 import {FC, useEffect, useState} from 'react'
@@ -9,7 +9,6 @@ import {FC, useEffect, useState} from 'react'
 const SendButton: FC = () => {
   const [api, setApi] = useState<ApiPromise>()
   const account = useAtomValue(accountAtom)
-  const {enqueue, dequeue} = useSnackbar()
 
   useEffect(() => {
     createApi('wss://poc5.phala.network/ws').then(setApi)
@@ -19,16 +18,19 @@ const SendButton: FC = () => {
     if (!api || !account) return
     const keyring = new Keyring({type: 'sr25519'})
     const alice = keyring.addFromUri('//Alice')
-    enqueue(
-      {message: 'Waiting for confirmation...', progress: true},
-      DURATION.infinite
-    )
+    const key = toaster.info('Sending...', {autoHideDuration: 0})
     const unsub = await api.tx.balances
       .transfer(account.address, '10000000000000')
-      .signAndSend(alice, ({isInBlock}) => {
+      .signAndSend(alice, ({isInBlock, isError}) => {
         if (isInBlock) {
-          dequeue()
-          enqueue({message: 'Success'})
+          toaster.clear(key)
+          toaster.positive('Success', {})
+          unsub()
+        }
+
+        if (isError) {
+          toaster.clear(key)
+          toaster.negative('Failed', {})
           unsub()
         }
       })
