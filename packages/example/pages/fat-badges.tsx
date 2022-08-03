@@ -50,7 +50,7 @@ const Flipper: Page = () => {
 
   useEffect(() => {
     loadContract(
-      '0x083872054018c5b1890b8a901fc4213a385e3e4df5ddcc71405e4000e4244c6c',
+      '0x1b80818349817d26b128dc8c0f10415ff64c08213e23e34cadbcc201cdade398',
       fat_badges_metadata
     ).then((res) => {
       setApi(res.api)

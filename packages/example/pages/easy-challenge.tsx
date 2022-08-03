@@ -38,7 +38,7 @@ const EasyChallenge: Page = () => {
 
   useEffect(() => {
     loadContract(
-      '0x9ac9545119a993a457009901425a6ac9d12ec4ea9efb45d95d9b95127b204d36',
+      '0xb55a834448baf53d472538d231d43901ce0edb8b262609fd890b95702079e3e7',
       easy_oracle_metadata
     ).then((res) => {
       setApi(res.api)
