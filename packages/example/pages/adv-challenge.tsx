@@ -36,7 +36,7 @@ const AdvChallenge: Page = () => {
 
   useEffect(() => {
     loadContract(
-      '0x5038319b92fab3257e43992efdeb08b0edc7655956ce5cdec099ef6d38218185',
+      '0x50ab7ff8bffe2c3052da5b4be774c4fa879d5f65a1ceffcbd2c877bd7f879b97',
       advanced_judger_metadata
     ).then((res) => {
       setApi(res.api)
