@@ -1,22 +1,23 @@
+import {CertificateData, signCertificate} from '@phala/sdk'
 import {ApiPromise, Keyring} from '@polkadot/api'
-import {u8aToHex} from '@polkadot/util'
 import {ContractPromise} from '@polkadot/api-contract'
-import {Key, useEffect, useRef, useState} from 'react'
-import {signCertificate, CertificateData} from '@phala/sdk'
-import {Button} from 'baseui/button'
-import {Block} from 'baseui/block'
-import {Input} from 'baseui/input'
-import {toaster} from 'baseui/toast'
-import {StyledLink} from 'baseui/link'
-import {HeadingMedium, ParagraphSmall} from 'baseui/typography'
+import {u8aToHex} from '@polkadot/util'
+import type {Theme} from 'baseui'
 import {StatefulPanel} from 'baseui/accordion'
-import {useAtom} from 'jotai'
-import accountAtom from '../atoms/account'
-import {getSigner} from '../lib/polkadotExtension'
-import ContractLoader from '../components/ContractLoader'
-import {copy} from '../lib/copy'
-import useInterval from '../hooks/useInterval'
+import {Block} from 'baseui/block'
+import {Button} from 'baseui/button'
+import {Input} from 'baseui/input'
+import {StyledLink} from 'baseui/link'
 import {Textarea} from 'baseui/textarea'
+import {toaster} from 'baseui/toast'
+import {HeadingMedium, ParagraphSmall} from 'baseui/typography'
+import {useAtom} from 'jotai'
+import {Key, useEffect, useRef, useState} from 'react'
+import accountAtom from '../atoms/account'
+import ContractLoader from '../components/ContractLoader'
+import useInterval from '../hooks/useInterval'
+import {copy} from '../lib/copy'
+import {getSigner} from '../lib/polkadotExtension'
 
 const RedeemPOAP: Page = () => {
   // Basic states for contract interaction
@@ -265,7 +266,9 @@ const RedeemPOAP: Page = () => {
           <Button
             overrides={{
               Root: {
-                style: ({$theme}) => ({marginTop: $theme.sizing.scale400}),
+                style: ({$theme}: {$theme: Theme}) => ({
+                  marginTop: $theme.sizing.scale400,
+                }),
               },
             }}
             onClick={async () => {
