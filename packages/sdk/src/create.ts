@@ -1,6 +1,7 @@
 import type {ApiPromise} from '@polkadot/api'
 import type {SubmittableExtrinsic} from '@polkadot/api/types'
-import type {AccountId, ContractCallRequest} from '@polkadot/types/interfaces'
+import type {Bytes} from '@polkadot/types-codec'
+import type {AccountId} from '@polkadot/types/interfaces'
 import type {ISubmittableResult} from '@polkadot/types/types'
 import {
   hexAddPrefix,
@@ -177,8 +178,9 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
   const txContracts = (
     dest: AccountId,
     value: unknown,
-    gasLimit: unknown,
-    data: Uint8Array
+    gas: unknown,
+    storageDepositLimit: unknown,
+    encParams: Uint8Array
   ) => {
     return command({
       contractId: dest.toHex(),
@@ -187,7 +189,7 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
           InkMessage: {
             nonce: hexAddPrefix(randomHex(32)),
             // FIXME: unexpected u8a prefix
-            message: api.createType('Vec<u8>', data).toHex(),
+            message: api.createType('Vec<u8>', encParams).toHex(),
           },
         })
         .toHex(),
@@ -199,17 +201,27 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
     enumerable: true,
   })
 
+  const instantiateWithCode = () => null
+  instantiateWithCode.meta = {args: new Array(6)}
+
   Object.defineProperty(api.tx, 'contracts', {
     value: {
-      instantiateWithCode: () => null,
+      instantiateWithCode,
       call: txContracts,
     },
     enumerable: true,
   })
 
-  Object.defineProperty(api.rx.rpc, 'contracts', {
+  Object.defineProperty(api.rx.call, 'contractsApi', {
     value: {
-      call: ({origin, dest, inputData}: ContractCallRequest) => {
+      call: (
+        origin: CertificateData,
+        dest: AccountId,
+        value: unknown,
+        gasLimit: unknown,
+        storageDepositLimit: unknown,
+        inputData: Bytes
+      ) => {
         return from(
           query(
             api
@@ -223,7 +235,7 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
                 },
               })
               .toHex(),
-            origin as unknown as CertificateData
+            origin
           ).then((data) => {
             return api.createType(
               'ContractExecResult',
@@ -237,6 +249,11 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
         )
       },
     },
+    enumerable: true,
+  })
+
+  Object.defineProperty(api.call, 'contractsApi', {
+    value: {call: () => null},
     enumerable: true,
   })
 
