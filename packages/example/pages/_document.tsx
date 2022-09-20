@@ -1,16 +1,16 @@
 import Document, {
+  DocumentContext,
   Head,
   Html,
   Main,
   NextScript,
-  DocumentContext,
 } from 'next/document'
-import {Server, Sheet} from 'styletron-engine-atomic'
+import {Server} from 'styletron-engine-atomic'
 import {Provider as StyletronProvider} from 'styletron-react'
 import {styletron} from '../styletron'
 
 // https://github.com/vercel/next.js/blob/canary/examples/with-styletron/pages/_document.js
-class MyDocument extends Document<{stylesheets: Sheet[]}> {
+class MyDocument extends Document<{stylesheets: any[]}> {
   static async getInitialProps(ctx: DocumentContext) {
     const renderPage = () =>
       ctx.renderPage({
