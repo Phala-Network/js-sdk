@@ -6,7 +6,7 @@ import {hexAddPrefix, hexToU8a, u8aToHex} from '@polkadot/util'
 import {decodeAddress} from '@polkadot/util-crypto'
 import {sr25519KeypairFromSeed, waitReady} from '@polkadot/wasm-crypto'
 import {randomHex} from './lib/hex'
-import {pruntimeRpc} from './proto'
+import {pruntime_rpc as pruntimeRpc} from './proto'
 
 export type CertificateData = {
   certificate: pruntimeRpc.ICertificate

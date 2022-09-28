@@ -21,7 +21,7 @@ import {from} from 'rxjs'
 import type {CertificateData} from './certificate'
 import {decrypt, encrypt} from './lib/aes-256-gcm'
 import {randomHex} from './lib/hex'
-import {prpc, pruntimeRpc} from './proto'
+import {prpc, pruntime_rpc as pruntimeRpc} from './proto'
 
 export type Query = (
   encodedQuery: string,
