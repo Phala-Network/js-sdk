@@ -26,6 +26,7 @@ export const types: RegistryTypes = {
   InkQueryData: {
     _enum: {
       InkMessage: 'Vec<u8>',
+      SidevmMessage: 'Vec<u8>',
     },
   },
   InkQuery: {

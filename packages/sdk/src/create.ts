@@ -28,6 +28,11 @@ export type Query = (
   certificateData: CertificateData
 ) => Promise<string>
 
+export type SidevmQuery = (
+  bytes: Bytes,
+  certificateData: CertificateData
+) => Promise<string>
+
 type EncryptedData = {
   iv: string
   pubkey: string
@@ -53,7 +58,7 @@ type CreateFn = (options: {
   api: ApiPromise
   baseURL: string
   contractId: string
-}) => Promise<ApiPromise>
+}) => Promise<{api: ApiPromise; sidevmQuery: SidevmQuery}>
 
 export const createPruntimeApi = (baseURL: string) => {
   // Create a http client prepared for protobuf
@@ -162,6 +167,22 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
     })
   }
 
+  const sidevmQuery: SidevmQuery = async (bytes, certificateData) =>
+    query(
+      api
+        .createType('InkQuery', {
+          head: {
+            nonce: hexAddPrefix(randomHex(32)),
+            id: contractId,
+          },
+          data: {
+            SidevmMessage: bytes,
+          },
+        })
+        .toHex(),
+      certificateData
+    )
+
   const command: Command = ({contractId, payload}) => {
     const encodedPayload = api
       .createType('CommandPayload', {
@@ -257,5 +278,5 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
     enumerable: true,
   })
 
-  return api
+  return {api, sidevmQuery}
 }
