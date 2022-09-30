@@ -1,14 +1,14 @@
+import {create} from '@phala/sdk'
 import type {ApiPromise} from '@polkadot/api'
 import {ContractPromise} from '@polkadot/api-contract'
-import {create} from '@phala/sdk'
 import {Button} from 'baseui/button'
 import {FormControl} from 'baseui/form-control'
 import {Input} from 'baseui/input'
 import {Textarea} from 'baseui/textarea'
 import {toaster} from 'baseui/toast'
 import {useAtom} from 'jotai'
-import {atomWithStorage} from 'jotai/utils'
 import {focusAtom} from 'jotai/optics'
+import {atomWithStorage} from 'jotai/utils'
 import {useRef, VFC} from 'react'
 import useIsClient from '../hooks/useIsClient'
 import {createApi} from '../lib/polkadotApi'
@@ -43,7 +43,7 @@ const ContractLoader: VFC<{
     try {
       const api = await createApi(endpoint)
       const contract = new ContractPromise(
-        await create({api, baseURL: pruntimeURL, contractId}),
+        (await create({api, baseURL: pruntimeURL, contractId})).api,
         JSON.parse(metadata),
         contractId
       )

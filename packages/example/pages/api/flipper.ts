@@ -2,8 +2,8 @@ import {create, signCertificate} from '@phala/sdk'
 import {Keyring} from '@polkadot/api'
 import {ContractPromise} from '@polkadot/api-contract'
 import {NextApiHandler} from 'next'
-import {createApi} from '../../lib/polkadotApi'
 import metadata from '../../lib/flipperMetadata.json'
+import {createApi} from '../../lib/polkadotApi'
 
 const endpoint = 'ws://localhost:19944'
 const baseURL = 'http://localhost:8000'
@@ -13,7 +13,7 @@ const contractId =
 const flipper: NextApiHandler = async (req, res) => {
   const api = await createApi(endpoint)
   const contract = new ContractPromise(
-    await create({api, baseURL, contractId}),
+    (await create({api, baseURL, contractId})).api,
     metadata,
     contractId
   )
