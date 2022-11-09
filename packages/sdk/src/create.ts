@@ -1,8 +1,8 @@
 import type {ApiPromise} from '@polkadot/api'
 import type {SubmittableExtrinsic} from '@polkadot/api/types'
-import type {Bytes} from '@polkadot/types-codec'
-import type {AccountId} from '@polkadot/types/interfaces'
-import type {ISubmittableResult} from '@polkadot/types/types'
+import type {Bytes, Compact, u64} from '@polkadot/types-codec'
+import type {AccountId, WeightV2} from '@polkadot/types/interfaces'
+import type {Codec, ISubmittableResult} from '@polkadot/types/types'
 import {
   hexAddPrefix,
   hexStripPrefix,
@@ -258,14 +258,27 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
               .toHex(),
             origin
           ).then((data) => {
-            return api.createType(
-              'ContractExecResult',
-              (
-                api.createType('InkResponse', hexAddPrefix(data)).toJSON() as {
-                  result: {ok: {inkMessageReturn: string}}
-                }
-              ).result.ok.inkMessageReturn
-            )
+            const inkMessageReturn = (
+              api.createType('InkResponse', hexAddPrefix(data)).toJSON() as {
+                result: {ok: {inkMessageReturn: string}}
+              }
+            ).result.ok.inkMessageReturn
+
+            let result
+
+            try {
+              result = api.createType('ContractExecResult', inkMessageReturn)
+            } catch (err) {
+              result = api.createType(
+                'ContractExecResultV2',
+                inkMessageReturn
+              ) as any
+
+              result.gasConsumed = result.gasConsumed.proofSize
+              result.gasRequired = result.gasRequired.proofSize
+            }
+
+            return result
           })
         )
       },
