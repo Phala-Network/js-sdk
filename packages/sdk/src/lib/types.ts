@@ -54,8 +54,8 @@ export const types: RegistryTypes = {
   },
   InkCommand: {_enum: {InkMessage: 'InkMessage'}},
   ContractExecResultV2: {
-    gasConsumed: 'WeightV2',
-    gasRequired: 'WeightV2',
+    gasConsumedV2: 'WeightV2',
+    gasRequiredV2: 'WeightV2',
     storageDeposit: 'StorageDeposit',
     debugMessage: 'Text',
     result: 'ContractExecResultResult',

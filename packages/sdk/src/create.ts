@@ -274,8 +274,8 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
                 inkMessageReturn
               ) as any
 
-              result.gasConsumed = result.gasConsumed.proofSize
-              result.gasRequired = result.gasRequired.proofSize
+              result.gasConsumed = result.gasConsumedV2.proofSize
+              result.gasRequired = result.gasRequiredV2.proofSize
             }
 
             return result
