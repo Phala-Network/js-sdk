@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@phala/typedefs": "^0.2.32",
-    "@polkadot/api": "^9.7.1",
+    "@polkadot/api": "^9.8.1",
     "@polkadot/keyring": "^10.1.11",
     "@polkadot/util": "^10.1.11",
     "@polkadot/util-crypto": "^10.1.11",
