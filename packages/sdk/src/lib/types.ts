@@ -53,15 +53,4 @@ export const types: RegistryTypes = {
     message: 'Vec<u8>',
   },
   InkCommand: {_enum: {InkMessage: 'InkMessage'}},
-  WeightV2: {
-    refTime: 'Compact<u64>',
-    proofSize: 'Compact<u64>',
-  },
-  ContractExecResultV2: {
-    gasConsumedV2: 'WeightV2',
-    gasRequiredV2: 'WeightV2',
-    storageDeposit: 'StorageDeposit',
-    debugMessage: 'Text',
-    result: 'ContractExecResultResult',
-  },
 }

@@ -258,27 +258,14 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
               .toHex(),
             origin
           ).then((data) => {
-            const inkMessageReturn = (
-              api.createType('InkResponse', hexAddPrefix(data)).toJSON() as {
-                result: {ok: {inkMessageReturn: string}}
-              }
-            ).result.ok.inkMessageReturn
-
-            let result
-
-            try {
-              result = api.createType('ContractExecResult', inkMessageReturn)
-            } catch (err) {
-              result = api.createType(
-                'ContractExecResultV2',
-                inkMessageReturn
-              ) as any
-
-              result.gasConsumed = result.gasConsumedV2.refTime.unwrap()
-              result.gasRequired = result.gasRequiredV2.refTime.unwrap()
-            }
-
-            return result
+            return api.createType(
+              'ContractExecResult',
+              (
+                api.createType('InkResponse', hexAddPrefix(data)).toJSON() as {
+                  result: {ok: {inkMessageReturn: string}}
+                }
+              ).result.ok.inkMessageReturn
+            )
           })
         )
       },
