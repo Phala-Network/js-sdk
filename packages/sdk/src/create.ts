@@ -47,6 +47,7 @@ type CreateEncryptedData = (
 export type Command = (params: {
   contractId: string
   payload: string
+  deposit: number
 }) => SubmittableExtrinsic<'promise', ISubmittableResult>
 
 export interface PhalaInstance {
@@ -58,6 +59,7 @@ type CreateFn = (options: {
   api: ApiPromise
   baseURL: string
   contractId: string
+  autoDeposit: boolean
 }) => Promise<{api: ApiPromise; sidevmQuery: SidevmQuery}>
 
 export const createPruntimeApi = (baseURL: string) => {
@@ -95,7 +97,12 @@ export const createPruntimeApi = (baseURL: string) => {
   return pruntimeApi
 }
 
-export const create: CreateFn = async ({api, baseURL, contractId}) => {
+export const create: CreateFn = async ({
+  api,
+  baseURL,
+  contractId,
+  autoDeposit = false,
+}) => {
   await waitReady()
 
   const pruntimeApi = createPruntimeApi(baseURL)
@@ -116,6 +123,13 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
     hexToU8a(hexAddPrefix(remotePubkey)),
     sk
   )
+  let gasPrice = 0
+  if (autoDeposit) {
+    const contractInfo = await api.query.phalaFatContracts.contracts(contractId)
+    const cluster = contractInfo.unwrap().cluster
+    const clusterInfo = await api.query.phalaFatContracts.clusters(cluster)
+    gasPrice = clusterInfo.unwrap().gasPrice.toNumber()
+  }
   const contractKey = (
     await api.query.phalaRegistry.contractKeys(contractId)
   ).toString()
@@ -183,37 +197,61 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
       certificateData
     )
 
-  const command: Command = ({contractId, payload}) => {
+  const instantiate: SidevmQuery = async (payload, certificateData) =>
+    query(
+      api
+        .createType('InkQuery', {
+          head: {
+            nonce: hexAddPrefix(randomHex(32)),
+            id: contractId,
+          },
+          data: {
+            InkInstantiate: payload,
+          },
+        })
+        .toHex(),
+      certificateData
+    )
+
+  const command: Command = ({contractId, payload, deposit}) => {
     const encodedPayload = api
       .createType('CommandPayload', {
         encrypted: createEncryptedData(payload, commandAgreementKey),
       })
       .toHex()
-
-    return api.tx.phalaMq.pushMessage(
-      stringToHex(`phala/contract/${hexStripPrefix(contractId)}/command`),
-      encodedPayload
+    return api.tx.phalaFatContracts.pushContractMessage(
+      contractId,
+      encodedPayload,
+      deposit
     )
   }
 
   const txContracts = (
     dest: AccountId,
-    value: unknown,
-    gas: unknown,
-    storageDepositLimit: unknown,
+    value: number,
+    gas: {refTime: number},
+    storageDepositLimit: number,
     encParams: Uint8Array
   ) => {
+    let deposit = 0
+    if (autoDeposit) {
+      const gasFee = gas.refTime * gasPrice
+      deposit = value + gasFee + (storageDepositLimit || 0)
+    }
     return command({
       contractId: dest.toHex(),
       payload: api
         .createType('InkCommand', {
           InkMessage: {
             nonce: hexAddPrefix(randomHex(32)),
-            // FIXME: unexpected u8a prefix
             message: api.createType('Vec<u8>', encParams).toHex(),
+            transfer: value,
+            gasLimit: gas.refTime,
+            storageDepositLimit,
           },
         })
         .toHex(),
+      deposit,
     })
   }
 
@@ -278,5 +316,5 @@ export const create: CreateFn = async ({api, baseURL, contractId}) => {
     enumerable: true,
   })
 
-  return {api, sidevmQuery}
+  return {api, sidevmQuery, instantiate}
 }
