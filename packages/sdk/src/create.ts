@@ -60,7 +60,11 @@ type CreateFn = (options: {
   baseURL: string
   contractId: string
   autoDeposit: boolean
-}) => Promise<{api: ApiPromise; sidevmQuery: SidevmQuery}>
+}) => Promise<{
+  api: ApiPromise
+  sidevmQuery: SidevmQuery
+  instantiate: SidevmQuery
+}>
 
 export const createPruntimeApi = (baseURL: string) => {
   // Create a http client prepared for protobuf
