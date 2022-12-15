@@ -6,6 +6,6 @@
     "target": "es2021",
     "declaration": true
   },
-  "include": ["src"],
+  "include": ["src", "@types/polkadot-js.d.ts"],
   "exclude": ["**/*.test.ts", "src/proto"]
 }

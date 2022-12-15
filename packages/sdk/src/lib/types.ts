@@ -24,8 +24,28 @@ export const types: RegistryTypes = {
     },
   },
   InkQueryData: {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     _enum: {
-      InkMessage: 'Vec<u8>',
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      InkMessage: {
+        payload: 'Vec<u8>',
+        deposit: 'u128',
+        transfer: 'u128',
+      },
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      SidevmMessage: 'Vec<u8>',
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      InkInstantiate: {
+        codeHash: 'H256',
+        salt: 'Vec<u8>',
+        instantiateData: 'Vec<u8>',
+        deposit: 'u128',
+        transfer: 'u128',
+      },
     },
   },
   InkQuery: {
@@ -50,6 +70,9 @@ export const types: RegistryTypes = {
   InkMessage: {
     nonce: 'Vec<u8>',
     message: 'Vec<u8>',
+    transfer: 'u128',
+    gasLimit: 'u64',
+    storageDepositLimit: 'Option<u128>',
   },
   InkCommand: {_enum: {InkMessage: 'InkMessage'}},
 }
