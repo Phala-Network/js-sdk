@@ -60,8 +60,7 @@ const Flipper: Page = () => {
     const signer = await getSigner(account)
 
     const { gasRequired, storageDeposit } = await contract.query.flip(certificateData as any, {});
-    console.log("gasRequired:", gasRequired.toJSON())
-    console.log("storageDeposit:", storageDeposit.asCharge.toJSON())
+    
     const options = {
       // value: 0,
       gasLimit: (gasRequired as any).refTime,
