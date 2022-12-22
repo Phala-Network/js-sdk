@@ -1,14 +1,14 @@
-import type {ApiPromise} from '@polkadot/api'
-import {ContractPromise} from '@polkadot/api-contract'
-import {useEffect, useState} from 'react'
-import {signCertificate, CertificateData} from '@phala/sdk'
-import {Button} from 'baseui/button'
-import {ButtonGroup} from 'baseui/button-group'
-import {toaster} from 'baseui/toast'
-import {useAtom} from 'jotai'
-import accountAtom from '../atoms/account'
-import {getSigner} from '../lib/polkadotExtension'
+import { CertificateData, signCertificate } from '@phala/sdk'
+import type { ApiPromise } from '@polkadot/api'
+import { ContractPromise } from '@polkadot/api-contract'
+import { Button } from 'baseui/button'
+import { ButtonGroup } from 'baseui/button-group'
+import { toaster } from 'baseui/toast'
+import { useAtom } from 'jotai'
+import { useEffect, useState } from 'react'
+import { default as account, default as accountAtom } from '../atoms/account'
 import ContractLoader from '../components/ContractLoader'
+import { getSigner } from '../lib/polkadotExtension'
 
 const Flipper: Page = () => {
   const [account] = useAtom(accountAtom)
@@ -56,11 +56,24 @@ const Flipper: Page = () => {
   }
 
   const onCommand = async () => {
-    if (!contract || !account) return
+    if (!contract || !account || !certificateData) return
     const signer = await getSigner(account)
-    contract.tx.flip({}).signAndSend(account.address, {signer}, (status) => {
+
+    const { gasRequired, storageDeposit } = await contract.query.flip(certificateData as any, {});
+    
+    const options = {
+      // value: 0,
+      gasLimit: (gasRequired as any).refTime,
+      storageDepositLimit: storageDeposit.isCharge ? storageDeposit.asCharge : null
+    }
+
+    contract.tx.flip(options).signAndSend(account.address, {signer}, (status) => {
+      console.log('status', status)
       if (status.isInBlock) {
         toaster.positive('In Block', {})
+      }
+      if (status.isCompleted) {
+        toaster.positive('Completed', {})
       }
     })
   }
