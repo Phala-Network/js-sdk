@@ -10,12 +10,17 @@
   },
   "type": "module",
   "main": "dist/index.js",
-  "browser": "browser/index.js",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
   "files": [
     "dist/*"
   ],
   "scripts": {
-    "build": "yarn build:node && yarn build:browser",
+    "build": "tsup",
     "build:node": "tsup --config tsup.node.ts",
     "build:browser": "tsup --config tsup.browser.ts",
     "build:proto": "scripts/build_proto.sh",
