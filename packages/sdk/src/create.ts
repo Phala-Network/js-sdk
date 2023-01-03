@@ -1,14 +1,15 @@
 import type {ApiPromise} from '@polkadot/api'
 import type {SubmittableExtrinsic} from '@polkadot/api/types'
-import type {Bytes, Compact, u64} from '@polkadot/types-codec'
-import type {AccountId, WeightV2} from '@polkadot/types/interfaces'
-import type {Codec, ISubmittableResult} from '@polkadot/types/types'
+import type {Bytes, u64, Compact} from '@polkadot/types-codec'
+import type {AccountId} from '@polkadot/types/interfaces'
+import type {Codec} from '@polkadot/types/types'
 import {
   hexAddPrefix,
   hexStripPrefix,
   hexToU8a,
   stringToHex,
   u8aToHex,
+  BN,
 } from '@polkadot/util'
 import {
   sr25519Agree,
@@ -23,7 +24,7 @@ import {decrypt, encrypt} from './lib/aes-256-gcm'
 import {randomHex} from './lib/hex'
 import {prpc, pruntime_rpc as pruntimeRpc} from './proto'
 
-export type Query = (
+export type QueryFn = (
   encodedQuery: string,
   certificateData: CertificateData
 ) => Promise<string>
@@ -44,27 +45,43 @@ type CreateEncryptedData = (
   agreementKey: Uint8Array
 ) => EncryptedData
 
-export type Command = (params: {
+export type CommandFn = (params: {
   contractId: string
   payload: string
-  deposit: number
-}) => SubmittableExtrinsic<'promise', ISubmittableResult>
+  deposit: BN
+}) => SubmittableExtrinsic<'promise'>
 
 export interface PhalaInstance {
-  query: Query
-  command: Command
+  query: QueryFn
+  command: CommandFn
 }
 
-type CreateFn = (options: {
+export interface ContractExecResultWeightV2 extends Codec {
+  gasConsumedV2?: {
+    refTime: Compact<u64>
+    proofSize: Compact<u64>
+  }
+  gasConsumed?: u64
+  gasRequiredV2?: {
+    refTime: Compact<u64>
+    proofSize: Compact<u64>
+  }
+  gasRequired?: u64
+}
+
+export interface CreateFnOptions {
   api: ApiPromise
   baseURL: string
   contractId: string
-  autoDeposit: boolean
-}) => Promise<{
+  remotePubkey?: string
+  autoDeposit?: boolean
+}
+
+export interface CreateFnResult {
   api: ApiPromise
   sidevmQuery: SidevmQuery
   instantiate: SidevmQuery
-}>
+}
 
 export const createPruntimeApi = (baseURL: string) => {
   // Create a http client prepared for protobuf
@@ -101,21 +118,17 @@ export const createPruntimeApi = (baseURL: string) => {
   return pruntimeApi
 }
 
-export const create: CreateFn = async ({
-  api,
-  baseURL,
-  contractId,
-  autoDeposit = false,
-}) => {
+export async function create({api, baseURL, contractId, remotePubkey, autoDeposit = false}: CreateFnOptions): Promise<CreateFnResult> {
   await waitReady()
 
   const pruntimeApi = createPruntimeApi(baseURL)
 
-  // Get public key from remote for encrypting
-  const {publicKey} = await pruntimeApi.getInfo({})
-
-  if (!publicKey) throw new Error('No remote pubkey')
-  const remotePubkey = hexAddPrefix(publicKey)
+  if (!remotePubkey) {
+    // Get public key from remote for encrypting
+    const info = await pruntimeApi.getInfo({})
+    if (!info || !info.publicKey) throw new Error('No remote pubkey')
+    remotePubkey = hexAddPrefix(info.publicKey)
+  }
 
   // Generate a keypair for encryption
   // NOTE: each instance only has a pre-generated pair now, it maybe better to generate a new keypair every time encrypting
@@ -127,13 +140,6 @@ export const create: CreateFn = async ({
     hexToU8a(hexAddPrefix(remotePubkey)),
     sk
   )
-  let gasPrice = 0
-  if (autoDeposit) {
-    const contractInfo = await api.query.phalaFatContracts.contracts(contractId)
-    const cluster = contractInfo.unwrap().cluster
-    const clusterInfo = await api.query.phalaFatContracts.clusters(cluster)
-    gasPrice = clusterInfo.unwrap().gasPrice.toNumber()
-  }
   const contractKey = (
     await api.query.phalaRegistry.contractKeys(contractId)
   ).toString()
@@ -153,7 +159,15 @@ export const create: CreateFn = async ({
     }
   }
 
-  const query: Query = async (encodedQuery, {certificate, pubkey, secret}) => {
+  let gasPrice = new BN(0)
+  if (autoDeposit) {
+    const contractInfo = await api.query.phalaFatContracts.contracts(contractId)
+    const cluster = contractInfo.unwrap().cluster
+    const clusterInfo = await api.query.phalaFatContracts.clusters(cluster)
+    gasPrice = new BN(clusterInfo.unwrap().gasPrice)
+  }
+
+  const query: QueryFn = async (encodedQuery, {certificate, pubkey, secret}) => {
     // Encrypt the ContractQuery.
     const encryptedData = createEncryptedData(encodedQuery, queryAgreementKey)
     const encodedEncryptedData = api
@@ -200,7 +214,7 @@ export const create: CreateFn = async ({
         .toHex(),
       certificateData
     )
-
+  
   const instantiate: SidevmQuery = async (payload, certificateData) =>
     query(
       api
@@ -217,30 +231,38 @@ export const create: CreateFn = async ({
       certificateData
     )
 
-  const command: Command = ({contractId, payload, deposit}) => {
+  const command: CommandFn = ({contractId, payload, deposit}) => {
     const encodedPayload = api
       .createType('CommandPayload', {
         encrypted: createEncryptedData(payload, commandAgreementKey),
       })
       .toHex()
-    return api.tx.phalaFatContracts.pushContractMessage(
-      contractId,
-      encodedPayload,
-      deposit
-    )
+
+    try {
+      return api.tx.phalaFatContracts.pushContractMessage(
+        contractId,
+        encodedPayload,
+        deposit
+      )
+    } catch (err) {
+      return api.tx.phalaMq.pushMessage(
+        stringToHex(`phala/contract/${hexStripPrefix(contractId)}/command`),
+        encodedPayload
+      )
+    }
   }
 
   const txContracts = (
     dest: AccountId,
-    value: number,
-    gas: {refTime: number},
-    storageDepositLimit: number,
+    value: BN,
+    gas: {refTime: BN},
+    storageDepositLimit: BN | undefined,
     encParams: Uint8Array
   ) => {
-    let deposit = 0
+    let deposit = new BN(0)
     if (autoDeposit) {
-      const gasFee = gas.refTime * gasPrice
-      deposit = value + gasFee + (storageDepositLimit || 0)
+      const gasFee = new BN(gas.refTime).mul(gasPrice)
+      deposit = new BN(value).add(gasFee).add(new BN(storageDepositLimit || 0))
     }
     return command({
       contractId: dest.toHex(),
@@ -248,6 +270,7 @@ export const create: CreateFn = async ({
         .createType('InkCommand', {
           InkMessage: {
             nonce: hexAddPrefix(randomHex(32)),
+            // FIXME: unexpected u8a prefix
             message: api.createType('Vec<u8>', encParams).toHex(),
             transfer: value,
             gasLimit: gas.refTime,
@@ -255,7 +278,7 @@ export const create: CreateFn = async ({
           },
         })
         .toHex(),
-      deposit,
+      deposit
     })
   }
 

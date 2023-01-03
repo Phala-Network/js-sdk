@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {encrypt, decrypt} from './aes-256-gcm'
 
 const data = '675abfa9aff26fbf3f4a0bd91f513c40644571f86aa2c18d2d284ad68f17fc97'

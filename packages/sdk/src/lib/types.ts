@@ -24,8 +24,6 @@ export const types: RegistryTypes = {
     },
   },
   InkQueryData: {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     _enum: {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
@@ -46,7 +44,7 @@ export const types: RegistryTypes = {
         deposit: 'u128',
         transfer: 'u128',
       },
-    },
+    }
   },
   InkQuery: {
     head: 'ContractQueryHead',

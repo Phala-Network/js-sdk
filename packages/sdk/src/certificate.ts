@@ -1,7 +1,9 @@
 import type {ApiPromise} from '@polkadot/api'
-import type {InjectedAccountWithMeta} from '@polkadot/extension-inject/types'
+import type {InjectedAccount, InjectedAccountWithMeta} from '@polkadot/extension-inject/types'
 import type {KeyringPair} from '@polkadot/keyring/types'
 import type {Signer} from '@polkadot/types/types'
+import type {Signer as InjectedSigner} from '@polkadot/api/types'
+
 import {hexAddPrefix, hexToU8a, u8aToHex} from '@polkadot/util'
 import {decodeAddress} from '@polkadot/util-crypto'
 import {sr25519KeypairFromSeed, waitReady} from '@polkadot/wasm-crypto'
@@ -20,7 +22,7 @@ interface CertificateBaseParams {
 }
 
 interface CertificateParamsWithSigner extends CertificateBaseParams {
-  signer: Signer
+  signer: Signer | InjectedSigner
   account: InjectedAccountWithMeta
 }
 
@@ -43,6 +45,7 @@ export const signCertificate = async (
   const generatedSeed = hexToU8a(hexAddPrefix(randomHex(32)))
   const generatedPair = sr25519KeypairFromSeed(generatedSeed)
   const [secret, pubkey] = [generatedPair.slice(0, 64), generatedPair.slice(64)]
+  console.log('sign certificate', params)
 
   const encodedCertificateBody = api
     .createType('CertificateBody', {
