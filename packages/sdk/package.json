@@ -8,19 +8,26 @@
     "url": "https://github.com/Phala-Network/js-sdk.git",
     "directory": "packages/sdk"
   },
-  "type": "module",
-  "main": "dist/index.js",
+  "main": "dist/index",
+  "browser": "browser/index",
   "exports": {
     ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js"
+      "import": {
+        "node": "./dist/index.mjs",
+        "default": "./browser/index.mjs"
+      },
+      "require": {
+        "node": "./dist/index.js",
+        "default": "./browser/index.js"
+      }
     }
   },
   "files": [
-    "dist/*"
+    "dist/*",
+    "browser/*"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "npm run build:node && npm run build:browser",
     "build:node": "tsup --config tsup.node.ts",
     "build:browser": "tsup --config tsup.browser.ts",
     "build:proto": "scripts/build_proto.sh",
@@ -43,6 +50,7 @@
     "rxjs": "^7.5.7"
   },
   "devDependencies": {
+    "@esbuild-plugins/node-globals-polyfill": "^0.1.1",
     "@types/node": "^16.11.59",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.42.1",

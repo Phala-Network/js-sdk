@@ -8,12 +8,12 @@ export default defineConfig({
     buffer: true
   })],
   entry: ['src/index.ts'],
-  outDir: './dist',
+  outDir: './browser',
   dts: true,
   format: ['cjs', 'esm'],
   ignoreWatch: ['*.test.ts'],
   target: 'node16',
   clean: true,
   platform: 'browser',
-  noExternal: ['crypto-browserify','protobufjs', 'randombytes']
+  noExternal: ['crypto-browserify','protobufjs', 'randomBytes']
 })

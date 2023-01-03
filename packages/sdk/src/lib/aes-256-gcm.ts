@@ -1,5 +1,5 @@
 import { hexAddPrefix, hexStripPrefix, hexToU8a } from '@polkadot/util'
-import { createCipheriv, createDecipheriv } from 'browser-crypto'
+import { createCipheriv, createDecipheriv } from 'crypto-browserify'
 import { Buffer } from 'buffer'
 
 const ALGO = 'aes-256-gcm'
