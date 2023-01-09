@@ -1,18 +1,9 @@
 // Auto-generated via `yarn polkadot-types-from-defs`, do not edit
 /* eslint-disable */
 
-import type {
-  Enum,
-  Option,
-  Struct,
-  U8aFixed,
-  Vec,
-  bool,
-  u128,
-  u64,
-} from "@polkadot/types-codec";
-import type { ITuple } from "@polkadot/types-codec/types";
-import type { AccountId } from "@polkadot/types/interfaces/runtime";
+import type { Enum, Option, Struct, U8aFixed, Vec, bool, u128, u64 } from '@polkadot/types-codec';
+import type { ITuple } from '@polkadot/types-codec/types';
+import type { AccountId } from '@polkadot/types/interfaces/runtime';
 
 /** @name Commitments */
 export interface Commitments extends Vec<ITuple<[AccountId, VoteOutcome]>> {}
@@ -27,7 +18,7 @@ export interface Tally extends Option<Vec<ITuple<[VoteOutcome, u128]>>> {}
 export interface TallyType extends Enum {
   readonly isOnePerson: boolean;
   readonly isOneCoin: boolean;
-  readonly type: "OnePerson" | "OneCoin";
+  readonly type: 'OnePerson' | 'OneCoin';
 }
 
 /** @name VoteData */
@@ -57,7 +48,7 @@ export interface VoteStage extends Enum {
   readonly isCommit: boolean;
   readonly isVoting: boolean;
   readonly isCompleted: boolean;
-  readonly type: "PreVoting" | "Commit" | "Voting" | "Completed";
+  readonly type: 'PreVoting' | 'Commit' | 'Voting' | 'Completed';
 }
 
 /** @name VoteType */
@@ -65,7 +56,7 @@ export interface VoteType extends Enum {
   readonly isBinary: boolean;
   readonly isMultiOption: boolean;
   readonly isRankedChoice: boolean;
-  readonly type: "Binary" | "MultiOption" | "RankedChoice";
+  readonly type: 'Binary' | 'MultiOption' | 'RankedChoice';
 }
 
-export type PHANTOM_VOTING = "voting";
+export type PHANTOM_VOTING = 'voting';

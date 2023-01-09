@@ -1,9 +1,9 @@
 // Auto-generated via `yarn polkadot-types-from-defs`, do not edit
 /* eslint-disable */
 
-import type { VoteStage } from "@phala/sdk/voting";
-import type { Bytes, Struct, Text, u32, u64 } from "@polkadot/types-codec";
-import type { AccountId } from "@polkadot/types/interfaces/runtime";
+import type { VoteStage } from '@phala/sdk/voting';
+import type { Bytes, Struct, Text, u32, u64 } from '@polkadot/types-codec';
+import type { AccountId } from '@polkadot/types/interfaces/runtime';
 
 /** @name ProposalContents */
 export interface ProposalContents extends Bytes {}
@@ -22,4 +22,4 @@ export interface ProposalRecord extends Struct {
 /** @name ProposalTitle */
 export interface ProposalTitle extends Bytes {}
 
-export type PHANTOM_SIGNALING = "signaling";
+export type PHANTOM_SIGNALING = 'signaling';

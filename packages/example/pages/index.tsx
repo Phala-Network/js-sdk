@@ -1,14 +1,14 @@
-import type {NextPage} from 'next'
-import Head from 'next/head'
-import Link from 'next/link'
-import {ListItem, ListItemLabel} from 'baseui/list'
-import {StyledLink} from 'baseui/link'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Link from "next/link";
+import { ListItem, ListItemLabel } from "baseui/list";
+import { StyledLink } from "baseui/link";
 
 const LINKS: [string, string][] = [
-  ['/flipper', 'Flipper'],
-  ['/get-ip', 'Get IP'],
-  ['/redeem-poap', 'Redeem POAP'],
-]
+  ["/flipper", "Flipper"],
+  ["/get-ip", "Get IP"],
+  ["/redeem-poap", "Redeem POAP"],
+];
 
 const Home: NextPage = () => {
   return (
@@ -29,7 +29,7 @@ const Home: NextPage = () => {
         ))}
       </ol>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

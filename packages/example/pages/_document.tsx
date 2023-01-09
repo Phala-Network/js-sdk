@@ -4,13 +4,13 @@ import Document, {
   Html,
   Main,
   NextScript,
-} from 'next/document'
-import {Server} from 'styletron-engine-atomic'
-import {Provider as StyletronProvider} from 'styletron-react'
-import {styletron} from '../styletron'
+} from "next/document";
+import { Server } from "styletron-engine-atomic";
+import { Provider as StyletronProvider } from "styletron-react";
+import { styletron } from "../styletron";
 
 // https://github.com/vercel/next.js/blob/canary/examples/with-styletron/pages/_document.js
-class MyDocument extends Document<{stylesheets: any[]}> {
+class MyDocument extends Document<{ stylesheets: any[] }> {
   static async getInitialProps(ctx: DocumentContext) {
     const renderPage = () =>
       ctx.renderPage({
@@ -21,13 +21,13 @@ class MyDocument extends Document<{stylesheets: any[]}> {
               <App {...props} />
             </StyletronProvider>
           ),
-      })
+      });
     const initialProps = await Document.getInitialProps({
       ...ctx,
       renderPage,
-    })
-    const stylesheets = (styletron as Server).getStylesheets() || []
-    return {...initialProps, stylesheets}
+    });
+    const stylesheets = (styletron as Server).getStylesheets() || [];
+    return { ...initialProps, stylesheets };
   }
 
   render() {
@@ -37,9 +37,9 @@ class MyDocument extends Document<{stylesheets: any[]}> {
           {this.props.stylesheets.map((sheet, i) => (
             <style
               className="_styletron_hydrate_"
-              dangerouslySetInnerHTML={{__html: sheet.css}}
+              dangerouslySetInnerHTML={{ __html: sheet.css }}
               media={sheet.attrs.media}
-              data-hydrate={sheet.attrs['data-hydrate']}
+              data-hydrate={sheet.attrs["data-hydrate"]}
               key={i}
             />
           ))}
@@ -51,8 +51,8 @@ class MyDocument extends Document<{stylesheets: any[]}> {
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }
 
-export default MyDocument
+export default MyDocument;

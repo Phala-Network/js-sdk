@@ -1,7 +1,7 @@
-import {toaster} from 'baseui/toast'
+import { toaster } from "baseui/toast";
 
 export const copy = async (text: string) => {
-  await navigator.clipboard.writeText(text)
+  await navigator.clipboard.writeText(text);
 
-  toaster.positive('Copied to Clipboard', {})
-}
+  toaster.positive("Copied to Clipboard", {});
+};

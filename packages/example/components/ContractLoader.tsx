@@ -1,59 +1,59 @@
-import {create} from '@phala/sdk'
-import type {ApiPromise} from '@polkadot/api'
-import {ContractPromise} from '@polkadot/api-contract'
-import {Button} from 'baseui/button'
-import {FormControl} from 'baseui/form-control'
-import {Input} from 'baseui/input'
-import {Textarea} from 'baseui/textarea'
-import {toaster} from 'baseui/toast'
-import {useAtom} from 'jotai'
-import {focusAtom} from 'jotai/optics'
-import {atomWithStorage} from 'jotai/utils'
-import {useRef, VFC} from 'react'
-import useIsClient from '../hooks/useIsClient'
-import {createApi} from '../lib/polkadotApi'
+import { create } from "@phala/sdk";
+import type { ApiPromise } from "@polkadot/api";
+import { ContractPromise } from "@polkadot/api-contract";
+import { Button } from "baseui/button";
+import { FormControl } from "baseui/form-control";
+import { Input } from "baseui/input";
+import { Textarea } from "baseui/textarea";
+import { toaster } from "baseui/toast";
+import { useAtom } from "jotai";
+import { focusAtom } from "jotai/optics";
+import { atomWithStorage } from "jotai/utils";
+import { useRef, VFC } from "react";
+import useIsClient from "../hooks/useIsClient";
+import { createApi } from "../lib/polkadotApi";
 
 const endpointAtom = atomWithStorage<string>(
-  'atom:endpoint',
-  'ws://localhost:9944'
-)
+  "atom:endpoint",
+  "ws://localhost:9944"
+);
 const pruntimeURLAtom = atomWithStorage<string>(
-  'atom:pruntime_url',
-  'http://localhost:8000'
-)
+  "atom:pruntime_url",
+  "http://localhost:8000"
+);
 const contractsAtom = atomWithStorage<
-  Record<string, {contractId: string; metadata: string}>
->('atom:contracts', {})
+  Record<string, { contractId: string; metadata: string }>
+>("atom:contracts", {});
 
 const ContractLoader: VFC<{
-  name: string
-  onLoad: (res: {api: ApiPromise; contract: ContractPromise}) => void
-}> = ({name, onLoad}) => {
+  name: string;
+  onLoad: (res: { api: ApiPromise; contract: ContractPromise }) => void;
+}> = ({ name, onLoad }) => {
   const contractInfoAtom = useRef(
     focusAtom(contractsAtom, (optic) => optic.prop(name))
-  )
-  const [contractInfo, setContractInfo] = useAtom(contractInfoAtom.current)
-  const [endpoint, setEndpoint] = useAtom(endpointAtom)
-  const [pruntimeURL, setPruntimeURL] = useAtom(pruntimeURLAtom)
-  const {contractId = '', metadata = ''} = contractInfo || {}
-  const isClient = useIsClient()
-  if (!isClient) return null
+  );
+  const [contractInfo, setContractInfo] = useAtom(contractInfoAtom.current);
+  const [endpoint, setEndpoint] = useAtom(endpointAtom);
+  const [pruntimeURL, setPruntimeURL] = useAtom(pruntimeURLAtom);
+  const { contractId = "", metadata = "" } = contractInfo || {};
+  const isClient = useIsClient();
+  if (!isClient) return null;
 
   const loadContract = async () => {
     try {
-      const api = await createApi(endpoint)
+      const api = await createApi(endpoint);
       const contract = new ContractPromise(
-        (await create({api, baseURL: pruntimeURL, contractId})).api,
+        (await create({ api, baseURL: pruntimeURL, contractId })).api,
         JSON.parse(metadata),
         contractId
-      )
-      onLoad({api, contract})
-      toaster.positive('Contract loaded successfully', {})
+      );
+      onLoad({ api, contract });
+      toaster.positive("Contract loaded successfully", {});
     } catch (err) {
-      toaster.negative((err as Error).message, {})
-      throw err
+      toaster.negative((err as Error).message, {});
+      throw err;
     }
-  }
+  };
 
   return (
     <>
@@ -63,7 +63,7 @@ const ContractLoader: VFC<{
           overrides={{
             Input: {
               style: {
-                fontFamily: 'monospace',
+                fontFamily: "monospace",
               },
             },
           }}
@@ -77,7 +77,7 @@ const ContractLoader: VFC<{
           overrides={{
             Input: {
               style: {
-                fontFamily: 'monospace',
+                fontFamily: "monospace",
               },
             },
           }}
@@ -90,7 +90,7 @@ const ContractLoader: VFC<{
           overrides={{
             Input: {
               style: {
-                fontFamily: 'monospace',
+                fontFamily: "monospace",
               },
             },
           }}
@@ -108,8 +108,8 @@ const ContractLoader: VFC<{
           overrides={{
             Input: {
               style: {
-                fontFamily: 'monospace',
-                height: '600px',
+                fontFamily: "monospace",
+                height: "600px",
               },
             },
           }}
@@ -127,7 +127,7 @@ const ContractLoader: VFC<{
         Load Contract
       </Button>
     </>
-  )
-}
+  );
+};
 
-export default ContractLoader
+export default ContractLoader;

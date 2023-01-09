@@ -1,12 +1,12 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from "react";
 
 const useIsClient = (): boolean => {
-  const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
-  return mounted
-}
+  return mounted;
+};
 
-export default useIsClient
+export default useIsClient;

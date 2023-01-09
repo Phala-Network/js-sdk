@@ -1,18 +1,18 @@
-import {FC} from 'react'
-import Head from 'next/head'
-import {useRouter} from 'next/router'
-import {HeadingXLarge} from 'baseui/typography'
-import {ToasterContainer} from 'baseui/toast'
-import {Block} from 'baseui/block'
-import {ChevronLeft} from 'baseui/icon'
-import AccountSelect from './AccountSelect'
-import Link from 'next/link'
-import useIsClient from '../hooks/useIsClient'
+import { FC } from "react";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { HeadingXLarge } from "baseui/typography";
+import { ToasterContainer } from "baseui/toast";
+import { Block } from "baseui/block";
+import { ChevronLeft } from "baseui/icon";
+import AccountSelect from "./AccountSelect";
+import Link from "next/link";
+import useIsClient from "../hooks/useIsClient";
 
-const Layout: FC<{title?: string}> = ({title, children}) => {
-  const {pathname} = useRouter()
-  const isClient = useIsClient()
-  const displayTitle = title || 'Phala SDK Example'
+const Layout: FC<{ title?: string }> = ({ title, children }) => {
+  const { pathname } = useRouter();
+  const isClient = useIsClient();
+  const displayTitle = title || "Phala SDK Example";
 
   return (
     <Block width="100%" maxWidth="768px" margin="0 auto" padding="0 16px 24px">
@@ -28,14 +28,14 @@ const Layout: FC<{title?: string}> = ({title, children}) => {
         justifyContent="space-between"
       >
         <Block display="flex" alignItems="center">
-          {pathname !== '/' && (
+          {pathname !== "/" && (
             <Link href="/">
               <ChevronLeft
                 size={36}
                 overrides={{
                   Svg: {
                     style: {
-                      marginLeft: '-12px',
+                      marginLeft: "-12px",
                     },
                   },
                 }}
@@ -52,10 +52,10 @@ const Layout: FC<{title?: string}> = ({title, children}) => {
       <ToasterContainer
         placement="topRight"
         autoHideDuration={3000}
-        overrides={{ToastBody: {style: {wordBreak: 'break-all'}}}}
+        overrides={{ ToastBody: { style: { wordBreak: "break-all" } } }}
       />
     </Block>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
