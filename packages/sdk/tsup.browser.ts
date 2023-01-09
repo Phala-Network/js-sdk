@@ -8,7 +8,7 @@ export default defineConfig({
     buffer: true
   })],
   entry: ['src/index.ts'],
-  outDir: './browser',
+  outDir: './dist/browser',
   dts: true,
   format: ['cjs', 'esm'],
   ignoreWatch: ['*.test.ts'],

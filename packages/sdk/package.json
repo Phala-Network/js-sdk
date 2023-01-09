@@ -8,17 +8,17 @@
     "url": "https://github.com/Phala-Network/js-sdk.git",
     "directory": "packages/sdk"
   },
-  "main": "dist/index",
-  "browser": "browser/index",
+  "main": "dist/node/index",
+  "browser": "dist/browser/index",
   "exports": {
     ".": {
       "import": {
-        "node": "./dist/index.mjs",
-        "default": "./browser/index.mjs"
+        "node": "./dist/node/index.mjs",
+        "default": "./dist/browser/index.mjs"
       },
       "require": {
-        "node": "./dist/index.js",
-        "default": "./browser/index.js"
+        "node": "./dist/node/index.js",
+        "default": "./dist/browser/index.js"
       }
     }
   },
