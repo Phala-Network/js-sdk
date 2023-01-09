@@ -23,8 +23,7 @@
     }
   },
   "files": [
-    "dist/*",
-    "browser/*"
+    "dist/*"
   ],
   "scripts": {
     "build": "npm run generate:defs && npm run generate:meta && npm run build:node && npm run build:browser",
