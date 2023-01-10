@@ -9,13 +9,13 @@ import {
   hexStripPrefix,
   hexToU8a,
   stringToHex,
-  u8aToHex
+  u8aToHex,
 } from "@polkadot/util";
 import {
   sr25519Agree,
   sr25519KeypairFromSeed,
   sr25519Sign,
-  waitReady
+  waitReady,
 } from "@polkadot/wasm-crypto";
 import axios, { AxiosError } from "axios";
 import { from } from "rxjs";
@@ -192,7 +192,9 @@ export async function create({
     const clusterInfo = (await api.query.phalaFatContracts.clusters(
       cluster
     )) as Option<Codec>;
-    gasPrice = new BN((clusterInfo.unwrap() as unknown as ClusterInfo).gasPrice);
+    gasPrice = new BN(
+      (clusterInfo.unwrap() as unknown as ClusterInfo).gasPrice
+    );
   }
 
   const query: QueryFn = async (
