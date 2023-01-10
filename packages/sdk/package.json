@@ -26,7 +26,7 @@
     "dist/*"
   ],
   "scripts": {
-    "build": "npm run generate:defs && npm run generate:meta && npm run build:node && npm run build:browser",
+    "build": "npm run build:node && npm run build:browser",
     "build:node": "tsup --config tsup.node.ts",
     "build:browser": "tsup --config tsup.browser.ts",
     "generate:defs": "ts-node --skip-project ../../node_modules/.bin/polkadot-types-from-defs --package @phala/sdk --input ./src/interfaces --endpoint ./edgeware.json",

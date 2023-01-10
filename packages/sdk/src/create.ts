@@ -1,6 +1,6 @@
 import type { ApiPromise } from "@polkadot/api";
 import type { SubmittableExtrinsic } from "@polkadot/api/types";
-import type { Bytes, Compact, u64 } from "@polkadot/types-codec";
+import type { Bytes, Compact, Option, u64 } from "@polkadot/types-codec";
 import type { AccountId } from "@polkadot/types/interfaces";
 import type { Codec } from "@polkadot/types/types";
 import {
@@ -9,13 +9,13 @@ import {
   hexStripPrefix,
   hexToU8a,
   stringToHex,
-  u8aToHex,
+  u8aToHex
 } from "@polkadot/util";
 import {
   sr25519Agree,
   sr25519KeypairFromSeed,
   sr25519Sign,
-  waitReady,
+  waitReady
 } from "@polkadot/wasm-crypto";
 import axios, { AxiosError } from "axios";
 import { from } from "rxjs";
@@ -81,6 +81,24 @@ export interface CreateFnResult {
   api: ApiPromise;
   sidevmQuery: SidevmQuery;
   instantiate: SidevmQuery;
+}
+
+export interface ContractInfo {
+  cluster: string;
+  codeIndex: {
+    wasmCode: string;
+  };
+  deployer: AccountId;
+  pubkey: string;
+}
+
+export interface ClusterInfo {
+  owner: AccountId;
+  // @fixme
+  permission: "Public" | string;
+  systemContract?: string;
+  workers: string[];
+  gasPrice: BN;
 }
 
 export const createPruntimeApi = (baseURL: string) => {
@@ -167,12 +185,14 @@ export async function create({
 
   let gasPrice = new BN(0);
   if (autoDeposit) {
-    const contractInfo = await api.query.phalaFatContracts.contracts(
+    const contractInfo = (await api.query.phalaFatContracts.contracts(
       contractId
-    );
-    const cluster = contractInfo.unwrap().cluster;
-    const clusterInfo = await api.query.phalaFatContracts.clusters(cluster);
-    gasPrice = new BN(clusterInfo.unwrap().gasPrice);
+    )) as Option<Codec>;
+    const cluster = (contractInfo.unwrap() as unknown as ContractInfo).cluster;
+    const clusterInfo = (await api.query.phalaFatContracts.clusters(
+      cluster
+    )) as Option<Codec>;
+    gasPrice = new BN((clusterInfo.unwrap() as unknown as ClusterInfo).gasPrice);
   }
 
   const query: QueryFn = async (
