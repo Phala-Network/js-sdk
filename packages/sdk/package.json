@@ -35,7 +35,7 @@
     "dev": "tsup --watch",
     "lint": "eslint --cache .",
     "lint:fix": "eslint --cache --fix .",
-    "publish": "npm publish --access public"
+    "auto-publish": "npm publish --access public"
   },
   "dependencies": {
     "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
