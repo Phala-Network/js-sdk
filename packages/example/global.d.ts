@@ -1,5 +1,5 @@
-import {NextPage} from 'next'
+import { NextPage } from "next";
 
 declare global {
-  type Page = NextPage & {title?: string}
+  type Page = NextPage & { title?: string };
 }

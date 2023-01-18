@@ -1,9 +1,9 @@
-import {khalaDev} from '@phala/typedefs'
-import {ApiPromise, WsProvider} from '@polkadot/api'
-import {types as phalaSDKTypes} from '@phala/sdk'
+import { khalaDev } from "@phala/typedefs";
+import { ApiPromise, WsProvider } from "@polkadot/api";
+import { types as phalaSDKTypes } from "@phala/sdk";
 
 export const createApi = async (endpoint: string): Promise<ApiPromise> => {
-  const wsProvider = new WsProvider(endpoint)
+  const wsProvider = new WsProvider(endpoint);
 
   const api = await ApiPromise.create({
     provider: wsProvider,
@@ -11,7 +11,7 @@ export const createApi = async (endpoint: string): Promise<ApiPromise> => {
       ...khalaDev,
       ...phalaSDKTypes,
     },
-  })
+  });
 
-  return api
-}
+  return api;
+};

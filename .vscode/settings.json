@@ -4,7 +4,7 @@
     "source.fixAll.eslint": true,
     "source.sortImports": true
   },
-  "eslint.workingDirectories": [{"pattern": "./packages/*/"}],
+  "eslint.workingDirectories": [{ "pattern": "./packages/*/" }],
   "cSpell.ignoreWords": [
     "polkadot",
     "jotai",

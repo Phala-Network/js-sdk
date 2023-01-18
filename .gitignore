@@ -9,3 +9,4 @@ dist
 tsconfig.tsbuildinfo
 .npmrc
 .eslintcache
+browser
