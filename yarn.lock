@@ -8308,7 +8308,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "phala-js-sdk@workspace:."
   dependencies:
-    "@polkadot/util": ^10.2.3
     "@types/jest": ^27.5.2
     jest: ^27.5.1
     prettier: ^2.7.1
