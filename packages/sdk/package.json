@@ -1,6 +1,6 @@
 {
   "name": "@phala/sdk",
-  "version": "0.3.8-beta.0",
+  "version": "0.3.8",
   "description": "Phala Phat Contract JS SDK",
   "homepage": "https://github.com/Phala-Network/js-sdk/tree/main/packages/sdk#readme",
   "repository": {
