@@ -1,6 +1,6 @@
 import type { ApiPromise } from "@polkadot/api";
 import type { SubmittableExtrinsic } from "@polkadot/api/types";
-import type { Bytes, Compact, Option, u64 } from "@polkadot/types-codec";
+import type { Bytes,Compact,Option,u64 } from "@polkadot/types-codec";
 import type { AccountId } from "@polkadot/types/interfaces";
 import type { Codec } from "@polkadot/types/types";
 import {
@@ -9,20 +9,20 @@ import {
   hexStripPrefix,
   hexToU8a,
   stringToHex,
-  u8aToHex,
+  u8aToHex
 } from "@polkadot/util";
 import {
   sr25519Agree,
   sr25519KeypairFromSeed,
   sr25519Sign,
-  waitReady,
+  waitReady
 } from "@polkadot/wasm-crypto";
-import axios, { AxiosError } from "axios";
+import axios,{ AxiosError } from "axios";
 import { from } from "rxjs";
 import type { CertificateData } from "./certificate";
-import { decrypt, encrypt } from "./lib/aes-256-gcm";
+import { decrypt,encrypt } from "./lib/aes-256-gcm";
 import { randomHex } from "./lib/hex";
-import { prpc, pruntime_rpc as pruntimeRpc } from "./proto";
+import { prpc,pruntime_rpc as pruntimeRpc } from "./proto";
 
 export type QueryFn = (
   encodedQuery: string,
@@ -185,11 +185,11 @@ export async function create({
 
   let gasPrice = new BN(0);
   if (autoDeposit) {
-    const contractInfo = (await api.query.phalaFatContracts.contracts(
+    const contractInfo = (await api.query.phalaPhatContracts.contracts(
       contractId
     )) as Option<Codec>;
     const cluster = (contractInfo.unwrap() as unknown as ContractInfo).cluster;
-    const clusterInfo = (await api.query.phalaFatContracts.clusters(
+    const clusterInfo = (await api.query.phalaPhatContracts.clusters(
       cluster
     )) as Option<Codec>;
     gasPrice = new BN(
@@ -272,7 +272,7 @@ export async function create({
       .toHex();
 
     try {
-      return api.tx.phalaFatContracts.pushContractMessage(
+      return api.tx.phalaPhatContracts.pushContractMessage(
         contractId,
         encodedPayload,
         deposit
